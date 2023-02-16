@@ -1,7 +1,8 @@
-package Grupo_10.SuaViagem.com.entity.DTO;
+package Grupo_10.SuaViagem.com.model.entity;
 
-public class UserDTO {
+public class UserEntity {
 
+    private int id;
     private String name;
     private String sobrenome;
     private String username;
@@ -11,17 +12,26 @@ public class UserDTO {
 //    private UserRoles userRoles;
 
 
-    public UserDTO() {
+    public UserEntity() {
     }
 
-    public UserDTO(String name, String sobrenome, String username, String email, String password) {
+    public UserEntity(int id, String name, String sobrenome, String username, String email, String password) {
+        this.id = id;
         this.name = name;
         this.sobrenome = sobrenome;
         this.username = username;
         this.email = email;
         this.password = password;
     }
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
