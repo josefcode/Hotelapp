@@ -21,13 +21,10 @@ public class CategoryController {
     public ResponseEntity<CategoryDTO> register(@RequestBody CategoryDTO categoryDTO) throws NotFoundException {
         ResponseEntity responseEntity;
 
-        if (categoryDTO != null) {
-            responseEntity = new ResponseEntity<>("ID de categoria não existente.", HttpStatus.BAD_REQUEST);
-        }
-        else {
-            CategoryDTO categoryDTO1 = categoryService.register(null);
-            responseEntity = new ResponseEntity<>(categoryDTO1, HttpStatus.OK);
-        }
+
+        CategoryDTO categoryDTO1 = categoryService.register(null);
+        responseEntity = new ResponseEntity<>(categoryDTO1, HttpStatus.OK);
+
         return responseEntity;
     }
 

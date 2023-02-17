@@ -3,12 +3,21 @@ package Grupo_10.SuaViagem.com.model.entity.DTO;
 import Grupo_10.SuaViagem.com.model.entity.CategoryEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.Column;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryDTO {
 
+    @Column(nullable=false)
     private Integer id_categorias;
+
+    @Column(nullable=false)
     private String qualificacao;
+
+    @Column(nullable=false)
     private String descricao;
+
+    @Column(nullable=false)
     private String url_imagem;
 
     public CategoryDTO() {
@@ -18,6 +27,13 @@ public class CategoryDTO {
         this.qualificacao = categoryEntity.getQualificacao();
         this.descricao = categoryEntity.getDescricao();
         this.url_imagem = categoryEntity.getUrl_imagem();
+    }
+
+    public CategoryDTO(Integer id_categorias, String qualificacao, String descricao, String url_imagem) {
+        this.id_categorias = id_categorias;
+        this.qualificacao = qualificacao;
+        this.descricao = descricao;
+        this.url_imagem = url_imagem;
     }
 
     public Integer getId_categorias() {

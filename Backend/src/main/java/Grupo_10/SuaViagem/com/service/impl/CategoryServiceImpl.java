@@ -19,9 +19,8 @@ public class CategoryServiceImpl implements IService<CategoryDTO> {
     private ICategoryRepository iCategoryRepository;
 
     @Override
-    public CategoryDTO register(CategoryDTO categoryDTO) throws NotFoundException {
+    public CategoryDTO register(CategoryDTO categoryDTO) {
         CategoryEntity categoryEntity = mapperDTOToEntity(categoryDTO);
-
         categoryEntity = iCategoryRepository.save(categoryEntity);
         CategoryDTO categoryDTO1 = new CategoryDTO(categoryEntity);
         return categoryDTO1;
