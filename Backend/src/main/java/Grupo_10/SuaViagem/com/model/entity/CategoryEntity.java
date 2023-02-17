@@ -1,28 +1,41 @@
 package Grupo_10.SuaViagem.com.model.entity;
 
-public class CategoryEntity {
+import Grupo_10.SuaViagem.com.model.entity.DTO.CategoryDTO;
+import jakarta.persistence.Entity;
+import javax.persistence.*;
 
-    private int id;
+@Entity @jakarta.persistence.Table(name  =  "categorias")
+public class CategoryEntity {
+    @jakarta.persistence.Id
+    @jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @jakarta.persistence.Column(name = "id", nullable = false)
+    private Integer id_categorias;
+
+    @Column(nullable=false)
     private String qualificacao;
+
+    @Column(nullable=false)
     private String descricao;
-    private String urlDaImagem;
+
+    @Column(nullable=false)
+    private String url_imagem;
 
     public CategoryEntity() {
     }
 
-    public CategoryEntity(int id, String qualificacao, String descricao, String urlDaImagem) {
-        this.id = id;
-        this.qualificacao = qualificacao;
-        this.descricao = descricao;
-        this.urlDaImagem = urlDaImagem;
+    public CategoryEntity(CategoryDTO categoryDTO) {
+        this.id_categorias = categoryDTO.getId_categorias();
+        this.qualificacao = categoryDTO.getQualificacao();
+        this.descricao = categoryDTO.getDescricao();
+        this.url_imagem = categoryDTO.getUrl_imagem();
     }
 
-    public int getId() {
-        return id;
+    public int getId_categorias() {
+        return id_categorias;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_categorias(Integer id_categorias) {
+        this.id_categorias = id_categorias;
     }
 
     public String getQualificacao() {
@@ -41,11 +54,11 @@ public class CategoryEntity {
         this.descricao = descricao;
     }
 
-    public String getUrlDaImagem() {
-        return urlDaImagem;
+    public String getUrl_imagem() {
+        return url_imagem;
     }
 
-    public void setUrlDaImagem(String urlDaImagem) {
-        this.urlDaImagem = urlDaImagem;
+    public void setUrl_imagem(String url_imagem) {
+        this.url_imagem = url_imagem;
     }
 }

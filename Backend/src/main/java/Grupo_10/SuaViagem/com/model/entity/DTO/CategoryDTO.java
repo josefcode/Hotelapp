@@ -1,18 +1,31 @@
 package Grupo_10.SuaViagem.com.model.entity.DTO;
 
+import Grupo_10.SuaViagem.com.model.entity.CategoryEntity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryDTO {
 
+    private Integer id_categorias;
     private String qualificacao;
     private String descricao;
-    private String urlDaImagem;
+    private String url_imagem;
 
     public CategoryDTO() {
     }
+    public CategoryDTO(CategoryEntity categoryEntity) {
+        this.id_categorias = categoryEntity.getId_categorias();
+        this.qualificacao = categoryEntity.getQualificacao();
+        this.descricao = categoryEntity.getDescricao();
+        this.url_imagem = categoryEntity.getUrl_imagem();
+    }
 
-    public CategoryDTO(String qualificacao, String descricao, String urlDaImagem) {
-        this.qualificacao = qualificacao;
-        this.descricao = descricao;
-        this.urlDaImagem = urlDaImagem;
+    public Integer getId_categorias() {
+        return id_categorias;
+    }
+
+    public void setId_categorias(Integer id_categorias) {
+        this.id_categorias = id_categorias;
     }
 
     public String getQualificacao() {
@@ -31,11 +44,11 @@ public class CategoryDTO {
         this.descricao = descricao;
     }
 
-    public String getUrlDaImagem() {
-        return urlDaImagem;
+    public String getUrl_imagem() {
+        return url_imagem;
     }
 
-    public void setUrlDaImagem(String urlDaImagem) {
-        this.urlDaImagem = urlDaImagem;
+    public void setUrl_imagem(String url_imagem) {
+        this.url_imagem = url_imagem;
     }
 }
