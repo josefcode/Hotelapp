@@ -19,12 +19,12 @@ public class CategoryController {
 
     @PostMapping("/register")
     public ResponseEntity<CategoryDTO> register(@RequestBody CategoryDTO categoryDTO) throws NotFoundException {
-        ResponseEntity responseEntity;
+        ResponseEntity responseEntity = null;
 
-
-        CategoryDTO categoryDTO1 = categoryService.register(null);
-        responseEntity = new ResponseEntity<>(categoryDTO1, HttpStatus.OK);
-
+        if(categoryDTO != null) {
+            CategoryDTO categoryDTO1 = categoryService.register(categoryDTO);
+            responseEntity = new ResponseEntity<>(categoryDTO1, HttpStatus.OK);
+        }
         return responseEntity;
     }
 

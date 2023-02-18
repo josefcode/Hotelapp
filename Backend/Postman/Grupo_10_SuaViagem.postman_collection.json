@@ -24,7 +24,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id_categorias\": 1,\n\t\"qualificacao\": \"teste 1\",\n    \"descricao\": \"123456\",\n    \"url_imagem\": \"teste\"\n}"
+							"raw": "{\n\t\"id_categorias\": 3,\n\t\"qualificacao\": \"teste 3\",\n    \"descricao\": \"123456\",\n    \"url_imagem\": \"teste 3\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:8080/category/register",
@@ -97,7 +97,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/category/{id}",
+							"raw": "http://localhost:8080/category/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -105,7 +105,7 @@
 							"port": "8080",
 							"path": [
 								"category",
-								"{id}"
+								"1"
 							]
 						}
 					},
@@ -121,7 +121,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\":1,\r\n\t\"nome\":\"Nome Modificar 1\",\r\n\t\"sobrenome\": \"Sobrenome Modificar 1\",\r\n    \"matriculaCadastro\": 7890\r\n}",
+							"raw": "{\r\n    \"id_categorias\": 1,\r\n    \"qualificacao\": \"teste alterar\",\r\n    \"descricao\": \"123456 teste alterar\",\r\n    \"url_imagem\": \"teste alterar\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -129,7 +129,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/category/{id}",
+							"raw": "http://localhost:8080/category/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -137,7 +137,7 @@
 							"port": "8080",
 							"path": [
 								"category",
-								"{id}"
+								"1"
 							]
 						}
 					},
@@ -152,7 +152,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/category/{id}",
+							"raw": "http://localhost:8080/category/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -160,7 +160,7 @@
 							"port": "8080",
 							"path": [
 								"category",
-								"{id}"
+								"3"
 							]
 						}
 					},
