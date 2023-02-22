@@ -1,0 +1,52 @@
+
+  .navbar-header {
+      background-color: var(--navbar-color);
+      grid-area: header;
+  }
+  .menu-icon {
+    visibility: hidden;
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    padding-inline: 4rem;
+  }
+  
+  .navbar-logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .navbar-btn {
+    margin-left: auto;
+    display: flex;
+    gap: 5px;
+  }
+  
+  .login-btn {
+    background-color: transparent;
+    color: #1DBEB4;
+    border: 1px solid #1DBEB4;
+    border-radius: 5px;
+    width: 206px;
+    height: 40px;
+    cursor: pointer;
+    
+  }
+
+  @media only screen and (max-width: 600px){ 
+    .navbar {
+      padding-inline: 1rem;
+
+    }
+    .navbar-btn {
+      display: none;
+    }
+    .menu-icon {
+      visibility: visible ;
+      margin-left: auto;
+      color: var(--DB-COLOR-3)
+    }
+  }
+
+  
