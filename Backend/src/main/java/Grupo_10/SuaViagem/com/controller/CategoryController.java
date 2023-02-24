@@ -16,7 +16,7 @@ public class CategoryController {
     @Autowired
     CategoryServiceImpl categoryService;
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public ResponseEntity<CategoryDTO> register(@RequestBody CategoryDTO categoryDTO) throws NotFoundException {
         ResponseEntity responseEntity = null;
 
