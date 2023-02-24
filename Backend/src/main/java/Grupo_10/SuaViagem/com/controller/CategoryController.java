@@ -81,7 +81,7 @@ public class CategoryController {
 
     @GetMapping("/{id}")
     @Operation(
-            summary = "Localizar um registro específico da categoria",
+            summary = "Localiza registro específico da categoria",
             responses = {
                     @ApiResponse(
                             responseCode = "200",
