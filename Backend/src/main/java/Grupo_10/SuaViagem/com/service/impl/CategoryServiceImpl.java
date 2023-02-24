@@ -8,7 +8,6 @@ import Grupo_10.SuaViagem.com.service.IService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class CategoryServiceImpl implements IService<CategoryDTO> {
     }
 
     @Override
-    public String delete(Integer id) {
+    public String delete(int id) {
         iCategoryRepository.deleteById(id);
         return "Categoria removida!";
     }

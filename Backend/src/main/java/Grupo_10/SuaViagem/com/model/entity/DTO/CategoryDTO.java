@@ -8,7 +8,7 @@ import javax.persistence.Column;
 public class CategoryDTO {
 
     @Column(nullable=false)
-    private Integer id_categorias;
+    private int id_categorias;
 
     @Column(nullable=false)
     private String qualificacao;
@@ -28,18 +28,11 @@ public class CategoryDTO {
         this.url_imagem = categoryEntity.getUrl_imagem();
     }
 
-    public CategoryDTO(Integer id_categorias, String qualificacao, String descricao, String url_imagem) {
-        this.id_categorias = id_categorias;
-        this.qualificacao = qualificacao;
-        this.descricao = descricao;
-        this.url_imagem = url_imagem;
-    }
-
-    public Integer getId_categorias() {
+    public int getId_categorias() {
         return id_categorias;
     }
 
-    public void setId_categorias(Integer id_categorias) {
+    public void setId_categorias(int id_categorias) {
         this.id_categorias = id_categorias;
     }
 

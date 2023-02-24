@@ -2,16 +2,16 @@ package Grupo_10.SuaViagem.com.model.entity;
 
 import Grupo_10.SuaViagem.com.model.entity.DTO.CategoryDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Entity;
 import javax.persistence.*;
 
-@Entity @jakarta.persistence.Table(name  =  "categorias")
+@Entity
+@Table(name  =  "categorias")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CategoryEntity {
-    @jakarta.persistence.Id
-    @jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
-    @jakarta.persistence.Column(name = "id_categorias", nullable = false)
-    private Integer id_categorias;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_categorias", nullable = false)
+    private int id_categorias;
 
     @Column(nullable=false)
     private String qualificacao;
@@ -36,7 +36,7 @@ public class CategoryEntity {
         return id_categorias;
     }
 
-    public void setId_categorias(Integer id_categorias) {
+    public void setId_categorias(int id_categorias) {
         this.id_categorias = id_categorias;
     }
 
