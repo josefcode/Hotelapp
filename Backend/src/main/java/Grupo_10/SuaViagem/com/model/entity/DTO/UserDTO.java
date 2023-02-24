@@ -1,41 +1,41 @@
 package Grupo_10.SuaViagem.com.model.entity.DTO;
 
+import Grupo_10.SuaViagem.com.enums.UserRoles;
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class UserDTO {
 
+    @NotNull
+    @Column(nullable = false)
     private String name;
-    private String sobrenome;
+    @NotNull
+    @Column(nullable = false, unique = true)
     private String username;
+    @NotNull
+    @Column(nullable = false, unique = true)
     private String email;
+    @NotNull
+    @Size(min = 6, max = 12)
+    @Column(nullable = false)
     private String password;
-
-//    private UserRoles userRoles;
-
+    @NotNull
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private UserRoles userRoles;
 
     public UserDTO() {
     }
 
-    public UserDTO(String name, String sobrenome, String username, String email, String password) {
-        this.name = name;
-        this.sobrenome = sobrenome;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
-    
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
 
     public String getUsername() {
@@ -60,5 +60,13 @@ public class UserDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserRoles getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(UserRoles userRoles) {
+        this.userRoles = userRoles;
     }
 }
