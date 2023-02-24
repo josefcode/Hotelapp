@@ -29,6 +29,15 @@ public class UserController {
     private JwtUtil jwtUtil;
 
     @PostMapping
+    @Operation(
+            summary = "Registra usuário",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "Usuário autenticado com sucesso"
+                    )
+            }
+    )
     public ResponseEntity<String> create(@RequestBody UserDTO userDTO){
 
         Boolean create = userService.create(userDTO);
@@ -42,7 +51,7 @@ public class UserController {
 
     @PostMapping("/authenticate")
     @Operation(
-            summary = "Autentica um usuário",
+            summary = "Autentica usuário",
             responses = {
                     @ApiResponse(
                             responseCode = "200",
