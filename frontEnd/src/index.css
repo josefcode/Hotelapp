@@ -7,13 +7,14 @@
   --DB-COLOR-4 : #F3F1ED;
    --white-color : #ffffff;
    --recommendation-background: #eae9ee;
-   --heading1 : 24pt;
-   --heading2 : 20pt;
-   --heading3 : 16pt;
-   --heading4 : 14pt;
-   --botton1 : 14pt;
-   --text1 : 14pt;
-   --text2 : 12pt;
+   --error: #FF0000;
+   --heading1 : 24px;
+   --heading2 : 20px;
+   --heading3 : 16px;
+   --heading4 : 14px;
+   --botton1 : 14px;
+   --text1 : 14px;
+   --text2 : 12px;
 }
 
 *{

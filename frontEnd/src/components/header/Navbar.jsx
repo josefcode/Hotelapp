@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { SearchBox } from '../search-box/SearchBox'
+import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import './styles.css'
 
@@ -13,8 +14,8 @@ export default function navbar() {
       <MenuIcon className='menu-icon' />
       <div className='navbar-btn'>
       
-        <button className='login-btn'>Login</button>
-        <button className='login-btn'>login up</button>
+        <Link to = 'criar-conta'><button className='login-btn'>Criar conta</button></Link>
+        <Link  to= "iniciar-sessao" ><button className='login-btn'>Iniciar sessão </button></Link>
       </div>
       </nav>
       <SearchBox />
