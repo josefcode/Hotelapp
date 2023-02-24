@@ -1,12 +1,14 @@
 package Grupo_10.SuaViagem.com.model.entity.DTO;
 
 import Grupo_10.SuaViagem.com.model.entity.CategoryEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Column;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryDTO {
 
+    @JsonIgnore
     @Column(nullable=false)
     private int id_categorias;
 

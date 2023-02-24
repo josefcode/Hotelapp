@@ -1,27 +1,85 @@
 package Grupo_10.SuaViagem.com.model.entity;
 
-public class UserEntity {
+import Grupo_10.SuaViagem.com.enums.UserRoles;
+import Grupo_10.SuaViagem.com.model.entity.DTO.UserDTO;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.Collections;
 
+@Entity
+@Table(name="Users")
+public class UserEntity implements UserDetails {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(nullable = false)
     private String name;
-    private String sobrenome;
+
+    @Column(nullable = false, unique = true)
     private String username;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
     private String password;
 
-//    private UserRoles userRoles;
-
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private UserRoles userRoles;
 
     public UserEntity() {
     }
 
-    public UserEntity(int id, String name, String sobrenome, String username, String email, String password) {
-        this.id = id;
-        this.name = name;
-        this.sobrenome = sobrenome;
-        this.username = username;
-        this.email = email;
-        this.password = password;
+    public UserEntity(UserDTO userDTO) {
+        this.name = userDTO.getName();
+        this.username = userDTO.getUsername();
+        this.email = userDTO.getEmail();
+        this.password = userDTO.getPassword();
+        this.userRoles = userDTO.getUserRoles();
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+
+        SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(userRoles.name());
+        return Collections.singleton(simpleGrantedAuthority);
+
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
     public int getId() {
@@ -40,18 +98,6 @@ public class UserEntity {
         this.name = name;
     }
 
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -64,11 +110,15 @@ public class UserEntity {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserRoles getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(UserRoles userRoles) {
+        this.userRoles = userRoles;
     }
 }
