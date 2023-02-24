@@ -7,17 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-@RestController
 @RequestMapping("/category")
+@RestController
 public class CategoryController {
 
     @Autowired
-    private CategoryServiceImpl categoryService;
+    CategoryServiceImpl categoryService;
 
-    @PostMapping("/register")
+    @PostMapping("register")
     public ResponseEntity<CategoryDTO> register(@RequestBody CategoryDTO categoryDTO) throws NotFoundException {
         ResponseEntity responseEntity = null;
 
@@ -27,7 +26,6 @@ public class CategoryController {
         }
         return responseEntity;
     }
-
     @GetMapping("/findAll")
     public List<CategoryDTO> findAll() {
         return categoryService.findAll();
@@ -39,7 +37,7 @@ public class CategoryController {
     }
 
     @PutMapping("/{id}")
-    public CategoryDTO edit(@RequestBody CategoryDTO categoryDTO,@PathVariable Integer id){
+    public CategoryDTO edit(@RequestBody CategoryDTO categoryDTO,@PathVariable int id){
         return categoryService.edit(categoryDTO, id);
     }
 
