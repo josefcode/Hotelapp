@@ -4,6 +4,8 @@ import Grupo_10.SuaViagem.com.model.entity.DTO.UserDTO;
 import Grupo_10.SuaViagem.com.security.AuthenticationResponse;
 import Grupo_10.SuaViagem.com.security.JwtUtil;
 import Grupo_10.SuaViagem.com.service.impl.UserServiceImpl;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,24 +28,28 @@ public class UserController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @GetMapping(name = "/")
-    public String msg(){
-        return "<h1> Olá </h1>";
-    }
-
     @PostMapping
     public ResponseEntity<String> create(@RequestBody UserDTO userDTO){
 
         Boolean create = userService.create(userDTO);
 
         if(create){
-            return new ResponseEntity<>("Usário criado com sucesso.", HttpStatus.CREATED);
+            return new ResponseEntity<>("Usário registrado com sucesso", HttpStatus.CREATED);
         }
 
-        return new ResponseEntity<>("Usuário não criado.", HttpStatus.CONFLICT);
+        return new ResponseEntity<>("Problemas ao registrar o usuário", HttpStatus.CONFLICT);
     }
 
     @PostMapping("/authenticate")
+    @Operation(
+            summary = "Autentica um usuário",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "Usuário autenticado com sucesso"
+                    )
+            }
+    )
     public ResponseEntity<AuthenticationResponse> createAuthenticationToken(@RequestBody UserDTO userDTO) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userDTO.getUsername(), userDTO.getPassword()));
