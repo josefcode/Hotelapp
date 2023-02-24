@@ -25,13 +25,18 @@
   
   .login-btn {
     background-color: transparent;
-    color: #1DBEB4;
     border: 1px solid #1DBEB4;
+    color: var(--DB-COLOR-PRINCIPAL);
     border-radius: 5px;
     width: 206px;
     height: 40px;
     cursor: pointer;
     
+  }
+
+  .login-btn > a {
+    text-decoration: none;
+    color: var(--DB-COLOR-PRINCIPAL)
   }
 
   @media only screen and (max-width: 600px){ 
@@ -49,4 +54,5 @@
     }
   }
 
+  
   
