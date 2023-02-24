@@ -10,7 +10,7 @@ export default function navbar() {
 
 <header className='navbar-header'>
     <nav className='navbar'>
-      <img className = "navbar-logo" src ="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt ="travelLogos"/>
+      <Link to = '/' ><img className = "navbar-logo" src ="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt ="travelLogos"/></Link>
       <MenuIcon className='menu-icon' />
       <div className='navbar-btn'>
       
