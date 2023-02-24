@@ -1,0 +1,47 @@
+.app-main {
+    grid-area: main;
+    overflow-y: auto;
+    overflow-x: hidden; 
+  }
+
+  .recomendacaoes-section{
+    background: rgba(56, 59, 88, 0.1);
+    height: 100vh;
+    width: 100vw;
+}
+
+.searchBox-container{
+  background-color: #545776;
+  padding-block: 10px;
+  padding-inline: 4rem;
+}
+
+.searchBox-title {
+  text-align: center;
+  color: var(--white-color);
+}
+
+.searchBox-btn {
+  background-color: var(--DB-COLOR-PRINCIPAL);
+  border: transparent;
+  min-width: 10%;
+  min-height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchBox-form {
+  display: flex;
+  gap: 10px
+}
+
+@media only screen and (max-width: 600px) {
+  
+.searchBox-container{
+  
+  padding-inline: 1rem;
+}
+  .searchBox-form {
+      flex-direction: column;
+  }
+}
