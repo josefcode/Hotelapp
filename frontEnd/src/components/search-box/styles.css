@@ -3,6 +3,10 @@
     background-color: #545776;
     padding-block: 10px;
     padding-inline: 4rem;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .searchBox-title {

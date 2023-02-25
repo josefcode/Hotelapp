@@ -13,12 +13,13 @@ import {
 import ErrorPage from './components/ErrorPage';
 import  {CriarConta } from './components/cirar-conta/CriarConta'
 import { IniciaSessao } from './components/iniciar-sessao/IniciarSessao';
+import MenuMobile from './components/menu-mobile/MenuMobile';
 
  const AppLayout = () => (
   <>
     <Navbar />
     <Outlet />
-    <Footer/>
+    <Footer />
   </>
 );
 

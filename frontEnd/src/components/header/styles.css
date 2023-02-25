@@ -48,7 +48,7 @@
       display: none;
     }
     .menu-icon {
-      visibility: visible ;
+      visibility: visible;
       margin-left: auto;
       color: var(--DB-COLOR-3)
     }
