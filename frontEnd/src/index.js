@@ -5,10 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes,Route } from "react-router-dom"
 import Main from './components/main/Main';
-import { CriarConta } from './components/cirar-conta/CriarConta';
 import { IniciaSessao } from './components/iniciar-sessao/IniciarSessao';
 import ErrorPage from './components/ErrorPage';
 import { LoginProvider} from '../src/components/hooks/useLogin'
+import { CriarConta } from './components/criar-conta/CriarConta';
 
 
 
