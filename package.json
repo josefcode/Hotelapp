@@ -2,5 +2,13 @@
   "devDependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2"
+  },
+  "dependencies": {
+    "@bcad1591/react-date-picker": "^0.1.1",
+    "@mui/x-date-pickers": "^5.0.20",
+    "react-datepicker": "^4.10.0",
+    "react-dater": "^1.6.0",
+    "react-multi-date-picker": "^3.3.4",
+    "rsuite": "^5.28.0"
   }
 }
