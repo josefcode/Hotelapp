@@ -6,12 +6,15 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { Link, useNavigate} from 'react-router-dom';
+import { useLogin } from  '../hooks/useLogin'
+
 import './styles.css'
 
 export function IniciaSessao() {
 
   const [showPassword, setShowPassword] = useState(false);
 
+  const {changeLogin} = useLogin()
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
 
@@ -47,10 +50,11 @@ export function IniciaSessao() {
         alert('ocorreu um erro' + err)
       }
     
-    alert('Login foi bem sucedido')
+   
 
     navigate('/')
-    
+     
+    changeLogin(true)
   };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);

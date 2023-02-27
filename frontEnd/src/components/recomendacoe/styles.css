@@ -30,11 +30,12 @@
     width: 300px;
     height: 100%;
     border-radius: 8px 0px 0px 8px;
+    object-fit: cover;
 }
 
 .recomendacoe-title {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
     color: #383B58;
     margin: 0;
 }
@@ -168,7 +169,7 @@ color: #FFFFFF;
     .image-wrapper > svg {
         position: absolute;
         color: #FFFFFF;
-        left: 340px;
+        left: 310px;
         top: 10px;
     }
 
@@ -190,13 +191,13 @@ color: #FFFFFF;
 
     .card-container {
         width : 710px;
-        height: 279px;  
+
     }
 }
 
 @media only screen and (min-width: 992px) {
     .card-container {
     width : 635px;
-    height: 283px;
+
     }
 }

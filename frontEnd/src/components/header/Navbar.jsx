@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import './styles.css'
 import UserAvatar from '../user-avatar/UserAvatar';
+import { useLogin } from '../hooks/useLogin'
 
 export default function Navbar() {
+
+  const { login } = useLogin()
+
+  console.log(login)
 
   const token = localStorage.getItem('token')
  const data = localStorage?.getItem('data')
@@ -25,7 +30,7 @@ export default function Navbar() {
     
    
       {
-        typeof token === 'object' ?
+        !login ?
         <>
         <Link to = 'criar-conta'><button className='login-btn'>Criar conta</button></Link>
         <Link  to= "iniciar-sessao" ><button className='login-btn'>Iniciar sessão </button></Link> 

@@ -49,7 +49,7 @@ async function handleSubmit(e){
   
   alert('criar conta foi bem sucedido')
 
-  navigate('/')
+  navigate('/iniciar-sessao')
   
 };
 

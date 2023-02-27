@@ -1,5 +1,6 @@
 .avatar-container{
     display: flex;
+    align-items: center;
     
 }
 
@@ -20,6 +21,7 @@
 
 .avatar-text span {
     color: rgba(0, 0, 0, 0.5);
+    margin: 0;
     font-weight: 700;
 }
 .avatar-text p {
@@ -27,3 +29,6 @@
     font-weight: 700;
 }
 
+.avatar-close {
+    cursor: pointer
+}

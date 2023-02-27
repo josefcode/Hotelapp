@@ -2,6 +2,7 @@
   .navbar-header {
       background-color: var(--navbar-color);
       grid-area: header;
+      padding-inline: 4rem;
   }
   .menu-icon {
     visibility: hidden;
@@ -9,7 +10,7 @@
   .navbar {
     display: flex;
     align-items: center;
-    padding-inline: 4rem;
+  
   }
   
   .navbar-logo {
@@ -40,7 +41,7 @@
   }
 
   @media only screen and (max-width: 600px){ 
-    .navbar {
+    .navbar-header {
       padding-inline: 1rem;
 
     }
