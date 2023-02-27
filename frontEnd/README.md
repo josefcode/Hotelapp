@@ -2,7 +2,7 @@
 
 # Integrantes:
 # Atef Chelaghma
-# gSantosP
+# Gabriel Santos Pereira
 # Marcelo Garofalo
 # Micheli Pinheiro
 # Ricardo Brito (Xesa)
