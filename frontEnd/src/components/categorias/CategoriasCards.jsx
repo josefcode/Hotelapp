@@ -6,7 +6,7 @@ const listHotel = [
     {
         id: '1',
         image :"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.corinthia.com%2Fmedia%2F1563%2Fcorinthia-lisbon-deluxe-king-bedroom.jpg&f=1&nofb=1&ipt=0d0842f3e887b1bfd8a82d2ebc3633acac094bad75534497c67288734289559a&ipo=images",
-        name: "Hotéis",
+        name: "Hoteis",
         totals: '807.105 hotéis',
         alt: 'hotelImage'
      },
@@ -27,7 +27,7 @@ const listHotel = [
      {
         id: '4',
         image :"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F01%2F23%2F23%2F55%2Fbreakfast-in-bed-1158270_960_720.jpg&f=1&nofb=1&ipt=3be7be28c18d310a5bb9d616fa9b48ac157c024e8754ccb60f3a79e1a009e62a&ipo=images",
-        name: "Cama e café da manhã",
+        name: "Cama e cafe da manha",
         totals: '807.105 hotéis',
         alt: 'hotelImage'
      },
@@ -35,7 +35,7 @@ const listHotel = [
 
 export  function CategoriasCards() {
   return (
-    <div className='container'>
+    <div className='container-categoria'>
        <h2 className='title'> Buscar por tipo de acomodação</h2>
       <div className='cards-wrapper'>
         {

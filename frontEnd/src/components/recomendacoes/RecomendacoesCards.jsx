@@ -9,7 +9,7 @@ import './styles.css'
 export  function RecomendacoesCards() {
   return (
     <div className='recomendacaoes-container'>
-       <h2 className='recomendacaoes-title'> Recomendações </h2>
+       <h2 className='recomendacaoes-title'> Recomendacoes </h2>
       <div className='recomendacaoes-cards-wrapper'>
         {
             acomodacao.map(item => <RecomendacoeCard  key = {item.id} 

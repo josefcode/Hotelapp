@@ -9,6 +9,7 @@ import { Link, useNavigate} from 'react-router-dom';
 import { useLogin } from  '../hooks/useLogin'
 
 import './styles.css'
+import { TextField } from '@mui/material';
 
 export function IniciaSessao() {
 
@@ -17,7 +18,9 @@ export function IniciaSessao() {
   const {changeLogin} = useLogin()
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
-
+  const [formError, setFormError] =  useState({email: '', password: ''})
+  const [ emailValid, setEmailValid] = useState(false)
+   const [passwordValid, setPasswordValid] = useState(false)
 
   const requestHeader = {
     'Accept': "",
@@ -26,6 +29,7 @@ export function IniciaSessao() {
   }
 
   
+
   const bodyRequest = {
     username: userName,
     password: password
@@ -40,6 +44,7 @@ export function IniciaSessao() {
   const navigate = useNavigate();
 
   async function handleSubmit(e){
+    console.log(emailValid)
     e.preventDefault()
 
     try{
@@ -49,11 +54,15 @@ export function IniciaSessao() {
       }catch(err){
         alert('ocorreu um erro' + err)
       }
+
     
+      if(userName === ""){
+        setEmailValid(true)
+      }
    
 
     navigate('/')
-     
+   
     changeLogin(true)
   };
 
@@ -70,14 +79,14 @@ export function IniciaSessao() {
       
         <label htmlFor='email'>Email: </label>
         <input
-         className='input'
+         className= "input"
           required
           id="email"
           type='email'
           size="small"
           value={userName}
           onChange= {(e) => setUserName(e.target.value)}
-          
+           autocomplete="off"
         />
         <label htmlFor='senha'>Confirmar senha: </label>
         <OutlinedInput
