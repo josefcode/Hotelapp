@@ -59,20 +59,23 @@ export function CriarConta() {
     if (!validator.validate(userData.email)) {
       alert('Email inválido!');
       return;
-    }  
+    }
 
     // Validação da senha
-    if (userData.senha.length < 6) {
-      alert('A senha deve ter pelo menos 6 caracteres!');
+    if (userData.senha.length < 7) {
+      alert('A senha deve ser maior que 6 caracteres!');
       return;
     }
 
     if (userData.senha !== userData.confirmSenha) {
-      alert('A confirmação de senha não coincide com a senha!');
+      alert('Os campos "Confirmar senha" e "Senha" não coincidem!');
       return;
     }
 
-    localStorage.setItem('data', JSON.stringify(userData));
+    localStorage.setItem('nome', userData.nome);
+    localStorage.setItem('sobreNome', userData.sobreNome);
+    localStorage.setItem('email', userData.email);
+    localStorage.setItem('senha', userData.senha);
     alert('A conta foi criada com sucesso!');
     navigate('/iniciar-sessao');
   };

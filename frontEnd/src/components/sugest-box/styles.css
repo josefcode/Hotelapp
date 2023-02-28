@@ -31,6 +31,7 @@
     line-height:100%;
     text-align: left;
     vertical-align: top;
+    margin-bottom: 0px;
 }
 
 .suggestBox-content-country {
@@ -42,4 +43,5 @@
     line-height:100%;
     text-align: left;
     vertical-align: top;
+    margin-bottom: 0px;
 }

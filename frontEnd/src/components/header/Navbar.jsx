@@ -9,7 +9,7 @@ export default function Navbar() {
   const { login } = useLogin();
   const location = useLocation();
   const token = localStorage.getItem('token');
-  const data = localStorage?.getItem('data');
+  const data = localStorage.getItem('data');
   const object = JSON.parse(data);
 
   const renderCreateAccountButton = () => {
@@ -21,8 +21,8 @@ export default function Navbar() {
 
     } else if (!login) {
       return <>
-      <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link>
-      <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link>
+        <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link>
+        <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link>
       </>;
     }
     return null;
@@ -38,7 +38,7 @@ export default function Navbar() {
         <div className="navbar-btn">
           {renderCreateAccountButton()}
 
-          {login ? <UserAvatar nome={object?.nome} sobrenome={object?.sobreNome} /> : null}
+          {login ? <UserAvatar nome={localStorage.getItem('nome')} sobrenome={localStorage.getItem('sobreNome')} /> : null}
 
         </div>
       </nav>
