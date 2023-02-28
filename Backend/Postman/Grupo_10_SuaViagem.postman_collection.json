@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "92060f3c-74d5-44d1-80cc-55460ab96b1b",
+		"name": "Grupo_10_SuaViagem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21685681"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZSIsImV4cCI6MTY3NzI2MTY2MCwiaWF0IjoxNjc3MjYxMDYwfQ.MIDt3ZZ43ugE_l9MIbZi2s6xaByYD79agL0NaCzWCiA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"qualificacao\": \"teste 4\",\n    \"descricao\": \"123456\",\n    \"url_imagem\": \"teste 4\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/category/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"category",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZSIsImV4cCI6MTY3NzI2MTY2MCwiaWF0IjoxNjc3MjYxMDYwfQ.MIDt3ZZ43ugE_l9MIbZi2s6xaByYD79agL0NaCzWCiA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/category/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"category",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZSIsImV4cCI6MTY3NzI2MTY2MCwiaWF0IjoxNjc3MjYxMDYwfQ.MIDt3ZZ43ugE_l9MIbZi2s6xaByYD79agL0NaCzWCiA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/category/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"category",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZSIsImV4cCI6MTY3NzI2MTY2MCwiaWF0IjoxNjc3MjYxMDYwfQ.MIDt3ZZ43ugE_l9MIbZi2s6xaByYD79agL0NaCzWCiA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_categorias\": 1,\r\n    \"qualificacao\": \"teste alterar 4\",\r\n    \"descricao\": \"123456 teste alterar 4\",\r\n    \"url_imagem\": \"teste alterar 4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/category/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZSIsImV4cCI6MTY3NzI2MTY2MCwiaWF0IjoxNjc3MjYxMDYwfQ.MIDt3ZZ43ugE_l9MIbZi2s6xaByYD79agL0NaCzWCiA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/category/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"category",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Salvar usuário",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Teste\",\n    \"username\": \"Teste\",\n    \"email\": \"teste@teste.com\",\n    \"password\": \"123456\",\n    \"userRoles\": \"ROLE_ADMIN\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autenticar usuário",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Teste\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/user/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZSIsImV4cCI6MTY2NDIzNDg1OCwiaWF0IjoxNjY0MjM0MjU4fQ.D-gmR-mJ07avRyrkH7Him9S9nn_asJA2OSrXIZa8L3k"
+		}
+	]
+}
