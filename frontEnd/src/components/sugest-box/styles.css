@@ -27,10 +27,11 @@
     font-style: bold;
     font-weight: 700;
     color: #000000;
-    line-height:16px;
+    line-height:5px;
     line-height:100%;
     text-align: left;
-    vertical-align: top;
+    vertical-align: bot;
+    margin-bottom:0px;
 }
 
 .suggestBox-content-country {
@@ -42,4 +43,5 @@
     line-height:100%;
     text-align: left;
     vertical-align: top;
+    margin-bottom:0px;
 }
