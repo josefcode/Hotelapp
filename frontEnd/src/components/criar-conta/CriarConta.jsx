@@ -67,6 +67,11 @@ export function CriarConta() {
       return;
     }
 
+    if (userData.senha !== userData.confirmSenha) {
+      alert('A confirmação de senha não coincide com a senha!');
+      return;
+    }
+
     localStorage.setItem('data', JSON.stringify(userData));
     alert('A conta foi criada com sucesso!');
     navigate('/iniciar-sessao');
@@ -146,6 +151,9 @@ export function CriarConta() {
             id="confirmSenha"
             size="small"
             type='password'
+            name='confirmSenha'
+            value={userData.confirmSenha}
+            onChange={handleChange}
           />
 
           <span id="component-error-text">Este campo é obrigatório</span>
