@@ -6,17 +6,13 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import validator from 'email-validator';
 import { Link, useNavigate } from 'react-router-dom';
-
 import './styles.css'
 import { Footer } from '../footer/Footer';
 
 export function CriarConta() {
 
-
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [isConfirmSenhaEmpty, setIsConfirmSenhaEmpty] = useState(true);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -26,8 +22,9 @@ export function CriarConta() {
     sobreNome: '',
     email: '',
     senha: '',
-
+    confirmSenha: ''
   })
+
   const navigate = useNavigate();
 
   function handleChange(event) {
@@ -38,10 +35,6 @@ export function CriarConta() {
         [name]: value
       }
     });
-
-    if (name === 'confirmSenha') {
-      setIsConfirmSenhaEmpty(value === '');
-    }
   }
 
   function isValidName(value) {
@@ -50,12 +43,6 @@ export function CriarConta() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    // Validação do email
-    if (!validator.validate(userData.email)) {
-      alert('Email inválido!');
-      return;
-    }
 
     // Validação do nome
     if (!isValidName(userData.nome)) {
@@ -68,16 +55,15 @@ export function CriarConta() {
       alert('Sobrenome inválido!');
       return;
     }
+    // Validação do email
+    if (!validator.validate(userData.email)) {
+      alert('Email inválido!');
+      return;
+    }  
 
     // Validação da senha
     if (userData.senha.length < 6) {
       alert('A senha deve ter pelo menos 6 caracteres!');
-      return;
-    }
-
-    // Verificar se as senhas coincidem
-    if (userData.senha !== userData.confirmSenha) {
-      setErrorMessage('As senhas não coincidem');
       return;
     }
 
@@ -162,8 +148,7 @@ export function CriarConta() {
             type='password'
           />
 
-          {isConfirmSenhaEmpty === true && <span id="component-error-text" >Este campo é obrigatório</span>}
-          {errorMessage && <span id="component-error-text">{errorMessage}</span>}
+          <span id="component-error-text">Este campo é obrigatório</span>
 
           <div className='btn-wrapper'>
             <button className='iniciar-btn' type='submit'>Criar conta</button>
