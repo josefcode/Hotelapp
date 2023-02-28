@@ -1,0 +1,31 @@
+.recomendacaoes-section{
+    background: rgba(56, 59, 88, 0.1);
+    height: 100vh;
+    width: 100vw;
+    padding-block-start: 10px;
+}
+
+.recomendacaoes-container {
+    margin-block-end: 2rem;
+    padding-inline: 4rem;
+}
+
+.recomendacaoes-cards-wrapper {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ gap: 2rem
+}
+
+.recomendacaoes-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #383B58;
+    margin-block-end: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .recomendacaoes-container{
+    padding-inline: 1rem; 
+  }
+}
