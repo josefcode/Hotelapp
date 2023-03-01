@@ -64,7 +64,7 @@ export function RecomendacoeCard(
             
             <div className='description'>
                 <p>{description}</p>
-                <button className='link-btn' onClick={() => window.open(verMais, '_blank')}>ver mais</button>
+                <a href={verMais} target="_blank"><button className='link-btn'>ver mais</button></a>
             </div>
 
             

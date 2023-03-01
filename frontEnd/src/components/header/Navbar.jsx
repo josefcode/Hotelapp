@@ -33,6 +33,7 @@ export default function Navbar() {
       <nav className="navbar">
         <Link to="/">
           <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" />
+          <span>SuaViagem.com</span>
         </Link>
         <MenuIcon className="menu-icon" />
         <div className="navbar-btn">
