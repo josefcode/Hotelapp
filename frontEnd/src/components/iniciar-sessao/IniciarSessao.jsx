@@ -109,7 +109,9 @@ export function IniciaSessao() {
 
           }}
         />
-        <span id="component-error-text" >Este campo é obrigatório</span>
+
+        {password === "" && (<span id="component-error-text" >Este campo é obrigatório</span>)}
+
         <div className='btn-wrapper'>
           <button className='iniciar-btn' type="submit">Entrar</button>
 

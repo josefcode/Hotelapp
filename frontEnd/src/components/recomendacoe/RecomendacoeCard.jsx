@@ -52,7 +52,7 @@ export function RecomendacoeCard(
             <div className='location'>
 
              <LocationOnIcon  />
-             <span className='distancia'>{distancia} - <a href={mapLink}>MOSTRAR NO MAPA</a></span>
+             <span className='distancia'>{distancia} - <a href={mapLink} target="_blank">MOSTRAR NO MAPA</a></span>
 
             </div>
 
@@ -64,7 +64,7 @@ export function RecomendacoeCard(
             
             <div className='description'>
                 <p>{description}</p>
-                <button className='link-btn'><a  href = {verMais}>Ver mais</a></button>
+                <button className='link-btn' onClick={() => window.open(verMais, '_blank')}>ver mais</button>
             </div>
 
             

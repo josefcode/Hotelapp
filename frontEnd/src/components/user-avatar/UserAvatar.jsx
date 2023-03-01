@@ -23,7 +23,7 @@ export default function UserAvatar({nome, sobrenome}) {
             {nome?.charAt(0).toUpperCase()}{sobrenome?.charAt(0).toUpperCase()}
         </div>
         <div className='avatar-text'>
-            <span>Ola</span>
+            <span>Olá</span>
             <p>{nome} {sobrenome}</p>
         </div>
         <div className='avatar-close'>

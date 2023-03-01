@@ -10,7 +10,7 @@ import './styles.css'
 export function Footer() {
   return (
     <footer className='footer'>
-      <p className='footer-title'><span>© {date.getFullYear()}</span>Digital Booking</p>
+      <p className='footer-title'><span>© {date.getFullYear()} </span>Digital Booking</p>
       <div className='footer-social-icon'>
         <FacebookIcon />
         <TwitterIcon />

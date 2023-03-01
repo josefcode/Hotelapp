@@ -56,7 +56,7 @@ export function CriarConta() {
       return;
     }
     // Validação do email
-    if (!validator.validate(userData.email)) {
+    if (!validator.validate(userData.email) || !/^[\w.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/.test(userData.email)) {
       alert('Email inválido!');
       return;
     }
@@ -159,7 +159,7 @@ export function CriarConta() {
             onChange={handleChange}
           />
 
-          <span id="component-error-text">Este campo é obrigatório</span>
+          {userData.confirmSenha === "" && (<span id="component-error-text">Este campo é obrigatório</span>)}
 
           <div className='btn-wrapper'>
             <button className='iniciar-btn' type='submit'>Criar conta</button>

@@ -37,7 +37,7 @@ export default function Main() {
     <main className='app-main'>
     <div className='searchBox-container'>
 
-        <h2 className='searchBox-title'>Buscar ofertas em hotéis, casas e muito mais</h2>
+        <h2 className='searchBox-title'>Buscar ofertas em hotéis, casas e muito mais!</h2>
 
         <form className='searchBox-form'>
         <div className='searchSuggestBox-div'>
