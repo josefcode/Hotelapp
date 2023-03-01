@@ -9,7 +9,11 @@ export default function UserAvatar({nome, sobrenome}) {
 
     const handleRemove = () => {
  
-        localStorage.removeItem('token', 'data')
+        localStorage.removeItem('nome')
+        localStorage.removeItem('sobreNome')
+        localStorage.removeItem('email')
+        localStorage.removeItem('senha')
+
          changeLogin(false)
     }
 
