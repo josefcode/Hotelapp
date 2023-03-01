@@ -49,7 +49,7 @@ export function IniciaSessao() {
 
     } else {
       // exibir mensagem de erro
-      alert('Email ou senha inválidos');
+      alert('Por favor, tente novamente, suas credenciais são inválidas');
     }
 
   };
