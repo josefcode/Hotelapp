@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import './styles.css'
@@ -16,6 +16,8 @@ export function RecomendacoeCard(
         description, 
         alt, 
         verMais}) {
+
+            const [showMore, setShowMore] = useState(false);
     return (
    
       <div className='card-container'>
@@ -63,7 +65,16 @@ export function RecomendacoeCard(
             </div>
             
             <div className='description'>
-                <p>{description}</p>
+               
+                <p>
+                {showMore ? description : `${description.substring(0, 100)}`}
+                <span className="show-more-btn" onClick={() => setShowMore(!showMore)}>
+                {showMore ? "Show less" : "...Show more"}
+                </span>
+                </p>
+               
+          
+               
                 <a href={verMais} target="_blank"><button className='link-btn'>ver mais</button></a>
             </div>
 
