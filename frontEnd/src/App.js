@@ -7,10 +7,10 @@ import MenuMobile from './components/menu-mobile/MenuMobile';
 function App() {
   return (
     <div className="app">
-
-      <Navbar />
-      <Outlet />
-      <Footer />
+    
+    <Navbar />
+    <Outlet />
+    <Footer />
     </div>
   );
 }

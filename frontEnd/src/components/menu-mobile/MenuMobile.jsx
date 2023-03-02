@@ -86,17 +86,17 @@ export default function PersistentDrawerRight() {
   };
 
   return (
-    <Box sx={{ '.MuiToolbar-root': { display: 'flex', justifyContent: 'space-between', color: '#383B58', background: 'white' }, '.MuiPaper-root': { boxShadow: 'none' }, '.MuiDrawer-docked .MuiDrawer-paper': { width: '100%' } }}>
+    <Box sx={{  '.MuiToolbar-root': {display: 'flex', justifyContent: 'space-between', color : '#383B58', background: 'white'}, '.MuiPaper-root' : {boxShadow: 'none'}, '.MuiDrawer-docked .MuiDrawer-paper' : {width: '100%'}}}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-
-
+       
+    
         <Toolbar>
-          <Link to="/">
-            <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" />
-          </Link>
+        <Link to="/">
+          <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" />
+        </Link>  
           <IconButton
-
+         
             color="inherit"
             aria-label="open drawer"
             edge="end"
@@ -107,7 +107,7 @@ export default function PersistentDrawerRight() {
           </IconButton>
         </Toolbar>
       </AppBar>
-
+     
       <Drawer
         sx={{
           width: drawerWidth,
@@ -125,28 +125,28 @@ export default function PersistentDrawerRight() {
             {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
-        <List sx={{ ".MuiListItem-root": { justifyContent: 'center' } }}>
-          <ListItem onClick={handleDrawerClose}>
-
-            <Link to='/criar-conta'>
-              <button className='menu-button'>
-                Criar conta
-              </button>
-            </Link>
-
+        <List sx = {{".MuiListItem-root" : {justifyContent: 'center'}}}>
+        <ListItem  onClick={handleDrawerClose}>
+       
+          <Link to= '/criar-conta'>
+           <button className='menu-button'>
+           Criar conta
+          </button>
+          </Link>
+       
           </ListItem>
-          <ListItem onClick={handleDrawerClose} >
-
-            <Link to='/iniciar-sessao'>
-              <button className='menu-button'>
-                Iniciar Sessao
-              </button>
-            </Link>
-
+        <ListItem onClick={handleDrawerClose} >
+       
+          <Link to= '/iniciar-sessao'>
+           <button className='menu-button'>
+          Iniciar Sessao
+          </button>
+          </Link>
+         
           </ListItem>
 
         </List>
-
+        
         <Divider />
         {/* <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
@@ -165,7 +165,7 @@ export default function PersistentDrawerRight() {
           <FacebookIcon />
           <TwitterIcon />
           <LinkedInIcon />
-        </List>
+          </List>
       </Drawer>
     </Box>
   );
