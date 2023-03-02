@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import './styles.css';
 import UserAvatar from '../user-avatar/UserAvatar';
@@ -10,14 +10,24 @@ export default function Navbar() {
   const { login } = useLogin();
   const location = useLocation();
   const data = localStorage.getItem('data');
+  const navigate = useNavigate();
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   const renderCreateAccountButton = () => {
     if (!login && location.pathname === '/criar-conta') {
-      return <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link>;
+      return <>
+        <button className="login-btn" onClick={handleGoBack}>Voltar</button>
+        <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link>
+      </>;
 
     } else if (!login && location.pathname === '/iniciar-sessao') {
-      return <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link>;
+      return <>
+        <button className="login-btn" onClick={handleGoBack}>Voltar</button>
+        <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link>
+      </>;
 
     } else if (!login) {
       return <>
@@ -33,9 +43,10 @@ export default function Navbar() {
       <nav className="navbar">
         <Link to="/">
           <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" />
-          <span className='navbar-logo-title'>SuaViagem</span>
+          <span className='navbar-logo-title'>SuaViagem.com</span>
         </Link>
         <MenuIcon className="menu-icon" />
+        
         <div className="navbar-btn">
           {renderCreateAccountButton()}
 
