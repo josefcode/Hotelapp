@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f9f35a4-6bfa-458f-b6dd-2712642766ca" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/Grupo_10/SuaViagem/com/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/Grupo_10/SuaViagem/com/controller/CategoryController.java" afterDir="false" />
-    </list>
+    <list default="true" id="7f9f35a4-6bfa-458f-b6dd-2712642766ca" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
