@@ -4,13 +4,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import './styles.css';
 import UserAvatar from '../user-avatar/UserAvatar';
 import { useLogin } from '../hooks/useLogin';
+import MenuMobile from '../menu-mobile/MenuMobile';
 
 export default function Navbar() {
   const { login } = useLogin();
   const location = useLocation();
-  const token = localStorage.getItem('token');
   const data = localStorage.getItem('data');
-  const object = JSON.parse(data);
+
 
   const renderCreateAccountButton = () => {
     if (!login && location.pathname === '/criar-conta') {
@@ -33,7 +33,7 @@ export default function Navbar() {
       <nav className="navbar">
         <Link to="/">
           <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" />
-          <span>SuaViagem.com</span>
+          <span className='navbar-logo-title'>SuaViagem</span>
         </Link>
         <MenuIcon className="menu-icon" />
         <div className="navbar-btn">
@@ -43,6 +43,9 @@ export default function Navbar() {
 
         </div>
       </nav>
+      <div className="menu-icon">
+    <MenuMobile />
+    </div>
     </header>
   );
 }
