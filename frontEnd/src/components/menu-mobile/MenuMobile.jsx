@@ -147,24 +147,6 @@ const location = useLocation();
           </IconButton>
         </DrawerHeader>
         <List sx = {{".MuiListItem-root" : {justifyContent: 'center'}}}>
-        {/* <ListItem  onClick={handleDrawerClose}>
-       
-          <Link to= '/criar-conta'>
-           <button className='menu-button'>
-           Criar conta
-          </button>
-          </Link>
-       
-          </ListItem> */}
-        {/* <ListItem onClick={handleDrawerClose} >
-       
-          <Link to= '/iniciar-sessao'>
-           <button className='menu-button'>
-          Iniciar Sessao
-          </button>
-          </Link>
-         
-          </ListItem> */}
 
           {renderCreateAccountButton()}
 
