@@ -32,6 +32,9 @@ public class ProdutosEntity {
     @JoinColumn(name="produtos_id")
     private List<ImagensEntity> imagensEntityList = new ArrayList<>();
 
+    @ManyToOne
+    private CategoryEntity categoryEntity;
+
     public ProdutosEntity() {
     }
 

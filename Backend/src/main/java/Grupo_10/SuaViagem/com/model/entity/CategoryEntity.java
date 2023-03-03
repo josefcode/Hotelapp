@@ -3,6 +3,8 @@ package Grupo_10.SuaViagem.com.model.entity;
 import Grupo_10.SuaViagem.com.model.entity.DTO.CategoryDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name  =  "categorias")
@@ -21,6 +23,9 @@ public class CategoryEntity {
 
     @Column(nullable=false)
     private String url_imagem;
+
+    @OneToMany(mappedBy = "categoryEntity", cascade = CascadeType.ALL)
+    private List<ProdutosEntity> produtosEntityList = new ArrayList<>();
 
     public CategoryEntity() {
     }
