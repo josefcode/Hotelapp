@@ -28,6 +28,10 @@ public class ProdutosEntity {
             {@JoinColumn(name="categorias_id")})
     private List<CaracteristicasEntity> caracteristicasEntityList = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="produtos_id")
+    private List<ImagensEntity> imagensEntityList = new ArrayList<>();
+
     public ProdutosEntity() {
     }
 
