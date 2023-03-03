@@ -35,6 +35,9 @@ public class ProdutosEntity {
     @ManyToOne
     private CategoryEntity categoryEntity;
 
+    @ManyToOne
+    private CidadesEntity cidadesEntity;
+
     public ProdutosEntity() {
     }
 
