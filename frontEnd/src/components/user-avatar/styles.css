@@ -1,0 +1,34 @@
+.avatar-container{
+    display: flex;
+    align-items: center;
+    
+}
+
+.avatar-image {
+    width: 37px;
+    height: 37px;
+    background-color: var(--DB-COLOR-2);
+    border-radius: 50%;
+    color: var(--white-color);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-inline-end: 5px;
+}
+.avatar-text{
+    margin-inline-end: 10px;
+}
+
+.avatar-text span {
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    font-weight: 700;
+}
+.avatar-text p {
+    color: var(--DB-COLOR-PRINCIPAL);
+    font-weight: 700;
+}
+
+.avatar-close {
+    cursor: pointer
+}
