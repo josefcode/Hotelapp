@@ -4,6 +4,42 @@ USE db_projeto_integrador;
 CREATE TABLE IF NOT EXISTS categorias (
 	id_categorias INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     qualificacao VARCHAR(30) NOT NULL,
-    descricao TEXT NOT NULL,
-    url_imagem VARCHAR(200) NOT NULL
+    descricao VARCHAR(6000) NOT NULL,
+    url_imagem VARCHAR(250) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS users(
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    email VARCHAR(250) NOT NULL,
+    name  VARCHAR(250) NOT NULL,
+    password VARCHAR(250) NOT NULL,
+    user_roles  VARCHAR(250) NOT NULL,
+    username VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS caracteristicas(
+	id_caracteristicas INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(250) NOT NULL,
+    icone  VARCHAR(250) NOT NULL
+
+);
+
+CREATE TABLE IF NOT EXISTS imagens(
+	id_imagens INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    titulo VARCHAR(250) NOT NULL,
+    url  VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS produtos(
+	id_produtos INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(250) NOT NULL,
+    descricao  VARCHAR(6000) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS cidades(
+	id_cidades INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(50) NOT NULL,
+    pais  VARCHAR(50) NOT NULL
+);
+
+
+
