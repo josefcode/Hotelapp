@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class AdicionarCidadesFromJson {
 
-    public static void main(String[] args) {
+    public static void adicionarCidades() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             List<CidadesDTO> cidadesDTOList = objectMapper.readValue(new FileReader("C:/Users/marcelo.muniz/Documents/Estudos/CTD/SuaViagem.com/grupo-10/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/cidades.json"), new TypeReference<List<CidadesDTO>>() {});

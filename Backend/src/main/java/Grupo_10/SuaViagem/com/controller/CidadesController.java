@@ -1,8 +1,8 @@
 package Grupo_10.SuaViagem.com.controller;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
-import Grupo_10.SuaViagem.com.model.entity.DTO.CategoryDTO;
-import Grupo_10.SuaViagem.com.service.impl.CategoryServiceImpl;
+import Grupo_10.SuaViagem.com.model.entity.DTO.CidadesDTO;
+import Grupo_10.SuaViagem.com.service.impl.CidadesServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RequestMapping("/category")
+@RequestMapping("/cities")
 @RestController
-public class CategoryController {
+public class CidadesController {
 
     @Autowired
-    private CategoryServiceImpl categoryService;
+    private CidadesServiceImpl cidadesService;
 
     @PostMapping("/register")
     @Operation(
@@ -28,12 +28,12 @@ public class CategoryController {
                     )
             }
     )
-    public ResponseEntity<CategoryDTO> register(@RequestBody CategoryDTO categoryDTO) {
+    public ResponseEntity<CidadesDTO> register(@RequestBody CidadesDTO cidadesDTO) {
         ResponseEntity responseEntity = null;
 
-        if(categoryDTO != null) {
-            CategoryDTO categoryDTO1 = categoryService.register(categoryDTO);
-            responseEntity = new ResponseEntity<>(categoryDTO1, HttpStatus.OK);
+        if(cidadesDTO != null) {
+            CidadesDTO cidadesDTO1 = cidadesService.register(cidadesDTO);
+            responseEntity = new ResponseEntity<>(cidadesDTO1, HttpStatus.OK);
         }
         return responseEntity;
     }
@@ -47,8 +47,8 @@ public class CategoryController {
                     )
             }
     )
-    public List<CategoryDTO> findAll() {
-        return categoryService.findAll();
+    public List<CidadesDTO> findAll() {
+        return cidadesService.findAll();
     }
 
     @DeleteMapping("/{id}")
@@ -62,7 +62,7 @@ public class CategoryController {
             }
     )
     public String delete(@PathVariable int id){
-        return categoryService.delete(id);
+        return cidadesService.delete(id);
     }
 
     @PutMapping("/{id}")
@@ -75,8 +75,8 @@ public class CategoryController {
                     )
             }
     )
-    public CategoryDTO edit(@RequestBody CategoryDTO categoryDTO,@PathVariable int id){
-        return categoryService.edit(categoryDTO, id);
+    public CidadesDTO edit(@RequestBody CidadesDTO cidadesDTO,@PathVariable int id){
+        return cidadesService.edit(cidadesDTO, id);
     }
 
     @GetMapping("/{id}")
@@ -89,7 +89,7 @@ public class CategoryController {
                     )
             }
     )
-    public ResponseEntity<CategoryDTO> findById(@PathVariable int id) throws NotFoundException {
-        return new ResponseEntity<>(categoryService.findById(id), HttpStatus.OK);
+    public ResponseEntity<CidadesDTO> findById(@PathVariable int id) throws NotFoundException {
+        return new ResponseEntity<>(cidadesService.findById(id), HttpStatus.OK);
     }
 }
