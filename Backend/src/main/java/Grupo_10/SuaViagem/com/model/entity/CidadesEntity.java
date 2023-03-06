@@ -1,6 +1,5 @@
 package Grupo_10.SuaViagem.com.model.entity;
 
-import Grupo_10.SuaViagem.com.model.entity.DTO.CategoryDTO;
 import Grupo_10.SuaViagem.com.model.entity.DTO.CidadesDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,6 +22,9 @@ public class CidadesEntity {
     @Column(nullable=false)
     private String pais;
 
+    @Column(nullable=false)
+    private String sigla;
+
     @OneToMany(mappedBy = "cidadesEntity", cascade = CascadeType.ALL)
     private List<ProdutosEntity> produtosEntityList = new ArrayList<>();
 
@@ -33,6 +35,7 @@ public class CidadesEntity {
         this.id = cidadesDTO.getId();
         this.nome = cidadesDTO.getNome();
         this.pais = cidadesDTO.getPais();
+        this.sigla = cidadesDTO.getSigla();
     }
 
     public int getId() {
@@ -57,5 +60,21 @@ public class CidadesEntity {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+    public List<ProdutosEntity> getProdutosEntityList() {
+        return produtosEntityList;
+    }
+
+    public void setProdutosEntityList(List<ProdutosEntity> produtosEntityList) {
+        this.produtosEntityList = produtosEntityList;
     }
 }

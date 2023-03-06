@@ -19,6 +19,9 @@ public class CidadesDTO {
     @Column(nullable=false)
     private String pais;
 
+    @Column(nullable=false)
+    private String sigla;
+
     public CidadesDTO() {
     }
 
@@ -26,6 +29,7 @@ public class CidadesDTO {
         this.id = cidadesEntity.getId();
         this.nome = cidadesEntity.getNome();
         this.pais = cidadesEntity.getPais();
+        this.sigla = cidadesEntity.getSigla();
     }
 
     public int getId() {
@@ -50,5 +54,13 @@ public class CidadesDTO {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 }
