@@ -24,7 +24,7 @@ public class CategoryController {
             responses = {
                     @ApiResponse(
                             responseCode = "200",
-                            description = "Categoria registrada com sucesso"
+                            description = "Categoria registrada com sucesso!"
                     )
             }
     )
@@ -43,7 +43,7 @@ public class CategoryController {
             responses = {
                     @ApiResponse(
                             responseCode = "200",
-                            description = "Categorias localizadas com sucesso"
+                            description = "Categorias localizadas com sucesso!"
                     )
             }
     )
