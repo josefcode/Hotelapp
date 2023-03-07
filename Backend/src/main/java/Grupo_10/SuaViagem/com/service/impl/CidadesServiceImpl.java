@@ -48,7 +48,7 @@ public class CidadesServiceImpl implements IService<CidadesDTO> {
         CidadesEntity cidadesEntity = mapperDTOToEntity(cidadesDTO);
 
         if(iCidadesRepository.findById(id).isPresent()) {
-            cidadesEntity.setId(id);
+            cidadesEntity.setId_cidades(id);
             iCidadesRepository.save(cidadesEntity);
             return cidadesDTO;
         } else {

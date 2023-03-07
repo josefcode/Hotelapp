@@ -11,8 +11,8 @@ import javax.persistence.*;
 public class ImagensEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private int id;
+    @Column(name = "id_imagens", nullable = false)
+    private int id_imagens;
 
     @Column(nullable=false)
     private String titulo;
@@ -24,17 +24,17 @@ public class ImagensEntity {
     }
 
     public ImagensEntity(ImagensDTO imagensDTO) {
-        this.id = imagensDTO.getId();
+        this.id_imagens = imagensDTO.getId_imagens();
         this.titulo = imagensDTO.getTitulo();
         this.url = imagensDTO.getUrl();
     }
 
-    public int getId() {
-        return id;
+    public int getId_imagens() {
+        return id_imagens;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_imagens(int id_imagens) {
+        this.id_imagens = id_imagens;
     }
 
     public String getTitulo() {

@@ -3,15 +3,13 @@ package Grupo_10.SuaViagem.com.model.entity.DTO;
 import Grupo_10.SuaViagem.com.model.entity.CaracteristicasEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.Column;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CaracteristicasDTO {
 
-    @JsonIgnore
     @Column(nullable=false)
-    private int id;
+    private int id_caracteristicas;
 
     @Column(nullable=false)
     private String nome;
@@ -23,17 +21,17 @@ public class CaracteristicasDTO {
     }
 
     public CaracteristicasDTO(CaracteristicasEntity caracteristicasEntity) {
-        this.id = caracteristicasEntity.getId();
+        this.id_caracteristicas = caracteristicasEntity.getId_caracteristicas();
         this.nome = caracteristicasEntity.getNome();
         this.icone = caracteristicasEntity.getIcone();
     }
 
-    public int getId() {
-        return id;
+    public int getId_caracteristicas() {
+        return id_caracteristicas;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_caracteristicas(int id_caracteristicas) {
+        this.id_caracteristicas = id_caracteristicas;
     }
 
     public String getNome() {

@@ -13,8 +13,8 @@ import java.util.List;
 public class CidadesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private int id;
+    @Column(name = "id_cidades", nullable = false)
+    private int id_cidades;
 
     @Column(nullable=false)
     private String nome;
@@ -25,25 +25,25 @@ public class CidadesEntity {
     @Column(nullable=false)
     private String sigla;
 
-    @OneToMany(mappedBy = "cidadesEntity", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<ProdutosEntity> produtosEntityList = new ArrayList<>();
 
     public CidadesEntity() {
     }
 
     public CidadesEntity(CidadesDTO cidadesDTO) {
-        this.id = cidadesDTO.getId();
+        this.id_cidades = cidadesDTO.getId_cidades();
         this.nome = cidadesDTO.getNome();
         this.pais = cidadesDTO.getPais();
         this.sigla = cidadesDTO.getSigla();
     }
 
-    public int getId() {
-        return id;
+    public int getId_cidades() {
+        return id_cidades;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_cidades(int id_cidades) {
+        this.id_cidades = id_cidades;
     }
 
     public String getNome() {

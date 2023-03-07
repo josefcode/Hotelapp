@@ -9,9 +9,8 @@ import javax.persistence.Column;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CidadesDTO {
 
-    @JsonIgnore
     @Column(nullable=false)
-    private int id;
+    private int id_cidades;
 
     @Column(nullable=false)
     private String nome;
@@ -26,18 +25,18 @@ public class CidadesDTO {
     }
 
     public CidadesDTO(CidadesEntity cidadesEntity) {
-        this.id = cidadesEntity.getId();
+        this.id_cidades = cidadesEntity.getId_cidades();
         this.nome = cidadesEntity.getNome();
         this.pais = cidadesEntity.getPais();
         this.sigla = cidadesEntity.getSigla();
     }
 
-    public int getId() {
-        return id;
+    public int getId_cidades() {
+        return id_cidades;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_cidades(int id_cidades) {
+        this.id_cidades = id_cidades;
     }
 
     public String getNome() {

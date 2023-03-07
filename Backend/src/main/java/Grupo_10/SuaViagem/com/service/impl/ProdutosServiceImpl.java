@@ -1,8 +1,12 @@
 package Grupo_10.SuaViagem.com.service.impl;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
+import Grupo_10.SuaViagem.com.model.entity.CategoriasEntity;
+import Grupo_10.SuaViagem.com.model.entity.CidadesEntity;
 import Grupo_10.SuaViagem.com.model.entity.DTO.ProdutosDTO;
 import Grupo_10.SuaViagem.com.model.entity.ProdutosEntity;
+import Grupo_10.SuaViagem.com.repository.ICategoriasRepository;
+import Grupo_10.SuaViagem.com.repository.ICidadesRepository;
 import Grupo_10.SuaViagem.com.repository.IProdutosRepository;
 import Grupo_10.SuaViagem.com.service.IService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,12 +21,26 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
     @Autowired
     private IProdutosRepository iProdutosRepository;
 
+    @Autowired
+    private ICategoriasRepository iCategoriasRepository;
+
+    @Autowired
+    private ICidadesRepository iCidadesRepository;
+
+
     @Override
     public ProdutosDTO register(ProdutosDTO produtosDTO) throws NotFoundException {
-        ProdutosEntity produtosEntity = mapperDTOToEntity(produtosDTO);
-        produtosEntity = iProdutosRepository.save(produtosEntity);
-        ProdutosDTO produtosDTO1 = new ProdutosDTO(produtosEntity);
-        return produtosDTO1;
+        CategoriasEntity categoriasEntity = iCategoriasRepository.findById(produtosDTO.getCategoriasEntity().getId_categorias())
+                .orElseThrow(() -> new NotFoundException("Categoria não encontrada"));
+        CidadesEntity cidadeEntity = iCidadesRepository.findById(produtosDTO.getCidadesEntity().getId_cidades())
+                .orElseThrow(() -> new NotFoundException("Cidade não encontrada"));
+
+        produtosDTO.setCidadesEntity(cidadeEntity);
+        produtosDTO.setCategoriasEntity(categoriasEntity);
+        produtosDTO.getCategoriasEntity().getId_categorias(); // verificação adicionada
+        produtosDTO.getCidadesEntity().getId_cidades(); // verificação adicionada
+
+        return mapperEntityToDTO(iProdutosRepository.save(mapperDTOToEntity(produtosDTO)));
     }
 
     @Override
@@ -48,7 +66,7 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
         ProdutosEntity produtosEntity = mapperDTOToEntity(produtosDTO);
 
         if(iProdutosRepository.findById(id).isPresent()) {
-            produtosEntity.setId(id);
+            produtosEntity.setId_produtos(id);
             iProdutosRepository.save(produtosEntity);
             return produtosDTO;
         } else {
@@ -62,6 +80,29 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
         ProdutosDTO produtosDTO = mapperEntityToDTO(produtosEntity);
         return produtosDTO;
     }
+
+    public List<ProdutosDTO> findByCategoriasEntityDescricao(String category) {
+        List<ProdutosEntity> produtosEntities = iProdutosRepository.findByCategoriasEntityDescricao(category);
+        List<ProdutosDTO> produtosDTOS = new ArrayList<>();
+
+        for (ProdutosEntity produtosEntity : produtosEntities) {
+            ProdutosDTO produtosDTO = mapperEntityToDTO(produtosEntity);
+            produtosDTOS.add(produtosDTO);
+        }
+        return produtosDTOS;
+    }
+
+    public List<ProdutosDTO> findByCidadesEntityNome(String cidade) {
+        List<ProdutosEntity> produtosEntities = iProdutosRepository.findByCidadesEntityNome(cidade);
+        List<ProdutosDTO> produtosDTOS = new ArrayList<>();
+
+        for (ProdutosEntity produtosEntity : produtosEntities) {
+            ProdutosDTO produtosDTO = mapperEntityToDTO(produtosEntity);
+            produtosDTOS.add(produtosDTO);
+        }
+        return produtosDTOS;
+    }
+
 
     private ProdutosEntity mapperDTOToEntity(ProdutosDTO produtosDTO){
         ObjectMapper objectMapper = new ObjectMapper();

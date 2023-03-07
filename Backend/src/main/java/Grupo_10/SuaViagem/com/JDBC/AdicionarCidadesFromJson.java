@@ -18,10 +18,10 @@ public class AdicionarCidadesFromJson {
 
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_projeto_integrador", "root", "123456");
 
-            String insertCidadeSql = "INSERT INTO cidades (id, nome, sigla, pais) VALUES (?, ?, ?, ?)";
+            String insertCidadeSql = "INSERT INTO cidades (id_cidades, nome, sigla, pais) VALUES (?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(insertCidadeSql);
             for (CidadesDTO cidadesDTO : cidadesDTOList) {
-                preparedStatement.setInt(1, cidadesDTO.getId());
+                preparedStatement.setInt(1, cidadesDTO.getId_cidades());
                 preparedStatement.setString(2, cidadesDTO.getNome());
                 preparedStatement.setString(3, cidadesDTO.getSigla());
                 preparedStatement.setString(4, cidadesDTO.getPais());

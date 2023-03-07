@@ -1,7 +1,7 @@
 package Grupo_10.SuaViagem.com.controller;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
-import Grupo_10.SuaViagem.com.model.entity.DTO.CategoryDTO;
+import Grupo_10.SuaViagem.com.model.entity.DTO.CategoriasDTO;
 import Grupo_10.SuaViagem.com.service.impl.CategoryServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -28,12 +28,12 @@ public class CategoryController {
                     )
             }
     )
-    public ResponseEntity<CategoryDTO> register(@RequestBody CategoryDTO categoryDTO) {
+    public ResponseEntity<CategoriasDTO> register(@RequestBody CategoriasDTO categoriasDTO) {
         ResponseEntity responseEntity = null;
 
-        if(categoryDTO != null) {
-            CategoryDTO categoryDTO1 = categoryService.register(categoryDTO);
-            responseEntity = new ResponseEntity<>(categoryDTO1, HttpStatus.OK);
+        if(categoriasDTO != null) {
+            CategoriasDTO categoriasDTO1 = categoryService.register(categoriasDTO);
+            responseEntity = new ResponseEntity<>(categoriasDTO1, HttpStatus.OK);
         }
         return responseEntity;
     }
@@ -47,7 +47,7 @@ public class CategoryController {
                     )
             }
     )
-    public List<CategoryDTO> findAll() {
+    public List<CategoriasDTO> findAll() {
         return categoryService.findAll();
     }
 
@@ -75,8 +75,8 @@ public class CategoryController {
                     )
             }
     )
-    public CategoryDTO edit(@RequestBody CategoryDTO categoryDTO,@PathVariable int id){
-        return categoryService.edit(categoryDTO, id);
+    public CategoriasDTO edit(@RequestBody CategoriasDTO categoriasDTO, @PathVariable int id){
+        return categoryService.edit(categoriasDTO, id);
     }
 
     @GetMapping("/{id}")
@@ -89,7 +89,7 @@ public class CategoryController {
                     )
             }
     )
-    public ResponseEntity<CategoryDTO> findById(@PathVariable int id) throws NotFoundException {
+    public ResponseEntity<CategoriasDTO> findById(@PathVariable int id) throws NotFoundException {
         return new ResponseEntity<>(categoryService.findById(id), HttpStatus.OK);
     }
 }

@@ -9,9 +9,8 @@ import javax.persistence.Column;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ImagensDTO {
 
-    @JsonIgnore
     @Column(nullable=false)
-    private int id;
+    private int id_imagens;
 
     @Column(nullable=false)
     private String titulo;
@@ -23,17 +22,17 @@ public class ImagensDTO {
     }
 
     public ImagensDTO(ImagensEntity imagensEntity) {
-        this.id = imagensEntity.getId();
+        this.id_imagens = imagensEntity.getId_imagens();
         this.titulo = imagensEntity.getTitulo();
         this.url = imagensEntity.getUrl();
     }
 
-    public int getId() {
-        return id;
+    public int getId_imagens() {
+        return id_imagens;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_imagens(int id_imagens) {
+        this.id_imagens = id_imagens;
     }
 
     public String getTitulo() {

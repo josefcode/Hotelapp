@@ -1,7 +1,11 @@
 package Grupo_10.SuaViagem.com.controller;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
+import Grupo_10.SuaViagem.com.model.entity.CategoriasEntity;
 import Grupo_10.SuaViagem.com.model.entity.DTO.ProdutosDTO;
+import Grupo_10.SuaViagem.com.model.entity.ProdutosEntity;
+import Grupo_10.SuaViagem.com.repository.ICategoriasRepository;
+import Grupo_10.SuaViagem.com.repository.IProdutosRepository;
 import Grupo_10.SuaViagem.com.service.impl.ProdutosServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -9,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RequestMapping("/product")
@@ -17,6 +23,12 @@ public class ProdutosController {
 
     @Autowired
     private ProdutosServiceImpl produtosService;
+
+    @Autowired
+    private ICategoriasRepository categoryRepository;
+
+    @Autowired
+    private IProdutosRepository produtosRepository;
 
     @PostMapping("/register")
     @Operation(
@@ -37,6 +49,7 @@ public class ProdutosController {
         }
         return responseEntity;
     }
+
     @GetMapping("/findAll")
     @Operation(
             summary = "Localiza todos registros do produto",
@@ -75,7 +88,7 @@ public class ProdutosController {
                     )
             }
     )
-    public ProdutosDTO edit(@RequestBody ProdutosDTO produtosDTO,@PathVariable int id){
+    public ProdutosDTO edit(@RequestBody ProdutosDTO produtosDTO,@PathVariable int id) throws NotFoundException {
         return produtosService.edit(produtosDTO, id);
     }
 
@@ -91,5 +104,33 @@ public class ProdutosController {
     )
     public ResponseEntity<ProdutosDTO> findById(@PathVariable int id) throws NotFoundException {
         return new ResponseEntity<>(produtosService.findById(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/findByCategory/{name}")
+    @Operation(
+            summary = "Localiza produtos por categoria",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "Produtos por categoria localizados com sucesso!"
+                    )
+            }
+    )
+    public List<ProdutosDTO> findByCategoryEntityDescricao(@PathVariable String name) {
+        return produtosService.findByCategoriasEntityDescricao(name);
+    }
+
+    @GetMapping("/findByCidades/{name}")
+    @Operation(
+            summary = "Localiza produtos por cidade",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "Produtos por cidade localizados com sucesso!"
+                    )
+            }
+    )
+    public List<ProdutosDTO> findByCidadesEntityNome(@PathVariable String name) {
+        return produtosService.findByCidadesEntityNome(name);
     }
 }

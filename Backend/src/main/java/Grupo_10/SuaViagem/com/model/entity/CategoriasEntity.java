@@ -1,6 +1,6 @@
 package Grupo_10.SuaViagem.com.model.entity;
 
-import Grupo_10.SuaViagem.com.model.entity.DTO.CategoryDTO;
+import Grupo_10.SuaViagem.com.model.entity.DTO.CategoriasDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name  =  "categorias")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class CategoryEntity {
+public class CategoriasEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categorias", nullable = false)
@@ -24,17 +24,23 @@ public class CategoryEntity {
     @Column(nullable=false)
     private String url_imagem;
 
-    @OneToMany(mappedBy = "categoryEntity", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="categorias_produtos",
+            joinColumns={@JoinColumn(name = "categorias_id")},
+            inverseJoinColumns={@JoinColumn(name = "produtos_id")})
     private List<ProdutosEntity> produtosEntityList = new ArrayList<>();
 
-    public CategoryEntity() {
+    public CategoriasEntity() {
     }
 
-    public CategoryEntity(CategoryDTO categoryDTO) {
-        this.id_categorias = categoryDTO.getId_categorias();
-        this.qualificacao = categoryDTO.getQualificacao();
-        this.descricao = categoryDTO.getDescricao();
-        this.url_imagem = categoryDTO.getUrl_imagem();
+    public CategoriasEntity(CategoriasDTO categoriasDTO) {
+        this.id_categorias = categoriasDTO.getId_categorias();
+        this.qualificacao = categoriasDTO.getQualificacao();
+        this.descricao = categoriasDTO.getDescricao();
+        this.url_imagem = categoriasDTO.getUrl_imagem();
+    }
+
+    public CategoriasEntity(CategoriasEntity categoriasEntity) {
     }
 
     public int getId_categorias() {
@@ -43,6 +49,14 @@ public class CategoryEntity {
 
     public void setId_categorias(int id_categorias) {
         this.id_categorias = id_categorias;
+    }
+
+    public List<ProdutosEntity> getProdutosEntityList() {
+        return produtosEntityList;
+    }
+
+    public void setProdutosEntityList(List<ProdutosEntity> produtosEntityList) {
+        this.produtosEntityList = produtosEntityList;
     }
 
     public String getQualificacao() {
