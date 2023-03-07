@@ -1,0 +1,58 @@
+.calendario-container {
+    background-color: gray;
+    padding-inline: 4rem;
+    padding-block-end: 2rem;
+
+}
+
+.calendario-wrapper {
+    display: grid;
+   grid-template-columns: 1fr auto;
+   grid-template-areas: 'calender card';
+   gap: 20px;
+}
+
+.calendario-title {
+    color: var(--DB-COLOR-3);
+    padding-block: 1rem;
+}
+
+
+
+.calendario {
+    width: 100%;
+    height: 300px;
+    background-color: rgb(208, 10, 10);
+    grid-area: calender;
+}
+
+.calendario-card {
+    width: 100%;
+    background-color: white;
+    min-height: 150px;
+    height: 15px;
+    border-radius: 4px;
+    padding: 1rem;
+    grid-area: card
+}
+
+.calendario-btn {
+    width: 100%;
+    border: none;
+    height: 40px;
+    border-radius: 4px;
+    background-color: var( --DB-COLOR-PRINCIPAL);
+}
+
+@media only screen and (max-width: 600px) {
+    .calendario-container {
+        padding-inline: 1rem;
+    }
+    .calendario-wrapper {
+     
+      grid-template-columns: 1fr;
+      grid-template-areas: 'calender'
+                            'card';
+  }
+}
+  

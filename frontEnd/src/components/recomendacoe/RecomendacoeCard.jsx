@@ -2,9 +2,10 @@ import React, {useState} from 'react'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import './styles.css'
+import { Link, useParams } from 'react-router-dom';
 
-export function RecomendacoeCard(
-    {image, 
+export function RecomendacoeCard({   
+        image, 
         type ,
          stars , 
          title, 
@@ -18,6 +19,7 @@ export function RecomendacoeCard(
         verMais}) {
 
             const [showMore, setShowMore] = useState(false);
+            const id = useParams()
     return (
    
       <div className='card-container'>
@@ -75,7 +77,7 @@ export function RecomendacoeCard(
                
           
                
-                <a href={verMais} target="_blank"><button className='link-btn'>ver mais</button></a>
+                <Link to ={`/detaile-produto/${id}`}><button className='link-btn'>ver mais</button></Link>
             </div>
 
             
@@ -84,3 +86,4 @@ export function RecomendacoeCard(
   
     )
   }
+

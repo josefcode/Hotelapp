@@ -7,6 +7,9 @@ import './styles.css'
 
 
 export  function RecomendacoesCards() {
+
+  
+
   return (
     <div className='recomendacaoes-container'>
        <h2 className='recomendacaoes-title'> Recomendações </h2>
