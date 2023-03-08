@@ -1,9 +1,7 @@
 package Grupo_10.SuaViagem.com.controller;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
-import Grupo_10.SuaViagem.com.model.entity.CategoriasEntity;
 import Grupo_10.SuaViagem.com.model.entity.DTO.ProdutosDTO;
-import Grupo_10.SuaViagem.com.model.entity.ProdutosEntity;
 import Grupo_10.SuaViagem.com.repository.ICategoriasRepository;
 import Grupo_10.SuaViagem.com.repository.IProdutosRepository;
 import Grupo_10.SuaViagem.com.service.impl.ProdutosServiceImpl;
@@ -13,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RequestMapping("/product")
