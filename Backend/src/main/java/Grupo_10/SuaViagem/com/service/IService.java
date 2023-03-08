@@ -2,7 +2,6 @@ package Grupo_10.SuaViagem.com.service;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
