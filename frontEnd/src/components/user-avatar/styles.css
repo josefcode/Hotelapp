@@ -32,3 +32,12 @@
 .avatar-close {
     cursor: pointer
 }
+
+
+@media only screen and (max-width: 600px){ 
+    .avatar-container{
+        display: flex;
+       justify-content: end;
+       padding-inline-end: 2rem;    
+    }
+  }

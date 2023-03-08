@@ -162,7 +162,7 @@ export function CriarConta() {
           {userData.confirmSenha === "" && (<span id="component-error-text">Este campo é obrigatório</span>)}
 
           <div className='btn-wrapper'>
-            <button className='iniciar-btn' type='submit'>Criar conta</button>
+            <button className='iniciar-btn' type='submit'>Registrar</button>
 
             <span className='iniciar-login'>Ja tem uma Conta? <Link className='login-link' to="/iniciar-sessao">Iniciar sessão</Link></span>
           </div>
