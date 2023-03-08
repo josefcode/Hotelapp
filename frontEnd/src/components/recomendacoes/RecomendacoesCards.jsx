@@ -16,6 +16,7 @@ export  function RecomendacoesCards() {
       <div className='recomendacaoes-cards-wrapper'>
         {
             acomodacao.map(item => <RecomendacoeCard  key = {item.id} 
+              id = {item.id}
             image = {item.image}  
             alt = {item.alt} 
             type={item.type} 

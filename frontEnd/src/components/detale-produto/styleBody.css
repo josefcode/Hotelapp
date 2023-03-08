@@ -9,7 +9,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 'image image image2 image3'
                           'image image image4 image5'; 
-    gap: 10px;
+    gap:1%;
     padding-inline: 4rem
 }
 
@@ -30,37 +30,41 @@
     cursor: pointer;
 }
 
-.detail-image {
-    background: url("https://cf.bstatic.com/xdata/images/hotel/max1280x900/257366061.jpg?k=6a31a6566bf8e97dd88d1218b9ecfbcc27e11f2b1ed4436eb22f8a513269216e&o=&hp=1");
+img[id="0"] {
+    width: 100%;
     grid-area: image;
     border-radius: 10px;
     background-size: cover;
-    min-height: 350px;
+    max-height: 400px;
 }
-.detail-image2 {
-    background: url("https://cf.bstatic.com/xdata/images/hotel/max1280x900/257366061.jpg?k=6a31a6566bf8e97dd88d1218b9ecfbcc27e11f2b1ed4436eb22f8a513269216e&o=&hp=1");
+img[id="1"] {
+    width: 100%;
     grid-area: image2;
     border-radius: 10px;
     background-size: cover;
+    height: 100%;
 }
-.detail-image3 {
-    background: url("https://cf.bstatic.com/xdata/images/hotel/max1280x900/257366061.jpg?k=6a31a6566bf8e97dd88d1218b9ecfbcc27e11f2b1ed4436eb22f8a513269216e&o=&hp=1");
+img[id="2"]{
+    width: 100%;
     grid-area: image3;
     border-radius: 10px;
     background-size: cover;
+    height: 100%;
 }
 
-.detail-image4 {
-    background: url("https://cf.bstatic.com/xdata/images/hotel/max1280x900/257366061.jpg?k=6a31a6566bf8e97dd88d1218b9ecfbcc27e11f2b1ed4436eb22f8a513269216e&o=&hp=1");
+img[id="3"]{
+    width: 100%;
     grid-area: image4;
     border-radius: 10px;
     background-size: cover;
+    height: 100%;
 }
-.detail-image5 {
-    background: url("https://cf.bstatic.com/xdata/images/hotel/max1280x900/257366061.jpg?k=6a31a6566bf8e97dd88d1218b9ecfbcc27e11f2b1ed4436eb22f8a513269216e&o=&hp=1");
+img[id="4"]{
+    width: 100%;
     grid-area: image5;
     border-radius: 10px;
     background-size: cover;
+    height: 100%;
 }
 
 .image-number {
@@ -69,6 +73,13 @@
 
 .title-service {
     padding-inline: 4rem;
+
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 28px;
+    
+
 }
 
 .title-underline {
@@ -96,6 +107,10 @@
 
 .body-title {
     padding-block: 1rem;
+    font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 28px;
 }
 
 .mapa-wrapper {
@@ -120,6 +135,10 @@
 }
 .detail-card-title {
     padding-block-end: 1rem;
+    font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 28px;
 }
 .detail-card {
     flex-basis: 22%;
@@ -131,6 +150,12 @@
     visibility: visible;
 }
 
+p {
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+}
 
 @media only screen and (max-width: 600px) {
     .body-detail-media-icons {
@@ -144,12 +169,12 @@
         height: inherit;
       
     }
-    .detail-image {
+    img[id="0"] {
         border-radius: 0; 
         height: 250px;
     }
 
-    .detail-image2, .detail-image3, .detail-image4, .detail-image5 {
+   img[id="1"], img[id="2"], img[id="3"], img[id="4"] {
         display: none;
     }
     .detail-image-container {

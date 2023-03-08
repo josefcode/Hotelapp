@@ -1,5 +1,5 @@
 .calendario-container {
-    background-color: gray;
+    background-color: #54577657;
     padding-inline: 4rem;
     padding-block-end: 2rem;
 
@@ -15,6 +15,10 @@
 .calendario-title {
     color: var(--DB-COLOR-3);
     padding-block: 1rem;
+    font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 28px;
 }
 
 

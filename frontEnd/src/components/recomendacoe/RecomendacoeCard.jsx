@@ -4,7 +4,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import './styles.css'
 import { Link, useParams } from 'react-router-dom';
 
-export function RecomendacoeCard({   
+export function RecomendacoeCard({  
+        id, 
         image, 
         type ,
          stars , 
@@ -19,7 +20,7 @@ export function RecomendacoeCard({
         verMais}) {
 
             const [showMore, setShowMore] = useState(false);
-            const id = useParams()
+            // const id = useParams()
     return (
    
       <div className='card-container'>

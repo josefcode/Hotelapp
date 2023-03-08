@@ -15,8 +15,33 @@ import CarouselImage from './CarouselImage';
 
 
 
-export default function DetailBody() {
+export default function DetailBody({
+  image, 
+  facilities, 
+  description,
+  location,
+  country,
+  city,
+  mapLocation,
+  imageClass
+}) {
 
+  function classNames(classes) {
+    return Object.entries(classes)
+      .filter(([key, value]) => value)
+      .map(([key, value]) => key)
+      .join(' ');
+  }
+  
+  const classes = {
+    "detail-image": "detail-image ",
+    'detail-image2': 'detail-image2',
+    'detail-image3': 'detail-image3',
+    'detail-image4': 'detail-image4',
+    'detail-image5': 'detail-image5',
+  };
+
+  const myClassNames = classNames(classes);
   const {show, changeShow} = useShow()
 
   return (
@@ -28,11 +53,19 @@ export default function DetailBody() {
         </div>
 
         <div className='detail-image-container'>
-            <div className="detail-image"></div>
+          {
+          image?.map((item, index) => {
+          console.log(index)
+          return (
+            <img key= {index} id = {index}  src={item}  alt = "weeb"/>
+
+           ) } )
+          }
+            {/* <div className="detail-image"></div>
             <div className="detail-image2"></div>
             <div className="detail-image3"></div>
             <div className="detail-image4"></div>
-            <div className="detail-image5"></div>
+            <div className="detail-image5"></div> */}
 
         </div>
        
@@ -49,13 +82,8 @@ export default function DetailBody() {
         </div>
 
         <div className='body-detail-container'>
-            <h2 className='body-title'>Fique no coração de Buenos Aires</h2>
-            <p className='body-detail-description'>Está localizado a poucas quadras da Avenida Alvear, da Avenida Quintana, do Parque San Martín e do bairro da Recoleta. Nos arredores também existem vários locais de interesse, como a Rua Florida, o Centro Comercial Galerías Pacífico, a zona de Puerto Madero, a Plaza de Mayo e o Palácio Municipal.
-
-            Nossos clientes afirmam que esta parte de Buenos Aires é a preferida, segundo avaliações independentes.
-
-            O Hotel é um sofisticado hotel de 4 estrelas que goza de uma localização tranquila, a poucos passos de prestigiadas galerias de arte, teatros, museus e áreas comerciais. Há também WiFi gratuito.
-            A propriedade serve um café da manhã variado das 07:00 h às 10:30 h.
+            <h2 className='body-title'>{location}</h2>
+            <p className='body-detail-description'> {description}
             </p>
             </div>
 
@@ -64,31 +92,14 @@ export default function DetailBody() {
                 <div className='title-underline'></div>
                
                 <div className='services-list'>
-                  <ul className='services-list-wrapper'>
 
-                    <li>
-                      <CountertopsIcon /> Cozinha
-                    </li>
-                    <li>
-                      <LiveTvIcon /> Televisor
-                    </li>
-                    <li>
-                      <AcUnitIcon /> Ar condicionado
-                    </li>
-                    <li>
-                      <PetsIcon /> Pets
-                    </li>
-                    <li>
-                      <DirectionsCarIcon /> Cozinha
-                    </li>
-                    <li>
-                      <PoolIcon /> Piscina
-                    </li>
-                    <li>
-                      <WifiIcon /> Piscina
-                    </li>
+                  <ul className='services-list-wrapper'>
+                   {facilities?.map(item => 
+                       <li key = {item}>{item}</li>
+                   )}
 
                   </ul>
+
                 </div>
                
                 <Calendario />
@@ -99,9 +110,10 @@ export default function DetailBody() {
                 <div className='title-underline'></div>
 
                 <div className='mapa-wrapper'>
-                <p>Buenos</p>
+                <p>{city}</p>
 
                 <div className='mapa'>
+                <iframe src= {mapLocation} className='mapa' allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"/>
 
                 </div>
                 
