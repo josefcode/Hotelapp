@@ -1,13 +1,16 @@
-package Grupo_10.SuaViagem.com.model.entity.DTO;
+package Grupo_10.SuaViagem.com.model.entity;
 
-import Grupo_10.SuaViagem.com.model.entity.CategoriasEntity;
+import Grupo_10.SuaViagem.com.model.entity.DTO.CategoryDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import javax.persistence.Column;
+import javax.persistence.*;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class CategoriasDTO {
-
-    @Column(nullable=false)
+@Entity
+@Table(name  =  "categorias")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class CategoryEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_categorias", nullable = false)
     private int id_categorias;
 
     @Column(nullable=false)
@@ -19,13 +22,14 @@ public class CategoriasDTO {
     @Column(nullable=false)
     private String url_imagem;
 
-    public CategoriasDTO() {
+    public CategoryEntity() {
     }
-    public CategoriasDTO(CategoriasEntity categoriasEntity) {
-        this.id_categorias = categoriasEntity.getId_categorias();
-        this.qualificacao = categoriasEntity.getQualificacao();
-        this.descricao = categoriasEntity.getDescricao();
-        this.url_imagem = categoriasEntity.getUrl_imagem();
+
+    public CategoryEntity(CategoryDTO categoryDTO) {
+        this.id_categorias = categoryDTO.getId_categorias();
+        this.qualificacao = categoryDTO.getQualificacao();
+        this.descricao = categoryDTO.getDescricao();
+        this.url_imagem = categoryDTO.getUrl_imagem();
     }
 
     public int getId_categorias() {

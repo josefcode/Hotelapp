@@ -1,12 +1,14 @@
 package Grupo_10.SuaViagem.com.model.entity.DTO;
 
-import Grupo_10.SuaViagem.com.model.entity.CategoriasEntity;
+import Grupo_10.SuaViagem.com.model.entity.CategoryEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.Column;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CategoriasDTO {
+public class CategoryDTO {
 
+    @JsonIgnore
     @Column(nullable=false)
     private int id_categorias;
 
@@ -19,13 +21,13 @@ public class CategoriasDTO {
     @Column(nullable=false)
     private String url_imagem;
 
-    public CategoriasDTO() {
+    public CategoryDTO() {
     }
-    public CategoriasDTO(CategoriasEntity categoriasEntity) {
-        this.id_categorias = categoriasEntity.getId_categorias();
-        this.qualificacao = categoriasEntity.getQualificacao();
-        this.descricao = categoriasEntity.getDescricao();
-        this.url_imagem = categoriasEntity.getUrl_imagem();
+    public CategoryDTO(CategoryEntity categoryEntity) {
+        this.id_categorias = categoryEntity.getId_categorias();
+        this.qualificacao = categoryEntity.getQualificacao();
+        this.descricao = categoryEntity.getDescricao();
+        this.url_imagem = categoryEntity.getUrl_imagem();
     }
 
     public int getId_categorias() {
