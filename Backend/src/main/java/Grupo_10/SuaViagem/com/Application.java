@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import Grupo_10.SuaViagem.com.JDBC.AdicionarCidadesFromJson;
 
 @SpringBootApplication
 @Configuration
@@ -14,6 +15,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
+		AdicionarCidadesFromJson.adicionarCidades();
 	}
 
 	@Bean
@@ -26,5 +28,4 @@ public class Application {
 						.termsOfService("http://swagger.io/terms/")
 						.license(new License().name("Apache 2.0").url("http://springdoc.org")));
 	}
-
 }

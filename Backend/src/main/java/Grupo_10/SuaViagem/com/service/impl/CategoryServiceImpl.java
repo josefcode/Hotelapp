@@ -1,9 +1,9 @@
 package Grupo_10.SuaViagem.com.service.impl;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
-import Grupo_10.SuaViagem.com.model.entity.CategoryEntity;
-import Grupo_10.SuaViagem.com.model.entity.DTO.CategoryDTO;
-import Grupo_10.SuaViagem.com.repository.ICategoryRepository;
+import Grupo_10.SuaViagem.com.model.entity.CategoriasEntity;
+import Grupo_10.SuaViagem.com.model.entity.DTO.CategoriasDTO;
+import Grupo_10.SuaViagem.com.repository.ICategoriasRepository;
 import Grupo_10.SuaViagem.com.service.IService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,67 +12,67 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CategoryServiceImpl implements IService<CategoryDTO> {
+public class CategoryServiceImpl implements IService<CategoriasDTO> {
 
     @Autowired
-    private ICategoryRepository iCategoryRepository;
+    private ICategoriasRepository iCategoriasRepository;
 
     @Override
-    public CategoryDTO register(CategoryDTO categoryDTO) {
-        CategoryEntity categoryEntity = mapperDTOToEntity(categoryDTO);
-        categoryEntity = iCategoryRepository.save(categoryEntity);
-        CategoryDTO categoryDTO1 = new CategoryDTO(categoryEntity);
-        return categoryDTO1;
+    public CategoriasDTO register(CategoriasDTO categoriasDTO) {
+        CategoriasEntity categoriasEntity = mapperDTOToEntity(categoriasDTO);
+        categoriasEntity = iCategoriasRepository.save(categoriasEntity);
+        CategoriasDTO categoriasDTO1 = new CategoriasDTO(categoriasEntity);
+        return categoriasDTO1;
     }
 
     @Override
-    public List<CategoryDTO> findAll() {
-        List<CategoryEntity> categoryEntities = iCategoryRepository.findAll();
-        List<CategoryDTO> categoryDTOS = new ArrayList<>();
+    public List<CategoriasDTO> findAll() {
+        List<CategoriasEntity> categoryEntities = iCategoriasRepository.findAll();
+        List<CategoriasDTO> categoriasDTOS = new ArrayList<>();
 
-        for (CategoryEntity categoryEntity : categoryEntities) {
-            CategoryDTO categoryDTO = mapperEntityToDTO(categoryEntity);
-            categoryDTOS.add(categoryDTO);
+        for (CategoriasEntity categoriasEntity : categoryEntities) {
+            CategoriasDTO categoriasDTO = mapperEntityToDTO(categoriasEntity);
+            categoriasDTOS.add(categoriasDTO);
         }
-        return categoryDTOS;
+        return categoriasDTOS;
     }
 
     @Override
     public String delete(int id) {
-        iCategoryRepository.deleteById(id);
+        iCategoriasRepository.deleteById(id);
         return "Categoria removida!";
     }
 
     @Override
-    public CategoryDTO edit(CategoryDTO categoryDTO, int id) {
-        CategoryEntity categoryEntity = mapperDTOToEntity(categoryDTO);
+    public CategoriasDTO edit(CategoriasDTO categoriasDTO, int id) {
+        CategoriasEntity categoriasEntity = mapperDTOToEntity(categoriasDTO);
 
-        if(iCategoryRepository.findById(id).isPresent()) {
-            categoryEntity.setId_categorias(id);
-            iCategoryRepository.save(categoryEntity);
-            return categoryDTO;
+        if(iCategoriasRepository.findById(id).isPresent()) {
+            categoriasEntity.setId_categorias(id);
+            iCategoriasRepository.save(categoriasEntity);
+            return categoriasDTO;
         } else {
-            iCategoryRepository.save(categoryEntity);
-            return categoryDTO;
+            iCategoriasRepository.save(categoriasEntity);
+            return categoriasDTO;
         }
     }
 
     @Override
-    public CategoryDTO findById(int id) throws NotFoundException {
-        CategoryEntity categoryEntity = iCategoryRepository.findById(id).orElseThrow(()-> new NotFoundException("Categoria não encontrada com o id: " + id));
-        CategoryDTO categoryDTO = mapperEntityToDTO(categoryEntity);
-        return categoryDTO;
+    public CategoriasDTO findById(int id) throws NotFoundException {
+        CategoriasEntity categoriasEntity = iCategoriasRepository.findById(id).orElseThrow(()-> new NotFoundException("Categoria não encontrada com o id: " + id));
+        CategoriasDTO categoriasDTO = mapperEntityToDTO(categoriasEntity);
+        return categoriasDTO;
     }
 
-    private CategoryEntity mapperDTOToEntity(CategoryDTO categoryDTO){
+    private CategoriasEntity mapperDTOToEntity(CategoriasDTO categoriasDTO){
         ObjectMapper objectMapper = new ObjectMapper();
-        CategoryEntity categoryEntity = objectMapper.convertValue(categoryDTO, CategoryEntity.class);
-        return categoryEntity;
+        CategoriasEntity categoriasEntity = objectMapper.convertValue(categoriasDTO, CategoriasEntity.class);
+        return categoriasEntity;
     }
 
-    private CategoryDTO mapperEntityToDTO(CategoryEntity categoryEntity){
+    private CategoriasDTO mapperEntityToDTO(CategoriasEntity categoriasEntity){
         ObjectMapper objectMapper = new ObjectMapper();
-        CategoryDTO categoryDTO = objectMapper.convertValue(categoryEntity, CategoryDTO.class);
-        return categoryDTO;
+        CategoriasDTO categoriasDTO = objectMapper.convertValue(categoriasEntity, CategoriasDTO.class);
+        return categoriasDTO;
     }
 }
