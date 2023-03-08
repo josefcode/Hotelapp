@@ -1,9 +1,7 @@
 package Grupo_10.SuaViagem.com.model.entity.DTO;
 
 import Grupo_10.SuaViagem.com.model.entity.CidadesEntity;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.Column;
 
 @JsonIgnoreProperties(ignoreUnknown = true)

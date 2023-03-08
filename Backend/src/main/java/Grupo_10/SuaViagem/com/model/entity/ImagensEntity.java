@@ -2,7 +2,6 @@ package Grupo_10.SuaViagem.com.model.entity;
 
 import Grupo_10.SuaViagem.com.model.entity.DTO.ImagensDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 
 @Entity
