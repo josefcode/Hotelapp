@@ -41,9 +41,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/user/**").permitAll()
                 .antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+                .antMatchers("/cities/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/cities/**").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/category/**").hasAnyRole("ADMIN")
+
+
                 .antMatchers(HttpMethod.POST,"/endereco/registrar","/paciente/registrar").hasAnyRole("PACIENTE", "ADMIN")
                 .antMatchers(HttpMethod.POST,"/dentista/registrar").hasAnyRole("DENTISTA", "ADMIN")
-                .antMatchers(HttpMethod.GET,"/endereco/{id}","/consulta/{id}", "/paciente/{id}").hasAnyRole("PACIENTE", "ADMIN")
                 .antMatchers(HttpMethod.GET,"/dentista/{id}","/consulta/{id}").hasAnyRole("DENTISTA", "ADMIN")
                 .antMatchers(HttpMethod.PUT,"/endereco/{id}","/paciente/{id}").hasAnyRole("PACIENTE", "ADMIN")
                 .antMatchers(HttpMethod.PUT,"/dentista/{id}").hasAnyRole("DENTISTA", "ADMIN")
