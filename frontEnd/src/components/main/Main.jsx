@@ -23,22 +23,19 @@ export default function Main() {
   const [isHover, setIsHovered] = useState(false)
   const inputRef = useRef()
   const [produto, setProduto] = useState(false)
-  const { id } = useParams()
 
   const requestConfig = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Headers": "http://localhost:8081",
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODMxOTQ3NSwiaWF0IjoxNjc4MzE4ODc1fQ.Nzl9pvsIMPuWgulcLSlBaPkcx4uGN959IowCfO_Ssf8",
-      "mode": 'no-cors'
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODM2NjI1NywiaWF0IjoxNjc4MzY1NjU3fQ.e-R3ZvbZOH48LwnIySy-hO72LEv4xmviVNw6Dgs9uYM"
     }
   };  
 
   React.useEffect(() => {
     async function fetchData(){
 
-       const response = await fetch(`http://localhost:8081/cidades/findAll`, requestConfig)
+       const response = await fetch(`http://localhost:8081/cities/1`, requestConfig)
       
        if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -50,7 +47,7 @@ export default function Main() {
 
     fetchData()
 
-  }, [id]);
+  }, []);
 
   console.log(produto)
 
@@ -103,7 +100,7 @@ export default function Main() {
               }}>
               {isMatch && (
                 
-                <SuggestBox  produto={value} />
+                <SuggestBox  produto={produto} />
                               
               )}
 
