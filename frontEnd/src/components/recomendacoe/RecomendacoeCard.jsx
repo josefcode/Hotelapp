@@ -1,26 +1,31 @@
 import React, {useState} from 'react'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import StarIcon from '@mui/icons-material/Star';
 import './styles.css'
 import { Link, useParams } from 'react-router-dom';
+import WifiIcon from '@mui/icons-material/Wifi';
+import PoolIcon from '@mui/icons-material/Pool';
 
 export function RecomendacoeCard({  
         id, 
         image, 
         type ,
-         stars , 
          title, 
          puntaje,
         distancia,
         mapLink, 
         comment, 
-        facilities, 
         description, 
         alt, 
         verMais}) {
 
             const [showMore, setShowMore] = useState(false);
-            // const id = useParams()
+
+            const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
+
+            const facilities = [<WifiIcon/>, <PoolIcon /> ]
+          
     return (
    
       <div className='card-container'>

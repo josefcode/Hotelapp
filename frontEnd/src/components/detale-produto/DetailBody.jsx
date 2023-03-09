@@ -55,7 +55,6 @@ export default function DetailBody({
         <div className='detail-image-container'>
           {
           image?.map((item, index) => {
-          console.log(index)
           return (
             <img key= {index} id = {index}  src={item}  alt = "weeb"/>
 
