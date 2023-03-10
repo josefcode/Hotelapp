@@ -20,11 +20,11 @@ public class CidadesController {
 
     @PostMapping("/register")
     @Operation(
-            summary = "Registra uma categoria",
+            summary = "Registra uma Cidade",
             responses = {
                     @ApiResponse(
                             responseCode = "200",
-                            description = "Categoria registrada com sucesso"
+                            description = "Cidade registrada com sucesso"
                     )
             }
     )
@@ -39,11 +39,11 @@ public class CidadesController {
     }
     @GetMapping("/findAll")
     @Operation(
-            summary = "Localiza todos registros da categoria",
+            summary = "Localiza todos registros da Cidade",
             responses = {
                     @ApiResponse(
                             responseCode = "200",
-                            description = "Categorias localizadas com sucesso"
+                            description = "Cidade localizadas com sucesso"
                     )
             }
     )
@@ -53,11 +53,11 @@ public class CidadesController {
 
     @DeleteMapping("/{id}")
     @Operation(
-            summary = "Deleta registro específico da categoria",
+            summary = "Deleta registro específico da Cidade",
             responses = {
                     @ApiResponse(
                             responseCode = "200",
-                            description = "Categoria deletada com sucesso!"
+                            description = "Cidade deletada com sucesso!"
                     )
             }
     )
@@ -67,11 +67,11 @@ public class CidadesController {
 
     @PutMapping("/{id}")
     @Operation(
-            summary = "Edita registro específico da categoria",
+            summary = "Edita registro específico da Cidade",
             responses = {
                     @ApiResponse(
                             responseCode = "200",
-                            description = "Categoria editada com sucesso!"
+                            description = "Cidade editada com sucesso!"
                     )
             }
     )
@@ -81,11 +81,11 @@ public class CidadesController {
 
     @GetMapping("/{id}")
     @Operation(
-            summary = "Localiza registro específico da categoria",
+            summary = "Localiza registro específico da Cidade",
             responses = {
                     @ApiResponse(
                             responseCode = "200",
-                            description = "Categoria localizada com sucesso!"
+                            description = "Cidade localizada com sucesso!"
                     )
             }
     )

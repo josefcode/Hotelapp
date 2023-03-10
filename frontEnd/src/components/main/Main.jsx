@@ -12,9 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 // you will also need the css that comes with bootstrap-daterangepicker
 import 'bootstrap-daterangepicker/daterangepicker.css';
 import  {SuggestBox}  from '../sugest-box/index';
-
 import './styles.css'
-import { useParams } from 'react-router-dom';
 
 export default function Main() {
 
@@ -28,14 +26,14 @@ export default function Main() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODM2NjI1NywiaWF0IjoxNjc4MzY1NjU3fQ.e-R3ZvbZOH48LwnIySy-hO72LEv4xmviVNw6Dgs9uYM"
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODU4OTg4MSwiaWF0IjoxNjc4NDg5ODgxfQ.kj2TIbfoKKJjsAg_-NjZwgeHFoTV-wPqUAkbCr0L3OA"
     }
   };  
 
   React.useEffect(() => {
     async function fetchData(){
 
-       const response = await fetch(`http://localhost:8081/cities/1`, requestConfig)
+       const response = await fetch(`http://localhost:8081/cities/findAll`, requestConfig)
       
        if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -79,38 +77,30 @@ export default function Main() {
       
       />
       {focus && (
-      <ul className='suggestBox-input' 
-        onMouseEnter={()=> setIsHovered(true)} 
-        onMouseLeave={()=> setIsHovered(false)}
-        
-        >
-        {produto.map((value, index)=>{
-          const isMatch = value.nome.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
-          /* const listaValores = []
-          console.log(isMatch)
-          if(isMatch) {
-            listaValores.append(value)
-            console.log(listaValores)
-          } */
-          return(
-            <li /* className={isMatch? 'suggestBox-border':'suggestBox-border-none'} */ key={index} onClick={()=>{
-              setInputLocationValue(value.nome)
-              inputRef.current.focus()
-              setIsFocused(false)
-              }}>
-              {isMatch && (
-                
-                <SuggestBox  produto={produto} />
-                              
-              )}
+      <ul className='suggestBox-input'
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}>
+      {produto.slice(0,10).map((p, i) => {
+        const isMatch = p.nome.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
+        return (
+          <li key={i} onClick={()=>{
+            setInputLocationValue(p.nome)
+            inputRef.current.focus()
+            setIsFocused(false)
+            }}>
+            {isMatch && (
+              
+              <SuggestBox  produto={p} />
+                            
+            )}
 
-            </li>
+          </li>
+
           )
         })}
       </ul>
       )}
     </div>
-
              
             <DateRangePicker placeholder = "check in check out "><input type="text" className="form-control" /></DateRangePicker >
            
