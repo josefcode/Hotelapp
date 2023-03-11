@@ -8,10 +8,13 @@
     "@bcad1591/react-date-picker": "^0.1.1",
     "@mui/x-date-pickers": "^5.0.20",
     "@shoelace-style/shoelace": "^2.2.0",
+    "flickity": "^3.0.0",
+    "react-calendar": "^4.0.0",
     "react-datepicker": "^4.10.0",
     "react-dater": "^1.6.0",
     "react-image-gallery": "^1.2.11",
     "react-multi-date-picker": "^3.3.4",
+    "react-responsive-carousel": "^3.2.23",
     "rsuite": "^5.28.0",
     "swiper": "^9.1.0"
   }
