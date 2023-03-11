@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/CidadesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/CidadesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/security/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/security/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/server/server.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/server/server.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/categorias/CategoriasCards.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/categorias/CategoriasCards.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetaleProduto.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetaleProduto.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/recomendacoes/RecomendacoesCards.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/recomendacoes/RecomendacoesCards.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +96,7 @@
       <recent name="Grupo_10.SuaViagem.com.enums" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AdicionarCidadesFromJson">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="AdicionarCidadesFromJson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.JDBC.AdicionarCidadesFromJson" />
       <module name="SuaViagem.com" />
@@ -123,8 +125,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AdicionarCidadesFromJson" />
         <item itemvalue="Application.Application" />
+        <item itemvalue="Application.AdicionarCidadesFromJson" />
       </list>
     </recent_temporary>
   </component>
@@ -164,5 +166,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/grupo_10$AdicionarCidadesFromJson.ic" NAME="AdicionarCidadesFromJson Coverage Results" MODIFIED="1678492058006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Grupo_10.SuaViagem.com.JDBC.*</FILTER>
+    </SUITE>
   </component>
 </project>
