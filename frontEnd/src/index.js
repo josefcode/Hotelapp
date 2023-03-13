@@ -7,10 +7,11 @@ import {BrowserRouter, Routes,Route } from "react-router-dom"
 import Main from './components/main/Main';
 import { IniciaSessao } from './components/iniciar-sessao/IniciarSessao';
 import ErrorPage from './components/ErrorPage';
-import { LoginProvider} from '../src/components/hooks/useLogin'
+import { LoginProvider} from './components/hooks/useLogin'
 import { ShowProvider} from './components/hooks/useShow'
 import { CriarConta } from './components/criar-conta/CriarConta';
 import DetaleProduto from './components/detale-produto/DetaleProduto';
+import { FilterProvider } from './components/hooks/useFilterCategoria'
 
 
 
@@ -19,6 +20,7 @@ root.render(
     <BrowserRouter>
     <LoginProvider>
       <ShowProvider>
+        <FilterProvider>
     <Routes>
     <Route path='/' element={<App/>}  >
       <Route index element={<Main />}  />
@@ -28,6 +30,7 @@ root.render(
       <Route path="*" element={<ErrorPage />} />
     </Route>
 </Routes>
+</FilterProvider>
 </ShowProvider>
 </LoginProvider>
 </BrowserRouter>

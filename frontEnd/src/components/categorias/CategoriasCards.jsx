@@ -1,8 +1,11 @@
 import React from 'react'
 import { CategoriaCard } from '../categoria/CategoriaCard'
+
 import './styles.css'
 
 export  function CategoriasCards() {
+
+
 
    const [categoria, setCategoria] = React.useState([])
  
@@ -23,7 +26,7 @@ export  function CategoriasCards() {
  
    }, []);
 
-  
+
   return (
     <div className='container-categoria'>
        <h2 className='title'> Buscar por tipo de acomodação</h2>

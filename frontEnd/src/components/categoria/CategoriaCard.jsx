@@ -1,24 +1,28 @@
 
 import React from 'react'
+import { useFilterCategoria } from '../hooks/useFilterCategoria'
 import './styles.css'
 
 
 export function CategoriaCard({image, title, totals, alt}) {
+
+  const { changeFilter } = useFilterCategoria()
+
   return (
  
-    <div className='card-wrapper'>
+    <form className='card-wrapper' onClick={(e) => changeFilter(e.currentTarget.name)} name = {title}>
         <div >
-            <img className='card-image' src = {image} alt = {alt} />
+            <img className='card-image' src = {image}  alt = {alt} />
         </div>
 
         <div>
 
-          <h4 className='card-title'> {title} </h4>
+          <div className='card-title' > {title} </div>
          
-          <p className='subtitle'> {totals} </p>
+          <div className='subtitle' > {totals} </div>
       
         </div>
-    </div>
+    </form>
 
   )
 }
