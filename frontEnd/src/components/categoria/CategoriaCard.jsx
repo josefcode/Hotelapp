@@ -8,9 +8,13 @@ export function CategoriaCard({image, title, totals, alt}) {
 
   const { changeFilter } = useFilterCategoria()
 
+  function handleChange(e){
+    changeFilter(e.currentTarget.name)
+  }
+
   return (
  
-    <form className='card-wrapper' onClick={(e) => changeFilter(e.currentTarget.name)} name = {title}>
+    <form className='card-wrapper' onClick={handleChange } name = {title}>
         <div >
             <img className='card-image' src = {image}  alt = {alt} />
         </div>

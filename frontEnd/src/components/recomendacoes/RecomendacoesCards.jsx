@@ -22,7 +22,7 @@ export  function RecomendacoesCards() {
     
    }
 
-   
+   console.log(filter)
 
   React.useEffect(() => {
     async function fetchData(){
@@ -47,61 +47,61 @@ export  function RecomendacoesCards() {
   //   setProduto(filterCard)
   // }
 
-  function reader(){
-    if( filter === ""){
-      return produto.map(item => {
-        return  <RecomendacoeCard  key = {item.id} 
-        id = {item.id}
-      image = {item.image}  
-      alt = {item.alt} 
-      type={item.type} 
-      title = {item.title} 
-      puntaje = {item.puntaje} 
-      distancia={item.distancia} 
-      mapLink = {item.mapLink}
-      comment = {item.comment}
-      facilities = {item.facilities}
-      description = {item.description}
-      verMais = {item.verMais} 
-      stars = {item.stars}
-      />   
-    }
-      )
+  // function reader(){
+  //   if( filter === ""){
+  //     return produto.map(item => {
+  //       return  <RecomendacoeCard  key = {item.id} 
+  //       id = {item.id}
+  //     image = {item.image}  
+  //     alt = {item.alt} 
+  //     type={item.type} 
+  //     title = {item.title} 
+  //     puntaje = {item.puntaje} 
+  //     distancia={item.distancia} 
+  //     mapLink = {item.mapLink}
+  //     comment = {item.comment}
+  //     facilities = {item.facilities}
+  //     description = {item.description}
+  //     verMais = {item.verMais} 
+  //     stars = {item.stars}
+  //     />   
+  //   }
+  //     )
 
-  }
-   else {
-    const filterCard = produto.filter(item => item.type === filter)
-    setNewPorduto(filterCard)
+  // }
+  //  else {
+  //   const filterCard = produto.filter(item => item.type === filter)
+  //   setNewPorduto(filterCard)
 
-    newProduto.map(item => {
-      return ( 
-        <RecomendacoeCard  key = {item.id} 
-        id = {item.id}
-      image = {item.image}  
-      alt = {item.alt} 
-      type={item.type} 
-      title = {item.title} 
-      puntaje = {item.puntaje} 
-      distancia={item.distancia} 
-      mapLink = {item.mapLink}
-      comment = {item.comment}
-      facilities = {item.facilities}
-      description = {item.description}
-      verMais = {item.verMais} 
-      stars = {item.stars}
-      />
-      )
-    })
-   }
-}
+
 
 
   return (
     <div className='recomendacaoes-container'>
        <h2 className='recomendacaoes-title'> Recomendações </h2>
       <div className='recomendacaoes-cards-wrapper'>
-       {
-        reader()
+       {produto.map(item =>{
+          return ( 
+
+            <RecomendacoeCard  key = {item.id} 
+            id = {item.id}
+          image = {item.image}  
+          alt = {item.alt} 
+          type={item.type} 
+          title = {item.title} 
+          puntaje = {item.puntaje} 
+          distancia={item.distancia} 
+          mapLink = {item.mapLink}
+          comment = {item.comment}
+          facilities = {item.facilities}
+          description = {item.description}
+          verMais = {item.verMais} 
+          stars = {item.stars}
+          />
+          )
+       } 
+       )
+        
        }
            
         </div>
