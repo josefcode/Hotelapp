@@ -30,7 +30,7 @@ export default function Main() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODkwMjYwOSwiaWF0IjoxNjc4ODAyNjA5fQ.exAYDvx8Ey0TEJkUXAd8eWHpHkAnefN_WNgpoBZqeM8",
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODkwOTQyMiwiaWF0IjoxNjc4ODA5NDIyfQ._JDLlRmEhn3WLUmKZMIdqO3MslIlhyj6umLfCLj1aTE",
     }
   };
 

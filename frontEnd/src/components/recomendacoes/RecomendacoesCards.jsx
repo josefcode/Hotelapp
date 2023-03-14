@@ -14,11 +14,21 @@ export  function RecomendacoesCards() {
 
    const [categoria, setCategoria] = React.useState([])
  
+  //  const requestConfig = {
+  //   method: "GET",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODkwOTQyMiwiaWF0IjoxNjc4ODA5NDIyfQ._JDLlRmEhn3WLUmKZMIdqO3MslIlhyj6umLfCLj1aTE",
+  //   }
+  //  };
+
    React.useEffect(() => {
      async function fetchData(){
  
         const response = await fetch(`http://localhost:3004/categorias`)
        
+        //  const response = await fetch(`http://localhost:8081/product/findAll`, requestConfig)
+
         if (!response.ok) {
          throw new Error(`HTTP error! status: ${response.status}`);
        }
@@ -33,11 +43,12 @@ export  function RecomendacoesCards() {
    }, []);
 
 
-
   React.useEffect(() => {
     async function fetchData(){
 
        const response = await fetch(`http://localhost:3004/acomodacao`)
+
+      //  const response = await fetch(`http://localhost:8081/product/findByCategory/${filter}`, requestConfig)
       
        if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -60,6 +71,8 @@ export  function RecomendacoesCards() {
     const result = produto.filter((fil) => fil.type === filter)
     setNewPorduto(result)
   }, [filter, produto]);
+
+  console.log(filter)
 
   return (
     <>
