@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/server/server.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/server/server.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontEnd/src/components/categorias/CategoriasCards.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/categorias/CategoriasCards.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetaleProduto.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetaleProduto.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontEnd/src/components/recomendacoes/RecomendacoesCards.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/recomendacoes/RecomendacoesCards.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

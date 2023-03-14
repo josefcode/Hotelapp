@@ -12,7 +12,7 @@ export default function DetaleProduto() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODU4OTg4MSwiaWF0IjoxNjc4NDg5ODgxfQ.kj2TIbfoKKJjsAg_-NjZwgeHFoTV-wPqUAkbCr0L3OA"
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODg1MjU0OCwiaWF0IjoxNjc4NzUyNTQ4fQ.t12h61R93_u6HRxO4SCj21SAt96uKKb_6M8bT4P3C5E"
     }
   };  
 
