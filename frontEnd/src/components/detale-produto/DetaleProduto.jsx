@@ -8,10 +8,18 @@ export default function DetaleProduto() {
   const [produto, setProduto] = React.useState([])
   const { id } = useParams();
 
+  const requestConfig = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODg1MjU0OCwiaWF0IjoxNjc4NzUyNTQ4fQ.t12h61R93_u6HRxO4SCj21SAt96uKKb_6M8bT4P3C5E"
+    }
+  };  
+
   React.useEffect(() => {
     async function fetchData(){
 
-       const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
+       const response = await fetch(`http://localhost:8081/product/${id}`, requestConfig)
       
        if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -19,6 +27,8 @@ export default function DetaleProduto() {
        const data = await response.json()
       
       setProduto(data)
+
+      console.log(data)
     }
 
     fetchData()
@@ -26,33 +36,33 @@ export default function DetaleProduto() {
   }, [id]);
 
 
-  let value = {};
- produto.map(item => value = item)
+//   let value = {};
+//  produto.map(item => value = item)
 
  const {type, 
   location, 
   country, 
-  title, 
+  nome, 
   stars, 
   puntaje, 
   comment, 
-  facilities, 
-  image, 
-  description, 
+  facilities,
+  url_imagem, 
+  descricao, 
   distancia,
   city,
   mapLocation,
   imageClass
-} = value
+} = produto
 
 
-console.log(image)
+// console.log(image)
 
   return (
     <div className='app-main'>
         <DetailHeader
          type = {type}
-        title = {title}
+        title = {nome}
         stars = {stars} 
         puntaje = {puntaje}
         comment = {comment}
@@ -62,9 +72,9 @@ console.log(image)
         
         />
         <DetailBody 
-        image = {image} 
+        image = {url_imagem} 
         facilities = {facilities} 
-        description = {description} 
+        description = {descricao} 
         distancia = {distancia}
         location = {location}
         country = {country}

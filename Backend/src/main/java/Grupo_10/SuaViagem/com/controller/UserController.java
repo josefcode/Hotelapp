@@ -33,7 +33,7 @@ public class UserController {
             summary = "Registra usuário",
             responses = {
                     @ApiResponse(
-                            responseCode = "200",
+                            responseCode = "201",
                             description = "Usuário autenticado com sucesso"
                     )
             }

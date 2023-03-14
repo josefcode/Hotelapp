@@ -12,9 +12,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 // you will also need the css that comes with bootstrap-daterangepicker
 import 'bootstrap-daterangepicker/daterangepicker.css';
 import  {SuggestBox}  from '../sugest-box/index';
-
 import './styles.css'
-import { useParams } from 'react-router-dom';
 
 export default function Main() {
 
@@ -23,22 +21,19 @@ export default function Main() {
   const [isHover, setIsHovered] = useState(false)
   const inputRef = useRef()
   const [produto, setProduto] = useState(false)
-  const { id } = useParams()
 
   const requestConfig = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Headers": "http://localhost:8081",
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODMxOTQ3NSwiaWF0IjoxNjc4MzE4ODc1fQ.Nzl9pvsIMPuWgulcLSlBaPkcx4uGN959IowCfO_Ssf8",
-      "mode": 'no-cors'
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODg1MjU0OCwiaWF0IjoxNjc4NzUyNTQ4fQ.t12h61R93_u6HRxO4SCj21SAt96uKKb_6M8bT4P3C5E"
     }
   };  
 
   React.useEffect(() => {
     async function fetchData(){
 
-       const response = await fetch(`http://localhost:8081/cidades/findAll`, requestConfig)
+       const response = await fetch(`http://localhost:8081/cities/findAll`, requestConfig)
       
        if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -50,7 +45,7 @@ export default function Main() {
 
     fetchData()
 
-  }, [id]);
+  }, []);
 
   console.log(produto)
 
@@ -82,38 +77,30 @@ export default function Main() {
       
       />
       {focus && (
-      <ul className='suggestBox-input' 
-        onMouseEnter={()=> setIsHovered(true)} 
-        onMouseLeave={()=> setIsHovered(false)}
-        
-        >
-        {produto.map((value, index)=>{
-          const isMatch = value.nome.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
-          /* const listaValores = []
-          console.log(isMatch)
-          if(isMatch) {
-            listaValores.append(value)
-            console.log(listaValores)
-          } */
-          return(
-            <li /* className={isMatch? 'suggestBox-border':'suggestBox-border-none'} */ key={index} onClick={()=>{
-              setInputLocationValue(value.nome)
-              inputRef.current.focus()
-              setIsFocused(false)
-              }}>
-              {isMatch && (
-                
-                <SuggestBox  produto={value} />
-                              
-              )}
+      <ul className='suggestBox-input'
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}>
+      {produto.slice(0,10).map((p, i) => {
+        const isMatch = p.nome.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
+        return (
+          <li key={i} onClick={()=>{
+            setInputLocationValue(p.nome)
+            inputRef.current.focus()
+            setIsFocused(false)
+            }}>
+            {isMatch && (
+              
+              <SuggestBox  produto={p} />
+                            
+            )}
 
-            </li>
+          </li>
+
           )
         })}
       </ul>
       )}
     </div>
-
              
             <DateRangePicker placeholder = "check in check out "><input type="text" className="form-control" /></DateRangePicker >
            
