@@ -29,7 +29,7 @@ export  function Calendario() {
    </div>
     </div>
         <div className='calendario-card'>
-            <p>Adicione as Datas da sua viagem </p>
+            <p>Adicione as Datas de sua viagem</p>
 
             <button className='calendario-btn' >Iniciar reserva</button>
         </div>

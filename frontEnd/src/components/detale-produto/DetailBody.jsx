@@ -59,7 +59,7 @@ export default function DetailBody({
             </div>
 
             <div>
-                <h1 className='title-service'>O que esse lugar</h1>
+                <h1 className='title-service'>Características</h1>
                 <div className='title-underline'></div>
                
                 <div className='services-list'>
@@ -77,7 +77,7 @@ export default function DetailBody({
                 
                 {/* mapa */}
                 <div >
-                 <h1 className='title-service'>O que esse lugar</h1>
+                 <h1 className='title-service'>Localização</h1>
                 <div className='title-underline'></div>
 
                 <div className='mapa-wrapper'>
@@ -95,14 +95,14 @@ export default function DetailBody({
 
                 <div>
 
-                    <h1 className='title-service'>O que voce precisa saber:</h1>
+                    <h1 className='title-service'>Políticas</h1>
                     <div className='title-underline'></div>
 
                     <div className='detail-card-container'>
 
                        <div className='detail-card'>
 
-                          <h3 className='detail-card-title' >Regras da casa</h3>
+                          <h3 className='detail-card-title' >Políticas 1</h3>
                           <p>Check-out: 10: 00</p>
                           <p>Noa e permitido festas</p>
                           <p>Nao fumar</p>
@@ -110,7 +110,7 @@ export default function DetailBody({
 
                        <div className='detail-card'>
 
-                          <h3 className='detail-card-title' >Regras da casa</h3>
+                          <h3 className='detail-card-title' >Políticas 2</h3>
                           <p>Check-out: 10: 00</p>
                           <p>Noa e permitido festas</p>
                           <p>Nao fumar</p>
@@ -118,7 +118,7 @@ export default function DetailBody({
 
                        <div className='detail-card'>
 
-                          <h3 className='detail-card-title' >Regras da casa</h3>
+                          <h3 className='detail-card-title' >Políticas 3</h3>
                           <p>Check-out: 10: 00</p>
                           <p>Noa e permitido festas</p>
                           <p>Nao fumar</p>

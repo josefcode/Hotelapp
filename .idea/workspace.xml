@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/security/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/security/JwtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/server/server.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/server/server.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/Calendario.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/Calendario.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetailBody.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetailBody.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/sugest-box/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/sugest-box/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,5 +167,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/grupo_10$AdicionarCidadesFromJson.ic" NAME="AdicionarCidadesFromJson Coverage Results" MODIFIED="1678492058006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Grupo_10.SuaViagem.com.JDBC.*</FILTER>
+    </SUITE>
   </component>
 </project>

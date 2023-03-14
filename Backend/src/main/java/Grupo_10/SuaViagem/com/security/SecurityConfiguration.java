@@ -38,23 +38,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
+        http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers("/user/**").permitAll()
                 .antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                 .antMatchers("/cities/**").permitAll()
+                .antMatchers("/category/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/cities/**").hasAnyRole("ADMIN")
                 .antMatchers(HttpMethod.GET,"/category/**").hasAnyRole("ADMIN")
-
-
-                .antMatchers(HttpMethod.POST,"/endereco/registrar","/paciente/registrar").hasAnyRole("PACIENTE", "ADMIN")
-                .antMatchers(HttpMethod.POST,"/dentista/registrar").hasAnyRole("DENTISTA", "ADMIN")
-                .antMatchers(HttpMethod.GET,"/dentista/{id}","/consulta/{id}").hasAnyRole("DENTISTA", "ADMIN")
-                .antMatchers(HttpMethod.PUT,"/endereco/{id}","/paciente/{id}").hasAnyRole("PACIENTE", "ADMIN")
-                .antMatchers(HttpMethod.PUT,"/dentista/{id}").hasAnyRole("DENTISTA", "ADMIN")
-                .antMatchers(HttpMethod.POST,"/consulta/cadastrar").hasAnyRole("ADMIN")
-                .antMatchers(HttpMethod.GET,"/consulta/{id}", "/consulta/buscar").hasAnyRole("ADMIN")
-                .antMatchers(HttpMethod.PUT,"/consulta/{id}").hasAnyRole("ADMIN")
-                .antMatchers(HttpMethod.DELETE,"/consulta/{id}","/endereco/{id}","/paciente/{id}").hasAnyRole("ADMIN")
                 .anyRequest()
                 .authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
