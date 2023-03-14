@@ -1,28 +1,38 @@
 import React from 'react'
 import { RecomendacoeCard } from '../recomendacoe/RecomendacoeCard'
-import { useFilterCategoria } from '../hooks/useFilterCategoria'
 import './styles.css'
-
-
 
 
 
 export  function RecomendacoesCards() {
 
-  const { filter } = useFilterCategoria()
    const [produto, setProduto] = React.useState([])
+
    const [newProduto, setNewPorduto] = React.useState([])
 
-   function handleFilter(fil){
+   const [filter, setFilter ] = React.useState('')
 
-    if(fil === ""){
-      setProduto(produto)
-      return;
-    }
-    
-   }
+   const [categoria, setCategoria] = React.useState([])
+ 
+   React.useEffect(() => {
+     async function fetchData(){
+ 
+        const response = await fetch(`http://localhost:3004/categorias`)
+       
+        if (!response.ok) {
+         throw new Error(`HTTP error! status: ${response.status}`);
+       }
+        const data = await response.json()
+       
+        setCategoria(data)
+      
+     }
+ 
+     fetchData()
+ 
+   }, []);
 
-   console.log(filter)
+
 
   React.useEffect(() => {
     async function fetchData(){
@@ -35,52 +45,58 @@ export  function RecomendacoesCards() {
        const data = await response.json()
 
        setProduto(data)
+       setNewPorduto(data)
     }
     fetchData()
 
   }, []);
 
-
-  //   const filterCard = produto.filter(item => item.type === filter)
-
-           
-  //   setProduto(filterCard)
-  // }
-
-  // function reader(){
-  //   if( filter === ""){
-  //     return produto.map(item => {
-  //       return  <RecomendacoeCard  key = {item.id} 
-  //       id = {item.id}
-  //     image = {item.image}  
-  //     alt = {item.alt} 
-  //     type={item.type} 
-  //     title = {item.title} 
-  //     puntaje = {item.puntaje} 
-  //     distancia={item.distancia} 
-  //     mapLink = {item.mapLink}
-  //     comment = {item.comment}
-  //     facilities = {item.facilities}
-  //     description = {item.description}
-  //     verMais = {item.verMais} 
-  //     stars = {item.stars}
-  //     />   
-  //   }
-  //     )
-
-  // }
-  //  else {
-  //   const filterCard = produto.filter(item => item.type === filter)
-  //   setNewPorduto(filterCard)
-
-
-
+  
+  React.useEffect(() => {
+    if(filter === ""){
+       setNewPorduto(produto)
+       return;
+    }
+    const result = produto.filter((fil) => fil.type === filter)
+    setNewPorduto(result)
+  }, [filter, produto]);
 
   return (
+    <>
+    <div className='container-categoria'>
+       <h2 className='title'> Buscar por tipo de acomodação</h2>
+       <button className = "tudo-btn" onClick = {() => setFilter('')}>Tudo</button>
+      <div className='cards-wrapper'>
+      
+        {
+          categoria.map(item =>  
+              
+            <form  key = {item.id} className='card-wrapper' onClick={(e) => setFilter(e.currentTarget.name) } name = {item.name}>  
+
+            <div >
+                <img className='card-image' src = {item.image}  alt = {item.alt} />
+            </div>
+    
+            <div>
+    
+              <div className='card-title' > {item.name} </div>
+             
+              <div className='subtitle' > {item.totals} </div>
+          
+            </div>
+            </form>
+        
+             )
+        }
+        
+        </div>
+        
+    </div>
+
     <div className='recomendacaoes-container'>
        <h2 className='recomendacaoes-title'> Recomendações </h2>
       <div className='recomendacaoes-cards-wrapper'>
-       {produto.map(item =>{
+       {newProduto.map(item =>{
           return ( 
 
             <RecomendacoeCard  key = {item.id} 
@@ -105,6 +121,8 @@ export  function RecomendacoesCards() {
        }
            
         </div>
-        </div>
+        
+   </div>
+        </>
   )
 }

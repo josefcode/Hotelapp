@@ -25,38 +25,38 @@ export default function Main() {
   const [produto, setProduto] = useState(false)
   const { id } = useParams()
 
-  // const requestConfig = {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     "Access-Control-Allow-Headers": "http://localhost:8081",
-  //     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODMxOTQ3NSwiaWF0IjoxNjc4MzE4ODc1fQ.Nzl9pvsIMPuWgulcLSlBaPkcx4uGN959IowCfO_Ssf8",
-  //     "mode": 'no-cors'
-  //   }
-  // };  
+  const requestConfig = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Headers": "http://localhost:8081",
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODMxOTQ3NSwiaWF0IjoxNjc4MzE4ODc1fQ.Nzl9pvsIMPuWgulcLSlBaPkcx4uGN959IowCfO_Ssf8",
+      "mode": 'no-cors'
+    }
+  };  
 
-  // React.useEffect(() => {
-  //   async function fetchData(){
+  React.useEffect(() => {
+    async function fetchData(){
 
-  //      const response = await fetch(`http://localhost:8081/cidades/findAll`, requestConfig)
+       const response = await fetch(`http://localhost:8081/cidades/findAll`, requestConfig)
       
-  //      if (!response.ok) {
-  //       throw new Error(`HTTP error! status: ${response.status}`);
-  //     }
-  //      const data = await response.json()
+       if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+       const data = await response.json()
       
-  //     setProduto(data)
-  //   }
+      setProduto(data)
+    }
 
-  //   fetchData()
+    fetchData()
 
-  // }, [id]);
+  }, [id]);
 
-  // console.log(produto)
+  console.log(produto)
 
 
   return (
-    <>
+   
 
     <main className='app-main'>
     <div className='searchBox-container'>
@@ -64,6 +64,55 @@ export default function Main() {
         <h2 className='searchBox-title'>Buscar ofertas em hotéis, casas e muito mais!</h2>
 
         <form className='searchBox-form'>
+        <div className='searchSuggestBox-div'>
+      <TextField  className='location-input' type = "search" placeholder='Onde Vamos?' 
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <LocationOnIcon />
+          </InputAdornment>
+        ),
+      }}
+      size = 'small'
+      onFocus={()=>setIsFocused(true)}
+      onBlur={()=>isHover? "":setIsFocused(false)}
+      value={inputLocationValue}
+      onChange={c => setInputLocationValue(c.target.value)}
+      ref={inputRef}
+      
+      />
+      {focus && (
+      <ul className='suggestBox-input' 
+        onMouseEnter={()=> setIsHovered(true)} 
+        onMouseLeave={()=> setIsHovered(false)}
+        
+        >
+        {inputLocationValue.map((value, index)=>{
+          const isMatch = value.cidade.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
+          /* const listaValores = []
+          console.log(isMatch)
+          if(isMatch) {
+            listaValores.append(value)
+            console.log(listaValores)
+          } */
+          return(
+            <li /* className={isMatch? 'suggestBox-border':'suggestBox-border-none'} */ key={index} onClick={()=>{
+              setInputLocationValue(value.cidade)
+              inputRef.current.focus()
+              setIsFocused(false)
+              }}>
+              {isMatch && (
+                
+                <SuggestBox  lista={value} />
+                              
+              )}
+
+            </li>
+          )
+        })}
+      </ul>
+      )}
+    </div>
 
 
              
@@ -73,12 +122,11 @@ export default function Main() {
             </form>
         </div>
 
-        <CategoriasCards />
-    
+       
         <RecomendacoesCards />
      
       </main>
 
-      </>
+ 
   )
 }
