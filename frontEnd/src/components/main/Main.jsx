@@ -27,7 +27,23 @@ export default function Main() {
     {cidade:"Salvador", pais:"Brasil"},
     {cidade:"Recife", pais:"Brasil"},
     {cidade:"Natal", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"}
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
   ]
 
 
