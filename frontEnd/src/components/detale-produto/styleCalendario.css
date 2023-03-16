@@ -1,5 +1,5 @@
 .calendario-container {
-    background-color: #54577657;
+    background-color: var(  --text-color-header-footer);
     padding-inline: 4rem;
     padding-block-end: 2rem;
 
@@ -14,7 +14,7 @@
 }
 
 .calendario-title {
-    color: var(--DB-COLOR-3);
+    color: var(--searchBar-colo);
     padding-block: 1rem;
     font-style: normal;
 font-weight: 700;
@@ -55,7 +55,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .react-calendar__navigation__arrow  {
-    background: var(--DB-COLOR-PRINCIPAL)  !important;
+    background: var(--color-header-footer)  !important;
     min-width: 40px;
     min-height: 40px;
     border-radius: 50% !important;
@@ -72,8 +72,8 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 .calendario-card {
     width: 100%;
     background-color: white;
-    min-height: 150px;
-    height: 15px;
+    min-height: 90px;
+  
     border-radius: 4px;
     padding: 1rem;
     grid-area: card;
@@ -85,7 +85,8 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: none;
     min-height: 40px;
     border-radius: 4px;
-    background-color: var( --DB-COLOR-PRINCIPAL);
+    background-color: var( --color-header-footer);
+    color: white;
 }
 
 @media only screen and (max-width: 600px) {
