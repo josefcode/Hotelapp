@@ -1,4 +1,5 @@
-import React from 'react'
+
+import React, {useRef} from 'react'
 import { RecomendacoeCard } from '../recomendacoe/RecomendacoeCard'
 import './styles.css'
 
@@ -51,6 +52,23 @@ export  function RecomendacoesCards() {
 
   }, []);
 
+  const ref = useRef(null)
+
+  React.useEffect(()=>{
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true)
+    };
+  }, [])
+  
+  const handleClickOutside = (event) => {
+ 
+    if(ref.current && !ref.current.contains(event.target)){
+      setFilter("")
+    }
+  
+  };
+
   
   React.useEffect(() => {
     if(filter === ""){
@@ -62,16 +80,15 @@ export  function RecomendacoesCards() {
   }, [filter, produto]);
 
   return (
-    <>
+    <div >
     <div className='container-categoria'>
        <h2 className='title'> Buscar por tipo de acomodação</h2>
-       <button className = "tudo-btn" onClick = {() => setFilter('')}>Tudo</button>
       <div className='cards-wrapper'>
       
         {
           categoria.map(item =>  
               
-            <form  key = {item.id} className='card-wrapper' onClick={(e) => setFilter(e.currentTarget.name) } name = {item.name}>  
+            <form  ref = {ref}  key = {item.id} className='card-wrapper' onClick={(e) => setFilter(e.currentTarget.name) } name = {item.name}>  
 
             <div >
                 <img className='card-image' src = {item.image}  alt = {item.alt} />
@@ -123,6 +140,6 @@ export  function RecomendacoesCards() {
         </div>
         
    </div>
-        </>
+        </div>
   )
 }

@@ -81,8 +81,8 @@ export function CriarConta() {
   };
 
   return (
-    <>
       <div className='iniciar-session-container'>
+        
         <h1 className='iniciar-title'>Criar conta</h1>
         <form className='iniciar-form' onSubmit={handleSubmit} >
           <div className='iniciar-nome-sobreNome'>
@@ -167,8 +167,9 @@ export function CriarConta() {
             <span className='iniciar-login'>Ja tem uma Conta? <Link className='login-link' to="/iniciar-sessao">Iniciar sessão</Link></span>
           </div>
         </form>
+       
       </div>
-      <Footer />
-    </>
+      // <Footer />
+
   )
 }

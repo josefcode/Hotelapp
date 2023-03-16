@@ -1,4 +1,4 @@
-import './styles.css'
+
 import React, { useState } from 'react'
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -7,9 +7,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from '../hooks/useLogin'
-
-import './styles.css'
-import { TextField } from '@mui/material';
+import './style.css'
 
 export function IniciaSessao() {
 
@@ -118,6 +116,7 @@ export function IniciaSessao() {
           <span className='iniciar-login'>Ainda não tem conta? <Link className='login-link' to="/criar-conta">Registre-se</Link></span>
         </div>
       </form>
+
     </div>
   )
 }

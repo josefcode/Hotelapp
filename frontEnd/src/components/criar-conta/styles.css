@@ -4,7 +4,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-   height: 100%;
+    grid-area: main;
+    padding-block: 2rem;
 
 }
 
@@ -19,13 +20,14 @@
     grid-template-columns: 1fr;
     align-items: center;
     justify-content: center;
+  
     
 }
 
 .iniciar-nome-sobreNome {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: auto auto;
+    gap: 3px;
 }
 
 
@@ -33,14 +35,13 @@ label {
     font-size: var(--text1);
     color: var(--DB-COLOR-2);
     font-weight: 500;
-    line-height: 2.5rem;
 }
 
 .iniciar-login {
     color: var(--DB-COLOR-2);
     font-size: var(--text1);
     font-weight: 500;
-    margin-block-start: 1rem;
+    margin-block-start: 0.5rem;
 }
 
 .login-link{
@@ -79,7 +80,7 @@ label {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-block-start: 1rem;
+    margin-block-start: 0.5rem;
 }
 
 #component-error-text{

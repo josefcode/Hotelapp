@@ -14,7 +14,6 @@ import 'bootstrap-daterangepicker/daterangepicker.css';
 import  {SuggestBox}  from '../sugest-box/index';
 
 import './styles.css'
-import { useParams } from 'react-router-dom';
 
 export default function Main() {
 
@@ -22,41 +21,17 @@ export default function Main() {
   const [inputLocationValue, setInputLocationValue] = useState("")
   const [isHover, setIsHovered] = useState(false)
   const inputRef = useRef()
-  const [produto, setProduto] = useState(false)
-  const { id } = useParams()
 
-  const requestConfig = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Headers": "http://localhost:8081",
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODMxOTQ3NSwiaWF0IjoxNjc4MzE4ODc1fQ.Nzl9pvsIMPuWgulcLSlBaPkcx4uGN959IowCfO_Ssf8",
-      "mode": 'no-cors'
-    }
-  };  
 
-  React.useEffect(() => {
-    async function fetchData(){
-
-       const response = await fetch(`http://localhost:8081/cidades/findAll`, requestConfig)
-      
-       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-       const data = await response.json()
-      
-      setProduto(data)
-    }
-
-    fetchData()
-
-  }, [id]);
-
-  console.log(produto)
+  const lista = [
+    {cidade:"Salvador", pais:"Brasil"},
+    {cidade:"Recife", pais:"Brasil"},
+    {cidade:"Natal", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"}
+  ]
 
 
   return (
-   
 
     <main className='app-main'>
     <div className='searchBox-container'>
@@ -87,7 +62,7 @@ export default function Main() {
         onMouseLeave={()=> setIsHovered(false)}
         
         >
-        {inputLocationValue.map((value, index)=>{
+        {lista.map((value, index)=>{
           const isMatch = value.cidade.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
           /* const listaValores = []
           console.log(isMatch)
@@ -114,13 +89,13 @@ export default function Main() {
       )}
     </div>
 
-
              
             <DateRangePicker placeholder = "check in check out "><input type="text" className="form-control" /></DateRangePicker >
            
             <button className='searchBox-btn'>Buscar</button>
             </form>
         </div>
+
 
        
         <RecomendacoesCards />

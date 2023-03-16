@@ -1,7 +1,7 @@
 
 
   .menu-button {
-    background: var(--DB-COLOR-PRINCIPAL);
+    background: var(--color-header-footer);
     color: var(--white-color);
     width: 206px;
     height: 32px;

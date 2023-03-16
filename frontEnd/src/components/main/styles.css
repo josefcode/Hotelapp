@@ -5,14 +5,9 @@
     overflow-x: hidden; 
   }
 
-  /* .recomendacaoes-section{
-    background: rgba(56, 59, 88, 0.1);
-    height: 100vh;
-    width: 100vw;
-} */
 
 .searchBox-container{
-  background-color: #545776;
+  background-color: var( --searchBar-color);
   padding-block: 10px;
   padding-inline: 4rem;
   min-height: 150px;
@@ -23,7 +18,7 @@
 
 .searchBox-title {
   text-align: center;
-  color: var(--white-color);
+  color: var(--text-color-header-footer);
 }
 
 .location-input {
@@ -37,7 +32,7 @@
   width: 100%;
 }
 .searchBox-btn {
-  background-color: var(--DB-COLOR-PRINCIPAL);
+  background-color: var(--color-header-footer);
   color: var(--white-color);
   font-weight: 700;
   border: transparent;
