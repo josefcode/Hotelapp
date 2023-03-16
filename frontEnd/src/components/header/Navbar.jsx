@@ -42,7 +42,7 @@ export default function Navbar() {
     <header className="navbar-header">
       <nav className="navbar">
         <Link to="/">
-          <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" />
+          {/* <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" /> */}
           <span className='navbar-logo-title'>SuaViagem.com</span>
         </Link>
         <MenuIcon className="menu-icon" />
