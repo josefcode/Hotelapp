@@ -38,19 +38,19 @@ public class JwtUtil {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userDetails.getUsername());
+        return createToken(claims, userDetails.getPassword());
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
                 //Tempo de duração
-                .setExpiration(new Date(System.currentTimeMillis() + 10000 * 10000))
+                .setExpiration(new Date(System.currentTimeMillis() + 10000 * 100))
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUserName(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        return (username.equals(userDetails.getPassword()) && !isTokenExpired(token));
     }
 
     private boolean isTokenExpired(String token) {

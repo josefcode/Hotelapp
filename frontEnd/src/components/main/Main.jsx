@@ -26,18 +26,10 @@ export default function Main() {
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams()
 
-  const requestConfig = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODkwOTQyMiwiaWF0IjoxNjc4ODA5NDIyfQ._JDLlRmEhn3WLUmKZMIdqO3MslIlhyj6umLfCLj1aTE",
-    }
-  };
-
   React.useEffect(() => {
     async function fetchData() {
       setIsLoading(true); // altera o valor de isLoading para true
-      const response = await fetch(`http://localhost:8081/cities/findAll`, requestConfig)
+      const response = await fetch(`http://localhost:8081/cities/findAll`)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

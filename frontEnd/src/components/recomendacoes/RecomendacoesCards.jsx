@@ -16,20 +16,12 @@ export  function RecomendacoesCards() {
 
    const totals = "807.105 hotéis"
  
-  //  const requestConfig = {
-  //   method: "GET",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0ZV9Vc2VybmFtZSIsImV4cCI6MTY3ODkwOTQyMiwiaWF0IjoxNjc4ODA5NDIyfQ._JDLlRmEhn3WLUmKZMIdqO3MslIlhyj6umLfCLj1aTE",
-  //   }
-  //  };
-
    React.useEffect(() => {
      async function fetchData(){
  
-         const response = await fetch(`http://localhost:3004/categorias`)
+        // const response = await fetch(`http://localhost:3004/categorias`)
        
-        //  const response = await fetch(`http://localhost:8081/category/findAll/`, requestConfig)
+        const response = await fetch(`http://localhost:8081/category/findAll/`)
 
         if (!response.ok) {
          throw new Error(`HTTP error! status: ${response.status}`);
@@ -47,9 +39,9 @@ export  function RecomendacoesCards() {
   React.useEffect(() => {
     async function fetchData(){
 
-        const response = await fetch(`http://localhost:3004/acomodacao`)
+       // const response = await fetch(`http://localhost:3004/acomodacao`)
 
-        // const response = await fetch(`http://localhost:8081/product/findAll/`, requestConfig)
+       const response = await fetch(`http://localhost:8081/product/findAll/`)
       
        if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -58,6 +50,8 @@ export  function RecomendacoesCards() {
 
        setProduto(data)
        setNewPorduto(data)
+
+       console.log(produto)
     }
     fetchData()
 
@@ -86,8 +80,8 @@ export  function RecomendacoesCards() {
        setNewPorduto(produto)
        return;
     }
-    const result = produto.filter((fil) => fil.type === filter)
-    // const result = produto.filter((fil) => fil.categoriasEntity.descricao === filter)
+    // const result = produto.filter((fil) => fil.type === filter)
+    const result = produto.filter((fil) => fil.categoriasEntity.descricao === filter)
     setNewPorduto(result)
   }, [filter, produto]);
 
@@ -102,22 +96,22 @@ export  function RecomendacoesCards() {
         {
           categoria.map(item =>  
               
-            <form  ref = {ref} key = {item.id} className='card-wrapper' onClick={(e) => setFilter(e.currentTarget.name) } name = {item.name}>  
-            {/* <form  ref = {ref} key = {item.id_categorias} className='card-wrapper' onClick={(e) => setFilter(e.currentTarget.name) } name = {item.descricao}>   */}
+            // <form  ref = {ref} key = {item.id} className='card-wrapper' onClick={(e) => setFilter(e.currentTarget.name) } name = {item.name}>  
+            <form  ref = {ref} key = {item.id_categorias} className='card-wrapper' onClick={(e) => setFilter(e.currentTarget.name) } name = {item.descricao}>  
 
 
             <div >
-                <img className='card-image' src = {item.image}  alt = {item.alt} />
-                {/* <img className='card-image' src = {item.url_imagem}  alt = {item.alt} /> */}
+                {/* <img className='card-image' src = {item.image}  alt = {item.alt} /> */}
+                <img className='card-image' src = {item.url_imagem}  alt = {item.alt} />
             </div>
     
             <div>
     
-              <div className='card-title' > {item.name} </div>
-              {/* <div className='card-title' > {item.descricao} </div> */}
+              {/* <div className='card-title' > {item.name} </div> */}
+              <div className='card-title' > {item.descricao} </div>
 
-              <div className='subtitle' > {item.totals} </div>
-              {/* <div className='subtitle' > {totals} </div> */}
+              {/* <div className='subtitle' > {item.totals} </div> */}
+              <div className='subtitle' > {totals} </div>
 
             </div>
             </form>
@@ -135,21 +129,37 @@ export  function RecomendacoesCards() {
        {newProduto.map(item =>{
           return ( 
 
-            <RecomendacoeCard  key = {item.id} 
-          id = {item.id}
-        image = {item.image}  
-        alt = {item.alt} 
-        type={item.type} 
-        title = {item.title} 
-        puntaje = {item.puntaje} 
-        distancia={item.distancia} 
-        mapLink = {item.mapLink}
-        comment = {item.comment}
-        facilities = {item.facilities}
-        description = {item.description}
-        verMais = {item.verMais} 
-        stars = {item.stars}
-        />
+        //     <RecomendacoeCard  key = {item.id} 
+        //   id = {item.id}
+        // image = {item.image}  
+        // alt = {item.alt} 
+        // type={item.type} 
+        // title = {item.title} 
+        // puntaje = {item.puntaje} 
+        // distancia={item.distancia} 
+        // mapLink = {item.mapLink}
+        // comment = {item.comment}
+        // facilities = {item.facilities}
+        // description = {item.description}
+        // verMais = {item.verMais} 
+        // stars = {item.stars}
+        // />
+
+        <RecomendacoeCard  key = {item.id_produtos} 
+            id = {item.id_produtos}
+          image = {item.categoriasEntity.url_imagem}  
+          alt = {item.alt} 
+          type={item.categoriasEntity.descricao} 
+          title = {item.nome} 
+          puntaje = {item.puntaje} 
+          distancia={item.distancia} 
+          mapLink = {item.mapLink}
+          comment = {item.comment}
+          facilities = {item.facilities}
+          description = {item.descricao}
+          verMais = {item.verMais} 
+          stars = {item.stars}
+          />
 
           )
        } 

@@ -41,14 +41,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers("/user/**").permitAll()
                 .antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                .antMatchers("/cities/**").permitAll()
-                .antMatchers("/category/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/cities/**").hasAnyRole("ADMIN")
-                .antMatchers(HttpMethod.GET,"/category/**").hasAnyRole("ADMIN")
-                .anyRequest()
-                .authenticated().and()
+//                .antMatchers("/cities/**").permitAll()
+//                .antMatchers("/category/**").permitAll()
+//                .antMatchers(HttpMethod.GET,"/cities/**").hasAnyRole("ADMIN")
+//                .antMatchers(HttpMethod.GET,"/category/**").hasAnyRole("ADMIN")
+//                .anyRequest().authenticated()
+                .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+//        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override

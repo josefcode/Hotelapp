@@ -20,14 +20,14 @@ public class UserServiceImpl implements UserDetailsService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
     }
 
     public Boolean create(UserDTO userDTO){
         UserEntity userEntity = new UserEntity(userDTO);
-        String password = bCryptPasswordEncoder.encode(userEntity.getPassword());
-        userEntity.setPassword(password);
+        String senha = bCryptPasswordEncoder.encode(userEntity.getPassword());
+        userEntity.setSenha(senha);
 
         try{
             userRepository.save((userEntity));
