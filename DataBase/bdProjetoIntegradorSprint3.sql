@@ -126,11 +126,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_projeto_integrador`.`usuarios` (
   `id_usuario` INT NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(250) NOT NULL,
   `nome` VARCHAR(250) NOT NULL,
-  `senha` VARCHAR(25) NOT NULL,
-  `user_roles` VARCHAR(50) NOT NULL,
   `sobrenome` VARCHAR(250) NOT NULL,
+  `email` VARCHAR(250) NOT NULL,
+  `senha` VARCHAR(25) NOT NULL,
   `id_funcao` INT NOT NULL,
   PRIMARY KEY (`id_usuario`),
   INDEX `fk_users_funcoes1_idx` (`id_funcao` ASC) VISIBLE,
