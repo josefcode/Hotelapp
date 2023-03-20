@@ -70,8 +70,12 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   list-style: none;
   overflow: auto;
+  -webkit-scrollbar-width: thin;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-header-footer) transparent;
   
 }
+
 /* li{
   border-bottom: 1px solid #1dbeb4;
 } */

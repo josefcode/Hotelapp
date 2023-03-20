@@ -18,3 +18,7 @@
    justify-content: space-evenly;
    
   }
+
+  .MuiToolbar-root {
+    min-height: 0 !important;
+  }

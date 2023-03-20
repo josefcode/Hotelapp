@@ -2,6 +2,8 @@ import React from 'react'
 import DetailBody from './DetailBody'
 import DetailHeader from './DetailHeader'
 import { useParams } from 'react-router-dom'
+import { Reserva } from '../detale-produto-reserva/Reserva'
+import StarIcon from '@mui/icons-material/Star';
 
 export default function DetaleProduto() {
 
@@ -33,7 +35,7 @@ export default function DetaleProduto() {
   location, 
   country, 
   title, 
-  stars, 
+ 
   puntaje, 
   comment, 
   facilities, 
@@ -45,8 +47,8 @@ export default function DetaleProduto() {
   imageClass
 } = value
 
+const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
 
-console.log(image)
 
   return (
     <div className='app-main'>
@@ -71,6 +73,20 @@ console.log(image)
         city = {city}
         mapLocation = {mapLocation}
         imageClass = {imageClass}
+        />
+        <Reserva
+           id = {id}
+           image = {image}  
+           alt = {title} 
+           type={type} 
+           title = {title} 
+           puntaje = {puntaje} 
+           distancia={distancia} 
+           location = {location}
+           comment = {comment}
+           facilities = {facilities}
+           description = {description}
+           stars = {stars}
         />
     </div>
   )

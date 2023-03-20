@@ -7,7 +7,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import validator from 'email-validator';
 import { Link, useNavigate } from 'react-router-dom';
 import './styles.css'
-import { Footer } from '../footer/Footer';
+
 
 export function CriarConta() {
 
@@ -22,8 +22,11 @@ export function CriarConta() {
     sobreNome: '',
     email: '',
     senha: '',
-    confirmSenha: ''
+    confirmSenha: '',
+    userRoles: "ROLE_ADMIN"
   })
+
+ 
 
   const navigate = useNavigate();
 
@@ -72,12 +75,26 @@ export function CriarConta() {
       return;
     }
 
-    localStorage.setItem('nome', userData.nome);
-    localStorage.setItem('sobreNome', userData.sobreNome);
-    localStorage.setItem('email', userData.email);
-    localStorage.setItem('senha', userData.senha);
+    fetch('http://localhost:3004/criarConta', {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(userData), // body data type must match "Content-Type" header
+   
+    })
+  
+    // localStorage.setItem('nome', userData.nome);
+    // localStorage.setItem('sobreNome', userData.sobreNome);
+    // localStorage.setItem('email', userData.email);
+    // localStorage.setItem('senha', userData.senha);
     alert('A conta foi criada com sucesso!');
     navigate('/iniciar-sessao');
+
   };
 
   return (
