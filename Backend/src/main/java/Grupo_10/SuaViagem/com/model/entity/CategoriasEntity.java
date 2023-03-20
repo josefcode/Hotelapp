@@ -16,9 +16,6 @@ public class CategoriasEntity {
     private int id_categorias;
 
     @Column(nullable=false)
-    private String qualificacao;
-
-    @Column(nullable=false)
     private String descricao;
 
     @Column(nullable=false)
@@ -35,7 +32,6 @@ public class CategoriasEntity {
 
     public CategoriasEntity(CategoriasDTO categoriasDTO) {
         this.id_categorias = categoriasDTO.getId_categorias();
-        this.qualificacao = categoriasDTO.getQualificacao();
         this.descricao = categoriasDTO.getDescricao();
         this.url_imagem = categoriasDTO.getUrl_imagem();
     }
@@ -57,14 +53,6 @@ public class CategoriasEntity {
 
     public void setProdutosEntityList(List<ProdutosEntity> produtosEntityList) {
         this.produtosEntityList = produtosEntityList;
-    }
-
-    public String getQualificacao() {
-        return qualificacao;
-    }
-
-    public void setQualificacao(String qualificacao) {
-        this.qualificacao = qualificacao;
     }
 
     public String getDescricao() {

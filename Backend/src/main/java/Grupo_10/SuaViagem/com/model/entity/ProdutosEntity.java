@@ -18,8 +18,29 @@ public class ProdutosEntity {
     @Column(nullable=false)
     private String nome;
 
-    @Column(nullable=false)
+    @Column(nullable=false, length=1000)
     private String descricao;
+
+    @Column(nullable=false)
+    private String pontuacao;
+
+    @Column(nullable=false)
+    private String facilidades;
+
+    @Column(nullable=false, length=1000)
+    private String localMapa;
+
+    @Column(nullable=false)
+    private String distancia;
+
+    @Column(nullable=false, length=1000)
+    private String linkMapa;
+
+    @Column(nullable=false, length=1000)
+    private String comentarios;
+
+    @Column(nullable=false, length=1000)
+    private String verMais;
 
     @ManyToMany
     @JoinTable(name="produtos_categorias", joinColumns=
@@ -27,7 +48,7 @@ public class ProdutosEntity {
             {@JoinColumn(name="categorias_id")})
     private List<CaracteristicasEntity> caracteristicasEntityList = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.MERGE)
     @JoinColumn(name="produtos_id")
     private List<ImagensEntity> imagensEntityList = new ArrayList<>();
 
@@ -50,6 +71,73 @@ public class ProdutosEntity {
         this.imagensEntityList = produtosDTO.getImagensEntityList();
         this.categoriasEntity = new CategoriasEntity(produtosDTO.getCategoriasEntity());
         this.cidadesEntity = produtosDTO.getCidadesEntity();
+        this.pontuacao = produtosDTO.getPontuacao();
+        this.facilidades = produtosDTO.getFacilidades();
+        this.localMapa = produtosDTO.getLocalMapa();
+        this.distancia = produtosDTO.getDistancia();
+        this.linkMapa = produtosDTO.getLinkMapa();
+        this.comentarios = produtosDTO.getComentarios();
+        this.verMais = produtosDTO.getVerMais();
+    }
+
+    public String getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(String pontuacao) {
+        this.pontuacao = pontuacao;
+    }
+
+    public String getFacilidades() {
+        return facilidades;
+    }
+
+    public void setFacilidades(String facilidades) {
+        this.facilidades = facilidades;
+    }
+
+    public String getLocalMapa() {
+        return localMapa;
+    }
+
+    public void setLocalMapa(String localMapa) {
+        this.localMapa = localMapa;
+    }
+
+    public String getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(String distancia) {
+        this.distancia = distancia;
+    }
+
+    public String getLinkMapa() {
+        return linkMapa;
+    }
+
+    public void setLinkMapa(String linkMapa) {
+        this.linkMapa = linkMapa;
+    }
+
+    public String getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(String comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public String getVerMais() {
+        return verMais;
+    }
+
+    public void setVerMais(String verMais) {
+        this.verMais = verMais;
+    }
+
+    public CategoriasEntity getCategoriasEntity() {
+        return categoriasEntity;
     }
 
     public int getId_produtos() {

@@ -18,6 +18,27 @@ public class ProdutosDTO {
     @Column(nullable=false)
     private String descricao;
 
+    @Column(nullable=false)
+    private String pontuacao;
+
+    @Column(nullable=false)
+    private String facilidades;
+
+    @Column(nullable=false)
+    private String localMapa;
+
+    @Column(nullable=false)
+    private String distancia;
+
+    @Column(nullable=false)
+    private String linkMapa;
+
+    @Column(nullable=false)
+    private String comentarios;
+
+    @Column(nullable=false)
+    private String verMais;
+
     private List<CaracteristicasEntity> caracteristicasEntityList = new ArrayList<>();
 
     private List<ImagensEntity> imagensEntityList = new ArrayList<>();
@@ -37,6 +58,13 @@ public class ProdutosDTO {
         this.imagensEntityList = produtosEntity.getImagensEntityList();
         this.categoriasEntity = produtosEntity.getCategoryEntity();
         this.cidadesEntity = produtosEntity.getCidadesEntity();
+        this.pontuacao = produtosEntity.getPontuacao();
+        this.facilidades = produtosEntity.getFacilidades();
+        this.localMapa = produtosEntity.getLocalMapa();
+        this.distancia = produtosEntity.getDistancia();
+        this.linkMapa = produtosEntity.getLinkMapa();
+        this.comentarios = produtosEntity.getComentarios();
+        this.verMais = produtosEntity.getVerMais();
     }
 
     public int getId_produtos() {
@@ -97,5 +125,61 @@ public class ProdutosDTO {
 
     public void setCidadesEntity(CidadesEntity cidadesEntity) {
         this.cidadesEntity = cidadesEntity;
+    }
+
+    public String getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(String pontuacao) {
+        this.pontuacao = pontuacao;
+    }
+
+    public String getFacilidades() {
+        return facilidades;
+    }
+
+    public void setFacilidades(String facilidades) {
+        this.facilidades = facilidades;
+    }
+
+    public String getLocalMapa() {
+        return localMapa;
+    }
+
+    public void setLocalMapa(String localMapa) {
+        this.localMapa = localMapa;
+    }
+
+    public String getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(String distancia) {
+        this.distancia = distancia;
+    }
+
+    public String getLinkMapa() {
+        return linkMapa;
+    }
+
+    public void setLinkMapa(String linkMapa) {
+        this.linkMapa = linkMapa;
+    }
+
+    public String getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(String comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public String getVerMais() {
+        return verMais;
+    }
+
+    public void setVerMais(String verMais) {
+        this.verMais = verMais;
     }
 }

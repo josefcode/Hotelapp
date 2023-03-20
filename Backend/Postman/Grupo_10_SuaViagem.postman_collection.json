@@ -21,7 +21,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Teste_Name\",\n    \"username\": \"Teste_Username\",\n    \"email\": \"teste@teste.com\",\n    \"password\": \"12345678\",\n    \"userRoles\": \"ROLE_ADMIN\"\n}"
+							"raw": "{\n\t\"nome\": \"Marcelo\",\n    \"sobrenome\": \"Garofalo\",\n    \"email\": \"marcelo_mbg@hotmail.com\",\n    \"senha\": \"12345678\",\n    \"userRoles\": \"ROLE_ADMIN\"\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/user",
@@ -63,7 +63,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"Teste_Username\",\n    \"password\": \"12345678\"\n}"
+							"raw": "{\n    \"email\": \"marcelo_mbg@hotmail.com\",\n    \"senha\": \"12345678\"\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/user/authenticate",
@@ -87,14 +87,7 @@
 					"name": "register",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [
@@ -105,7 +98,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"qualificacao\": \"5 estrelas\",\n    \"descricao\": \"Hostel\",\n    \"url_imagem\": \"https://pt.wikipedia.org/wiki/Hotel#/media/Ficheiro:Ponta_Negra_Beach_Hotel.jpg\"\n}"
+							"raw": "{\n        \"id_categorias\": 4,\n        \"descricao\": \"Cama e café da manhã\",\n        \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F01%2F23%2F23%2F55%2Fbreakfast-in-bed-1158270_960_720.jpg&f=1&nofb=1&ipt=3be7be28c18d310a5bb9d616fa9b48ac157c024e8754ccb60f3a79e1a009e62a&ipo=images\"\n    }"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/category/register",
@@ -127,14 +120,7 @@
 					},
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -167,14 +153,7 @@
 					},
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -188,13 +167,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/category/3",
+							"raw": "{{SuaViagem.com}}/category/14",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"category",
-								"3"
+								"14"
 							]
 						}
 					},
@@ -204,20 +183,13 @@
 					"name": "edit",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_categorias\": 1,\r\n\t\"qualificacao\": \"Resort\",\r\n    \"descricao\": \"Hotel é um estabelecimento comercial especializado em proporcionar acomodações para viajantes.\",\r\n    \"url_imagem\": \"https://pt.wikipedia.org/wiki/Hotel#/media/Ficheiro:Ponta_Negra_Beach_Hotel.jpg\"\r\n}",
+							"raw": "{\r\n    \"id_categorias\": 1,\r\n\t\"qualificacao\": \"5 estrelas\",\r\n    \"descricao\": \"Hotel\",\r\n    \"url_imagem\": \"https://pt.wikipedia.org/wiki/Hotel#/media/Ficheiro:Ponta_Negra_Beach_Hotel.jpg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -225,13 +197,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/category/2",
+							"raw": "{{SuaViagem.com}}/category/1",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"category",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -241,24 +213,321 @@
 					"name": "delete",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/category/2",
+							"raw": "{{SuaViagem.com}}/category/1",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Caracteristicas",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Cozinha\",\n    \"icone\": \"Cozinha\"\n}"
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/caracteristicas/register",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"caracteristicas",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/caracteristicas/findAll",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"caracteristicas",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/category/14",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"category",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_categorias\": 1,\r\n\t\"qualificacao\": \"5 estrelas\",\r\n    \"descricao\": \"Hotel\",\r\n    \"url_imagem\": \"https://pt.wikipedia.org/wiki/Hotel#/media/Ficheiro:Ponta_Negra_Beach_Hotel.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/caracteristicas/1",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"caracteristicas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SuaViagem.com}}/caracteristicas/1",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"caracteristicas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Imagens",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Hostels\",\n    \"url\": \"https://cutt.ly/Z8GlNtl\"\n}"
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/imagens/register",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"imagens",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/imagens/findAll",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"imagens",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/imagens/14",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"imagens",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_categorias\": 1,\r\n\t\"qualificacao\": \"5 estrelas\",\r\n    \"descricao\": \"Hotel\",\r\n    \"url_imagem\": \"https://pt.wikipedia.org/wiki/Hotel#/media/Ficheiro:Ponta_Negra_Beach_Hotel.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/imagens/1",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"imagens",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SuaViagem.com}}/imagens/2",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"imagens",
 								"2"
 							]
 						}
@@ -274,14 +543,7 @@
 					"name": "register",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [
@@ -292,7 +554,311 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"nome\": \"Teste cidade 1\",\n        \"pais\": \"Teste pais  1\",\n        \"sigla\": \"Teste sigla  1\"\n}"
+							"raw": "{\r\n        \"id_cidades\": 1,\r\n        \"nome\": \"Afonso Cláudio\",\r\n        \"pais\": \"Brasil\",\r\n        \"sigla\": \"ES\"\r\n}"
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/cities/register",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"cities",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/cities/findAll",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"cities",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/cities/5270",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"cities",
+								"5270"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Teste alterar cidade 1\",\r\n        \"pais\": \"Teste alterar pais  1\",\r\n        \"sigla\": \"Teste alterar sigla  1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/cities/5564",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"cities",
+								"5564"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SuaViagem.com}}/cities/5",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"cities",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Funcoes",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id_cidades\": 1,\r\n        \"nome\": \"Afonso Cláudio\",\r\n        \"pais\": \"Brasil\",\r\n        \"sigla\": \"ES\"\r\n}"
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/cities/register",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"cities",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/funcoes/findAll",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"funcoes",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/funcoes/2",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"funcoes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Teste alterar cidade 1\",\r\n        \"pais\": \"Teste alterar pais  1\",\r\n        \"sigla\": \"Teste alterar sigla  1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/cities/5564",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"cities",
+								"5564"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SuaViagem.com}}/funcoes/1",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"funcoes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservas",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id_cidades\": 1,\r\n        \"nome\": \"Afonso Cláudio\",\r\n        \"pais\": \"Brasil\",\r\n        \"sigla\": \"ES\"\r\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/cities/register",
@@ -335,12 +901,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/findAll",
+							"raw": "{{SuaViagem.com}}/reservas/findAll",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
-								"cities",
+								"reservas",
 								"findAll"
 							]
 						}
@@ -375,13 +941,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/5564",
+							"raw": "{{SuaViagem.com}}/reservas/2",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
-								"cities",
-								"5564"
+								"reservas",
+								"2"
 							]
 						}
 					},
@@ -391,20 +957,13 @@
 					"name": "edit",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"nome\": \"Teste alterar cidade 1\",\r\n        \"pais\": \"Teste alterar pais  1\",\r\n        \"sigla\": \"Teste alterar sigla  1\"\r\n}",
+							"raw": "{\r\n    \"id_reservas\": 2,\r\n    \"hora_inicio_reserva\": \"08:31:00\",\r\n    \"data_inicial_reserva\": \"2023-03-31\",\r\n    \"data_final_reserva\": \"2023-04-04\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -412,13 +971,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/5564",
+							"raw": "{{SuaViagem.com}}/reservas/2",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
-								"cities",
-								"5564"
+								"reservas",
+								"2"
 							]
 						}
 					},
@@ -428,25 +987,18 @@
 					"name": "delete",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/5564",
+							"raw": "{{SuaViagem.com}}/reservas/1",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
-								"cities",
-								"5564"
+								"reservas",
+								"1"
 							]
 						}
 					},
@@ -461,14 +1013,7 @@
 					"name": "register",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [
@@ -479,7 +1024,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nome\": \"nome do produto\",\n  \"descricao\": \"descrição do produto\",\n  \"caracteristicasEntityList\": [],\n  \"imagensEntityList\": [],\n  \"categoryEntity\": {\n    \"id\": 1,\n    \"descricao\": \"Hotel\"\n  },\n  \"cidadesEntity\": {\n    \"id\": 1,\n    \"nome\": \"Afonso Cláudio\"\n  }\n}"
+							"raw": "{\n        \"nome\": \"Teste imagens\",\n        \"descricao\": \"Teste imagens\",\n        \"pontuacao\": 10,\n        \"facilidades\": \"Teste imagens\",\n        \"localMapa\": \"https://www.pousadaarvoredacoruja.com.br/web/contato/#mapa\",\n        \"distancia\": \"Teste imagens\",\n        \"linkMapa\": \"https://www.google.com/maps/place/Pousada+%C3%81rvore+da+Coruja/@-29.3867263,-50.8795637,15z/data=!4m2!3m1!1s0x0:0xf0d07c0b3d30dfc6?sa=X&ved=2ahUKEwjVoPr9ouH9AhXlCdQKHS3DAxkQ_BJ6BAhiEAc\",\n        \"comentarios\": \"Teste imagens\",\n        \"verMais\": \"https://www.pousadaarvoredacoruja.com.br/web/quartos/\",\n        \"caracteristicasEntityList\": [\n            {\n                \"id_caracteristicas\": 1,\n                \"nome\": \"Cozinha\",\n                \"icone\": \"Cozinha\"\n            }\n        ],\n        \"imagensEntityList\": [\n    {\n        \"id_imagens\": 7,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 8,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://rb.gy/dgidkn\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 9,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/d8GlKzy\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 10,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/X8GlXF0\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 11,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/Z8GlNtl\",\n        \"produtosEntity\": null\n    }\n],\n        \"categoriasEntity\": {\n            \"id_categorias\": 4,\n            \"descricao\": \"Cama e café da manhã\",\n            \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F01%2F23%2F23%2F55%2Fbreakfast-in-bed-1158270_960_720.jpg&f=1&nofb=1&ipt=3be7be28c18d310a5bb9d616fa9b48ac157c024e8754ccb60f3a79e1a009e62a&ipo=images\",\n            \"produtosEntityList\": []\n        },\n        \"cidadesEntity\": {\n            \"id_cidades\": 4031,\n            \"nome\": \"Gramado\",\n            \"pais\": \"Brasil\",\n            \"sigla\": \"RS\",\n            \"produtosEntityList\": []\n        }\n    }"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/product/register",
@@ -501,14 +1046,7 @@
 					},
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -541,14 +1079,7 @@
 					},
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -562,13 +1093,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/1",
+							"raw": "{{SuaViagem.com}}/product/43",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
-								"1"
+								"43"
 							]
 						}
 					},
@@ -581,14 +1112,7 @@
 					},
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -602,14 +1126,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/findByCategory/{name}",
+							"raw": "{{SuaViagem.com}}/product/findByCategory/Cama e café da manhã",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
 								"findByCategory",
-								"{name}"
+								"Cama e café da manhã"
 							]
 						}
 					},
@@ -622,14 +1146,7 @@
 					},
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "GET",
 						"header": [],
@@ -643,14 +1160,48 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/findByCidades/{name}",
+							"raw": "{{SuaViagem.com}}/product/findByCidades/São Paulo",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
 								"findByCidades",
-								"{name}"
+								"São Paulo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByCidadeEData",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagem.com}}/product/findByCidadeEData/São Paulo",
+							"host": [
+								"{{SuaViagem.com}}"
+							],
+							"path": [
+								"product",
+								"findByCidadeEData",
+								"São Paulo"
 							]
 						}
 					},
@@ -660,20 +1211,13 @@
 					"name": "edit",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"nome\": \"teste alterar nome 1\",\r\n    \"descricao\": \"teste alterar descricao 1\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"São Paulo Hostel Club\",\r\n    \"descricao\": \"Proporcionamos uma experiência de hospedagem econômica, aconchegante, confortável e divertida bem no coração da cidade. Estamos a poucos passos das principais linhas de metrô e ônibus, e contamos com um incrível bar a disposição de nossos hóspedes e visitantes!\",\r\n    \"pontuacao\": 7,\r\n    \"facilidades\": \"Cozinha, Televisor, Piscina\",\r\n    \"localMapa\": \"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53615.66699284024!2d-96.79655671481304!3d32.87227009118753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f85c3952ac3%3A0x7d3547b9a792e7d4!2sWalmart%20Supercenter!5e0!3m2!1sen!2sbr!4v1678239148968!5m2!1sen!2sbr\",\r\n    \"distancia\": \"A 940 m do centro\",\r\n    \"linkMapa\": \"https://www.booking.com/hotel/br/sao-paulo-hostel.en-gb.html?aid=393655&label=msn-NHCmPWc6m4avlvplRi*qFg-80539240583430%3Atikwd-16659121813%3Aloc-20%3Anes%3Amte%3Alp147459%3Adec%3Aqshostel&sid=ad76bc39f22f8bbe3bc4d513161e39ec&dest_id=-671824&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=3&hpos=3&nflt=sth%3D4&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1677459493&srpvid=c08806d286a80177&type=total&ucfs=1&activeTab=main#map_opened-hotel_header\",\r\n    \"comentarios\": \"bom\",\r\n    \"verMais\": \"https://www.hilton.com/en/hotels/bnadudt-doubletree-nashville-downtown/?SEO_id=GMB-AMER-DH-BNADUDT&y_source=1_MTM3MjU2Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D\",\r\n    \"caracteristicasEntityList\": [],\r\n    \"imagensEntityList\": [],\r\n    \"categoriasEntity\": {\r\n        \"id_categorias\": 2\r\n    },\r\n    \"cidadesEntity\": {\r\n        \"id_cidades\": 5270      \r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -681,13 +1225,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/1",
+							"raw": "{{SuaViagem.com}}/product/2",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -709,13 +1253,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/2",
+							"raw": "{{SuaViagem.com}}/product/35",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
-								"2"
+								"35"
 							]
 						}
 					},

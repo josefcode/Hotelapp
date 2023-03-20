@@ -51,7 +51,7 @@ export  function RecomendacoesCards() {
        setProduto(data)
        setNewPorduto(data)
 
-       console.log(produto)
+       console.log(data)
     }
     fetchData()
 
@@ -151,11 +151,11 @@ export  function RecomendacoesCards() {
           alt = {item.alt} 
           type={item.categoriasEntity.descricao} 
           title = {item.nome} 
-          puntaje = {item.puntaje} 
+          puntaje = {item.pontuacao} 
           distancia={item.distancia} 
-          mapLink = {item.mapLink}
-          comment = {item.comment}
-          facilities = {item.facilities}
+          mapLink = {item.linkMapa}
+          comment = {item.comentarios}
+          facilities = {item.facilidades}
           description = {item.descricao}
           verMais = {item.verMais} 
           stars = {item.stars}

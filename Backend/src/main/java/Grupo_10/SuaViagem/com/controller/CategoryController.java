@@ -2,7 +2,7 @@ package Grupo_10.SuaViagem.com.controller;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
 import Grupo_10.SuaViagem.com.model.entity.DTO.CategoriasDTO;
-import Grupo_10.SuaViagem.com.service.impl.CategoryServiceImpl;
+import Grupo_10.SuaViagem.com.service.impl.CategoriasServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.List;
 public class CategoryController {
 
     @Autowired
-    private CategoryServiceImpl categoryService;
+    private CategoriasServiceImpl categoryService;
 
     @PostMapping("/register")
     @Operation(

@@ -9,14 +9,27 @@ import CarouselImage from './CarouselImage';
 
 
 export default function DetailBody({
-  image, 
-  facilities, 
-  description,
-  location,
-  country,
-  city,
-  mapLocation,
-  imageClass
+  // image, 
+  // facilities, 
+  // description,
+  // location,
+  // country,
+  // city,
+  // mapLocation,
+  // imageClass
+
+  id_produtos,
+  nome, 
+  pontuacao, 
+  descricao, 
+  facilidades, 
+  distancia,
+  comentarios, 
+  localMapa,
+  linkMapa,
+  verMais, 
+  categoriasEntity,
+  cidadesEntity
 }) {
 
   const {show, changeShow} = useShow()
@@ -30,13 +43,14 @@ export default function DetailBody({
         </div>
 
         <div className='detail-image-container'>
-          {
+
+          {/* {
           image?.map((item, index) => {
           return (
             <img key= {index} id = {index}  src={item}  alt = "weeb"/>
 
            ) } )
-          }
+          } */}
 
         </div>
        
@@ -48,13 +62,13 @@ export default function DetailBody({
 
         <div className='popover-images' >
 
-        { show && <CarouselImage  image = {image} />  }
+        { show && <CarouselImage  image = {categoriasEntity} />  }
 
         </div>
 
         <div className='body-detail-container'>
-            <h2 className='body-title'>{location}</h2>
-            <p className='body-detail-description'> {description}
+            <h2 className='body-title'>{distancia}</h2>
+            <p className='body-detail-description'> {descricao}
             </p>
             </div>
 
@@ -65,9 +79,11 @@ export default function DetailBody({
                 <div className='services-list'>
 
                   <ul className='services-list-wrapper'>
-                   {facilities?.map(item => 
+                   {/* {facilities?.map(item => 
                        <li key = {item}>{item}</li>
-                   )}
+                   )} */}
+                     <li>{facilidades}</li>
+
 
                   </ul>
 
@@ -81,10 +97,10 @@ export default function DetailBody({
                 <div className='title-underline'></div>
 
                 <div className='mapa-wrapper'>
-                <p>{city}</p>
+                <p>{cidadesEntity}</p>
 
                 <div className='mapa'>
-                <iframe src= {mapLocation} className='mapa' allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"/>
+                <iframe src= {localMapa} className='mapa' allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"/>
 
                 </div>
                 
