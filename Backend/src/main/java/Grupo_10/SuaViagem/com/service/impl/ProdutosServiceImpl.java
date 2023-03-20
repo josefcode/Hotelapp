@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -130,8 +129,11 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
         return produtosDTOS;
     }
 
-//    public List<ProdutosDTO> findByCidadeEData(String cidade, LocalDate dataInicio, LocalDate dataFim) {
-//        List<ProdutosEntity> produtosEntities = iProdutosRepository.findByCidadeEData(cidade, dataInicio, dataFim);
+//    public List<ProdutosDTO> findByCidadesEntityReservasEntity(String cidade, Date dataInicio, Date dataFim) {
+//        Date localDataInicial = reservasEntity.getData_inicial_reserva();
+//        Date localDataFinal = reservasEntity.getData_final_reserva();
+//
+//        List<ProdutosEntity> produtosEntities = iProdutosRepository.findByCidadesEntityReservasEntity(cidade, dataInicio, dataFim);
 //        List<ProdutosDTO> produtosDTOS = new ArrayList<>();
 //
 //        for (ProdutosEntity produtosEntity : produtosEntities) {
@@ -142,7 +144,7 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
 //    }
 
 
-    private ProdutosEntity mapperDTOToEntity(ProdutosDTO produtosDTO){
+        private ProdutosEntity mapperDTOToEntity(ProdutosDTO produtosDTO){
         ObjectMapper objectMapper = new ObjectMapper();
         ProdutosEntity produtosEntity = objectMapper.convertValue(produtosDTO, ProdutosEntity.class);
         return produtosEntity;

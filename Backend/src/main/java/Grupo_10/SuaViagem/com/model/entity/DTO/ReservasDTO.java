@@ -1,17 +1,24 @@
 package Grupo_10.SuaViagem.com.model.entity.DTO;
 
 import Grupo_10.SuaViagem.com.model.entity.ReservasEntity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.Column;
 import java.sql.Date;
 import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ReservasDTO {
 
+    @Column(nullable=false)
     private int id_reservas;
+    @Column(nullable=false)
     private Time hora_inicio_reserva;
+
+    @Column(nullable=false)
     private Date data_inicial_reserva;
+
+    @Column(nullable=false)
     private Date data_final_reserva;
 
     public ReservasDTO(ReservasEntity reservasEntity) {

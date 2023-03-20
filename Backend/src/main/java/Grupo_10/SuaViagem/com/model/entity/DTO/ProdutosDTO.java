@@ -47,6 +47,8 @@ public class ProdutosDTO {
 
     private CidadesEntity cidadesEntity;
 
+    private ReservasEntity reservasEntity;
+
     public ProdutosDTO() {
     }
 
@@ -65,6 +67,15 @@ public class ProdutosDTO {
         this.linkMapa = produtosEntity.getLinkMapa();
         this.comentarios = produtosEntity.getComentarios();
         this.verMais = produtosEntity.getVerMais();
+        this.reservasEntity = produtosEntity.getReservasEntity();
+    }
+
+    public ReservasEntity getReservasEntity() {
+        return reservasEntity;
+    }
+
+    public void setReservasEntity(ReservasEntity reservasEntity) {
+        this.reservasEntity = reservasEntity;
     }
 
     public int getId_produtos() {

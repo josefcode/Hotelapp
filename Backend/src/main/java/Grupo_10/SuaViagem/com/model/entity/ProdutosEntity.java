@@ -60,6 +60,10 @@ public class ProdutosEntity {
     @JoinColumn(name = "cidades_entity_id")
     private CidadesEntity cidadesEntity;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reservas_entity_id")
+    private ReservasEntity reservasEntity;
+
     public ProdutosEntity() {
     }
 
@@ -78,6 +82,15 @@ public class ProdutosEntity {
         this.linkMapa = produtosDTO.getLinkMapa();
         this.comentarios = produtosDTO.getComentarios();
         this.verMais = produtosDTO.getVerMais();
+        this.reservasEntity = produtosDTO.getReservasEntity();
+    }
+
+    public ReservasEntity getReservasEntity() {
+        return reservasEntity;
+    }
+
+    public void setReservasEntity(ReservasEntity reservasEntity) {
+        this.reservasEntity = reservasEntity;
     }
 
     public String getPontuacao() {

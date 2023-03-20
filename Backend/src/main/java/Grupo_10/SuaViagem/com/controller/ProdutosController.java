@@ -8,13 +8,10 @@ import Grupo_10.SuaViagem.com.service.impl.ProdutosServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/product")
@@ -144,7 +141,7 @@ public class ProdutosController {
 //                    )
 //            }
 //    )
-//    public List<ProdutosDTO> findByCidadeEData(@PathVariable String cidade, LocalDate dataInicio, LocalDate dataFim) {
-//        return produtosService.findByCidadeEData(cidade, dataInicio, dataFim);
+//    public List<ProdutosDTO> findByCidadesEntityReservasEntity(@PathVariable String cidade, Date dataInicio, Date dataFim) {
+//        return produtosService.findByCidadesEntityReservasEntity(cidade, dataInicio, dataFim);
 //    }
 }

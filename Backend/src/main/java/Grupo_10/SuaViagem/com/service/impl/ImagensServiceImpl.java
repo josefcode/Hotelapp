@@ -1,7 +1,6 @@
 package Grupo_10.SuaViagem.com.service.impl;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
-import Grupo_10.SuaViagem.com.model.entity.DTO.CategoriasDTO;
 import Grupo_10.SuaViagem.com.model.entity.DTO.ImagensDTO;
 import Grupo_10.SuaViagem.com.model.entity.ImagensEntity;
 import Grupo_10.SuaViagem.com.repository.IImagensRespository;

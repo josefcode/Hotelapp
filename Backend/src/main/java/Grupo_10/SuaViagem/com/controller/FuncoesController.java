@@ -1,7 +1,6 @@
 package Grupo_10.SuaViagem.com.controller;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
-import Grupo_10.SuaViagem.com.model.entity.DTO.CidadesDTO;
 import Grupo_10.SuaViagem.com.model.entity.DTO.FuncoesDTO;
 import Grupo_10.SuaViagem.com.service.impl.FuncoesServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;

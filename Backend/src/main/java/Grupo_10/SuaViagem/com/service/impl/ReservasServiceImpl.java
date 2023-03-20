@@ -1,9 +1,6 @@
 package Grupo_10.SuaViagem.com.service.impl;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
-import Grupo_10.SuaViagem.com.model.entity.CaracteristicasEntity;
-import Grupo_10.SuaViagem.com.model.entity.DTO.CidadesDTO;
-import Grupo_10.SuaViagem.com.model.entity.DTO.ProdutosDTO;
 import Grupo_10.SuaViagem.com.model.entity.DTO.ReservasDTO;
 import Grupo_10.SuaViagem.com.model.entity.ReservasEntity;
 import Grupo_10.SuaViagem.com.repository.IReservasRepository;
@@ -23,6 +20,7 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
 
     @Override
     public ReservasDTO register(ReservasDTO reservasDTO) {
+
         ReservasEntity reservasEntity = mapperDTOToEntity(reservasDTO);
         reservasEntity = iReservasRepository.save(reservasEntity);
         ReservasDTO reservasDTO1 = new ReservasDTO(reservasEntity);

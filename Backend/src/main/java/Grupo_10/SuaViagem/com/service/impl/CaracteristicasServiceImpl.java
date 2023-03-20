@@ -3,7 +3,6 @@ package Grupo_10.SuaViagem.com.service.impl;
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
 import Grupo_10.SuaViagem.com.model.entity.CaracteristicasEntity;
 import Grupo_10.SuaViagem.com.model.entity.DTO.CaracteristicasDTO;
-import Grupo_10.SuaViagem.com.model.entity.DTO.ProdutosDTO;
 import Grupo_10.SuaViagem.com.repository.ICaracteristicasRepository;
 import Grupo_10.SuaViagem.com.service.IService;
 import com.fasterxml.jackson.databind.ObjectMapper;

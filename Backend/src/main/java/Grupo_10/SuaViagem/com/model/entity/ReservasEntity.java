@@ -7,31 +7,34 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name  =  "reservas")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ReservasEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_reservas", nullable = false)
     private int id_reservas;
-    @Column(nullable=false)
+    @Column(nullable=false, unique = true)
     @JsonFormat(pattern = "HH:mm:ss")
     private Time hora_inicio_reserva;
 
-    @Column(nullable=false)
+    @Column(nullable=false, unique = true)
     private Date data_inicial_reserva;
 
-    @Column(nullable=false)
+    @Column(nullable=false, unique = true)
     private Date data_final_reserva;
 
     @ManyToOne
     @JoinColumn(name="cliente_id")
     private ClientesEntity clientesEntity;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<ProdutosEntity> produtosEntityList = new ArrayList<>();
 
     public ReservasEntity() {
     }
@@ -73,5 +76,21 @@ public class ReservasEntity {
 
     public void setData_final_reserva(Date data_final_reserva) {
         this.data_final_reserva = data_final_reserva;
+    }
+
+    public ClientesEntity getClientesEntity() {
+        return clientesEntity;
+    }
+
+    public void setClientesEntity(ClientesEntity clientesEntity) {
+        this.clientesEntity = clientesEntity;
+    }
+
+    public List<ProdutosEntity> getProdutosEntityList() {
+        return produtosEntityList;
+    }
+
+    public void setProdutosEntityList(List<ProdutosEntity> produtosEntityList) {
+        this.produtosEntityList = produtosEntityList;
     }
 }
