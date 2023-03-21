@@ -10,6 +10,6 @@ import java.util.Optional;
 @Transactional
 public interface IUserRepository extends JpaRepository<UserEntity,Integer> {
 
-    Optional<UserEntity> findByUsername(String username);
+    Optional<UserEntity> findByEmail(String username);
 
 }

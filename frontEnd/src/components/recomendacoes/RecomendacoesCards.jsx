@@ -30,20 +30,20 @@ export  function RecomendacoesCards() {
 
    const [categoria, setCategoria] = React.useState([])
 
-  
+   const totals = "807.105 hotéis"
  
    React.useEffect(() => {
      async function fetchData(){
  
-        const response = await fetch(`http://localhost:8081/category/findAll/`)
        
+        const response = await fetch(`http://localhost:8081/category/findAll/`)
+
         if (!response.ok) {
          throw new Error(`HTTP error! status: ${response.status}`);
        }
         const data = await response.json()
        
         setCategoria(data)
-      
      }
  
      fetchData()
@@ -51,9 +51,10 @@ export  function RecomendacoesCards() {
    }, []);
 
 
-
   React.useEffect(() => {
     async function fetchData(){
+
+       // const response = await fetch(`http://localhost:3004/acomodacao`)
 
        const response = await fetch(`http://localhost:8081/product/findAll/`)
       
@@ -64,6 +65,8 @@ export  function RecomendacoesCards() {
 
        setProduto(data)
        setNewPorduto(data)
+
+       console.log(data)
     }
     fetchData()
 
@@ -92,11 +95,12 @@ export  function RecomendacoesCards() {
        setNewPorduto(produto)
        return;
     }
-    const result = produto.filter((fil) => fil.type === filter)
+    // const result = produto.filter((fil) => fil.type === filter)
+    const result = produto.filter((fil) => fil.categoriasEntity.descricao === filter)
     setNewPorduto(result)
   }, [filter, produto]);
 
-  const totals = "807.105 hotéis"
+
 
   console.log(newProduto)
 
@@ -158,6 +162,7 @@ export  function RecomendacoesCards() {
           verMais = {item.verMais} 
           stars = {item.stars}
           />
+
           )
        } 
        )

@@ -1,6 +1,7 @@
 package Grupo_10.SuaViagem.com.model.entity;
 
 import Grupo_10.SuaViagem.com.model.entity.DTO.CaracteristicasDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,10 +19,11 @@ public class CaracteristicasEntity {
     @Column(nullable=false)
     private String nome;
 
-    @Column(nullable=false)
+    @Column(nullable=true)
     private String icone;
 
     @ManyToMany(mappedBy="caracteristicasEntityList")
+    @JsonIgnore
     private List<ProdutosEntity> produtosEntityList = new ArrayList<>();
 
     public CaracteristicasEntity() {

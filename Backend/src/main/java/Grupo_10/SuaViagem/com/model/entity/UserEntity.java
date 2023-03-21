@@ -18,16 +18,16 @@ public class UserEntity implements UserDetails {
     private int id;
 
     @Column(nullable = false)
-    private String name;
+    private String nome;
 
     @Column(nullable = false, unique = true)
-    private String username;
+    private String sobrenome;
 
     @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
-    private String password;
+    private String senha;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -37,10 +37,10 @@ public class UserEntity implements UserDetails {
     }
 
     public UserEntity(UserDTO userDTO) {
-        this.name = userDTO.getName();
-        this.username = userDTO.getUsername();
+        this.nome = userDTO.getNome();
+        this.sobrenome = userDTO.getSobrenome();
         this.email = userDTO.getEmail();
-        this.password = userDTO.getPassword();
+        this.senha = userDTO.getSenha();
         this.userRoles = userDTO.getUserRoles();
     }
 
@@ -54,12 +54,12 @@ public class UserEntity implements UserDetails {
 
     @Override
     public String getPassword() {
-        return password;
+        return senha;
     }
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override
@@ -90,16 +90,20 @@ public class UserEntity implements UserDetails {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
     public String getEmail() {
@@ -110,8 +114,12 @@ public class UserEntity implements UserDetails {
         this.email = email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public UserRoles getUserRoles() {

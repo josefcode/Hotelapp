@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CategoryServiceImpl implements IService<CategoriasDTO> {
+public class CategoriasServiceImpl implements IService<CategoriasDTO> {
 
     @Autowired
     private ICategoriasRepository iCategoriasRepository;

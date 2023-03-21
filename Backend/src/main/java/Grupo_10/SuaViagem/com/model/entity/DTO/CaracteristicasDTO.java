@@ -13,7 +13,7 @@ public class CaracteristicasDTO {
     @Column(nullable=false)
     private String nome;
 
-    @Column(nullable=false)
+    @Column(nullable=true)
     private String icone;
 
     public CaracteristicasDTO() {

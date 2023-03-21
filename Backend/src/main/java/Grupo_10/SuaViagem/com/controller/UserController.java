@@ -61,11 +61,11 @@ public class UserController {
     )
     public ResponseEntity<AuthenticationResponse> createAuthenticationToken(@RequestBody UserDTO userDTO) throws Exception {
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userDTO.getUsername(), userDTO.getPassword()));
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userDTO.getEmail(), userDTO.getSenha()));
         } catch (BadCredentialsException e) {
             throw new Exception("Incorrect", e);
         }
-        final UserDetails userDetails = userService.loadUserByUsername(userDTO.getUsername());
+        final UserDetails userDetails = userService.loadUserByUsername(userDTO.getEmail());
         final String jwt = jwtUtil.generateToken(userDetails);
 
         return ResponseEntity.ok(new AuthenticationResponse(jwt));

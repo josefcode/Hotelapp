@@ -178,6 +178,25 @@
       "comment": "muito bom",
       "verMais": "https://www.hilton.com/en/hotels/bnadudt-doubletree-nashville-downtown/?SEO_id=GMB-AMER-DH-BNADUDT&y_source=1_MTM3MjU2Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D",
       "alt": "hotelImage"
+    },
+    {
+      "id": "6",
+      "image": ["https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1", "https://rb.gy/dgidkn", "https://cutt.ly/d8GlKzy", "https://cutt.ly/X8GlXF0", "https://cutt.ly/Z8GlNtl"],
+      "imageClass": ["detail-image", "detail-image2", "detail-image3", "detail-image4", "detail-image5 "],
+      "title": "Platform at Grant Park",
+      "type": "Cama e café da manhã",
+      "puntaje": 3,
+      "facilities": ["Cozinha", "Televisor", "Ar condicionado", "Piscina", "pets"],
+      "location": "Dallas, Cidade Autônoma de Dallas",
+      "country": "EUA",
+      "city": "Dallas",
+      "mapLocation": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53615.66699284024!2d-96.79655671481304!3d32.87227009118753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f85c3952ac3%3A0x7d3547b9a792e7d4!2sWalmart%20Supercenter!5e0!3m2!1sen!2sbr!4v1678239148968!5m2!1sen!2sbr",
+      "distancia": "A 940 m do centro",
+      "mapLink": "https://www.booking.com/hotel/us/rodeway-inn-international.en-gb.html?aid=390156&label=duc511jc-1FCAMo7AFCBmF1cm9yYUgzWANoIIgBAZgBCbgBF8gBDNgBAegBAfgBDYgCAagCA7gClYTwnwbAAgHSAiQwMGIwZDA3My1lOWMwLTRiZDEtODcwMC1mODEyZTg0ZjZlN2LYAgbgAgE&sid=ad76bc39f22f8bbe3bc4d513161e39ec#map_opened-hotel_address",
+      "description": "Reap the full perks of urban living at  Link Apartments® Grant Park. Nestled in a vibrant and artsy neighborhood, our homes offer style, entertainment, and upscale comfort all in one. Call today and book a tour of our Grant Park apartments or townhomes to enjoy an amenity-rich hideaway, with every indulgence at your fingertips!",
+      "comment": "muito bom",
+      "verMais": "https://www.hilton.com/en/hotels/bnadudt-doubletree-nashville-downtown/?SEO_id=GMB-AMER-DH-BNADUDT&y_source=1_MTM3MjU2Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D",
+      "alt": "hotelImage"
     }
   ],
   "categorias": [

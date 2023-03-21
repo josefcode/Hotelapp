@@ -12,14 +12,17 @@ export default function DetaleProduto() {
   React.useEffect(() => {
     async function fetchData(){
 
-       const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
+      //  const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
       
+      const response = await fetch(`http://localhost:8081/product/${id}`)
+
        if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
        const data = await response.json()
       
       setProduto(data)
+
     }
 
     fetchData()
@@ -52,15 +55,24 @@ const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
   return (
     <div className='app-main'>
         <DetailHeader
-         type = {type}
-        title = {title}
-        stars = {stars} 
-        puntaje = {puntaje}
-        comment = {comment}
-        distancia = {distancia}
-        location = {location}
-        country = {country}
-        
+        //  type = {type}
+          title = {title}
+        // stars = {stars} 
+          puntaje = {puntaje}
+         comment = {comment}
+         distancia = {distancia}
+        // location = {location}
+        // country = {country}
+
+      //   type = {type}
+      //  title = {title}
+      //  stars = {stars} 
+      //  puntaje = {puntaje}
+      //  comment = {comment}
+      //  distancia = {distancia}
+      //  location = {location}
+      //  country = {country}
+
         />
         <DetailBody 
         id = {id}

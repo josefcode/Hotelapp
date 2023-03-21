@@ -35,7 +35,6 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_projeto_integrador`.`categorias` (
   `id_categorias` INT NOT NULL AUTO_INCREMENT,
-  `qualificacao` VARCHAR(30) NOT NULL,
   `descricao` VARCHAR(6000) NOT NULL,
   `url_imagem` VARCHAR(250) NOT NULL,
   PRIMARY KEY (`id_categorias`))
@@ -63,20 +62,27 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_projeto_integrador`.`produtos` (
   `id_produtos` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(250) NOT NULL,
+  `comentarios` VARCHAR(255) NOT NULL,
   `descricao` VARCHAR(6000) NOT NULL,
-  `id_categorias` INT NOT NULL,
-  `id_cidades` INT NOT NULL,
+  `distancia` VARCHAR(255) NOT NULL,
+  `facilidades` VARCHAR(255) NOT NULL,
+  `link_mapa` VARCHAR(1000) NOT NULL,
+  `local_mapa` VARCHAR(1000) NOT NULL,
+  `nome` VARCHAR(250) NOT NULL,
+  `pontuacao` INT NOT NULL,
+  `ver_mais` VARCHAR(1000) NOT NULL,
+  `category_entity_id` INT NOT NULL,
+  `cidades_entity_id` INT NOT NULL,
   PRIMARY KEY (`id_produtos`),
-  INDEX `FK_CATEGORIAS_PRODUTO_idx` (`id_categorias` ASC) VISIBLE,
-  INDEX `FK_CIDADES_PRODUTOS_idx` (`id_cidades` ASC) VISIBLE,
+  INDEX `FK_CATEGORIAS_PRODUTO_idx` (`category_entity_id` ASC) VISIBLE,
+  INDEX `FK_CIDADES_PRODUTOS_idx` (`cidades_entity_id` ASC) VISIBLE,
   CONSTRAINT `FK_CATEGORIAS_PRODUTO`
-    FOREIGN KEY (`id_categorias`)
+    FOREIGN KEY (`category_entity_id`)
     REFERENCES `db_projeto_integrador`.`categorias` (`id_categorias`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `FK_CIDADES_PRODUTOS`
-    FOREIGN KEY (`id_cidades`)
+    FOREIGN KEY (`cidades_entity_id`)
     REFERENCES `db_projeto_integrador`.`cidades` (`id_cidades`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -106,16 +112,32 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `db_projeto_integrador`.`users`
+-- Table `db_projeto_integrador`.`funcoes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_projeto_integrador`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `db_projeto_integrador`.`funcoes` (
+  `id_funcao` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id_funcao`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_projeto_integrador`.`usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_projeto_integrador`.`usuarios` (
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(250) NOT NULL,
+  `sobrenome` VARCHAR(250) NOT NULL,
   `email` VARCHAR(250) NOT NULL,
-  `name` VARCHAR(250) NOT NULL,
-  `password` VARCHAR(25) NOT NULL,
-  `user_roles` VARCHAR(50) NOT NULL,
-  `username` VARCHAR(250) NOT NULL,
-  PRIMARY KEY (`id`))
+  `senha` VARCHAR(25) NOT NULL,
+  `id_funcao` INT NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  INDEX `fk_users_funcoes1_idx` (`id_funcao` ASC) VISIBLE,
+  CONSTRAINT `fk_users_funcoes1`
+    FOREIGN KEY (`id_funcao`)
+    REFERENCES `db_projeto_integrador`.`funcoes` (`id_funcao`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -139,6 +161,32 @@ CREATE TABLE IF NOT EXISTS `db_projeto_integrador`.`produtos_caracteristicas` (
   CONSTRAINT `FK_CARACTERISTICAS_PRODUTOS`
     FOREIGN KEY (`id_caracteristicas`)
     REFERENCES `db_projeto_integrador`.`caracteristicas` (`id_caracteristicas`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `db_projeto_integrador`.`reservas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_projeto_integrador`.`reservas` (
+  `id_reserva` INT NOT NULL AUTO_INCREMENT,
+  `horario_inicio_reserva` TIME NOT NULL,
+  `data_inicial` DATE NOT NULL,
+  `data_final` DATE NOT NULL,
+  `id_produtos` INT NOT NULL,
+  `id_usuario` INT NOT NULL,
+  PRIMARY KEY (`id_reserva`),
+  INDEX `FK_RESERVAS_USERS_idx` (`id_usuario` ASC) VISIBLE,
+  INDEX `FK_RESERVAS_PRODUTOS_idx` (`id_produtos` ASC) VISIBLE,
+  CONSTRAINT `FK_RESERVAS_USERS`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `db_projeto_integrador`.`usuarios` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `FK_RESERVAS_PRODUTOS`
+    FOREIGN KEY (`id_produtos`)
+    REFERENCES `db_projeto_integrador`.`produtos` (`id_produtos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
