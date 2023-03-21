@@ -250,7 +250,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"Cozinha\",\n    \"icone\": \"Cozinha\"\n}"
+							"raw": "{\n    \"nome\": \"Pets\",\n    \"icone\": \"Pets\"\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/caracteristicas/register",
@@ -402,7 +402,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"titulo\": \"Hostels\",\n    \"url\": \"https://cutt.ly/Z8GlNtl\"\n}"
+							"raw": "{\n        \"id_imagens\": 7,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\"\n    }"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/imagens/register",
@@ -493,7 +493,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_categorias\": 1,\r\n\t\"qualificacao\": \"5 estrelas\",\r\n    \"descricao\": \"Hotel\",\r\n    \"url_imagem\": \"https://pt.wikipedia.org/wiki/Hotel#/media/Ficheiro:Ponta_Negra_Beach_Hotel.jpg\"\r\n}",
+							"raw": "{\r\n    \"id_imagens\": 7,\r\n    \"titulo\": \"Hostels\",\r\n    \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\",\r\n    \"produtosEntity\": null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -847,7 +847,14 @@
 					"name": "register",
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "POST",
 						"header": [
@@ -858,15 +865,15 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id_cidades\": 1,\r\n        \"nome\": \"Afonso Cláudio\",\r\n        \"pais\": \"Brasil\",\r\n        \"sigla\": \"ES\"\r\n}"
+							"raw": "{\r\n    \"horaInicial\": \"08:30:01\",\r\n    \"dataInicial\": \"2023-03-15\",\r\n    \"dataFinal\": \"2023-04-01\"\r\n}"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/register",
+							"raw": "{{SuaViagem.com}}/reservas/register",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
-								"cities",
+								"reservas",
 								"register"
 							]
 						}
@@ -957,7 +964,14 @@
 					"name": "edit",
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "PUT",
 						"header": [],
@@ -987,18 +1001,25 @@
 					"name": "delete",
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
 						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/reservas/1",
+							"raw": "{{SuaViagem.com}}/reservas/3",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"reservas",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -1024,7 +1045,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"nome\": \"Teste imagens\",\n        \"descricao\": \"Teste imagens\",\n        \"pontuacao\": 10,\n        \"facilidades\": \"Teste imagens\",\n        \"localMapa\": \"https://www.pousadaarvoredacoruja.com.br/web/contato/#mapa\",\n        \"distancia\": \"Teste imagens\",\n        \"linkMapa\": \"https://www.google.com/maps/place/Pousada+%C3%81rvore+da+Coruja/@-29.3867263,-50.8795637,15z/data=!4m2!3m1!1s0x0:0xf0d07c0b3d30dfc6?sa=X&ved=2ahUKEwjVoPr9ouH9AhXlCdQKHS3DAxkQ_BJ6BAhiEAc\",\n        \"comentarios\": \"Teste imagens\",\n        \"verMais\": \"https://www.pousadaarvoredacoruja.com.br/web/quartos/\",\n        \"caracteristicasEntityList\": [\n            {\n                \"id_caracteristicas\": 1,\n                \"nome\": \"Cozinha\",\n                \"icone\": \"Cozinha\"\n            }\n        ],\n        \"imagensEntityList\": [\n    {\n        \"id_imagens\": 7,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 8,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://rb.gy/dgidkn\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 9,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/d8GlKzy\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 10,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/X8GlXF0\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 11,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/Z8GlNtl\",\n        \"produtosEntity\": null\n    }\n],\n        \"categoriasEntity\": {\n            \"id_categorias\": 4,\n            \"descricao\": \"Cama e café da manhã\",\n            \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F01%2F23%2F23%2F55%2Fbreakfast-in-bed-1158270_960_720.jpg&f=1&nofb=1&ipt=3be7be28c18d310a5bb9d616fa9b48ac157c024e8754ccb60f3a79e1a009e62a&ipo=images\",\n            \"produtosEntityList\": []\n        },\n        \"cidadesEntity\": {\n            \"id_cidades\": 4031,\n            \"nome\": \"Gramado\",\n            \"pais\": \"Brasil\",\n            \"sigla\": \"RS\",\n            \"produtosEntityList\": []\n        }\n    }"
+							"raw": "{\n        \"nome\": \"Teste reservas\",\n        \"descricao\": \"Teste reservas\",\n        \"pontuacao\": 10,\n        \"facilidades\": \"Teste reservas\",\n        \"localMapa\": \"https://www.pousadaarvoredacoruja.com.br/web/contato/#mapa\",\n        \"distancia\": \"Teste reservas\",\n        \"linkMapa\": \"https://www.google.com/maps/place/Pousada+%C3%81rvore+da+Coruja/@-29.3867263,-50.8795637,15z/data=!4m2!3m1!1s0x0:0xf0d07c0b3d30dfc6?sa=X&ved=2ahUKEwjVoPr9ouH9AhXlCdQKHS3DAxkQ_BJ6BAhiEAc\",\n        \"comentarios\": \"Teste reservas\",\n        \"verMais\": \"https://www.pousadaarvoredacoruja.com.br/web/quartos/\",\n        \"caracteristicasEntityList\": [\n            {\n                \"id_caracteristicas\": 1,\n                \"nome\": \"Cozinha\",\n                \"icone\": \"Cozinha\"\n            }\n        ],\n        \"imagensEntityList\": [\n    {\n        \"id_imagens\": 7,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 8,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://rb.gy/dgidkn\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 9,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/d8GlKzy\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 10,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/X8GlXF0\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 11,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/Z8GlNtl\",\n        \"produtosEntity\": null\n    }\n],\n        \"categoriasEntity\": {\n            \"id_categorias\": 4,\n            \"descricao\": \"Cama e café da manhã\",\n            \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F01%2F23%2F23%2F55%2Fbreakfast-in-bed-1158270_960_720.jpg&f=1&nofb=1&ipt=3be7be28c18d310a5bb9d616fa9b48ac157c024e8754ccb60f3a79e1a009e62a&ipo=images\",\n            \"produtosEntityList\": []\n        },\n        \"cidadesEntity\": {\n            \"id_cidades\": 4031,\n            \"nome\": \"Gramado\",\n            \"pais\": \"Brasil\",\n            \"sigla\": \"RS\",\n            \"produtosEntityList\": []\n        },\n    \"reservasEntity\": {\n        \"id_reservas\": 2,\n        \"hora_inicio_reserva\": \"08:31:00\",\n        \"data_inicial_reserva\": \"2023-03-30\",\n        \"data_final_reserva\": \"2023-04-03\"\n        }\n    }"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/product/register",
@@ -1093,13 +1114,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/43",
+							"raw": "{{SuaViagem.com}}/product/44",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
-								"43"
+								"44"
 							]
 						}
 					},
@@ -1174,7 +1195,7 @@
 					"response": []
 				},
 				{
-					"name": "findByCidadeEData",
+					"name": "findByCidadeAndDatas",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1194,14 +1215,27 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/findByCidadeEData/São Paulo",
+							"raw": "{{SuaViagem.com}}/product/findByCidadeAndDatas?cidade=Gramado&dataInicial=2023-03-28&dataFinal=2023-04-04",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
-								"findByCidadeEData",
-								"São Paulo"
+								"findByCidadeAndDatas"
+							],
+							"query": [
+								{
+									"key": "cidade",
+									"value": "Gramado"
+								},
+								{
+									"key": "dataInicial",
+									"value": "2023-03-28"
+								},
+								{
+									"key": "dataFinal",
+									"value": "2023-04-04"
+								}
 							]
 						}
 					},
@@ -1217,7 +1251,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"São Paulo Hostel Club\",\r\n    \"descricao\": \"Proporcionamos uma experiência de hospedagem econômica, aconchegante, confortável e divertida bem no coração da cidade. Estamos a poucos passos das principais linhas de metrô e ônibus, e contamos com um incrível bar a disposição de nossos hóspedes e visitantes!\",\r\n    \"pontuacao\": 7,\r\n    \"facilidades\": \"Cozinha, Televisor, Piscina\",\r\n    \"localMapa\": \"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53615.66699284024!2d-96.79655671481304!3d32.87227009118753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f85c3952ac3%3A0x7d3547b9a792e7d4!2sWalmart%20Supercenter!5e0!3m2!1sen!2sbr!4v1678239148968!5m2!1sen!2sbr\",\r\n    \"distancia\": \"A 940 m do centro\",\r\n    \"linkMapa\": \"https://www.booking.com/hotel/br/sao-paulo-hostel.en-gb.html?aid=393655&label=msn-NHCmPWc6m4avlvplRi*qFg-80539240583430%3Atikwd-16659121813%3Aloc-20%3Anes%3Amte%3Alp147459%3Adec%3Aqshostel&sid=ad76bc39f22f8bbe3bc4d513161e39ec&dest_id=-671824&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=3&hpos=3&nflt=sth%3D4&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1677459493&srpvid=c08806d286a80177&type=total&ucfs=1&activeTab=main#map_opened-hotel_header\",\r\n    \"comentarios\": \"bom\",\r\n    \"verMais\": \"https://www.hilton.com/en/hotels/bnadudt-doubletree-nashville-downtown/?SEO_id=GMB-AMER-DH-BNADUDT&y_source=1_MTM3MjU2Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D\",\r\n    \"caracteristicasEntityList\": [],\r\n    \"imagensEntityList\": [],\r\n    \"categoriasEntity\": {\r\n        \"id_categorias\": 2\r\n    },\r\n    \"cidadesEntity\": {\r\n        \"id_cidades\": 5270      \r\n    }\r\n}",
+							"raw": "{\r\n        \"id_produtos\": 44,\r\n        \"nome\": \"Teste reservas\",\r\n        \"descricao\": \"Teste reservas\",\r\n        \"pontuacao\": \"10\",\r\n        \"facilidades\": \"Teste reservas\",\r\n        \"localMapa\": \"https://www.pousadaarvoredacoruja.com.br/web/contato/#mapa\",\r\n        \"distancia\": \"Teste reservas\",\r\n        \"linkMapa\": \"https://www.google.com/maps/place/Pousada+%C3%81rvore+da+Coruja/@-29.3867263,-50.8795637,15z/data=!4m2!3m1!1s0x0:0xf0d07c0b3d30dfc6?sa=X&ved=2ahUKEwjVoPr9ouH9AhXlCdQKHS3DAxkQ_BJ6BAhiEAc\",\r\n        \"comentarios\": \"Teste reservas\",\r\n        \"verMais\": \"https://www.pousadaarvoredacoruja.com.br/web/quartos/\",\r\n        \"caracteristicasEntityList\": [\r\n            {\r\n                \"id_caracteristicas\": 1,\r\n                \"nome\": \"Cozinha\",\r\n                \"icone\": \"Cozinha\"\r\n            }\r\n        ],\r\n        \"imagensEntityList\": [],\r\n        \"categoriasEntity\": {\r\n            \"id_categorias\": 4,\r\n            \"descricao\": \"Cama e café da manhã\",\r\n            \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F01%2F23%2F23%2F55%2Fbreakfast-in-bed-1158270_960_720.jpg&f=1&nofb=1&ipt=3be7be28c18d310a5bb9d616fa9b48ac157c024e8754ccb60f3a79e1a009e62a&ipo=images\",\r\n            \"produtosEntityList\": []\r\n        },\r\n        \"cidadesEntity\": {\r\n            \"id_cidades\": 4031,\r\n            \"nome\": \"Gramado\",\r\n            \"pais\": \"Brasil\",\r\n            \"sigla\": \"RS\",\r\n            \"produtosEntityList\": []\r\n        },\r\n        \"reservasEntity\": \r\n        {\r\n        \"id_reservas\": 10,\r\n        \"horaInicial\": \"08:30:01\",\r\n        \"dataInicial\": \"2023-03-28\",\r\n        \"dataFinal\": \"2023-04-04\"\r\n    }\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1225,13 +1259,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/2",
+							"raw": "{{SuaViagem.com}}/product/44",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
-								"2"
+								"44"
 							]
 						}
 					},
@@ -1253,13 +1287,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/35",
+							"raw": "{{SuaViagem.com}}/product/45",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
-								"35"
+								"45"
 							]
 						}
 					},
