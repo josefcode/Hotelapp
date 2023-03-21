@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -129,22 +130,20 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
         return produtosDTOS;
     }
 
-//    public List<ProdutosDTO> findByCidadesEntityReservasEntity(String cidade, Date dataInicio, Date dataFim) {
-//        Date localDataInicial = reservasEntity.getData_inicial_reserva();
-//        Date localDataFinal = reservasEntity.getData_final_reserva();
-//
-//        List<ProdutosEntity> produtosEntities = iProdutosRepository.findByCidadesEntityReservasEntity(cidade, dataInicio, dataFim);
-//        List<ProdutosDTO> produtosDTOS = new ArrayList<>();
-//
-//        for (ProdutosEntity produtosEntity : produtosEntities) {
-//            ProdutosDTO produtosDTO = mapperEntityToDTO(produtosEntity);
-//            produtosDTOS.add(produtosDTO);
-//        }
-//        return produtosDTOS;
-//    }
+    public List<ProdutosDTO> findByCidadeAndDatas(String cidade, Date dataInicial, Date dataFinal) {
+
+        List<ProdutosEntity> produtosEntities = iProdutosRepository.findByCidadeAndDatas(cidade, dataInicial, dataFinal);
+        List<ProdutosDTO> produtosDTOS = new ArrayList<>();
+
+        for (ProdutosEntity produtosEntity : produtosEntities) {
+            ProdutosDTO produtosDTO = mapperEntityToDTO(produtosEntity);
+            produtosDTOS.add(produtosDTO);
+        }
+        return produtosDTOS;
+    }
 
 
-        private ProdutosEntity mapperDTOToEntity(ProdutosDTO produtosDTO){
+    private ProdutosEntity mapperDTOToEntity(ProdutosDTO produtosDTO){
         ObjectMapper objectMapper = new ObjectMapper();
         ProdutosEntity produtosEntity = objectMapper.convertValue(produtosDTO, ProdutosEntity.class);
         return produtosEntity;

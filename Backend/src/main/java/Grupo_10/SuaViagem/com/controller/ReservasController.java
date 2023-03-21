@@ -29,7 +29,7 @@ public class ReservasController {
                     )
             }
     )
-    public ResponseEntity<ReservasDTO> register(@RequestBody ReservasDTO reservasDTO) {
+    public ResponseEntity<ReservasDTO> register(@RequestBody ReservasDTO reservasDTO) throws Exception {
         ResponseEntity responseEntity = null;
 
         if(reservasDTO != null) {

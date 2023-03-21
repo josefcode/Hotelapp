@@ -1,13 +1,14 @@
 package Grupo_10.SuaViagem.com.model.entity;
 
 import Grupo_10.SuaViagem.com.model.entity.DTO.ReservasDTO;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.sql.Date;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -20,14 +21,15 @@ public class ReservasEntity {
     @Column(name = "id_reservas", nullable = false)
     private int id_reservas;
     @Column(nullable=false, unique = true)
-    @JsonFormat(pattern = "HH:mm:ss")
-    private Time hora_inicio_reserva;
+    private Time horaInicial;
 
     @Column(nullable=false, unique = true)
-    private Date data_inicial_reserva;
+    @Temporal(TemporalType.DATE)
+    private java.util.Date dataInicial;
 
     @Column(nullable=false, unique = true)
-    private Date data_final_reserva;
+    @Temporal(TemporalType.DATE)
+    private java.util.Date dataFinal;
 
     @ManyToOne
     @JoinColumn(name="cliente_id")
@@ -41,9 +43,9 @@ public class ReservasEntity {
 
     public ReservasEntity(ReservasDTO reservasDTO) {
         this.id_reservas = reservasDTO.getId_reservas();
-        this.hora_inicio_reserva = reservasDTO.getHora_inicio_reserva();
-        this.data_inicial_reserva = reservasDTO.getData_inicial_reserva();
-        this.data_final_reserva = reservasDTO.getData_final_reserva();
+        this.horaInicial = reservasDTO.getHoraInicial();
+        this.dataInicial = reservasDTO.getDataInicial();
+        this.dataFinal = reservasDTO.getDataFinal();
     }
 
     public int getId_reservas() {
@@ -54,28 +56,28 @@ public class ReservasEntity {
         this.id_reservas = id_reservas;
     }
 
-    public Time getHora_inicio_reserva() {
-        return hora_inicio_reserva;
+    public Time getHoraInicial() {
+        return horaInicial;
     }
 
-    public void setHora_inicio_reserva(Time hora_inicio_reserva) {
-        this.hora_inicio_reserva = hora_inicio_reserva;
+    public void setHoraInicial(Time hora_inicio_reserva) {
+        this.horaInicial = hora_inicio_reserva;
     }
 
-    public Date getData_inicial_reserva() {
-        return data_inicial_reserva;
+    public Date getDataInicial() {
+        return dataInicial;
     }
 
-    public void setData_inicial_reserva(Date data_inicial_reserva) {
-        this.data_inicial_reserva = data_inicial_reserva;
+    public void setDataInicial(Date dataInicial) {
+        this.dataInicial = dataInicial;
     }
 
-    public Date getData_final_reserva() {
-        return data_final_reserva;
+    public Date getDataFinal() {
+        return dataFinal;
     }
 
-    public void setData_final_reserva(Date data_final_reserva) {
-        this.data_final_reserva = data_final_reserva;
+    public void setDataFinal(Date dataFinal) {
+        this.dataFinal = dataFinal;
     }
 
     public ClientesEntity getClientesEntity() {

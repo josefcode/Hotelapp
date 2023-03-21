@@ -19,13 +19,24 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
     private IReservasRepository iReservasRepository;
 
     @Override
-    public ReservasDTO register(ReservasDTO reservasDTO) {
+    public ReservasDTO register(ReservasDTO reservasDTO) throws NotFoundException {
+        // Verifica se já existe um objeto com os mesmos valores
+        ReservasEntity existingEntity = iReservasRepository.findByHoraInicialAndDataInicialAndDataFinal(
+                reservasDTO.getHoraInicial(),
+                reservasDTO.getDataInicial(),
+                reservasDTO.getDataFinal()
+        );
+
+        if (existingEntity != null) {
+            throw new NotFoundException("Já existe uma reserva com horaInicial, dataInicial e dataFinal iguais.");
+        }
 
         ReservasEntity reservasEntity = mapperDTOToEntity(reservasDTO);
         reservasEntity = iReservasRepository.save(reservasEntity);
-        ReservasDTO reservasDTO1 = new ReservasDTO(reservasEntity);
+        ReservasDTO reservasDTO1 = mapperEntityToDTO(reservasEntity);
         return reservasDTO1;
     }
+
 
 
     @Override
