@@ -2,12 +2,30 @@
     display: grid;
     grid-template-columns: auto auto 400px;
     grid-template-areas: 'form  form card'
-                          "calendario calendario card";
+                          "calendario calendario card"
+                           "auto auto auto";
     padding-inline: 4rem;
     gap: 1.4rem;
-    margin-block-end: 2rem
+    margin-block-end: 2rem;
+
 }
 
+.reserva-container-header {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 4rem;
+    padding-block: 0.5rem;
+    align-items: center;
+    background-color: var(--searchBar-color);
+    color: var(--text-color-header-footer);
+}
+.reserva-container-header svg {
+    cursor: pointer;
+}
+.title-service {
+    margin-block: 1rem;
+
+}
 .reserva-header-title {
     padding-inline: 1rem;
     padding-block-start: 0.5rem;
@@ -25,12 +43,12 @@ color: var( --searchBar-color);
     grid-template-columns: auto auto;
     gap: 10px;
     box-shadow: 2px 4px 4px 3px rgba(0, 0, 0, 0.25);
-    margin-block-end: 6%;
+
     margin-block-start: 2%;
 }
 .calendario-reserva {
     grid-area: calendario;
-    margin-block-start: 10%;
+    margin-block-end: 1rem;
 }
 .reserva-card {
     width: 100%;
@@ -113,7 +131,8 @@ border: none;
 }
 
 .horas-wrapper{
-    padding-inline: 4rem;
+
+    grid-area: auto;
 }
 
 .horas-chegada {

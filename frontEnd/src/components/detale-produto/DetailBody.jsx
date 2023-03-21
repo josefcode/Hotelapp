@@ -3,7 +3,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import "./styleBody.css"
 import {Calendario} from './Calendario';
-import {useShow} from '../hooks/useShow'
+import {useShow} from '../hooks/useShow';
+import {useParems} from 'react-router-dom'
 import CarouselImage from './CarouselImage';
 
 
@@ -13,10 +14,10 @@ export default function DetailBody({
   facilities, 
   description,
   location,
+  id,
   country,
   city,
   mapLocation,
-  imageClass
 }) {
 
   const {show, changeShow} = useShow()
@@ -73,7 +74,7 @@ export default function DetailBody({
 
                 </div>
                
-                <Calendario />
+                <Calendario id = {id}/>
                 
                 {/* mapa */}
                 <div >

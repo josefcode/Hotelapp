@@ -8,11 +8,14 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import {data} from '../detale-produto/data'
+import { useParams, Link } from 'react-router-dom';
 import { ReservaSucesso } from './ReservaSucesso';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
 
 
 export  function Reserva({
-  id ,
+
   image,
   type, 
   title,
@@ -24,9 +27,13 @@ export  function Reserva({
   description,
 
 }) {
-
+    const [reserva, setReserva] = React.useState([])
+  
+   const {id } = useParams()
     const [checkin, setCheckin] = React.useState(new Date())
     const stars = [<StarIcon fontSize='small'/>, <StarIcon fontSize='small'/>, <StarIcon fontSize='small'/>, <StarIcon fontSize='small' />,]
+
+    const [confirm, setConfirm] = React.useState(false)
 
     const [userData, setUserData] = useState({
         nome: '',
@@ -35,6 +42,31 @@ export  function Reserva({
         cidadae: '',
         userRoles: "ROLE_ADMIN"
       })
+
+    
+
+      React.useEffect(() => {
+        async function fetchData(){
+    
+           const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
+          
+           if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+           const data = await response.json()
+          
+          setReserva(data)
+        }
+    
+        fetchData()
+    
+      }, [id]);
+
+      let value = {};
+      reserva.map(item => value = item)
+
+
+      
 
       function handleChange(event) {
         const { name, value } = event.target
@@ -49,7 +81,15 @@ export  function Reserva({
     
       
   return (
+  
     <div >
+        <div className='reserva-container-header'>
+          <div>
+          <span>{value.type}</span>
+          <h3>{value.title}</h3>
+          </div>
+          <Link to = {`/detaile-produto/${id}`}><ArrowBackIosIcon className='logo-header' /></Link>
+        </div>
         <h1 className='title-service'>Complete seus dados</h1>
         <div className='reserva-container'>
         <form action="">
@@ -116,7 +156,7 @@ export  function Reserva({
             <div>
 
             <div className='calendario-reserva'>
-            <h1 className='title-service'>Complete seus dados</h1>
+            <h1 className='calendario-title'>Complete seus dados</h1>
               
                 <div className='double-calender'>
                 <Calendar onChange={setCheckin} value={checkin} showDoubleView 
@@ -142,51 +182,8 @@ export  function Reserva({
             </div>
 
             </div>
-        </form>
-          <div className='reserva-card'>
-            <div>
-              <h4 className='reserva-header-title'>Detale da reserva</h4>
-              
-                <img className = 'reserva-image' src = {image} alt = 'detale reserva' />
-                </div>
-              <div className = 'reserva-body'>
-                <p className='reserva-type'>{type}</p>
-                <p className='reserva-title'>{title}</p>
-             
-                {
-                  stars.map((star, index)=>
-                    <span  className='reserva-stars' key = {index}>{star}</span>
-                  )
-                }
-               
-              <div >
 
-                <LocationOnIcon fontSize='small'/>
-                  <span className='reserva-location'>{location} </span>
-                </div>
-
-                <div className='reserva-underline' ></div>
-
-                <div className='reserva-data'>
-                  <p>check in</p>
-                  <p>01/01/2023</p>
-                </div>
-
-                <div className='reserva-underline' ></div>
-
-                <div className='reserva-data'>
-                  <p>check out</p>
-                  <p>01/01/2023</p>
-                </div>
-
-                <div className='reserva-underline' ></div>
-
-                <button className='reserva-btn'>Confirm reserva</button>
-                </div>
-             </div>
-             </div>
-
-             <div className='horas-wrapper' >
+            <div className='horas-wrapper' >
                   <div className='horas-chegada'>
                    <div>
                    <CheckCircleOutlineIcon />
@@ -211,8 +208,55 @@ export  function Reserva({
                    />
                 </div>
                 </div>
+        </form>
+          <div className='reserva-card'>
+            <div>
+              <h4 className='reserva-header-title'>Detale da reserva</h4>
+              
+                <img className = 'reserva-image' src = {value.image} alt = 'detale reserva' />
+                </div>
+              <div className = 'reserva-body'>
+                <p className='reserva-type'>{value.type}</p>
+                <p className='reserva-title'>{value.title}</p>
+             
+                {
+                  stars.map((star, index)=>
+                    <span  className='reserva-stars' key = {index}>{star}</span>
+                  )
+                }
+               
+              <div >
 
-                <ReservaSucesso />
+                <LocationOnIcon fontSize='small'/>
+                  <span className='reserva-location'>{value.location} </span>
+                </div>
+
+                <div className='reserva-underline' ></div>
+
+                <div className='reserva-data'>
+                  <p>check in</p>
+                  <p>01/01/2023</p>
+                </div>
+
+                <div className='reserva-underline' ></div>
+
+                <div className='reserva-data'>
+                  <p>check out</p>
+                  <p>01/01/2023</p>
+                </div>
+
+                <div className='reserva-underline' ></div>
+
+                <button className='reserva-btn' onClick = {() => setConfirm(!confirm)}>Confirm reserva</button>
+                </div>
+             </div>
+             </div>
+           
+         
+             {confirm && <ReservaSucesso message={'Sua reserva foi feita com sucesso'} link = "/"/> }
+                
     </div>
+      
+
   )
 }

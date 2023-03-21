@@ -8,6 +8,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from '../hooks/useLogin'
 import './style.css'
+import { ReservaSucesso } from '../detale-produto-reserva/ReservaSucesso';
 
 export function IniciaSessao() {
 
@@ -116,7 +117,7 @@ export function IniciaSessao() {
           <span className='iniciar-login'>Ainda não tem conta? <Link className='login-link' to="/criar-conta">Registre-se</Link></span>
         </div>
       </form>
-
+       {/* <ReservaSucesso link = "/" message = "A conta foi criada com sucesso!"/> */}
     </div>
   )
 }

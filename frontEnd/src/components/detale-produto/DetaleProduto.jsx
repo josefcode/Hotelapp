@@ -31,11 +31,11 @@ export default function DetaleProduto() {
   let value = {};
  produto.map(item => value = item)
 
- const {type, 
+const {
+  type, 
   location, 
   country, 
   title, 
- 
   puntaje, 
   comment, 
   facilities, 
@@ -64,6 +64,7 @@ const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
         
         />
         <DetailBody 
+        id = {id}
         image = {image} 
         facilities = {facilities} 
         description = {description} 
@@ -74,7 +75,7 @@ const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
         mapLocation = {mapLocation}
         imageClass = {imageClass}
         />
-        <Reserva
+        {/* <Reserva
            id = {id}
            image = {image}  
            alt = {title} 
@@ -87,7 +88,7 @@ const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
            facilities = {facilities}
            description = {description}
            stars = {stars}
-        />
+        /> */}
     </div>
   )
 }

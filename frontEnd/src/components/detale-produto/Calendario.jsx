@@ -1,11 +1,14 @@
 import React from 'react'
 import './styleCalendario.css'
 import Calendar from 'react-calendar';
+import {Link} from 'react-router-dom'
 import Alert from '@mui/material/Alert';
 import 'react-calendar/dist/Calendar.css';
 
-export  function Calendario() {
+export  function Calendario({id}) {
   const [checkin, setCheckin] = React.useState(new Date())
+
+  console.log(id)
   const [toggle, setToggle] = React.useState(false)
   return (
     <div className='calendario-container'>
@@ -31,9 +34,10 @@ export  function Calendario() {
    </div>
     </div>
         <div className='calendario-card'>
-            <p>Adicione as Datas da sua viagem </p>
 
-            <button className='calendario-btn' onClick = {() => setToggle(!toggle)}>Iniciar reserva</button>
+          <p>Adicione as Datas da sua viagem </p>
+
+           <Link to ={`reserva`} ><button className='calendario-btn' onClick = {() => setToggle(!toggle)}>Iniciar reserva</button></Link>
            
         </div>
         

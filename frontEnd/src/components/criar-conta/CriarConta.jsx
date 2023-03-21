@@ -7,12 +7,17 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import validator from 'email-validator';
 import { Link, useNavigate } from 'react-router-dom';
 import './styles.css'
+import { ReservaSucesso } from '../detale-produto-reserva/ReservaSucesso';
 
 
 export function CriarConta() {
 
   const [showPassword, setShowPassword] = React.useState(false);
+  const [signup, setSignup] = React.useState(false)
+  const [error, setError] = React.useState(false)
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -26,9 +31,6 @@ export function CriarConta() {
     userRoles: "ROLE_ADMIN"
   })
 
- 
-
-  const navigate = useNavigate();
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -75,25 +77,30 @@ export function CriarConta() {
       return;
     }
 
-    fetch('http://localhost:3004/criarConta', {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
-      headers: {
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: JSON.stringify(userData), // body data type must match "Content-Type" header
+    const {name, sobreNome, senha, email, userRoles} = userData
+    try {
+      fetch('http://localhost:3004/criarConta', {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+
+        body: JSON.stringify({
+          name, sobreNome, senha, email, userRoles
+        }), // body data type must match "Content-Type" header
+      })
+
+      setSignup(true)
+
+    } catch(error) {
+      setError(true)
+      setSignup(true)
+    }
    
-    })
-  
-    // localStorage.setItem('nome', userData.nome);
-    // localStorage.setItem('sobreNome', userData.sobreNome);
-    // localStorage.setItem('email', userData.email);
-    // localStorage.setItem('senha', userData.senha);
-    alert('A conta foi criada com sucesso!');
-    navigate('/iniciar-sessao');
 
   };
 
@@ -184,9 +191,9 @@ export function CriarConta() {
             <span className='iniciar-login'>Ja tem uma Conta? <Link className='login-link' to="/iniciar-sessao">Iniciar sessão</Link></span>
           </div>
         </form>
-       
+        {signup && <ReservaSucesso message = {error ? "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde." : 'A conta foi criada com sucesso!'} link = {error ? '/' :'/iniciar-sessao'} />};
       </div>
-      // <Footer />
+
 
   )
 }
