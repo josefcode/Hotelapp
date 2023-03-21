@@ -706,15 +706,15 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id_cidades\": 1,\r\n        \"nome\": \"Afonso Cláudio\",\r\n        \"pais\": \"Brasil\",\r\n        \"sigla\": \"ES\"\r\n}"
+							"raw": "{\r\n        \"nome\": \"Usuário\"\r\n}"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/register",
+							"raw": "{{SuaViagem.com}}/funcoes/register",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
-								"cities",
+								"funcoes",
 								"register"
 							]
 						}
@@ -865,7 +865,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"horaInicial\": \"08:30:01\",\r\n    \"dataInicial\": \"2023-03-15\",\r\n    \"dataFinal\": \"2023-04-01\"\r\n}"
+							"raw": "{\r\n        \"horaInicial\": \"08:30:00\",\r\n        \"dataInicial\": \"2023-03-26T00:00:00.000-03:00\",\r\n        \"dataFinal\": \"2023-04-04T00:00:00.000-03:00\"\r\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/reservas/register",
@@ -940,7 +940,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n    \"horaInicial\": \"08:30:00\",\r\n    \"dataInicial\": \"2023-03-31T00:00:00.000-03:00\",\r\n    \"dataFinal\": \"2023-04-04T00:00:00.000-03:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -948,13 +948,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/reservas/2",
+							"raw": "{{SuaViagem.com}}/reservas/4",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"reservas",
-								"2"
+								"4"
 							]
 						}
 					},
@@ -1013,13 +1013,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/reservas/3",
+							"raw": "{{SuaViagem.com}}/reservas/4",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"reservas",
-								"3"
+								"4"
 							]
 						}
 					},
