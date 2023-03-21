@@ -1,7 +1,22 @@
 
 import React, {useRef} from 'react'
 import { RecomendacoeCard } from '../recomendacoe/RecomendacoeCard'
+import WifiIcon from '@mui/icons-material/Wifi';
+import PoolIcon from '@mui/icons-material/Pool';
 import './styles.css'
+
+
+const image  = [
+  "https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1",
+  "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+  "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+  "https://images.unsplash.com/photo-1591088398332-8a7791972843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+]
+
+const comentarios = [
+  "bom",
+]
 
 
 
@@ -14,11 +29,13 @@ export  function RecomendacoesCards() {
    const [filter, setFilter ] = React.useState('')
 
    const [categoria, setCategoria] = React.useState([])
+
+  
  
    React.useEffect(() => {
      async function fetchData(){
  
-        const response = await fetch(`http://localhost:3004/categorias`)
+        const response = await fetch(`http://localhost:8081/category/findAll/`)
        
         if (!response.ok) {
          throw new Error(`HTTP error! status: ${response.status}`);
@@ -38,7 +55,7 @@ export  function RecomendacoesCards() {
   React.useEffect(() => {
     async function fetchData(){
 
-       const response = await fetch(`http://localhost:3004/acomodacao`)
+       const response = await fetch(`http://localhost:8081/product/findAll/`)
       
        if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -79,6 +96,10 @@ export  function RecomendacoesCards() {
     setNewPorduto(result)
   }, [filter, produto]);
 
+  const totals = "807.105 hotéis"
+
+  console.log(newProduto)
+
   return (
     <div >
     <div className='container-categoria'>
@@ -86,25 +107,27 @@ export  function RecomendacoesCards() {
       <div className='cards-wrapper'>
       
         {
-          categoria.map(item =>  
-              
-            <form  ref = {ref}  key = {item.id} className='card-wrapper' onClick={(e) => setFilter(e.currentTarget.name) } name = {item.name}>  
+          categoria.map(item =>  {
+            const {id_categorias,descricao, url_imagem,  } = item
 
-            <div >
-                <img className='card-image' src = {item.image}  alt = {item.alt} />
-            </div>
-    
-            <div>
-    
-              <div className='card-title' > {item.name} </div>
-             
-              <div className='subtitle' > {item.totals} </div>
+            return (
+              <form  ref = {ref}  key = {id_categorias} className='card-wrapper' onClick={(e) => setFilter(e.currentTarget.name) } name = {descricao}>  
+
+              <div >
+                  <img className='card-image' src = {url_imagem}  alt = {descricao} />
+              </div>
+      
+              <div>
+      
+                <div className='card-title' > {descricao} </div>
+               
+                <div className='subtitle' > {totals} </div>
+            
+              </div>
+              </form>
           
-            </div>
-            </form>
-        
-             )
-        }
+            )} 
+            )}
         
         </div>
         
@@ -114,20 +137,24 @@ export  function RecomendacoesCards() {
        <h2 className='recomendacaoes-title'> Recomendações </h2>
       <div className='recomendacaoes-cards-wrapper'>
        {newProduto.map(item =>{
+        const facilities = [<PoolIcon/>, <WifiIcon />]
+        const {id_produtos, nome, descricao, categoriasEntity } = item
+
+      
           return ( 
 
             <RecomendacoeCard  key = {item.id} 
-            id = {item.id}
-          image = {item.image}  
-          alt = {item.alt} 
-          type={item.type} 
-          title = {item.title} 
+            id = {id_produtos}
+          image = {image}  
+          alt = {nome} 
+          type={categoriasEntity.descricao} 
+          title = {nome} 
           puntaje = {item.puntaje} 
           distancia={item.distancia} 
           mapLink = {item.mapLink}
-          comment = {item.comment}
-          facilities = {item.facilities}
-          description = {item.description}
+          comment = {comentarios}
+          facilities = {facilities}
+          description = {descricao}
           verMais = {item.verMais} 
           stars = {item.stars}
           />
