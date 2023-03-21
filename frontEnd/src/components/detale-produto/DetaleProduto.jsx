@@ -2,7 +2,6 @@ import React from 'react'
 import DetailBody from './DetailBody'
 import DetailHeader from './DetailHeader'
 import { useParams } from 'react-router-dom'
-import { Reserva } from '../detale-produto-reserva/Reserva'
 import StarIcon from '@mui/icons-material/Star';
 
 export default function DetaleProduto() {
@@ -75,20 +74,6 @@ const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
         mapLocation = {mapLocation}
         imageClass = {imageClass}
         />
-        {/* <Reserva
-           id = {id}
-           image = {image}  
-           alt = {title} 
-           type={type} 
-           title = {title} 
-           puntaje = {puntaje} 
-           distancia={distancia} 
-           location = {location}
-           comment = {comment}
-           facilities = {facilities}
-           description = {description}
-           stars = {stars}
-        /> */}
     </div>
   )
 }
