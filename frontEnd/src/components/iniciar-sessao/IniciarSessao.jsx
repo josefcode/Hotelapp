@@ -6,6 +6,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'
 import { useLogin } from '../hooks/useLogin'
 import './style.css'
 import { ReservaSucesso } from '../detale-produto-reserva/ReservaSucesso';
@@ -36,21 +37,19 @@ export function IniciaSessao() {
   async function handleSubmit(e) {
     e.preventDefault()
 
-    const isValid = validateLogin(email, password);
+    axios.post('http://localhost:8081/user/authenticate', {
+      email: email,
+      senha: password
+        }).then(response => {
+          localStorage.setItem('email', email);
+          alert('Login realizado com sucesso!');
+          navigate('/');
+          changeLogin(true);
 
-    console.log(localStorage.getItem('email'), localStorage.getItem('senha'))
-
-    if (isValid) {
-      // faça login
-      navigate('/');
-      changeLogin(true);
-
-
-    } else {
-      // exibir mensagem de erro
-      alert('Por favor, tente novamente, suas credenciais são inválidas');
-    }
-
+        })
+        .catch(error => {
+          alert('Por favor, tente novamente, suas credenciais são inválidas.');
+        });
   };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);

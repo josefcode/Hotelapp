@@ -14,11 +14,6 @@ const image  = [
   "https://images.unsplash.com/photo-1591088398332-8a7791972843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
 ]
 
-const comentarios = [
-  "bom",
-]
-
-
 
 export  function RecomendacoesCards() {
 
@@ -65,8 +60,6 @@ export  function RecomendacoesCards() {
 
        setProduto(data)
        setNewPorduto(data)
-
-       console.log(data)
     }
     fetchData()
 
@@ -99,10 +92,6 @@ export  function RecomendacoesCards() {
     const result = produto.filter((fil) => fil.categoriasEntity.descricao === filter)
     setNewPorduto(result)
   }, [filter, produto]);
-
-
-
-  console.log(newProduto)
 
   return (
     <div >
@@ -141,26 +130,27 @@ export  function RecomendacoesCards() {
        <h2 className='recomendacaoes-title'> Recomendações </h2>
       <div className='recomendacaoes-cards-wrapper'>
        {newProduto.map(item =>{
+
         const facilities = [<PoolIcon/>, <WifiIcon />]
-        const {id_produtos, nome, descricao, categoriasEntity } = item
+
+        const {id_produtos, nome, descricao, categoriasEntity, pontuacao, comentarios, localMapa, distancia} = item
 
       
           return ( 
 
-            <RecomendacoeCard  key = {item.id} 
+      <RecomendacoeCard  key = {id_produtos} 
             id = {id_produtos}
           image = {image}  
           alt = {nome} 
           type={categoriasEntity.descricao} 
           title = {nome} 
-          puntaje = {item.puntaje} 
-          distancia={item.distancia} 
-          mapLink = {item.mapLink}
+          puntaje = {pontuacao} 
+          distancia={distancia} 
+          mapLink = {localMapa}
           comment = {comentarios}
           facilities = {facilities}
           description = {descricao}
-          verMais = {item.verMais} 
-          stars = {item.stars}
+          
           />
 
           )
