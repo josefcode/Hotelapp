@@ -34,7 +34,7 @@ export default function DetailHeader({
        <LocationOnIcon />
 
        <p className='location-text'>
-        {location},{country} { distancia}</p>
+        {location}, {country}, {distancia}</p>
 
        </div>
 
