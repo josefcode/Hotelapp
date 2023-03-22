@@ -1,6 +1,6 @@
 
   .navbar-header {
-      background-color: var(--navbar-color);
+      background-color: var(--color-header-footer);
       grid-area: header;
       padding-inline: 4rem;
   }
@@ -23,10 +23,10 @@
   }
 
   .navbar-logo-title {
-    background-color: #1DBEB4;
+    background-color: var(--text-color-header-footer);
     padding: 5px;
     border-radius: 4px;
-    color: white;
+    color: var( --color-header-footer);
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -39,8 +39,8 @@
   
   .login-btn {
     background-color: transparent;
-    border: 1px solid #1DBEB4;
-    color: var(--DB-COLOR-PRINCIPAL);
+    border: 1px solid var(--text-color-header-footer);
+    color: var(--text-color-header-footer);
     border-radius: 5px;
     width: 206px;
     height: 40px;

@@ -6,13 +6,19 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import validator from 'email-validator';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'
 import './styles.css'
-import { Footer } from '../footer/Footer';
+import { ReservaSucesso } from '../detale-produto-reserva/ReservaSucesso';
+
 
 export function CriarConta() {
 
   const [showPassword, setShowPassword] = React.useState(false);
+  const [signup, setSignup] = React.useState(false)
+  const [error, setError] = React.useState(false)
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -22,10 +28,10 @@ export function CriarConta() {
     sobreNome: '',
     email: '',
     senha: '',
-    confirmSenha: ''
+    confirmSenha: '',
+    userRoles: "ROLE_ADMIN"
   })
 
-  const navigate = useNavigate();
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -72,17 +78,38 @@ export function CriarConta() {
       return;
     }
 
+    const {nome, sobreNome, senha, email, userRoles} = userData
+
+    
     localStorage.setItem('nome', userData.nome);
-    localStorage.setItem('sobreNome', userData.sobreNome);
-    localStorage.setItem('email', userData.email);
-    localStorage.setItem('senha', userData.senha);
-    alert('A conta foi criada com sucesso!');
-    navigate('/iniciar-sessao');
+  localStorage.setItem('sobreNome', userData.sobreNome);
+  localStorage.setItem('email', userData.email);
+  // localStorage.setItem('senha', userData.senha);
+  // alert('A conta foi criada com sucesso!');
+  // navigate('/iniciar-sessao');
+
+  axios.post('http://localhost:8081/user',{
+    nome: userData.nome,
+    sobrenome: userData.sobreNome,
+    email: userData.email,
+    senha: userData.senha,
+    userRoles: "ROLE_ADMIN"
+      }).then(response => {
+
+      setSignup(true)
+  
+    })
+    .catch(error => {
+
+      setError(true)
+      setSignup(true)
+    });
+
   };
 
   return (
-    <>
       <div className='iniciar-session-container'>
+        
         <h1 className='iniciar-title'>Criar conta</h1>
         <form className='iniciar-form' onSubmit={handleSubmit} >
           <div className='iniciar-nome-sobreNome'>
@@ -167,8 +194,9 @@ export function CriarConta() {
             <span className='iniciar-login'>Ja tem uma Conta? <Link className='login-link' to="/iniciar-sessao">Iniciar sessão</Link></span>
           </div>
         </form>
+        {signup && <ReservaSucesso message = {error ? "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde." : 'A conta foi criada com sucesso!'} link = {error ? '/' :'/iniciar-sessao'} />};
       </div>
-      <Footer />
-    </>
+
+
   )
 }

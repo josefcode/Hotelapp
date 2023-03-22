@@ -1,5 +1,5 @@
 .recomendacaoes-section{
-    background: rgba(56, 59, 88, 0.1);
+    background: var( --text-color-header-footer);
     height: 100vh;
     width: 100vw;
     padding-block-start: 10px;
@@ -26,7 +26,7 @@
 .recomendacaoes-title {
     font-size: 24px;
     font-weight: 700;
-    color: #383B58;
+    color: var( --searchBar-color);
     margin-block-end: 1rem;
 }
 
@@ -74,6 +74,7 @@
 .container-categoria {
   margin-block-end: 2rem;
   padding-inline: 4rem;
+  padding-block: 1rem;
 }
 
 .cards-wrapper {
@@ -85,7 +86,7 @@ gap: 1em
 .title {
   font-size: 24px;
   font-weight: 700;
-  color: #383B58;
+  color: var( --searchBar-color);
 }
 
 @media screen and (max-width: 992px) {
@@ -111,5 +112,9 @@ gap: 1em
 .container {
     padding-inline: 1rem;
 
+}
+
+.title {
+  font-size: 18px;
 }
 }

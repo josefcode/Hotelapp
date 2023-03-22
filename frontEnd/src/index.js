@@ -12,6 +12,7 @@ import { ShowProvider} from './components/hooks/useShow'
 import { CriarConta } from './components/criar-conta/CriarConta';
 import DetaleProduto from './components/detale-produto/DetaleProduto';
 import { FilterProvider } from './components/hooks/useFilterCategoria'
+import { Reserva } from './components/detale-produto-reserva/Reserva';
 
 
 
@@ -27,6 +28,7 @@ root.render(
       <Route path="/criar-conta" element={<CriarConta />} />
       <Route path="/iniciar-sessao" element={<IniciaSessao />}  />
       <Route path="/detaile-produto/:id" element={<DetaleProduto />}  />
+      <Route path="detaile-produto/:id/reserva" element={<Reserva />}  />
       <Route path="*" element={<ErrorPage />} />
     </Route>
 </Routes>

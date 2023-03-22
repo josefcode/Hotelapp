@@ -9,8 +9,11 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 'image image image2 image3'
                           'image image image4 image5'; 
-    gap:1%;
-    padding-inline: 4rem
+    column-gap:1%;
+    row-gap: 4%;
+    padding-inline: 4rem;
+    height: 400px;
+
 }
 
 .image-buttons {
@@ -42,14 +45,14 @@ img[id="1"] {
     grid-area: image2;
     border-radius: 10px;
     background-size: cover;
-    height: 100%;
+    max-height: 100%;
 }
 img[id="2"]{
     width: 100%;
     grid-area: image3;
     border-radius: 10px;
     background-size: cover;
-    height: 100%;
+     max-height: 100%;
 }
 
 img[id="3"]{
@@ -85,7 +88,7 @@ line-height: 28px;
 .title-underline {
     width: 100%;
     height: 2px;
-    background-color: var(--DB-COLOR-PRINCIPAL);
+    background-color: var( --color-header-footer);
 }
 
 .services-list {
@@ -122,7 +125,7 @@ line-height: 28px;
 .mapa {
     width: 100%;
     height: 500px;
-    background-color: orange;
+
     border-radius: 5px;
 }
 
@@ -250,4 +253,17 @@ line-height: 20px;
         flex-direction: column;
         
     }
+    .title-service{
+        padding-inline: 1rem;
+    }
+  }
+
+  @media only screen and (max-width: 820px){
+    .detail-image-container {
+        height: 250px
+    }
+    img[id="0"] {
+        height: 250px;
+    }
+
   }

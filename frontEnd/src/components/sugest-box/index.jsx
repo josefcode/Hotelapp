@@ -7,10 +7,8 @@ export function SuggestBox(props){
         <div className="suggestBox">
             <LocationOnOutlinedIcon sx={{color:'#545776'}}/>
             <div className="suggestBox-content">
-                <p className="suggestBox-content-city">{props.produto.nome}
-                    <span className="suggestBox-content-sigla">-{props.produto.sigla}</span>
-                </p>
-                <p className="suggestBox-content-country">{props.produto.pais}</p>
+                <p className="suggestBox-content-city">{props.lista.cidade}</p>
+                <p className="suggestBox-content-country">{props.lista.pais}</p>
             </div>
         </div>
     )

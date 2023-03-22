@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, {useRef, useState } from 'react'
 import { CategoriasCards } from '../categorias/CategoriasCards'
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -11,10 +11,9 @@ import DateRangePicker from 'react-bootstrap-daterangepicker';
 import 'bootstrap/dist/css/bootstrap.css';
 // you will also need the css that comes with bootstrap-daterangepicker
 import 'bootstrap-daterangepicker/daterangepicker.css';
-import { SuggestBox } from '../sugest-box/index';
+import  {SuggestBox}  from '../sugest-box/index';
 
 import './styles.css'
-import { useParams } from 'react-router-dom';
 
 export default function Main() {
 
@@ -22,103 +21,103 @@ export default function Main() {
   const [inputLocationValue, setInputLocationValue] = useState("")
   const [isHover, setIsHovered] = useState(false)
   const inputRef = useRef()
-  const [produto, setProduto] = useState(false)
-  const [isLoading, setIsLoading] = useState(false);
-  const { id } = useParams()
 
-  React.useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true); // altera o valor de isLoading para true
-      const response = await fetch(`http://localhost:8081/cities/findAll`)
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json()
-
-      setProduto(data)
-      setIsLoading(false); // altera o valor de isLoading para false
-    }
-
-    fetchData()
-
-  }, [id]);
-
-  console.log(produto)
+  const lista = [
+    {cidade:"Salvador", pais:"Brasil"},
+    {cidade:"Recife", pais:"Brasil"},
+    {cidade:"Natal", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+    {cidade:"Maceió", pais:"Brasil"},
+  ]
 
 
   return (
 
-
     <main className='app-main'>
-      <div className='searchBox-container'>
+    <div className='searchBox-container'>
 
         <h2 className='searchBox-title'>Buscar ofertas em hotéis, casas e muito mais!</h2>
 
         <form className='searchBox-form'>
-          <div className='searchSuggestBox-div'>
-          
-            <TextField className='location-input' type="search" placeholder='Onde Vamos?'
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LocationOnIcon />
-                  </InputAdornment>
-                ),
-                disabled: isLoading // desativa o input enquanto isLoading for true
-              }}
-              size='small'
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => isHover ? "" : setIsFocused(false)}
-              value={inputLocationValue}
-              onChange={c => setInputLocationValue(c.target.value)}
-              ref={inputRef}
+        <div className='searchSuggestBox-div'>
+      <TextField  className='location-input' type = "search" placeholder='Onde Vamos?' 
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <LocationOnIcon />
+          </InputAdornment>
+        ),
+      }}
+      size = 'small'
+      onFocus={()=>setIsFocused(true)}
+      onBlur={()=>isHover? "":setIsFocused(false)}
+      value={inputLocationValue}
+      onChange={c => setInputLocationValue(c.target.value)}
+      ref={inputRef}
+      
+      />
+      {focus && (
+      <ul className='suggestBox-input' 
+        onMouseEnter={()=> setIsHovered(true)} 
+        onMouseLeave={()=> setIsHovered(false)}
+        
+        >
+        {lista.map((value, index)=>{
+          const isMatch = value.cidade.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
+          /* const listaValores = []
+          console.log(isMatch)
+          if(isMatch) {
+            listaValores.append(value)
+            console.log(listaValores)
+          } */
+          return(
+            <li /* className={isMatch? 'suggestBox-border':'suggestBox-border-none'} */ key={index} onClick={()=>{
+              setInputLocationValue(value.cidade)
+              inputRef.current.focus()
+              setIsFocused(false)
+              }}>
+              {isMatch && (
+                
+                <SuggestBox  lista={value} />
+                              
+              )}
 
-            /> 
-            {focus && (
-              <ul className='suggestBox-input'
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+            </li>
+          )
+        })}
+      </ul>
+      )}
+    </div>
 
-              >
-                {produto.slice(0, 10).map((p, i) => {
-                  const isMatch = p.nome.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
-                  return (
-                    <li key={i} onClick={() => {
-                      setInputLocationValue(p.nome)
-                      inputRef.current.focus()
-                      setIsFocused(false)
-                    }}>
-                      {isMatch && (
-
-                        <SuggestBox produto={p} />
-
-                      )}
-
-                    </li> 
-
-                  )
-                })} 
-              </ul>
-            )} 
-          </div>
-          
-
-
-
-          <DateRangePicker placeholder="check in check out "><input type="text" className="form-control" /></DateRangePicker >
-
-          <button className='searchBox-btn'>Buscar</button> 
-        </form>
-        {isLoading && <div className="loading"></div>}
-
-      </div>
-
-
-      <RecomendacoesCards />
-
-    </main>
+             
+            <DateRangePicker placeholder = "check in check out "><input type="text" className="form-control" /></DateRangePicker >
+           
+            <button className='searchBox-btn'>Buscar</button>
+            </form>
+        </div>
 
 
+       
+        <RecomendacoesCards />
+     
+      </main>
+
+ 
   )
 }

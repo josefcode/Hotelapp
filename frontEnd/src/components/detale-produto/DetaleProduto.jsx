@@ -2,6 +2,15 @@ import React from 'react'
 import DetailBody from './DetailBody'
 import DetailHeader from './DetailHeader'
 import { useParams } from 'react-router-dom'
+import StarIcon from '@mui/icons-material/Star';
+
+// const image  = [
+//   "https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1",
+//   "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+//   "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+//   "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+//   "https://images.unsplash.com/photo-1591088398332-8a7791972843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+// ]
 
 export default function DetaleProduto() {
 
@@ -22,110 +31,74 @@ export default function DetaleProduto() {
       
       setProduto(data)
 
+
+
     }
 
     fetchData()
 
   }, [id]);
 
-  const { 
-    id_produtos,
-    nome, 
-    pontuacao, 
-    descricao, 
-    facilidades, 
-    distancia,
-    comentarios, 
-    localMapa,
-    linkMapa,
-    verMais, 
-    categoriasEntity,
-    cidadesEntity
-  } = produto;
 
-
-  //  let value = {produto};
+  // let value = {};
 //  produto.map(item => value = item)
 
-  // const {
-  // type, 
-  // location, 
-  // country, 
-  //  nome, 
-  // stars, 
-  //  pontuacao, 
-  // comment, 
-  //  facilidades, 
-  // image, 
-  // description, 
-  // distancia,
-  // city,
-  // mapLocation,
-  // imageClass
+if(produto === "undefined"){
+  return 
+}
 
-  // type, 
-  // location, 
-  // country, 
-  // title, 
-  // stars, 
-  // puntaje, 
-  // comment, 
-  // facilities, 
-  // image, 
-  // description, 
-  // distancia,
-  // city,
-  // mapLocation,
-  // imageClass
+const {
+  location, 
+  country, 
+  nome, 
+  pontuacao, 
+  comentarios, 
+  cidadesEntity,
+  imagensEntityList,
+  categoriasEntity,
+  description, 
+  distancia,
+  city,
+  localMapa,
+  imageClass
+} = produto
 
-  // } = produto
+// const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
+const imagem = imagensEntityList?.map(item => item.url)
+const type = imagensEntityList?.map(type => type.titulo)
 
- console.log(produto)
+
+const facilidade = ["Wi-Fi","TV", 'Frigobar', 'Lareira', 'Ar-condicionado' ]
 
 
   return (
     <div className='app-main'>
         <DetailHeader
-        //  type = {type}
+         type = {categoriasEntity.descricao}
           title = {nome}
         // stars = {stars} 
           puntaje = {pontuacao}
          comment = {comentarios}
          distancia = {distancia}
-        // location = {location}
-        // country = {country}
+        location = {cidadesEntity?.nome}
+        country = {cidadesEntity?.pais}
 
-      //   type = {type}
-      //  title = {title}
-      //  stars = {stars} 
-      //  puntaje = {puntaje}
-      //  comment = {comment}
-      //  distancia = {distancia}
+
       //  location = {location}
       //  country = {country}
 
         />
         <DetailBody 
-        // image = {image} 
-         facilities = {facilidades} 
-        // description = {description} 
-        // distancia = {distancia}
+        id = {id}
+        image = {imagem}
+        facilities = {facilidade} 
+        description = {description} 
+        distancia = {distancia}
         // location = {location}
-        // country = {country}
-        // city = {city}
-        // mapLocation = {mapLocation}
-        // imageClass = {imageClass}
-
-        // image = {image} 
-        //  facilities = {facilidades} 
-        // description = {description} 
-        // distancia = {distancia}
-        // location = {location}
-        // country = {country}
-        // city = {city}
-        // mapLocation = {mapLocation}
-        // imageClass = {imageClass}
-
+        country = {country}
+        city = {city}
+        mapLocation = {localMapa}
+        imageClass = {imageClass}
         />
     </div>
   )
