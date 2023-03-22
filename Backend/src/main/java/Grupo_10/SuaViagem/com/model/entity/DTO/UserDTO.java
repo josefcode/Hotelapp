@@ -1,6 +1,8 @@
 package Grupo_10.SuaViagem.com.model.entity.DTO;
 
 import Grupo_10.SuaViagem.com.enums.UserRoles;
+import Grupo_10.SuaViagem.com.model.entity.FuncoesEntity;
+
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -26,6 +28,8 @@ public class UserDTO {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRoles userRoles;
+
+    private FuncoesEntity funcoesEntity;
 
     public UserDTO() {
     }
@@ -68,5 +72,13 @@ public class UserDTO {
 
     public void setUserRoles(UserRoles userRoles) {
         this.userRoles = userRoles;
+    }
+
+    public FuncoesEntity getFuncoesEntity() {
+        return funcoesEntity;
+    }
+
+    public void setFuncoesEntity(FuncoesEntity funcoesEntity) {
+        this.funcoesEntity = funcoesEntity;
     }
 }

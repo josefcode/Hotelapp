@@ -21,31 +21,43 @@ export default function Main() {
   const [inputLocationValue, setInputLocationValue] = useState("")
   const [isHover, setIsHovered] = useState(false)
   const inputRef = useRef()
+  const [cidades, setCidades] = useState()
+  const [selectedDateRange, setSelectedDateRange] = useState(null);
 
+  React.useEffect(() => {
 
-  const lista = [
-    {cidade:"Salvador", pais:"Brasil"},
-    {cidade:"Recife", pais:"Brasil"},
-    {cidade:"Natal", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-    {cidade:"Maceió", pais:"Brasil"},
-  ]
+      async function fetchData(){
 
+        const response = await fetch(`http://localhost:8081/cities/findAll`)
+    
+         if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+         const data = await response.json()
+        
+         setCidades(data)
+         console.log(data)
+      }
+    fetchData()
+  }, []);
+
+  async function handleSearch(event) {
+
+    event.preventDefault();
+    
+    const cidade = inputLocationValue;
+    const dataInicial = selectedDateRange.startDate.format('YYYY-MM-DD');
+    const dataFinal = selectedDateRange.endDate.format('YYYY-MM-DD');
+    const response = await fetch(`http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidade}&dataInicial=${dataInicial}&dataFinal=${dataFinal}`);
+  
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+  
+    const data = await response.json();
+    console.log(data);
+
+  };
 
   return (
 
@@ -70,34 +82,24 @@ export default function Main() {
       value={inputLocationValue}
       onChange={c => setInputLocationValue(c.target.value)}
       ref={inputRef}
-      
       />
       {focus && (
       <ul className='suggestBox-input' 
         onMouseEnter={()=> setIsHovered(true)} 
         onMouseLeave={()=> setIsHovered(false)}
-        
-        >
-        {lista.map((value, index)=>{
-          const isMatch = value.cidade.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
-          /* const listaValores = []
-          console.log(isMatch)
-          if(isMatch) {
-            listaValores.append(value)
-            console.log(listaValores)
-          } */
+      >
+        {cidades.map((value)=>{
+          const isMatch = value.nome.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
           return(
-            <li /* className={isMatch? 'suggestBox-border':'suggestBox-border-none'} */ key={index} onClick={()=>{
-              setInputLocationValue(value.cidade)
+            <li 
+              key={value.id_cidades} onClick={()=>{
+              setInputLocationValue(value.nome)
               inputRef.current.focus()
               setIsFocused(false)
               }}>
               {isMatch && (
-                
-                <SuggestBox  lista={value} />
-                              
+                <SuggestBox  cidades={value} />         
               )}
-
             </li>
           )
         })}
@@ -105,19 +107,24 @@ export default function Main() {
       )}
     </div>
 
-             
-            <DateRangePicker placeholder = "check in check out "><input type="text" className="form-control" /></DateRangePicker >
-           
-            <button className='searchBox-btn'>Buscar</button>
+            {/* <DateRangePicker placeholder = "check in check out "><input type="text" className="form-control" /></DateRangePicker > */}
+
+            <DateRangePicker
+              placeholder="check in check out"
+              onApply={(event, picker) => setSelectedDateRange(picker)}
+            >
+              <input type="text" className="form-control" />
+            </DateRangePicker>
+
+            {/* <button className='searchBox-btn'>Buscar</button> */}
+
+            <button className='searchBox-btn' onClick={handleSearch}>Buscar</button>
+
             </form>
         </div>
 
-
-       
         <RecomendacoesCards />
-     
-      </main>
 
- 
+      </main> 
   )
 }

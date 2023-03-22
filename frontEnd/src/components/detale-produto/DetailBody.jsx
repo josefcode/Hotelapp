@@ -31,14 +31,13 @@ export default function DetailBody({
         </div>
 
         <div className='detail-image-container'>
-
-          {/* {
+          {
           image?.map((item, index) => {
           return (
             <img key= {index} id = {index}  src={item}  alt = "weeb"/>
 
            ) } )
-          } */}
+          }
 
         </div>
        
@@ -50,28 +49,26 @@ export default function DetailBody({
 
         <div className='popover-images' >
 
-        { show && <CarouselImage  image = {categoriasEntity} />  }
+        { show && <CarouselImage  image = {image} />  }
 
         </div>
 
         <div className='body-detail-container'>
-            <h2 className='body-title'>{distancia}</h2>
-            <p className='body-detail-description'> {descricao}
+            <h2 className='body-title'>{location}</h2>
+            <p className='body-detail-description'> {description}
             </p>
             </div>
 
             <div>
-                <h1 className='title-service'>Características</h1>
+                <h1 className='title-service'>O que esse lugar</h1>
                 <div className='title-underline'></div>
                
                 <div className='services-list'>
 
                   <ul className='services-list-wrapper'>
-                   {/* {facilities?.map(item => 
+                   {facilities?.map(item => 
                        <li key = {item}>{item}</li>
-                   )} */}
-                     <li>{facilidades}</li>
-
+                   )}
 
                   </ul>
 
@@ -81,14 +78,14 @@ export default function DetailBody({
                 
                 {/* mapa */}
                 <div >
-                 <h1 className='title-service'>Localização</h1>
+                 <h1 className='title-service'>O que esse lugar</h1>
                 <div className='title-underline'></div>
 
                 <div className='mapa-wrapper'>
-                <p>{cidadesEntity}</p>
+                <p>{city}</p>
 
                 <div className='mapa'>
-                <iframe src= {localMapa} className='mapa' allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"/>
+                <iframe src= {mapLocation} className='mapa' allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"/>
 
                 </div>
                 
@@ -99,14 +96,14 @@ export default function DetailBody({
 
                 <div>
 
-                    <h1 className='title-service'>Políticas</h1>
+                    <h1 className='title-service'>O que voce precisa saber:</h1>
                     <div className='title-underline'></div>
 
                     <div className='detail-card-container'>
 
                        <div className='detail-card'>
 
-                          <h3 className='detail-card-title' >Políticas 1</h3>
+                          <h3 className='detail-card-title' >Regras da casa</h3>
                           <p>Check-out: 10: 00</p>
                           <p>Noa e permitido festas</p>
                           <p>Nao fumar</p>
@@ -114,7 +111,7 @@ export default function DetailBody({
 
                        <div className='detail-card'>
 
-                          <h3 className='detail-card-title' >Políticas 2</h3>
+                          <h3 className='detail-card-title' >Regras da casa</h3>
                           <p>Check-out: 10: 00</p>
                           <p>Noa e permitido festas</p>
                           <p>Nao fumar</p>
@@ -122,7 +119,7 @@ export default function DetailBody({
 
                        <div className='detail-card'>
 
-                          <h3 className='detail-card-title' >Políticas 3</h3>
+                          <h3 className='detail-card-title' >Regras da casa</h3>
                           <p>Check-out: 10: 00</p>
                           <p>Noa e permitido festas</p>
                           <p>Nao fumar</p>

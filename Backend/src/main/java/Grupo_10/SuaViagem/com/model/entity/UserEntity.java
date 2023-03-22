@@ -33,6 +33,8 @@ public class UserEntity implements UserDetails {
     @Enumerated(EnumType.STRING)
     private UserRoles userRoles;
 
+    @OneToOne(cascade=CascadeType.ALL)
+    private FuncoesEntity funcoesEntity;
     public UserEntity() {
     }
 
@@ -42,6 +44,7 @@ public class UserEntity implements UserDetails {
         this.email = userDTO.getEmail();
         this.senha = userDTO.getSenha();
         this.userRoles = userDTO.getUserRoles();
+        this.funcoesEntity = userDTO.getFuncoesEntity();
     }
 
     @Override
@@ -128,5 +131,13 @@ public class UserEntity implements UserDetails {
 
     public void setUserRoles(UserRoles userRoles) {
         this.userRoles = userRoles;
+    }
+
+    public FuncoesEntity getFuncoesEntity() {
+        return funcoesEntity;
+    }
+
+    public void setFuncoesEntity(FuncoesEntity funcoesEntity) {
+        this.funcoesEntity = funcoesEntity;
     }
 }

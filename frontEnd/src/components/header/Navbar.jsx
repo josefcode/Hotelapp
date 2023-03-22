@@ -50,7 +50,11 @@ export default function Navbar() {
         <div className="navbar-btn">
           {renderCreateAccountButton()}
 
-          {login ? <UserAvatar nome={localStorage.getItem('nome')} sobrenome={localStorage.getItem('sobreNome')} /> : null}
+          {login ? <UserAvatar 
+          // nome={localStorage.getItem('nome')}
+          // sobrenome={localStorage.getItem('sobreNome')}
+          email={localStorage.getItem('email')}
+           /> : null}
 
         </div>
       </nav>
