@@ -64,9 +64,9 @@ const {
 } = produto
 
 // const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
-// const imagem = imagensEntityList?.map(item => item.url)
+const imagem = imagensEntityList?.map(item => item.url)
 
-console.log(produto)
+console.log(imagem)
 
 const facilidade = ["Wi-Fi","TV", 'Frigobar', 'Lareira', 'Ar-condicionado' ]
 

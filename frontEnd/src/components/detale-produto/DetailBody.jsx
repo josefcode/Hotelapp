@@ -6,6 +6,7 @@ import {Calendario} from './Calendario';
 import {useShow} from '../hooks/useShow';
 import {useParems} from 'react-router-dom'
 import CarouselImage from './CarouselImage';
+import { ConnectingAirportsOutlined } from '@mui/icons-material';
 
 
 
@@ -20,6 +21,7 @@ export default function DetailBody({
   mapLocation,
 }) {
 
+ 
   const {show, changeShow} = useShow()
 
   return (
@@ -32,7 +34,8 @@ export default function DetailBody({
 
         <div className='detail-image-container'>
           {
-          image?.map((item, index) => {
+          image?.slice(0, 5).map((item, index) => {
+            console.log(item)
           return (
             <img key= {index} id = {index}  src={item}  alt = "weeb"/>
 

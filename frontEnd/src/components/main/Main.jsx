@@ -20,6 +20,8 @@ export default function Main() {
   const [focus, setIsFocused] = useState(false)
   const [inputLocationValue, setInputLocationValue] = useState("")
   const [isHover, setIsHovered] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  const [produto, setProduto] = useState(false)
   const inputRef = useRef()
   const [cidades, setCidades] = useState()
   const [selectedDateRange, setSelectedDateRange] = useState(null);
@@ -61,70 +63,80 @@ export default function Main() {
 
   return (
 
+
     <main className='app-main'>
-    <div className='searchBox-container'>
+      <div className='searchBox-container'>
 
         <h2 className='searchBox-title'>Buscar ofertas em hotéis, casas e muito mais!</h2>
 
         <form className='searchBox-form'>
-        <div className='searchSuggestBox-div'>
-      <TextField  className='location-input' type = "search" placeholder='Onde Vamos?' 
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <LocationOnIcon />
-          </InputAdornment>
-        ),
-      }}
-      size = 'small'
-      onFocus={()=>setIsFocused(true)}
-      onBlur={()=>isHover? "":setIsFocused(false)}
-      value={inputLocationValue}
-      onChange={c => setInputLocationValue(c.target.value)}
-      ref={inputRef}
-      />
-      {focus && (
-      <ul className='suggestBox-input' 
-        onMouseEnter={()=> setIsHovered(true)} 
-        onMouseLeave={()=> setIsHovered(false)}
-      >
-        {cidades.map((value)=>{
-          const isMatch = value.nome.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
-          return(
-            <li 
-              key={value.id_cidades} onClick={()=>{
-              setInputLocationValue(value.nome)
-              inputRef.current.focus()
-              setIsFocused(false)
-              }}>
-              {isMatch && (
-                <SuggestBox  cidades={value} />         
-              )}
-            </li>
-          )
-        })}
-      </ul>
-      )}
-    </div>
+          <div className='searchSuggestBox-div'>
+          
+            <TextField className='location-input' type="search" placeholder='Onde Vamos?'
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    {
+                      isLoading  ?
+                       <div className="loading"></div> : 
+                      <LocationOnIcon />
 
-            {/* <DateRangePicker placeholder = "check in check out "><input type="text" className="form-control" /></DateRangePicker > */}
+                    }
+                  
+                  </InputAdornment>
+                ),
+                disabled: isLoading // desativa o input enquanto isLoading for true
+              }}
+              size='small'
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => isHover ? "" : setIsFocused(false)}
+              value={inputLocationValue}
+              onChange={c => setInputLocationValue(c.target.value)}
+              ref={inputRef}
 
-            <DateRangePicker
-              placeholder="check in check out"
-              onApply={(event, picker) => setSelectedDateRange(picker)}
-            >
-              <input type="text" className="form-control" />
-            </DateRangePicker>
+            /> 
+            {focus && (
+              <ul className='suggestBox-input'
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
 
-            {/* <button className='searchBox-btn'>Buscar</button> */}
+              >
+                {produto.slice(0, 10).map((p, i) => {
+                  const isMatch = p.nome.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
+                  return (
+                    <li key={i} onClick={() => {
+                      setInputLocationValue(p.nome)
+                      inputRef.current.focus()
+                      setIsFocused(false)
+                    }}>
+                      {isMatch && (
 
-            <button className='searchBox-btn' onClick={handleSearch}>Buscar</button>
+                        <SuggestBox produto={p} />
 
-            </form>
-        </div>
+                      )}
 
-        <RecomendacoesCards />
+                    </li> 
 
-      </main> 
+                  )
+                })} 
+              </ul>
+            )} 
+          </div>
+          
+
+
+
+          <DateRangePicker placeholder="check in check out "><input type="text" className="form-control" /></DateRangePicker >
+
+          <button className='searchBox-btn'>Buscar</button> 
+        </form>
+       
+
+      </div>
+
+
+      <RecomendacoesCards />
+
+    </main>
   )
 }

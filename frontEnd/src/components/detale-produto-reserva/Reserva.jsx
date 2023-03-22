@@ -27,7 +27,8 @@ export  function Reserva({
   description,
 
 }) {
-    const [reserva, setReserva] = React.useState([])
+    // const [reserva, setReserva] = React.useState([])
+    const [produtoReserva, setProdutoReserva] = React.useState([])
   
    const {id } = useParams()
     const [checkin, setCheckin] = React.useState(new Date())
@@ -43,27 +44,53 @@ export  function Reserva({
         userRoles: "ROLE_ADMIN"
       })
 
-    
 
       React.useEffect(() => {
         async function fetchData(){
     
-           const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
+          //  const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
           
+          const response = await fetch(`http://localhost:8081/product/${id}`)
+    
            if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
            const data = await response.json()
           
-          setReserva(data)
+           setProdutoReserva(data)
+    
+    
+    
         }
     
         fetchData()
     
       }, [id]);
+    
+      const {imagensEntityList, nome, cidadesEntity, categoriasEntity} =  produtoReserva
+      const imageUrl = imagensEntityList?.map(img => img.url)
+      
+      // console.log(produtoReserva)
 
-      let value = {};
-      reserva.map(item => value = item)
+      // React.useEffect(() => {
+      //   async function fetchData(){
+    
+      //      const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
+          
+      //      if (!response.ok) {
+      //       throw new Error(`HTTP error! status: ${response.status}`);
+      //     }
+      //      const data = await response.json()
+          
+      //     setReserva(data)
+      //   }
+    
+      //   fetchData()
+    
+      // }, [id]);
+
+      // let value = {};
+      // reserva.map(item => value = item)
 
 
       
@@ -85,8 +112,8 @@ export  function Reserva({
     <div >
         <div className='reserva-container-header'>
           <div>
-          <span>{value.type}</span>
-          <h3>{value.title}</h3>
+          <span>{categoriasEntity?.descricao}</span>
+          <h3>{nome}</h3>
           </div>
           <Link to = {`/detaile-produto/${id}`}><ArrowBackIosIcon className='logo-header' /></Link>
         </div>
@@ -213,11 +240,11 @@ export  function Reserva({
             <div>
               <h4 className='reserva-header-title'>Detale da reserva</h4>
               
-                <img className = 'reserva-image' src = {value.image} alt = 'detale reserva' />
+                <img className = 'reserva-image' src = {imageUrl} alt = 'detale reserva' />
                 </div>
               <div className = 'reserva-body'>
-                <p className='reserva-type'>{value.type}</p>
-                <p className='reserva-title'>{value.title}</p>
+                <p className='reserva-type'>{categoriasEntity?.descricao}</p>
+                <p className='reserva-title'>{nome}</p>
              
                 {
                   stars.map((star, index)=>
@@ -228,7 +255,7 @@ export  function Reserva({
               <div >
 
                 <LocationOnIcon fontSize='small'/>
-                  <span className='reserva-location'>{value.location} </span>
+                  <span className='reserva-location'>{cidadesEntity?.nome} </span>
                 </div>
 
                 <div className='reserva-underline' ></div>
