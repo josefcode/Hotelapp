@@ -402,7 +402,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"id_imagens\": 7,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\"\n    }"
+							"raw": "{\n        \"titulo\": \"Apartamentos\",\n        \"url\": \"https://cutt.ly/Z8GlNtl\"\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/imagens/register",
@@ -865,7 +865,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"horaInicial\": \"08:30:00\",\r\n        \"dataInicial\": \"2023-03-26T00:00:00.000-03:00\",\r\n        \"dataFinal\": \"2023-04-04T00:00:00.000-03:00\"\r\n}"
+							"raw": "{\r\n    \"horaInicial\": \"12:00:00\",\r\n    \"dataInicial\": \"2023-07-01T00:00:00.000-03:00\",\r\n    \"dataFinal\": \"2023-07-15T00:00:00.000-03:00\"\r\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagem.com}}/reservas/register",
@@ -1114,13 +1114,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/44",
+							"raw": "{{SuaViagem.com}}/product/3",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
-								"44"
+								"3"
 							]
 						}
 					},
@@ -1215,7 +1215,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/findByCidadeAndDatas?cidade=Gramado&dataInicial=2023-03-28&dataFinal=2023-04-04",
+							"raw": "{{SuaViagem.com}}/product/findByCidadeAndDatas?cidade=São Paulo&dataInicial=2023-03-26&dataFinal=2023-04-04",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
@@ -1226,11 +1226,11 @@
 							"query": [
 								{
 									"key": "cidade",
-									"value": "Gramado"
+									"value": "São Paulo"
 								},
 								{
 									"key": "dataInicial",
-									"value": "2023-03-28"
+									"value": "2023-03-26"
 								},
 								{
 									"key": "dataFinal",
@@ -1251,7 +1251,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id_produtos\": 44,\r\n        \"nome\": \"Teste reservas\",\r\n        \"descricao\": \"Teste reservas\",\r\n        \"pontuacao\": \"10\",\r\n        \"facilidades\": \"Teste reservas\",\r\n        \"localMapa\": \"https://www.pousadaarvoredacoruja.com.br/web/contato/#mapa\",\r\n        \"distancia\": \"Teste reservas\",\r\n        \"linkMapa\": \"https://www.google.com/maps/place/Pousada+%C3%81rvore+da+Coruja/@-29.3867263,-50.8795637,15z/data=!4m2!3m1!1s0x0:0xf0d07c0b3d30dfc6?sa=X&ved=2ahUKEwjVoPr9ouH9AhXlCdQKHS3DAxkQ_BJ6BAhiEAc\",\r\n        \"comentarios\": \"Teste reservas\",\r\n        \"verMais\": \"https://www.pousadaarvoredacoruja.com.br/web/quartos/\",\r\n        \"caracteristicasEntityList\": [\r\n            {\r\n                \"id_caracteristicas\": 1,\r\n                \"nome\": \"Cozinha\",\r\n                \"icone\": \"Cozinha\"\r\n            }\r\n        ],\r\n        \"imagensEntityList\": [],\r\n        \"categoriasEntity\": {\r\n            \"id_categorias\": 4,\r\n            \"descricao\": \"Cama e café da manhã\",\r\n            \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F01%2F23%2F23%2F55%2Fbreakfast-in-bed-1158270_960_720.jpg&f=1&nofb=1&ipt=3be7be28c18d310a5bb9d616fa9b48ac157c024e8754ccb60f3a79e1a009e62a&ipo=images\",\r\n            \"produtosEntityList\": []\r\n        },\r\n        \"cidadesEntity\": {\r\n            \"id_cidades\": 4031,\r\n            \"nome\": \"Gramado\",\r\n            \"pais\": \"Brasil\",\r\n            \"sigla\": \"RS\",\r\n            \"produtosEntityList\": []\r\n        },\r\n        \"reservasEntity\": \r\n        {\r\n        \"id_reservas\": 10,\r\n        \"horaInicial\": \"08:30:01\",\r\n        \"dataInicial\": \"2023-03-28\",\r\n        \"dataFinal\": \"2023-04-04\"\r\n    }\r\n    }",
+							"raw": "{\r\n        \"id_produtos\": 3,\r\n        \"nome\": \"Pousada Árvore Da Coruja\",\r\n        \"descricao\": \"Se você é uma pessoa de requinte e bom gosto e deseja passar momentos felizes ao lado de quem você gosta, não pode deixar de se hospedar em nossa Pousada. Oferecemos hospedagem com um delicioso café da manhã em ambiente familiar e tranqüilo, perto do centro (800 m), localizado num dos bairros mais nobres de Gramado.\",\r\n        \"pontuacao\": \"10\",\r\n        \"facilidades\": \"Wi-Fi, TV, Frigobar, Lareira, Ar-condicionado\",\r\n        \"localMapa\": \"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53615.66699284024!2d-96.79655671481304!3d32.87227009118753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f85c3952ac3%3A0x7d3547b9a792e7d4!2sWalmart%20Supercenter!5e0!3m2!1sen!2sbr!4v1678239148968!5m2!1sen!2sbr\",\r\n        \"distancia\": \"A 800 m do centro\",\r\n        \"linkMapa\": \"https://www.google.com/maps/place/Pousada+%C3%81rvore+da+Coruja/@-29.3867263,-50.8795637,15z/data=!4m2!3m1!1s0x0:0xf0d07c0b3d30dfc6?sa=X&ved=2ahUKEwjVoPr9ouH9AhXlCdQKHS3DAxkQ_BJ6BAhiEAc\",\r\n        \"comentarios\": \"excelente\",\r\n        \"verMais\": \"https://www.pousadaarvoredacoruja.com.br/web/quartos/\",\r\n        \"caracteristicasEntityList\": [\r\n            {\r\n                \"id_caracteristicas\": 1,\r\n                \"nome\": \"Cozinha\",\r\n                \"icone\": \"Cozinha\"\r\n            },\r\n            {\r\n                \"id_caracteristicas\": 2,\r\n                \"nome\": \"Televisor\",\r\n                \"icone\": \"Televisor\"\r\n            }\r\n        ],\r\n        \"imagensEntityList\": [\r\n\t\t{\r\n        \"id_imagens\": 23,\r\n        \"titulo\": \"Hotéis\",\r\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id_imagens\": 24,\r\n\t\t\t\"titulo\": \"Hotéis\",\r\n\t\t\t\"url\": \"https://rb.gy/dgidkn\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id_imagens\": 25,\r\n\t\t\t\"titulo\": \"Hotéis\",\r\n\t\t\t\"url\": \"https://cutt.ly/d8GlKzy\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id_imagens\": 26,\r\n\t\t\t\"titulo\": \"Hotéis\",\r\n\t\t\t\"url\": \"https://cutt.ly/X8GlXF0\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id_imagens\": 27,\r\n\t\t\t\"titulo\": \"Hotéis\",\r\n\t\t\t\"url\": \"https://cutt.ly/Z8GlNtl\"\r\n\t\t}\r\n\t\t],\r\n        \"categoriasEntity\": {\r\n            \"id_categorias\": 1,\r\n            \"descricao\": \"Hotéis\",\r\n            \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.corinthia.com%2Fmedia%2F1563%2Fcorinthia-lisbon-deluxe-king-bedroom.jpg&f=1&nofb=1&ipt=0d0842f3e887b1bfd8a82d2ebc3633acac094bad75534497c67288734289559a&ipo=images\",\r\n            \"produtosEntityList\": []\r\n        },\r\n        \"cidadesEntity\": {\r\n            \"id_cidades\": 4031,\r\n            \"nome\": \"Gramado\",\r\n            \"pais\": \"Brasil\",\r\n            \"sigla\": \"RS\",\r\n            \"produtosEntityList\": []\r\n        },        \r\n\t\t\"reservasEntity\": {\r\n\t\t\t\"id_reservas\": 9,\r\n\t\t\t\"horaInicial\": \"12:00:00\",\r\n\t\t\t\"dataInicial\": \"2023-07-01T00:00:00.000-03:00\",\r\n\t\t\t\"dataFinal\": \"2023-07-15T00:00:00.000-03:00\",\r\n            \"produtosEntityList\": []\r\n        }\r\n\t\t\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1259,13 +1259,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/44",
+							"raw": "{{SuaViagem.com}}/product/3",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
-								"44"
+								"3"
 							]
 						}
 					},
@@ -1275,25 +1275,18 @@
 					"name": "delete",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/45",
+							"raw": "{{SuaViagem.com}}/product/6",
 							"host": [
 								"{{SuaViagem.com}}"
 							],
 							"path": [
 								"product",
-								"45"
+								"6"
 							]
 						}
 					},
