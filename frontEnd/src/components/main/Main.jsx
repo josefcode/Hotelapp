@@ -23,7 +23,6 @@ export default function Main() {
   const [isLoading, setIsLoading] = useState(false);
   const [produto, setProduto] = useState(false)
   const inputRef = useRef()
-  const [cidades, setCidades] = useState()
   const [selectedDateRange, setSelectedDateRange] = useState(null);
 
   React.useEffect(() => {
@@ -37,7 +36,7 @@ export default function Main() {
         }
          const data = await response.json()
         
-         setCidades(data)
+         setProduto(data)
          console.log(data)
       }
     fetchData()
@@ -123,12 +122,14 @@ export default function Main() {
             )} 
           </div>
           
+          <DateRangePicker
+              placeholder="check in check out"
+              onApply={(event, picker) => setSelectedDateRange(picker)}
+            >
+              <input type="text" className="form-control" />
+            </DateRangePicker>
 
-
-
-          <DateRangePicker placeholder="check in check out "><input type="text" className="form-control" /></DateRangePicker >
-
-          <button className='searchBox-btn'>Buscar</button> 
+          <button onClick={handleSearch} className='searchBox-btn'>Buscar</button> 
         </form>
        
 

@@ -238,7 +238,7 @@ export  function Reserva({
         </form>
           <div className='reserva-card'>
             <div>
-              <h4 className='reserva-header-title'>Detale da reserva</h4>
+              <h4 className='reserva-header-title'>Detalhe da reserva</h4>
               
                 <img className = 'reserva-image' src = {imageUrl} alt = 'detale reserva' />
                 </div>
@@ -274,7 +274,7 @@ export  function Reserva({
 
                 <div className='reserva-underline' ></div>
 
-                <button className='reserva-btn' onClick = {() => setConfirm(!confirm)}>Confirm reserva</button>
+                <button className='reserva-btn' onClick = {() => setConfirm(!confirm)}>Confirmar reserva</button>
                 </div>
              </div>
              </div>

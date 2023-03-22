@@ -18,6 +18,7 @@ export function IniciaSessao() {
   const { changeLogin } = useLogin()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [token, setToken] = useState('')
 
   function validateLogin(email, password) {
     const storedEmail = localStorage.getItem('email');
@@ -44,6 +45,8 @@ export function IniciaSessao() {
           localStorage.setItem('email', email);
           alert('Login realizado com sucesso!');
           navigate('/');
+          console.log(response.data.jwt)
+          setToken(response.data.jwt)
           changeLogin(true);
 
         })
