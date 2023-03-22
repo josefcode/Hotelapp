@@ -54,7 +54,7 @@ const {
   pontuacao, 
   comentarios, 
   cidadesEntity,
-  // imagensEntityList,
+  imagensEntityList,
   categoriasEntity,
   description, 
   distancia,
@@ -64,9 +64,9 @@ const {
 } = produto
 
 // const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
-// const imagem = imagensEntityList?.map(item => item.url)
+const imagem = imagensEntityList?.map(item => item.url)
 
-console.log(produto)
+console.log(imagem)
 
 const facilidade = ["Wi-Fi","TV", 'Frigobar', 'Lareira', 'Ar-condicionado' ]
 
@@ -90,7 +90,7 @@ const facilidade = ["Wi-Fi","TV", 'Frigobar', 'Lareira', 'Ar-condicionado' ]
         />
         <DetailBody 
         id = {id}
-        image = {image}
+        image = {imagem}
         facilities = {facilidade} 
         description = {description} 
         distancia = {distancia}

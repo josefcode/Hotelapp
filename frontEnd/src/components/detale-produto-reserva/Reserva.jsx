@@ -27,7 +27,7 @@ export  function Reserva({
   description,
 
 }) {
-    const [reserva, setReserva] = React.useState([])
+    // const [reserva, setReserva] = React.useState([])
     const [produtoReserva, setProdutoReserva] = React.useState([])
   
    const {id } = useParams()
@@ -67,30 +67,30 @@ export  function Reserva({
     
       }, [id]);
     
-      const {imagensEntityList} =  produtoReserva
+      const {imagensEntityList, nome, cidadesEntity, categoriasEntity} =  produtoReserva
       const imageUrl = imagensEntityList?.map(img => img.url)
       
-      console.log(imageUrl)
+      // console.log(produtoReserva)
 
-      React.useEffect(() => {
-        async function fetchData(){
+      // React.useEffect(() => {
+      //   async function fetchData(){
     
-           const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
+      //      const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
           
-           if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-           const data = await response.json()
+      //      if (!response.ok) {
+      //       throw new Error(`HTTP error! status: ${response.status}`);
+      //     }
+      //      const data = await response.json()
           
-          setReserva(data)
-        }
+      //     setReserva(data)
+      //   }
     
-        fetchData()
+      //   fetchData()
     
-      }, [id]);
+      // }, [id]);
 
-      let value = {};
-      reserva.map(item => value = item)
+      // let value = {};
+      // reserva.map(item => value = item)
 
 
       
@@ -112,8 +112,8 @@ export  function Reserva({
     <div >
         <div className='reserva-container-header'>
           <div>
-          <span>{value.type}</span>
-          <h3>{value.title}</h3>
+          <span>{categoriasEntity?.descricao}</span>
+          <h3>{nome}</h3>
           </div>
           <Link to = {`/detaile-produto/${id}`}><ArrowBackIosIcon className='logo-header' /></Link>
         </div>
@@ -243,8 +243,8 @@ export  function Reserva({
                 <img className = 'reserva-image' src = {imageUrl} alt = 'detale reserva' />
                 </div>
               <div className = 'reserva-body'>
-                <p className='reserva-type'>{value.type}</p>
-                <p className='reserva-title'>{value.title}</p>
+                <p className='reserva-type'>{categoriasEntity?.descricao}</p>
+                <p className='reserva-title'>{nome}</p>
              
                 {
                   stars.map((star, index)=>
@@ -255,7 +255,7 @@ export  function Reserva({
               <div >
 
                 <LocationOnIcon fontSize='small'/>
-                  <span className='reserva-location'>{value.location} </span>
+                  <span className='reserva-location'>{cidadesEntity?.nome} </span>
                 </div>
 
                 <div className='reserva-underline' ></div>
