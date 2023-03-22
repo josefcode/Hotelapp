@@ -94,13 +94,13 @@ export function CriarConta() {
     email: userData.email,
     senha: userData.senha,
     userRoles: "ROLE_ADMIN"
-      }).then(response => {
-
+      })
+      alert('A conta foi criada com sucesso!');
+   
       setSignup(true)
-  
-    })
-    .catch(error => {
 
+    .catch(error => {
+      alert('Não foi possível criar a conta. Tente novamente mais tarde.');
       setError(true)
       setSignup(true)
     });

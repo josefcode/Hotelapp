@@ -28,6 +28,7 @@ export  function Reserva({
 
 }) {
     const [reserva, setReserva] = React.useState([])
+    const [produtoReserva, setProdutoReserva] = React.useState([])
   
    const {id } = useParams()
     const [checkin, setCheckin] = React.useState(new Date())
@@ -43,7 +44,33 @@ export  function Reserva({
         userRoles: "ROLE_ADMIN"
       })
 
+
+      React.useEffect(() => {
+        async function fetchData(){
     
+          //  const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
+          
+          const response = await fetch(`http://localhost:8081/product/${id}`)
+    
+           if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+           const data = await response.json()
+          
+           setProdutoReserva(data)
+    
+    
+    
+        }
+    
+        fetchData()
+    
+      }, [id]);
+    
+      const {imagensEntityList} =  produtoReserva
+      const imageUrl = imagensEntityList?.map(img => img.url)
+      
+      console.log(imageUrl)
 
       React.useEffect(() => {
         async function fetchData(){
@@ -213,7 +240,7 @@ export  function Reserva({
             <div>
               <h4 className='reserva-header-title'>Detale da reserva</h4>
               
-                <img className = 'reserva-image' src = {value.image} alt = 'detale reserva' />
+                <img className = 'reserva-image' src = {imageUrl} alt = 'detale reserva' />
                 </div>
               <div className = 'reserva-body'>
                 <p className='reserva-type'>{value.type}</p>
