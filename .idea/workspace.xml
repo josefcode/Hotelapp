@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="" />
+    <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/iniciar-sessao/IniciarSessao.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/iniciar-sessao/IniciarSessao.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,50 +157,6 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="12" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/UserController.java</url>
-          <line>61</line>
-          <properties class="Grupo_10.SuaViagem.com.controller.UserController" method="createAuthenticationToken">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/UserController.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/UserController.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/UserController.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/UserController.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/UserController.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/UserController.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/UserController.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
