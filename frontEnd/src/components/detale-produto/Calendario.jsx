@@ -33,13 +33,14 @@ export  function Calendario({id}) {
       next2Label= {null}
     />
     </div>
-    {/* <div className='single-calender'>
+    <div className='single-calender'>
      <Calendar onChange={setCheckin} value={checkin} 
      selectRange
+     minDate={new Date()}
      prev2Label= {null}
      next2Label= {null}
     />
-   </div> */}
+   </div>
     </div>
         <div className='calendario-card'>
 
