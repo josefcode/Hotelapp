@@ -183,10 +183,14 @@ export  function Reserva({
             <div>
 
             <div className='calendario-reserva'>
-            <h1 className='calendario-title'>Complete seus dados</h1>
+            <h1 className='calendario-title'>Selecione sua data de reserva</h1>
               
                 <div className='double-calender'>
-                <Calendar onChange={setCheckin} value={checkin} showDoubleView 
+                <Calendar
+                onChange={setCheckin}
+                value={checkin} 
+                minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
+                showDoubleView 
                 selectRange
                 prev2Label= {null}
                 next2Label= {null}
@@ -195,11 +199,11 @@ export  function Reserva({
                 </div>
                 <div className='single-calender'>
 
-                <Calendar onChange={setCheckin} value={checkin} 
+                {/* <Calendar onChange={setCheckin} value={checkin} 
                 selectRange
                 prev2Label= {null}
                 next2Label= {null}
-                />
+                /> */}
              
 
             </div>
@@ -238,7 +242,7 @@ export  function Reserva({
         </form>
           <div className='reserva-card'>
             <div>
-              <h4 className='reserva-header-title'>Detalhe da reserva</h4>
+              <h4 className='reserva-header-title'>Detalhes da reserva</h4>
               
                 <img className = 'reserva-image' src = {imageUrl} alt = 'detale reserva' />
                 </div>

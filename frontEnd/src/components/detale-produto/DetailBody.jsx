@@ -65,7 +65,7 @@ export default function DetailBody({
             </div>
 
             <div>
-                <h1 className='title-service'>O que esse lugar</h1>
+                <h1 className='title-service'>O que tem nesse lugar</h1>
                 <div className='title-underline'></div>
                
                 <div className='services-list'>
@@ -83,7 +83,7 @@ export default function DetailBody({
                 
                 {/* mapa */}
                 <div >
-                 <h1 className='title-service'>O que esse lugar</h1>
+                 <h1 className='title-service'>Mapa</h1>
                 <div className='title-underline'></div>
 
                 <div className='mapa-wrapper'>
@@ -101,7 +101,7 @@ export default function DetailBody({
 
                 <div>
 
-                    <h1 className='title-service'>O que voce precisa saber:</h1>
+                    <h1 className='title-service'>O que voce precisa saber</h1>
                     <div className='title-underline'></div>
 
                     <div className='detail-card-container'>

@@ -23,23 +23,27 @@ export  function Calendario({id}) {
       
     <div className='calendario'>
     <div className='double-calender'>
-    <Calendar onChange={setCheckin} value={checkin} showDoubleView 
-     selectRange
-     prev2Label= {null}
-     next2Label= {null}
+    <Calendar 
+      onChange={setCheckin} 
+      value={checkin} 
+      showDoubleView 
+      minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
+      selectRange
+      prev2Label= {null}
+      next2Label= {null}
     />
     </div>
-    <div className='single-calender'>
+    {/* <div className='single-calender'>
      <Calendar onChange={setCheckin} value={checkin} 
      selectRange
      prev2Label= {null}
      next2Label= {null}
     />
-   </div>
+   </div> */}
     </div>
         <div className='calendario-card'>
 
-          <p>Adicione as Datas da sua viagem </p>
+          <p>Adicione as datas da sua viagem</p>
 
           {
             !token ? <Link to ={`/iniciar-sessao`} ><button className='calendario-btn' >Iniciar reserva</button></Link> :
