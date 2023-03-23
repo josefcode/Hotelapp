@@ -11,7 +11,9 @@ import DateRangePicker from 'react-bootstrap-daterangepicker';
 import 'bootstrap/dist/css/bootstrap.css';
 // you will also need the css that comes with bootstrap-daterangepicker
 import 'bootstrap-daterangepicker/daterangepicker.css';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import  {SuggestBox}  from '../sugest-box/index';
+import { useDatas } from '../hooks/useDatas';
 
 import './styles.css'
 
@@ -24,6 +26,8 @@ export default function Main() {
   const [produto, setProduto] = useState(false)
   const inputRef = useRef()
   const [selectedDateRange, setSelectedDateRange] = useState(null);
+
+  const {startDate, endDate, cidadeValue, changeStartDate, changeEndtDate, changeCidadeValue} = useDatas()
 
   React.useEffect(() => {
 
@@ -49,7 +53,7 @@ export default function Main() {
     const cidade = inputLocationValue;
     const dataInicial = selectedDateRange.startDate.format('YYYY-MM-DD');
     const dataFinal = selectedDateRange.endDate.format('YYYY-MM-DD');
-    const response = await fetch(`http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidade}&dataInicial=${dataInicial}&dataFinal=${dataFinal}`);
+    const response = await fetch(`http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`);
   
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -59,6 +63,12 @@ export default function Main() {
     console.log(data);
 
   };
+
+   const [InicialDate, setInicialDate] = useState('')
+   const [EndDate, setEndDate] = useState('')
+   const [cidade, setCidade] = useState('') 
+
+   console.log(inputLocationValue)
 
   return (
 
@@ -90,7 +100,7 @@ export default function Main() {
               onFocus={() => setIsFocused(true)}
               onBlur={() => isHover ? "" : setIsFocused(false)}
               value={inputLocationValue}
-              onChange={c => setInputLocationValue(c.target.value)}
+              onChange={c => changeCidadeValue(c.target.value)}
               ref={inputRef}
 
             /> 
@@ -124,9 +134,9 @@ export default function Main() {
           
           <DateRangePicker
               placeholder="check in check out"
-              onApply={(event, picker) => setSelectedDateRange(picker)}
+              onApply={(event, picker) => changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndtDate(picker.endDate.format('YYYY-MM-DD')))}
             >
-              <input type="text" className="form-control" />
+              <input type="text" className="form-control" placeholder= "checkIn ckeckOut" value =  "" />
             </DateRangePicker>
 
           <button onClick={handleSearch} className='searchBox-btn'>Buscar</button> 
