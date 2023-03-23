@@ -29,7 +29,7 @@ export function CriarConta() {
     email: '',
     senha: '',
     confirmSenha: '',
-    userRoles: "ROLE_ADMIN"
+    // userRoles: "ROLE_ADMIN"
   })
 
 
@@ -42,7 +42,7 @@ export function CriarConta() {
       }
     });
   }
-
+  
   function isValidName(value) {
     return /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/.test(value);
   }
@@ -81,7 +81,7 @@ export function CriarConta() {
     const {nome, sobreNome, senha, email, userRoles} = userData
 
     
-    localStorage.setItem('nome', userData.nome);
+  localStorage.setItem('nome', userData.nome);
   localStorage.setItem('sobreNome', userData.sobreNome);
   localStorage.setItem('email', userData.email);
   // localStorage.setItem('senha', userData.senha);
@@ -93,7 +93,7 @@ export function CriarConta() {
     sobrenome: userData.sobreNome,
     email: userData.email,
     senha: userData.senha,
-    userRoles: "ROLE_ADMIN"
+    userRoles: userData.userRoles
       })
       alert('A conta foi criada com sucesso!');
    
@@ -185,6 +185,18 @@ export function CriarConta() {
             value={userData.confirmSenha}
             onChange={handleChange}
           />
+
+          <label htmlFor='userRoles'>Tipo de usuário: </label>
+          <select
+            className='input'
+            id="userRoles"
+            name="userRoles"
+            value={userData.userRoles}
+            onChange={handleChange}
+          >
+            <option value="ROLE_ADMIN">Administrador</option>
+            <option value="ROLE_USER">Usuário comum</option>
+          </select>
 
           {userData.confirmSenha === "" && (<span id="component-error-text">Este campo é obrigatório</span>)}
 

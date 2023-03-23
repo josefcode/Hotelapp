@@ -2,6 +2,7 @@ package Grupo_10.SuaViagem.com.model.entity.DTO;
 
 import Grupo_10.SuaViagem.com.enums.UserRoles;
 import Grupo_10.SuaViagem.com.model.entity.FuncoesEntity;
+import Grupo_10.SuaViagem.com.model.entity.UserEntity;
 
 import javax.persistence.Column;
 import javax.persistence.EnumType;
@@ -32,6 +33,15 @@ public class UserDTO {
     private FuncoesEntity funcoesEntity;
 
     public UserDTO() {
+    }
+
+    public UserDTO(UserEntity userEntity) {
+        this.nome = userEntity.getNome();
+        this.sobrenome = userEntity.getSobrenome();
+        this.email = userEntity.getEmail();
+        this.senha = userEntity.getSenha();
+        this.userRoles = userEntity.getUserRoles();
+        this.funcoesEntity = userEntity.getFuncoesEntity();
     }
 
     public String getNome() {
