@@ -20,6 +20,7 @@ export function IniciaSessao() {
   const { changeLogin } = useLogin()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('');
   // const [token, setToken] = useState('')
 
   const {token, changeToken} = useToken()
@@ -41,29 +42,25 @@ export function IniciaSessao() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
+  
     axios.post('http://localhost:8081/user/authenticate', {
       email: email,
       senha: password
-        }).then(response => {
-          localStorage.setItem('email', email);
-         
-          alert('Login realizado com sucesso!');
-
-          changeToken(response.data.token)
-
-
-          navigate('/');
+    }).then(response => {
+      localStorage.setItem('email', email);
+    
+      alert('Login realizado com sucesso!');
   
-          changeToken(response.data.jwt)
-          changeLogin(true);
-
-        })
-        .catch(error => {
-          alert('Por favor, tente novamente, suas credenciais são inválidas.');
-        });
+      changeToken(response.data.token)
+      navigate('/');
+      changeToken(response.data.jwt)
+      changeLogin(true);
+  
+    }).catch(error => {
+      setErrorMessage('Infelizmente, você não pôde efetuar login. Por favor, tente novamente mais tarde.');
+    });
   };
-
+  
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -77,7 +74,7 @@ export function IniciaSessao() {
       !token && <Alert sx = {{marginTop: '10px', '&.MuiAlert-root': {color: "rgb(249, 8, 4) !important" }}}severity="error">Para fazer uma reserva você precisa estar logado</Alert>
      }
       
-
+      {errorMessage && <span  className='error-message'>{errorMessage}</span>}
 
       <form className='iniciar-form' onSubmit={handleSubmit} >
 
@@ -125,9 +122,7 @@ export function IniciaSessao() {
 
           }}
         />
-
         {password === "" && (<span id="component-error-text" >Este campo é obrigatório</span>)}
-
         <div className='btn-wrapper'>
           <button className='iniciar-btn' type="submit">Iniciar sessão</button>
 
