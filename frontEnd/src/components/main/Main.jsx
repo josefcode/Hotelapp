@@ -27,7 +27,7 @@ export default function Main() {
   const inputRef = useRef()
   const [selectedDateRange, setSelectedDateRange] = useState(null);
 
-  const {startDate, endDate, cidadeValue, changeStartDate, changeEndtDate, changeCidadeValue} = useDatas()
+  const {startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue} = useDatas()
 
   React.useEffect(() => {
 
@@ -50,9 +50,9 @@ export default function Main() {
 
     event.preventDefault();
     
-    const cidade = inputLocationValue;
-    const dataInicial = selectedDateRange.startDate.format('YYYY-MM-DD');
-    const dataFinal = selectedDateRange.endDate.format('YYYY-MM-DD');
+    // const cidade = inputLocationValue;
+    // const dataInicial = selectedDateRange.startDate.format('YYYY-MM-DD');
+    // const dataFinal = selectedDateRange.endDate.format('YYYY-MM-DD');
     const response = await fetch(`http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`);
   
     if (!response.ok) {
@@ -64,11 +64,6 @@ export default function Main() {
 
   };
 
-   const [InicialDate, setInicialDate] = useState('')
-   const [EndDate, setEndDate] = useState('')
-   const [cidade, setCidade] = useState('') 
-
-   console.log(inputLocationValue)
 
   return (
 
@@ -99,7 +94,7 @@ export default function Main() {
               size='small'
               onFocus={() => setIsFocused(true)}
               onBlur={() => isHover ? "" : setIsFocused(false)}
-              value={inputLocationValue}
+              value={cidadeValue}
               onChange={c => changeCidadeValue(c.target.value)}
               ref={inputRef}
 
@@ -111,10 +106,10 @@ export default function Main() {
 
               >
                 {produto.slice(0, 10).map((p, i) => {
-                  const isMatch = p.nome.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
+                  const isMatch = p.nome.toLowerCase().indexOf(cidadeValue.toLowerCase()) > -1
                   return (
                     <li key={i} onClick={() => {
-                      setInputLocationValue(p.nome)
+                      changeCidadeValue(p.nome)
                       inputRef.current.focus()
                       setIsFocused(false)
                     }}>
@@ -134,9 +129,9 @@ export default function Main() {
           
           <DateRangePicker
               placeholder="check in check out"
-              onApply={(event, picker) => changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndtDate(picker.endDate.format('YYYY-MM-DD')))}
+              onApply={(event, picker) => changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DD')))}
             >
-              <input type="text" className="form-control" placeholder= "checkIn ckeckOut" value =  "" />
+              <input type="text" className="form-control" placeholder= "checkIn ckeckOut"  />
             </DateRangePicker>
 
           <button onClick={handleSearch} className='searchBox-btn'>Buscar</button> 

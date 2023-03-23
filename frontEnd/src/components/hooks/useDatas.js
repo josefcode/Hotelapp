@@ -13,14 +13,14 @@ export function DatasProvider(props) {
     const [cidadeValue, setCidadeValue] = useState("")
     // Função responsável por Trocar o Tema
 
-    function changeStartDate(categoria) {
-        setStartDate(categoria)
+    function changeStartDate(startdate) {
+        setStartDate(startdate)
     }
-    function changeEndDate(categoria) {
-        setEndDate(categoria)
+    function changeEndDate(enddate) {
+        setEndDate(enddate)
     }
-    function changeCidadeValue(categoria) {
-        setCidadeValue(categoria)
+    function changeCidadeValue(cidade) {
+        setCidadeValue(cidade)
     }
 
     return(
