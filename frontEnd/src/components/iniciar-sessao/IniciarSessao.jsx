@@ -74,7 +74,7 @@ export function IniciaSessao() {
       !token && <Alert sx = {{marginTop: '10px', '&.MuiAlert-root': {color: "rgb(249, 8, 4) !important" }}}severity="error">Para fazer uma reserva você precisa estar logado</Alert>
      }
       
-      {errorMessage && <span  className='error-message'>{errorMessage}</span>}
+      {errorMessage && <Alert sx = {{marginTop: '10px', '&.MuiAlert-root': {color: "rgb(249, 8, 4) !important" }}}severity="error">{errorMessage}</Alert>}
 
       <form className='iniciar-form' onSubmit={handleSubmit} >
 
