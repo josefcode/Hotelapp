@@ -4,6 +4,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import "./styleBody.css"
 import {Calendario} from './Calendario';
 import {useShow} from '../hooks/useShow';
+import { useToken } from '../hooks/useToken';
 import {useParems} from 'react-router-dom'
 import CarouselImage from './CarouselImage';
 import { ConnectingAirportsOutlined } from '@mui/icons-material';
@@ -23,6 +24,7 @@ export default function DetailBody({
 
  
   const {show, changeShow} = useShow()
+
 
   return (
     <div >

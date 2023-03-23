@@ -13,6 +13,7 @@ import { CriarConta } from './components/criar-conta/CriarConta';
 import DetaleProduto from './components/detale-produto/DetaleProduto';
 import { FilterProvider } from './components/hooks/useFilterCategoria'
 import { Reserva } from './components/detale-produto-reserva/Reserva';
+import { TokenProvider } from './components/hooks/useToken';
 
 
 
@@ -22,6 +23,7 @@ root.render(
     <LoginProvider>
       <ShowProvider>
         <FilterProvider>
+          <TokenProvider>
     <Routes>
     <Route path='/' element={<App/>}  >
       <Route index element={<Main />}  />
@@ -32,6 +34,7 @@ root.render(
       <Route path="*" element={<ErrorPage />} />
     </Route>
 </Routes>
+</TokenProvider>
 </FilterProvider>
 </ShowProvider>
 </LoginProvider>

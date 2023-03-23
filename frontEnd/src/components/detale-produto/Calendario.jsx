@@ -4,10 +4,14 @@ import Calendar from 'react-calendar';
 import {Link} from 'react-router-dom'
 import Alert from '@mui/material/Alert';
 import 'react-calendar/dist/Calendar.css';
+import { useToken } from '../hooks/useToken';
+
 
 export  function Calendario({id}) {
   const [checkin, setCheckin] = React.useState(new Date())
-
+  const {token } = useToken()
+  
+  console.log(token)
   console.log(id)
   const [toggle, setToggle] = React.useState(false)
   return (
@@ -37,13 +41,19 @@ export  function Calendario({id}) {
 
           <p>Adicione as Datas da sua viagem </p>
 
-           <Link to ={`reserva`} ><button className='calendario-btn' onClick = {() => setToggle(!toggle)}>Iniciar reserva</button></Link>
+          {
+            !token ? <Link to ={`/iniciar-sessao`} ><button className='calendario-btn' >Iniciar reserva</button></Link> :
+            <Link to ={`reserva`} ><button className='calendario-btn' >Iniciar reserva</button></Link> 
+          }
+          
+
+           
            
         </div>
         
     </div>
     <div>
-    {toggle && <Alert sx = {{marginTop: '10px', '&.MuiAlert-root': {color: "rgb(249, 8, 4) !important" }}}severity="error">Para fazer uma reserva você precisa estar logado</Alert>}
+    {  !token   && <Alert sx = {{marginTop: '10px', '&.MuiAlert-root': {color: "rgb(249, 8, 4) !important" }}}severity="error">Para fazer uma reserva você precisa estar logado</Alert>}
     </div>
     </div>
   )

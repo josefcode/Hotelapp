@@ -6,19 +6,23 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { Link, useNavigate } from 'react-router-dom';
+import { useToken } from '../hooks/useToken';
 import axios from 'axios'
 import { useLogin } from '../hooks/useLogin'
-import './style.css'
+import './style.css';
+import Alert from '@mui/material/Alert';
 import { ReservaSucesso } from '../detale-produto-reserva/ReservaSucesso';
 
 export function IniciaSessao() {
 
   const [showPassword, setShowPassword] = useState(false);
-
+  
   const { changeLogin } = useLogin()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [token, setToken] = useState('')
+  // const [token, setToken] = useState('')
+
+  const {token, changeToken} = useToken()
 
   function validateLogin(email, password) {
     const storedEmail = localStorage.getItem('email');
@@ -43,10 +47,15 @@ export function IniciaSessao() {
       senha: password
         }).then(response => {
           localStorage.setItem('email', email);
+         
           alert('Login realizado com sucesso!');
+
+          changeToken(response.data.token)
+
+
           navigate('/');
-          console.log(response.data.jwt)
-          setToken(response.data.jwt)
+  
+          changeToken(response.data.jwt)
           changeLogin(true);
 
         })
@@ -64,6 +73,12 @@ export function IniciaSessao() {
   return (
     <div className='iniciar-session-container'>
       <h1 className='iniciar-title'>Iniciar sessão</h1>
+     {
+      !token && <Alert sx = {{marginTop: '10px', '&.MuiAlert-root': {color: "rgb(249, 8, 4) !important" }}}severity="error">Para fazer uma reserva você precisa estar logado</Alert>
+     }
+      
+
+
       <form className='iniciar-form' onSubmit={handleSubmit} >
 
         <label htmlFor='email'>Email: </label>

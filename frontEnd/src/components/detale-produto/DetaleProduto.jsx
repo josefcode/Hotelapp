@@ -2,6 +2,7 @@ import React from 'react'
 import DetailBody from './DetailBody'
 import DetailHeader from './DetailHeader'
 import { useParams } from 'react-router-dom'
+import { useToken } from '../hooks/useToken'
 
 
 // const image  = [
@@ -16,6 +17,10 @@ export default function DetaleProduto() {
 
   const [produto, setProduto] = React.useState([])
   const { id } = useParams();
+
+  const {token} = useToken()
+
+  console.log(token)
 
   React.useEffect(() => {
     async function fetchData(){
@@ -66,7 +71,7 @@ const {
 // const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
 const imagem = imagensEntityList?.map(item => item.url)
 
-console.log(imagem)
+
 
 const facilidade = ["Wi-Fi","TV", 'Frigobar', 'Lareira', 'Ar-condicionado' ]
 

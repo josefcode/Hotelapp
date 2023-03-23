@@ -2,18 +2,20 @@ import React from 'react'
 import './styles.css'
 import CloseIcon from '@mui/icons-material/Close';
 import { useLogin } from '../hooks/useLogin';
+import { useToken } from '../hooks/useToken';
 
 export default function UserAvatar({nome, sobrenome, email}) {
   
    const {changeLogin} = useLogin()
 
+   const {changeToken} = useToken()
     const handleRemove = () => {
  
         localStorage.removeItem('nome')
         localStorage.removeItem('sobreNome')
         localStorage.removeItem('email')
         // localStorage.removeItem('senha')
-
+        changeToken(null)
          changeLogin(false)
     }
 
