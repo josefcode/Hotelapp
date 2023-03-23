@@ -20,12 +20,11 @@ import './styles.css'
 export default function Main() {
 
   const [focus, setIsFocused] = useState(false)
-  const [inputLocationValue, setInputLocationValue] = useState("")
   const [isHover, setIsHovered] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
   const [produto, setProduto] = useState(false)
   const inputRef = useRef()
-  const [selectedDateRange, setSelectedDateRange] = useState(null);
+
 
   const {startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue} = useDatas()
 
