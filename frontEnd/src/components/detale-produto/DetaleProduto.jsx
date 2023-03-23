@@ -18,9 +18,9 @@ export default function DetaleProduto() {
   const [produto, setProduto] = React.useState([])
   const { id } = useParams();
 
-  const {token} = useToken()
+  
 
-  console.log(token)
+  
 
   React.useEffect(() => {
     async function fetchData(){

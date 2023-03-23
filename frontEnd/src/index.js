@@ -14,6 +14,7 @@ import DetaleProduto from './components/detale-produto/DetaleProduto';
 import { FilterProvider } from './components/hooks/useFilterCategoria'
 import { Reserva } from './components/detale-produto-reserva/Reserva';
 import { TokenProvider } from './components/hooks/useToken';
+import { DatasProvider } from './components/hooks/useDatas';
 
 
 
@@ -24,6 +25,7 @@ root.render(
       <ShowProvider>
         <FilterProvider>
           <TokenProvider>
+          <DatasProvider>
     <Routes>
     <Route path='/' element={<App/>}  >
       <Route index element={<Main />}  />
@@ -34,6 +36,7 @@ root.render(
       <Route path="*" element={<ErrorPage />} />
     </Route>
 </Routes>
+</DatasProvider>
 </TokenProvider>
 </FilterProvider>
 </ShowProvider>
