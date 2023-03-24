@@ -29,7 +29,7 @@ export default function Main() {
   const {startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue} = useDatas()
 
   React.useEffect(() => {
-
+     setIsLoading(true)
       async function fetchData(){
 
         const response = await fetch(`http://localhost:8081/cities/findAll`)
@@ -40,14 +40,12 @@ export default function Main() {
          const data = await response.json()
         
          setProduto(data)
-        
+        setIsLoading(false)
       }
     fetchData()
   }, []);
 
-  console.log(startDate)
-  console.log(endDate)
-  console.log(cidadeValue)
+
 
   async function handleSearch(event) {
 

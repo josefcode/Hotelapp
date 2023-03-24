@@ -124,6 +124,8 @@ color: var(--searchBar-color)
 .reserva-btn {
     width: 100%;
     background: var( --color-header-footer) ;
+    color: var(--text-color-header-footer);
+    font-weight: 700;
     height:40px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
 border-radius: 5px;

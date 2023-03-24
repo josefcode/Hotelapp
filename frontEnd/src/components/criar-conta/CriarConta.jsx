@@ -222,7 +222,12 @@ export function CriarConta() {
             <option value="ROLE_USER">Usuário comum</option>
           </select> */}
 
-          {userData.confirmSenha === "" && (<span id="component-error-text">Este campo é obrigatório</span>)}
+          {/* <label>Administrador</label>
+          <input type="radio" value="ROLE_ADMIN" nome="Administrador" onChange={handleChange}/>
+          <label>Usuário comum</label>
+          <input type="radio" value="ROLE_USER" nome="Usuário comum" onChange={handleChange}/> */}
+
+
 
           <div className='btn-wrapper'>
             <button className='iniciar-btn' type='submit'>Registrar</button>

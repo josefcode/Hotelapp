@@ -137,11 +137,18 @@ line-height: 28px;
   
 }
 .detail-card-title {
-    padding-block-end: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-block-end: 1rem;
+    padding-inline: 10px;
+    padding-block: 5px;
     font-style: normal;
 font-weight: 700;
-font-size: 18px;
-line-height: 28px;
+font-size: 16px;
+border-radius: 50px;
+background-color: var(--color-button);
+color: var(  --searchBar-color)
 }
 .detail-card {
     flex-basis: 22%;
