@@ -46,21 +46,21 @@ export default function Navbar() {
           <span className='navbar-logo-title'>SuaViagem.com</span>
         </Link>
         <MenuIcon className="menu-icon" />
-        
+
         <div className="navbar-btn">
           {renderCreateAccountButton()}
 
-          {login ? <UserAvatar 
-          // nome={localStorage.getItem('nome')}
-          // sobrenome={localStorage.getItem('sobreNome')}
-          email={localStorage.getItem('email')}
-           /> : null}
+          {login ? <UserAvatar
+            // nome={localStorage.getItem('nome')}
+            // sobrenome={localStorage.getItem('sobreNome')}
+            email={localStorage.getItem('email')}
+          /> : null}
 
         </div>
       </nav>
       <div className="menu-icon">
-    <MenuMobile />
-    </div>
+        <MenuMobile />
+      </div>
     </header>
   );
 }

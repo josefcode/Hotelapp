@@ -5,7 +5,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import './styles.css'
 
-  const date = new Date()
+const date = new Date()
 
 export function Footer() {
   return (
@@ -17,6 +17,6 @@ export function Footer() {
         <LinkedInIcon />
         <InstagramIcon />
       </div>
-      </footer>
+    </footer>
   )
 }
