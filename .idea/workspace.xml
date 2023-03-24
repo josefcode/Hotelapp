@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/criar-conta/CriarConta.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/criar-conta/CriarConta.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto-reserva/Reserva.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto-reserva/Reserva.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/header/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/header/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/iniciar-sessao/IniciarSessao.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/iniciar-sessao/IniciarSessao.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/user-avatar/UserAvatar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/user-avatar/UserAvatar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IProdutosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IProdutosRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/Calendario.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/Calendario.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

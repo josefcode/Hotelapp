@@ -15,7 +15,7 @@ export function Calendario({ id }) {
   const [toggle, setToggle] = React.useState(false)
   return (
     <div className='calendario-container'>
-      <h1 className='calendario-title'>Datas Disponiveis</h1>
+      <h1 className='calendario-title'>Datas Disponíveis</h1>
       <div className='calendario-wrapper'>
         <div className='calendario'>
           <div className='double-calender'>

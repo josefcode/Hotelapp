@@ -137,6 +137,19 @@
 				<version>2.22.2</version>
 			</plugin>
 
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>Grupo_10.SuaViagem.com.Application</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+
 		</plugins>
 	</build>
 
