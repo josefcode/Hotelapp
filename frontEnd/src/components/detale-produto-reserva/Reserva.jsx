@@ -96,31 +96,6 @@ export  function Reserva({
       const {imagensEntityList, nome, cidadesEntity, categoriasEntity} =  produtoReserva
       const imageUrl = imagensEntityList?.map(img => img.url)
       
-      // console.log(produtoReserva)
-
-      // React.useEffect(() => {
-      //   async function fetchData(){
-    
-      //      const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
-          
-      //      if (!response.ok) {
-      //       throw new Error(`HTTP error! status: ${response.status}`);
-      //     }
-      //      const data = await response.json()
-          
-      //     setReserva(data)
-      //   }
-    
-      //   fetchData()
-    
-      // }, [id]);
-
-      // let value = {};
-      // reserva.map(item => value = item)
-
-
-      
-
       function handleChange(event) {
         const { name, value } = event.target
         setUserData(prevFormData => {

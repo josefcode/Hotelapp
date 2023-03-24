@@ -99,7 +99,9 @@ label {
   #confirmSenha:focus-visible {
     border: 1px solid var(--error);
   }
-
+.user-roles-title{
+    color: var(--searchBar-color)
+}
   .user-roles {
     display: flex;
     gap: 10px

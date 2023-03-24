@@ -188,7 +188,7 @@ export function CriarConta() {
             onChange={handleChange}
           />
      
-          <h5 >Tipo de usuário: </h5>
+          <h5 className='user-roles-title'>Tipo de usuário: </h5>
           <div className='user-roles'>
           
           <input 
