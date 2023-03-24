@@ -17,7 +17,7 @@ export function CriarConta() {
   const [error, setError] = React.useState(false)
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  
+
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -174,10 +174,8 @@ export function CriarConta() {
           value={userData.confirmSenha}
           onChange={handleChange}
         />
-
         <h5 className='user-roles-title'>Tipo de usuário: </h5>
         <div className='user-roles'>
-
           <input
             type="radio"
             id="ROLE_ADMIN"
@@ -187,7 +185,6 @@ export function CriarConta() {
             onChange={handleChange}
           />
           <label htmlFor='ROLE_ADMIN' >Administrador</label>
-
           <input
             type="radio"
             id="ROLE_USER"
@@ -198,27 +195,10 @@ export function CriarConta() {
           />
           <label htmlFor='ROLE_USER'>Usuário comum</label>
         </div>
-
-        {/* <select
-            className='input'
-            id="userRoles"
-            name="userRoles"
-            value={userData.userRoles}
-            onChange={handleChange}
-          >
-            <option value="ROLE_ADMIN">Administrador</option>
-            <option value="ROLE_USER">Usuário comum</option>
-          </select> */}
-
-        {/* <label>Administrador</label>
-          <input type="radio" value="ROLE_ADMIN" nome="Administrador" onChange={handleChange}/>
-          <label>Usuário comum</label>
-          <input type="radio" value="ROLE_USER" nome="Usuário comum" onChange={handleChange}/> */}
-
         <div className='btn-wrapper'>
           <button className='iniciar-btn' type='submit'>Registrar</button>
 
-          <span className='iniciar-login'>Ja tem uma Conta? <Link className='login-link' to="/iniciar-sessao">Iniciar sessão </Link></span>
+          <span className='iniciar-login'>Já tem uma conta? <Link className='login-link' to="/iniciar-sessao">Iniciar sessão </Link></span>
         </div>
       </form>
       {signup && <ReservaSucesso message={error ? "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde." : 'A conta foi criada com sucesso!'} link={error ? '/' : '/iniciar-sessao'} />}

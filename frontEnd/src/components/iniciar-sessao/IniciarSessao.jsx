@@ -129,7 +129,7 @@ export function IniciaSessao() {
         <div className='btn-wrapper'>
           <button className='iniciar-btn' type="submit">Iniciar sessão</button>
 
-          <span className='iniciar-login'>Ainda não tem conta? <Link className='login-link' to="/criar-conta">Registre-se</Link></span>
+          <span className='iniciar-login'>Ainda não tem uma conta? <Link className='login-link' to="/criar-conta">Registre-se</Link></span>
         </div>
       </form>
        {/* <ReservaSucesso link = "/" message = "A conta foi criada com sucesso!"/> */}
