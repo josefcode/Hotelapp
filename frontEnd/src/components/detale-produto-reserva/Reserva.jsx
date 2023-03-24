@@ -12,6 +12,9 @@ import { useParams, Link } from 'react-router-dom';
 import { ReservaSucesso } from './ReservaSucesso';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useDatas } from '../hooks/useDatas';
+import CelebrationIcon from '@mui/icons-material/Celebration';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
+import SmokeFreeIcon from '@mui/icons-material/SmokeFree';
 
 import { useToken } from '../hooks/useToken'
 
@@ -283,7 +286,41 @@ export  function Reserva({
                 </div>
              </div>
              </div>
-           
+             <div>
+
+<h1 className='title-service'>O que voce precisa saber</h1>
+<div className='title-underline'></div>
+
+<div className='detail-card-container'>
+
+   <div className='detail-card'>
+
+      <h3 className='detail-card-title' >Regras da casa</h3>
+      <p> <PointOfSaleIcon /> Check-out: 12: 00</p>
+      <p><span ><CelebrationIcon  /> </span>Noa e permitido festas</p>
+      <p><SmokeFreeIcon /> Nao fumar</p>
+   </div>
+
+   <div className='detail-card'>
+
+      <h3 className='detail-card-title' ></h3>
+      <p>Check-out: 10: 00</p>
+      <p>Noa e permitido festas</p>
+      <p>Nao fumar</p>
+   </div>
+
+   <div className='detail-card'>
+
+      <h3 className='detail-card-title' ></h3>
+      <p>Check-out: 12: 00</p>
+      <p>Noa e permitido festas</p>
+      <p>Nao fumar</p>
+   </div>
+
+
+</div>
+
+</div>
          
              {confirm && <ReservaSucesso message={'Sua reserva foi feita com sucesso'} link = "/"/> }
                 
