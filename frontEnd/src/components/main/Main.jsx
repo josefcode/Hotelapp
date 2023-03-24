@@ -167,7 +167,7 @@ export default function Main() {
 
               }}}
               placeholder="check in check out"
-              onApply={(event, picker) => changeStartDate(picker.startDate.format('DD-MM-yyyy'), changeEndDate(picker.endDate.format('DD-MM-yyyy')))}
+              onApply={(event, picker) => changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DD')))}
             >
               <input type="text" className="form-control" placeholder= "checkIn ckeckOut"  />
             </DateRangePicker>

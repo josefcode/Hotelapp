@@ -56,7 +56,7 @@ export default function UserAvatar() {
      <div className='avatar-image'>
          {nome?.charAt(0).toUpperCase()}
          {sobrenome?.charAt(0).toUpperCase()}
-         {/* {email?.charAt(0).toUpperCase()} */}
+  
      </div>
      <div className='avatar-text'>
          <span>Olá</span>
