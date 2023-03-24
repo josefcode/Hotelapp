@@ -40,10 +40,14 @@ export default function Main() {
          const data = await response.json()
         
          setProduto(data)
-         console.log(data)
+        
       }
     fetchData()
   }, []);
+
+  console.log(startDate)
+  console.log(endDate)
+  console.log(cidadeValue)
 
   async function handleSearch(event) {
 
@@ -163,7 +167,7 @@ export default function Main() {
 
               }}}
               placeholder="check in check out"
-              onApply={(event, picker) => changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DD')))}
+              onApply={(event, picker) => changeStartDate(picker.startDate.format('DD-MM-yyyy'), changeEndDate(picker.endDate.format('DD-MM-yyyy')))}
             >
               <input type="text" className="form-control" placeholder= "checkIn ckeckOut"  />
             </DateRangePicker>

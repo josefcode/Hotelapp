@@ -11,6 +11,7 @@ import {data} from '../detale-produto/data'
 import { useParams, Link } from 'react-router-dom';
 import { ReservaSucesso } from './ReservaSucesso';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { useDatas } from '../hooks/useDatas';
 
 
 
@@ -30,6 +31,9 @@ export  function Reserva({
     // const [reserva, setReserva] = React.useState([])
     const [produtoReserva, setProdutoReserva] = React.useState([])
   
+    const {startDate, endDate, cidadeValue}  = useDatas()
+
+    console.log(startDate)
    const {id } = useParams()
     const [checkin, setCheckin] = React.useState(new Date())
     const stars = [<StarIcon fontSize='small'/>, <StarIcon fontSize='small'/>, <StarIcon fontSize='small'/>, <StarIcon fontSize='small' />,]
@@ -188,7 +192,6 @@ export  function Reserva({
                 <div className='double-calender'>
                 <Calendar
                 onChange={setCheckin}
-                value={checkin} 
                 minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
                 showDoubleView 
                 selectRange
@@ -266,14 +269,14 @@ export  function Reserva({
 
                 <div className='reserva-data'>
                   <p>check in</p>
-                  <p>01/01/2023</p>
+                  <p>{startDate}</p>
                 </div>
 
                 <div className='reserva-underline' ></div>
 
                 <div className='reserva-data'>
                   <p>check out</p>
-                  <p>01/01/2023</p>
+                  <p>{endDate}</p>
                 </div>
 
                 <div className='reserva-underline' ></div>
@@ -291,3 +294,8 @@ export  function Reserva({
 
   )
 }
+
+
+// deixa que esse ponto 6 eu vejo:
+// 5 - Caso a API não retorne o status 201, deverá mostrar uma mensagem de erro no formulário informando ao usuário: "Infelizmente a reserva não pôde ser feita". Por favor, tente novamente mais tarde." (detaile-produto/{id}/reserva)
+// pqj-wpoa-rui
