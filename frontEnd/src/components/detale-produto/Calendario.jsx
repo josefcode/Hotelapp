@@ -34,9 +34,11 @@ export  function Calendario({id}) {
     />
     </div>
     <div className='single-calender'>
-     <Calendar onChange={setCheckin} value={checkin} 
+     <Calendar
+     onChange={setCheckin}
+     value={checkin} 
+     minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
      selectRange
-     minDate={new Date()}
      prev2Label= {null}
      next2Label= {null}
     />
