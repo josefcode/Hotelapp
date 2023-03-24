@@ -20,6 +20,7 @@ import GavelIcon from '@mui/icons-material/Gavel';
 import { useToken } from '../hooks/useToken';
 import PetsIcon from '@mui/icons-material/Pets';
 import axios from 'axios';
+import moment from 'moment';
 
 export function Reserva() {
   // const [reserva, setReserva] = React.useState([])
@@ -31,12 +32,14 @@ export function Reserva() {
   const [selectedValue, setSelectedValue] = useState(null);
   const stars = [<StarIcon fontSize='small' />, <StarIcon fontSize='small' />, <StarIcon fontSize='small' />, <StarIcon fontSize='small' />,]
   const [confirm, setConfirm] = React.useState(false)
+  const [cidade, setCidade] = React.useState('')
   const [userData, setUserData] = useState({
     nome: '',
     sobreNome: '',
     email: '',
     cidadae: ''
   })
+
 
   function handleDateChange(value) {
     setCheckin(value[0]);
@@ -46,12 +49,9 @@ export function Reserva() {
   function handleAutocompleteChange(event, value) {
     setSelectedValue(value.label);
   }
-  
 
   React.useEffect(() => {
     async function fetchData() {
-
-      //  const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
 
       const response = await fetch(`http://localhost:8081/product/${id}`)
 
@@ -59,11 +59,10 @@ export function Reserva() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json()
-
       setProdutoReserva(data)
-
+      console.log(data.cidadesEntity.nome)
+      setCidade(data.cidadesEntity.nome)
     }
-
     fetchData()
 
     async function fetchUserData() {
@@ -82,9 +81,7 @@ export function Reserva() {
         console.error(error);
       }
     }
-
     fetchUserData()
-
   }, [id]);
 
 
@@ -93,28 +90,24 @@ export function Reserva() {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         horaInicial: selectedValue,
         dataInicial: checkin.toISOString(),
         dataFinal: checkout.toISOString()
       })
     };
-  
+
     fetch('http://localhost:8081/reservas/register', requestOptions)
       .then(response => {
-        console.log(response)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         setConfirm(true)
-      }) 
-      .catch(error => {
-        console.error(error);
-        alert('Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.');
       })
-      ;
+      .catch(error => {
+        alert('Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.');
+      });
   }
-  
 
   const { imagensEntityList, nome, cidadesEntity, categoriasEntity } = produtoReserva
   const imageUrl = imagensEntityList?.map(img => img.url)
@@ -157,7 +150,6 @@ export function Reserva() {
               />
             </label>
 
-
             <label htmlFor='sobreNome'>Sobrenome:
               <input
                 className='input'
@@ -190,53 +182,39 @@ export function Reserva() {
                 id="sobreNome"
                 name='cidade'
                 type="text"
-                value={userData.cidadae}
+                value={cidade}
                 onChange={handleChange}
                 size="small"
               />
             </label>
 
           </div>
-
-
           <div>
-
-
             <div>
-
               <div className='calendario-reserva'>
                 <h1 className='calendario-title'>Selecione sua data de reserva</h1>
-
                 <div className='double-calender'>
                   <Calendar
-                    onChange={handleDateChange} 
+                    onChange={handleDateChange}
                     minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
                     showDoubleView
                     selectRange
                     prev2Label={null}
                     next2Label={null}
                   />
-
                 </div>
                 <div className='single-calender'>
-
-                  <Calendar 
-                    onChange={handleDateChange} 
+                  <Calendar
+                    onChange={handleDateChange}
                     minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
                     selectRange
                     prev2Label={null}
                     next2Label={null}
                   />
-
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
-
           <div className='horas-wrapper' >
             <div className='horas-chegada'>
               <div>
@@ -246,8 +224,6 @@ export function Reserva() {
               <div>
                 <p >Indique a sua hora prevista de chegada</p>
               </div>
-
-
               <Autocomplete
                 sx={{}}
                 size="small"
@@ -263,44 +239,33 @@ export function Reserva() {
         <div className='reserva-card'>
           <div>
             <h4 className='reserva-header-title'>Detalhes da reserva</h4>
-
             <img className='reserva-image' src={imageUrl} alt='detale reserva' />
           </div>
           <div className='reserva-body'>
             <p className='reserva-type'>{categoriasEntity?.descricao}</p>
             <p className='reserva-title'>{nome}</p>
-
             {
               stars.map((star, index) =>
                 <span className='reserva-stars' key={index}>{star}</span>
               )
             }
-
             <div >
-
               <LocationOnIcon fontSize='small' />
               <span className='reserva-location'>{cidadesEntity?.nome} </span>
             </div>
-
             <div className='reserva-underline' ></div>
-
             <div className='reserva-data'>
               <p>check in</p>
-              <p>01/01/2023</p>
+              <p>{`${moment(checkin.toISOString()).format('DD-MM-YYYY')}`}</p>
             </div>
-
             <div className='reserva-underline' ></div>
-
             <div className='reserva-data'>
               <p>check out</p>
-              <p>01/01/2023</p>
+              <p>{`${moment(checkout.toISOString()).format('DD-MM-YYYY')}`}</p>
             </div>
-
             <div className='reserva-underline' ></div>
-
             {/* <button className='reserva-btn' onClick={() => setConfirm(!confirm)}>Confirmar reserva</button> */}
             <button className='reserva-btn' onClick={handleReserva}>Confirmar reserva</button>
-
           </div>
         </div>
       </div>
@@ -336,12 +301,5 @@ export function Reserva() {
              {confirm && <ReservaSucesso message={'Sua reserva foi feita com sucesso'} link = "/"/> }
                 
     </div>
-
-
   )
 }
-
-
-// deixa que esse ponto 6 eu vejo:
-// 5 - Caso a API não retorne o status 201, deverá mostrar uma mensagem de erro no formulário informando ao usuário: "Infelizmente a reserva não pôde ser feita". Por favor, tente novamente mais tarde." (detaile-produto/{id}/reserva)
-// pqj-wpoa-rui

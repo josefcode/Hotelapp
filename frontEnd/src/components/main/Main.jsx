@@ -1,4 +1,4 @@
-import React, {useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { CategoriasCards } from '../categorias/CategoriasCards'
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -12,9 +12,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 // you will also need the css that comes with bootstrap-daterangepicker
 import 'bootstrap-daterangepicker/daterangepicker.css';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import  {SuggestBox}  from '../sugest-box/index';
+import { SuggestBox } from '../sugest-box/index';
 import { useDatas } from '../hooks/useDatas';
-
 import './styles.css'
 
 export default function Main() {
@@ -25,8 +24,7 @@ export default function Main() {
   const [produto, setProduto] = useState(false)
   const inputRef = useRef()
 
-
-  const {startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue} = useDatas()
+  const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
 
   React.useEffect(() => {
      setIsLoading(true)
@@ -50,25 +48,20 @@ export default function Main() {
   async function handleSearch(event) {
 
     event.preventDefault();
-    
+
     // const cidade = inputLocationValue;
     // const dataInicial = selectedDateRange.startDate.format('YYYY-MM-DD');
     // const dataFinal = selectedDateRange.endDate.format('YYYY-MM-DD');
     const response = await fetch(`http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`);
-  
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-  
     const data = await response.json();
     console.log(data);
-
   };
 
-
   return (
-
-
     <main className='app-main'>
       <div className='searchBox-container'>
 
@@ -76,18 +69,16 @@ export default function Main() {
 
         <form className='searchBox-form'>
           <div className='searchSuggestBox-div'>
-          
+
             <TextField className='location-input' type="search" placeholder='Onde Vamos?'
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
                     {
-                      isLoading  ?
-                       <div className="loading"></div> : 
-                      <LocationOnIcon />
-
+                      isLoading ?
+                        <div className="loading"></div> :
+                        <LocationOnIcon />
                     }
-                  
                   </InputAdornment>
                 ),
                 disabled: isLoading // desativa o input enquanto isLoading for true
@@ -98,13 +89,11 @@ export default function Main() {
               value={cidadeValue}
               onChange={c => changeCidadeValue(c.target.value)}
               ref={inputRef}
-
-            /> 
+            />
             {focus && (
               <ul className='suggestBox-input'
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-
               >
                 {produto.slice(0, 10).map((p, i) => {
                   const isMatch = p.nome.toLowerCase().indexOf(cidadeValue.toLowerCase()) > -1
@@ -114,22 +103,17 @@ export default function Main() {
                       inputRef.current.focus()
                       setIsFocused(false)
                     }}>
-                      {isMatch && (
-
-                        <SuggestBox produto={p} />
-
-                      )}
-
-                    </li> 
-
+                      {isMatch && (<SuggestBox produto={p} />)}
+                    </li>
                   )
-                })} 
+                })}
               </ul>
-            )} 
+            )}
           </div>
-          
+
           <DateRangePicker
-              initialSettings={{locale:{
+            initialSettings={{
+              locale: {
                 "format": "DD/MM/YYYY",
                 "separator": " - ",
                 "applyLabel": "Aplicar",
@@ -139,43 +123,43 @@ export default function Main() {
                 "customRangeLabel": "Custom",
                 "weekLabel": "W",
                 "daysOfWeek": [
-                    "Dom",
-                    "Seg",
-                    "Ter",
-                    "Qua",
-                    "Qui",
-                    "Sex",
-                    "Sab"
+                  "Dom",
+                  "Seg",
+                  "Ter",
+                  "Qua",
+                  "Qui",
+                  "Sex",
+                  "Sab"
                 ],
                 "monthNames": [
-                    "Janeiro",
-                    "Fevereiro",
-                    "Março",
-                    "Abril",
-                    "Maio",
-                    "Junho",
-                    "Julho",
-                    "Agosto",
-                    "Setembro",
-                    "Outubro",
-                    "Novembro",
-                    "Dezembro"
+                  "Janeiro",
+                  "Fevereiro",
+                  "Março",
+                  "Abril",
+                  "Maio",
+                  "Junho",
+                  "Julho",
+                  "Agosto",
+                  "Setembro",
+                  "Outubro",
+                  "Novembro",
+                  "Dezembro"
                 ],
                 "firstDay": 1
 
-              }}}
-              placeholder="check in check out"
-              onApply={(event, picker) => changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DD')))}
-            >
-              <input type="text" className="form-control" placeholder= "checkIn ckeckOut"  />
-            </DateRangePicker>
+              }
+            }}
+            placeholder="check in check out"
+            onApply={(event, picker) => changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DD')))}
+          >
+            <input type="text" className="form-control" placeholder="checkIn ckeckOut" />
+          </DateRangePicker>
 
-          <button onClick={handleSearch} className='searchBox-btn'>Buscar</button> 
+          <button onClick={handleSearch} className='searchBox-btn'>Buscar</button>
+
         </form>
-       
 
       </div>
-
 
       <RecomendacoesCards />
 

@@ -23,11 +23,11 @@ export function DatasProvider(props) {
         setCidadeValue(cidade)
     }
 
-    return(
+    return (
 
         // Construção dos Elementos para utilizarmos o Contexto em nossa Aplicação, tudo o que for contido no "value" será exportado e poderá ser utilizado em Componentes que utilizarem o Hook Customizado "useTheme"
-        <DatasContext.Provider value={{startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue}}>
-            { props.children }
+        <DatasContext.Provider value={{ startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue }}>
+            {props.children}
         </DatasContext.Provider>
 
     )

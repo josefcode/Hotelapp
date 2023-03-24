@@ -10,17 +10,17 @@ export function ShowProvider(props) {
     // State que irá controlar qual Tema a aplicação está usando
     const [show, setShow] = useState(false)
 
-    
+
     // Função responsável por Trocar o Tema
     function changeShow() {
-            setShow(!show)
+        setShow(!show)
     }
 
-    return(
+    return (
 
         // Construção dos Elementos para utilizarmos o Contexto em nossa Aplicação, tudo o que for contido no "value" será exportado e poderá ser utilizado em Componentes que utilizarem o Hook Customizado "useTheme"
-        <ShowContext.Provider value={{show, changeShow}}>
-            { props.children }
+        <ShowContext.Provider value={{ show, changeShow }}>
+            {props.children}
         </ShowContext.Provider>
 
     )
