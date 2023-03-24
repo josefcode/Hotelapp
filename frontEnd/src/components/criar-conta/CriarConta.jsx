@@ -25,20 +25,22 @@ export function CriarConta() {
 
   const [userData, setUserData] = useState({
     nome: '',
-    sobreNome: '',
+    sobrenome: '',
     email: '',
     senha: '',
     confirmSenha: '',
-    // userRoles: "ROLE_ADMIN"
+    roles: ""
   })
 
 
+
+
   function handleChange(event) {
-    const { name, value } = event.target
+    const { name, value, type, checked } = event.target
     setUserData(prevFormData => {
       return {
         ...prevFormData,
-        [name]: value
+        [name]: type === 'checkbox' ? checked:  value
       }
     });
   }
@@ -78,22 +80,22 @@ export function CriarConta() {
       return;
     }
 
-    const {nome, sobreNome, senha, email, userRoles} = userData
+    const {nome, sobrenome, senha, email, roles} = userData
 
     
-  localStorage.setItem('nome', userData.nome);
-  localStorage.setItem('sobreNome', userData.sobreNome);
-  localStorage.setItem('email', userData.email);
+  // localStorage.setItem('nome', userData.nome);
+  // localStorage.setItem('sobreNome', userData.sobreNome);
+  // localStorage.setItem('email', userData.email);
   // localStorage.setItem('senha', userData.senha);
   // alert('A conta foi criada com sucesso!');
   // navigate('/iniciar-sessao');
 
   axios.post('http://localhost:8081/user',{
-    nome: userData.nome,
-    sobrenome: userData.sobreNome,
-    email: userData.email,
-    senha: userData.senha,
-    userRoles: userData.userRoles
+    nome,
+    sobrenome,
+    email,
+    senha,
+    userRoles: roles
       })
       alert('A conta foi criada com sucesso!');
    
@@ -127,14 +129,14 @@ export function CriarConta() {
               />
             </div>
             <div className='nome-wrapper'>
-              <label htmlFor='sobreNome'>Sobrenome: </label>
+              <label htmlFor='sobrenome'>Sobrenome: </label>
               <input
                 className='input'
                 required
-                id="sobreNome"
-                name='sobreNome'
+                id="sobrenome"
+                name='sobrenome'
                 type="text"
-                value={userData.sobreNome}
+                value={userData.sobrenome}
                 onChange={handleChange}
                 size="small"
               />
@@ -185,15 +187,30 @@ export function CriarConta() {
             value={userData.confirmSenha}
             onChange={handleChange}
           />
-
-          <label >Tipo de usuário: </label>
-
-          <label htmlFor='userRoles'>Administrador</label>
-          <input type="radio" id = "userRoles"/>
-
-          <label htmlFor='userRoles'>Usuário comum</label>
-          <input type="radio" id = "userRoles"/>
-
+     
+          <h5 >Tipo de usuário: </h5>
+          <div className='user-roles'>
+          
+          <input 
+          type="radio" 
+          id = "ROLE_ADMIN"
+          name = 'roles' 
+          value = 'ROLE_ADMIN'
+          checked={userData.roles === "ROLE_ADMIN"} 
+          onChange = {handleChange}
+          />
+          <label htmlFor='ROLE_ADMIN' >Administrador</label>
+          
+          <input 
+          type="radio" 
+          id = "ROLE_USER" 
+          name = 'roles' 
+          value = "ROLE_USER"
+          checked={userData.roles === "ROLE_USER"}
+          onChange = {handleChange}
+          />
+          <label htmlFor='ROLE_USER'>Usuário comum</label>
+          </div>
           {/* <select
             className='input'
             id="userRoles"
