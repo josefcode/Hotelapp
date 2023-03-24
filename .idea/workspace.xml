@@ -6,26 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/categoria/CategoriaCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/categoria/CategoriaCard.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontEnd/src/components/criar-conta/CriarConta.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/criar-conta/CriarConta.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto-reserva/Reserva.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto-reserva/Reserva.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/Calendario.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/Calendario.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/CarouselImage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/CarouselImage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetailBody.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetailBody.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetailHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetailHeader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetaleProduto.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/detale-produto/DetaleProduto.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/footer/Footer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontEnd/src/components/header/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/header/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/hooks/useDatas.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/hooks/useDatas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/hooks/useFilterCategoria.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/hooks/useFilterCategoria.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/hooks/useFilterCategoria.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/hooks/useFilterCategoria.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/hooks/useLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/hooks/useLogin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/hooks/useShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/hooks/useShow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/hooks/useToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/hooks/useToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/recomendacoes/RecomendacoesCards.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/recomendacoes/RecomendacoesCards.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/iniciar-sessao/IniciarSessao.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/iniciar-sessao/IniciarSessao.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/user-avatar/UserAvatar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/user-avatar/UserAvatar.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

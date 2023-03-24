@@ -48,7 +48,7 @@ export default function UserAvatar() {
     { 
     laoding ? 
     
-    <span className='loading-avatar'>laoding .... </span> 
+    <span className='loading-avatar'>loading...</span> 
   
      :
      <div className='avatar-container'>

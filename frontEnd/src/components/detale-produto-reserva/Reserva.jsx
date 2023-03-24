@@ -40,7 +40,6 @@ export function Reserva() {
     cidadae: ''
   })
 
-
   function handleDateChange(value) {
     setCheckin(value[0]);
     setCheckout(value[1]);
@@ -60,7 +59,6 @@ export function Reserva() {
       }
       const data = await response.json()
       setProdutoReserva(data)
-      console.log(data.cidadesEntity.nome)
       setCidade(data.cidadesEntity.nome)
     }
     fetchData()

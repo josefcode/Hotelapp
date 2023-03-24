@@ -20,13 +20,13 @@ export default function Navbar() {
     if (!login && location.pathname === '/criar-conta') {
       return <>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
-        <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link>
+        {/* <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link> */}
       </>;
 
     } else if (!login && location.pathname === '/iniciar-sessao') {
       return <>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
-        <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link>
+        {/* <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link> */}
       </>;
 
     } else if (!login) {
