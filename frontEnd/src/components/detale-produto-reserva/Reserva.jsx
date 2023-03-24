@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './styleReserva.css'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -12,6 +12,9 @@ import { useParams, Link } from 'react-router-dom';
 import { ReservaSucesso } from './ReservaSucesso';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useDatas } from '../hooks/useDatas';
+
+import { useToken } from '../hooks/useToken'
+
 
 
 
@@ -31,21 +34,23 @@ export  function Reserva({
     // const [reserva, setReserva] = React.useState([])
     const [produtoReserva, setProdutoReserva] = React.useState([])
   
+
     const {startDate, endDate, cidadeValue}  = useDatas()
 
     console.log(startDate)
    const {id } = useParams()
+
+
+    const {token } = useToken()
+
     const [checkin, setCheckin] = React.useState(new Date())
     const stars = [<StarIcon fontSize='small'/>, <StarIcon fontSize='small'/>, <StarIcon fontSize='small'/>, <StarIcon fontSize='small' />,]
-
     const [confirm, setConfirm] = React.useState(false)
-
     const [userData, setUserData] = useState({
         nome: '',
         sobreNome: '',
         email: '',
-        cidadae: '',
-        userRoles: "ROLE_ADMIN"
+        cidadae: ''
       })
 
 
@@ -62,12 +67,29 @@ export  function Reserva({
            const data = await response.json()
           
            setProdutoReserva(data)
-    
-    
-    
+        
         }
     
         fetchData()
+
+        async function fetchUserData() {
+          try {
+            const response = await fetch(`http://localhost:8081/user/${token}`);
+            const userData = await response.json();
+
+            console.log(userData)
+            // Atualiza os valores dos inputs com os dados da resposta
+            setUserData({
+              nome: userData.nome,
+              sobreNome: userData.sobrenome,
+              email: userData.email,
+            });
+          } catch (error) {
+            console.error(error);
+          }
+        }
+
+        fetchUserData()
     
       }, [id]);
     
@@ -202,11 +224,12 @@ export  function Reserva({
                 </div>
                 <div className='single-calender'>
 
-                {/* <Calendar onChange={setCheckin} value={checkin} 
+                <Calendar onChange={setCheckin} value={checkin} 
                 selectRange
+                minDate={new Date()}
                 prev2Label= {null}
                 next2Label= {null}
-                /> */}
+                />
              
 
             </div>

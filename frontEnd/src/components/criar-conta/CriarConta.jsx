@@ -186,8 +186,15 @@ export function CriarConta() {
             onChange={handleChange}
           />
 
-          <label htmlFor='userRoles'>Tipo de usuário: </label>
-          <select
+          <label >Tipo de usuário: </label>
+
+          <label htmlFor='userRoles'>Administrador</label>
+          <input type="radio" id = "userRoles"/>
+
+          <label htmlFor='userRoles'>Usuário comum</label>
+          <input type="radio" id = "userRoles"/>
+
+          {/* <select
             className='input'
             id="userRoles"
             name="userRoles"
@@ -196,7 +203,7 @@ export function CriarConta() {
           >
             <option value="ROLE_ADMIN">Administrador</option>
             <option value="ROLE_USER">Usuário comum</option>
-          </select>
+          </select> */}
 
           {userData.confirmSenha === "" && (<span id="component-error-text">Este campo é obrigatório</span>)}
 
