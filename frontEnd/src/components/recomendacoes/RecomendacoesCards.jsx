@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import { RecomendacoeCard } from '../recomendacoe/RecomendacoeCard'
 import WifiIcon from '@mui/icons-material/Wifi';
 import PoolIcon from '@mui/icons-material/Pool';
+import { useHotelFilterCidade } from '../hooks/useHotelFilterCidade';
 import './styles.css'
 
 const image = [
@@ -19,6 +20,10 @@ export function RecomendacoesCards() {
   const [filter, setFilter] = React.useState('')
   const [categoria, setCategoria] = React.useState([])
   const totals = "807.105 hotéis"
+
+  const {hotelPorCidade, changeHotelPorCidade } = useHotelFilterCidade()
+
+  console.log(hotelPorCidade)
 
   React.useEffect(() => {
     async function fetchData() {
@@ -46,7 +51,7 @@ export function RecomendacoesCards() {
       const data = await response.json()
       setProduto(data)
       setNewPorduto(data)
-      console.log(data)
+      
     }
     fetchData()
   }, []);
@@ -74,7 +79,9 @@ export function RecomendacoesCards() {
     }
     // const result = produto.filter((fil) => fil.type === filter)
     const result = produto.filter((fil) => fil.categoriasEntity.descricao === filter)
+    changeHotelPorCidade(null)
     setNewPorduto(result)
+
   }, [filter, produto]);
 
   return (
@@ -96,14 +103,48 @@ export function RecomendacoesCards() {
                   </div>
                 </form>
               )
-            }
-            )}
+              })
+
+            
+          }
+          
+              
+          
+        
+              
         </div>
       </div>
       <div className='recomendacaoes-container'>
         <h2 className='recomendacaoes-title'> Recomendações </h2>
         <div className='recomendacaoes-cards-wrapper'>
-          {newProduto.map(item => {
+          {
+          
+          hotelPorCidade ? 
+          (
+            hotelPorCidade.map(item => {
+              const facilities = [<PoolIcon />, <WifiIcon />]
+              const { id_produtos, nome, descricao, categoriasEntity, pontuacao, comentarios, localMapa, distancia } = item
+            return (
+              <RecomendacoeCard key={id_produtos}
+                id={id_produtos}
+                image={image}
+                alt={nome}
+                type={categoriasEntity.descricao}
+                title={nome}
+                puntaje={pontuacao}
+                distancia={distancia}
+                mapLink={localMapa}
+                comment={comentarios}
+                facilities={facilities}
+                description={descricao}
+              />
+            )
+            })
+            )
+
+            :
+          
+          newProduto.map(item => {
             const facilities = [<PoolIcon />, <WifiIcon />]
             const { id_produtos, nome, descricao, categoriasEntity, pontuacao, comentarios, localMapa, distancia } = item
             return (

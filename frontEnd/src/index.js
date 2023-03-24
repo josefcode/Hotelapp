@@ -15,6 +15,7 @@ import { FilterProvider } from './components/hooks/useFilterCategoria'
 import { Reserva } from './components/detale-produto-reserva/Reserva';
 import { TokenProvider } from './components/hooks/useToken';
 import { DatasProvider } from './components/hooks/useDatas';
+import { HotelFilterCidadeProvider } from './components/hooks/useHotelFilterCidade';
 
 
 
@@ -26,6 +27,7 @@ root.render(
         <FilterProvider>
           <TokenProvider>
           <DatasProvider>
+            <HotelFilterCidadeProvider>
     <Routes>
     <Route path='/' element={<App/>}  >
       <Route index element={<Main />}  />
@@ -36,6 +38,7 @@ root.render(
       <Route path="*" element={<ErrorPage />} />
     </Route>
 </Routes>
+</HotelFilterCidadeProvider>
 </DatasProvider>
 </TokenProvider>
 </FilterProvider>

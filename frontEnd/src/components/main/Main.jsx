@@ -14,6 +14,7 @@ import 'bootstrap-daterangepicker/daterangepicker.css';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { SuggestBox } from '../sugest-box/index';
 import { useDatas } from '../hooks/useDatas';
+import {useHotelFilterCidade} from '../hooks/useHotelFilterCidade'
 import './styles.css'
 
 export default function Main() {
@@ -23,6 +24,10 @@ export default function Main() {
   const [isLoading, setIsLoading] = useState(false);
   const [produto, setProduto] = useState(false)
   const inputRef = useRef()
+
+  const {hotelPorCidade, changeHotelPorCidade}  = useHotelFilterCidade()
+
+  console.log(hotelPorCidade)
 
   const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
 
@@ -58,7 +63,8 @@ export default function Main() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    console.log(data);
+   
+    changeHotelPorCidade(data)
   };
 
   return (
