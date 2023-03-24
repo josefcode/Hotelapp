@@ -340,3 +340,8 @@ export function Reserva({
 
   )
 }
+
+
+// deixa que esse ponto 6 eu vejo:
+// 5 - Caso a API não retorne o status 201, deverá mostrar uma mensagem de erro no formulário informando ao usuário: "Infelizmente a reserva não pôde ser feita". Por favor, tente novamente mais tarde." (detaile-produto/{id}/reserva)
+// pqj-wpoa-rui
