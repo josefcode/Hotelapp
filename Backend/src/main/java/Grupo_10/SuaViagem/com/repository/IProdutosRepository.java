@@ -3,11 +3,9 @@ package Grupo_10.SuaViagem.com.repository;
 import Grupo_10.SuaViagem.com.model.entity.ProdutosEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.Temporal;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.List;
 
