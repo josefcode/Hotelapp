@@ -11,45 +11,63 @@ import DateRangePicker from 'react-bootstrap-daterangepicker';
 import 'bootstrap/dist/css/bootstrap.css';
 // you will also need the css that comes with bootstrap-daterangepicker
 import 'bootstrap-daterangepicker/daterangepicker.css';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { SuggestBox } from '../sugest-box/index';
-
+import { useDatas } from '../hooks/useDatas';
+import {useHotelFilterCidade} from '../hooks/useHotelFilterCidade'
 import './styles.css'
-import { useParams } from 'react-router-dom';
 
 export default function Main() {
 
   const [focus, setIsFocused] = useState(false)
-  const [inputLocationValue, setInputLocationValue] = useState("")
   const [isHover, setIsHovered] = useState(false)
-  const inputRef = useRef()
-  const [produto, setProduto] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
-  const { id } = useParams()
+  const [produto, setProduto] = useState(false)
+  const inputRef = useRef()
+
+  const {hotelPorCidade, changeHotelPorCidade}  = useHotelFilterCidade()
+
+  console.log(hotelPorCidade)
+
+  const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
 
   React.useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true); // altera o valor de isLoading para true
-      const response = await fetch(`http://localhost:8081/cities/findAll`)
+     setIsLoading(true)
+      async function fetchData(){
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const response = await fetch(`http://localhost:8081/cities/findAll`)
+    
+         if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+         const data = await response.json()
+        
+         setProduto(data)
+        setIsLoading(false)
       }
-      const data = await response.json()
-
-      setProduto(data)
-      setIsLoading(false); // altera o valor de isLoading para false
-    }
-
     fetchData()
+  }, []);
 
-  }, [id]);
 
-  console.log(produto)
 
+  async function handleSearch(event) {
+
+    event.preventDefault();
+
+    // const cidade = inputLocationValue;
+    // const dataInicial = selectedDateRange.startDate.format('YYYY-MM-DD');
+    // const dataFinal = selectedDateRange.endDate.format('YYYY-MM-DD');
+    const response = await fetch(`http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+   
+    changeHotelPorCidade(data)
+  };
 
   return (
-
-
     <main className='app-main'>
       <div className='searchBox-container'>
 
@@ -57,12 +75,16 @@ export default function Main() {
 
         <form className='searchBox-form'>
           <div className='searchSuggestBox-div'>
-          
+
             <TextField className='location-input' type="search" placeholder='Onde Vamos?'
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <LocationOnIcon />
+                    {
+                      isLoading ?
+                        <div className="loading"></div> :
+                        <LocationOnIcon />
+                    }
                   </InputAdornment>
                 ),
                 disabled: isLoading // desativa o input enquanto isLoading for true
@@ -70,55 +92,83 @@ export default function Main() {
               size='small'
               onFocus={() => setIsFocused(true)}
               onBlur={() => isHover ? "" : setIsFocused(false)}
-              value={inputLocationValue}
-              onChange={c => setInputLocationValue(c.target.value)}
+              value={cidadeValue}
+              onChange={c => changeCidadeValue(c.target.value)}
               ref={inputRef}
-
-            /> 
+            />
             {focus && (
               <ul className='suggestBox-input'
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-
               >
                 {produto.slice(0, 10).map((p, i) => {
-                  const isMatch = p.nome.toLowerCase().indexOf(inputLocationValue.toLowerCase()) > -1
+                  const isMatch = p.nome.toLowerCase().indexOf(cidadeValue.toLowerCase()) > -1
                   return (
                     <li key={i} onClick={() => {
-                      setInputLocationValue(p.nome)
+                      changeCidadeValue(p.nome)
                       inputRef.current.focus()
                       setIsFocused(false)
                     }}>
-                      {isMatch && (
-
-                        <SuggestBox produto={p} />
-
-                      )}
-
-                    </li> 
-
+                      {isMatch && (<SuggestBox produto={p} />)}
+                    </li>
                   )
-                })} 
+                })}
               </ul>
-            )} 
+            )}
           </div>
-          
 
+          <DateRangePicker
+            initialSettings={{
+              locale: {
+                "format": "DD/MM/YYYY",
+                "separator": " - ",
+                "applyLabel": "Aplicar",
+                "cancelLabel": "Cancelar",
+                "fromLabel": "From",
+                "toLabel": "To",
+                "customRangeLabel": "Custom",
+                "weekLabel": "W",
+                "daysOfWeek": [
+                  "Dom",
+                  "Seg",
+                  "Ter",
+                  "Qua",
+                  "Qui",
+                  "Sex",
+                  "Sab"
+                ],
+                "monthNames": [
+                  "Janeiro",
+                  "Fevereiro",
+                  "Março",
+                  "Abril",
+                  "Maio",
+                  "Junho",
+                  "Julho",
+                  "Agosto",
+                  "Setembro",
+                  "Outubro",
+                  "Novembro",
+                  "Dezembro"
+                ],
+                "firstDay": 1
 
+              }
+            }}
+            placeholder="check in check out"
+            onApply={(event, picker) => changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DD')))}
+          >
+            <input type="text" className="form-control" placeholder="checkIn ckeckOut" />
+          </DateRangePicker>
 
-          <DateRangePicker placeholder="check in check out "><input type="text" className="form-control" /></DateRangePicker >
+          <button onClick={handleSearch} className='searchBox-btn'>Buscar</button>
 
-          <button className='searchBox-btn'>Buscar</button> 
         </form>
-        {isLoading && <div className="loading"></div>}
 
       </div>
-
 
       <RecomendacoesCards />
 
     </main>
-
-
   )
 }

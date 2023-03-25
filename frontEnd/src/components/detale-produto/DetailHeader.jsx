@@ -6,9 +6,9 @@ import './styleHeader.css'
 import { Link } from 'react-router-dom';
 
 export default function DetailHeader({
-  type, 
-  title, 
-  stars, 
+  type,
+  title,
+  stars,
   puntaje,
   comment,
   distancia,
@@ -16,49 +16,47 @@ export default function DetailHeader({
   country
 }) {
   return (
-    <div className = "detail-header-container" >
+    <div className="detail-header-container" >
       <div className='detail-first-header-wrapper'>
-       <div>
-        <p className='type-header'>{type}</p>
-        <h2 className='title-header'>{title}</h2>
-       </div>
+        <div>
+          <p className='type-header'>{type}</p>
+          <h2 className='title-header'>{title}</h2>
+        </div>
 
-       <Link to = "/"><ArrowBackIosIcon className='logo-header'/></Link>
+        <Link to="/"><ArrowBackIosIcon className='logo-header' /></Link>
 
-       </div>
+      </div>
 
-       <div className='detail-second-header-wrapper'>
+      <div className='detail-second-header-wrapper'>
 
         <div className='detail-location'>
 
-       <LocationOnIcon />
+          <LocationOnIcon />
 
-       <p className='location-text'>
-        {location},{country} { distancia}</p>
+          <p className='location-text'>{location}, {country}, {distancia}</p>
 
-       </div>
+        </div>
 
-       <div className='detail-puntaje'>
-           <div>
+        <div className='detail-puntaje'>
+          <div>
             <span className='nota'>{comment}</span>
 
-                <div className='detail-stars'>
-                  {/* {
+            <div className='detail-stars'>
+              {/* {
                     stars?.map((star,index) => {
                       <span key = {index} >{star}</span>
                     })
                   } */}
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
-                </div>
-                </div>
-                <div className='detail'>{puntaje}</div>
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
             </div>
-            
-       </div>
+          </div>
+          <div className='detail'>{puntaje}</div>
+        </div>
+      </div>
     </div>
   )
 }

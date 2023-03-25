@@ -88,14 +88,15 @@ export default function PersistentDrawerRight() {
   };
 
   return (
-    <Box sx={{  '.MuiToolbar-root': {display: 'flex', justifyContent: 'space-between', color : '#383B58', background: 'white'}, '.MuiPaper-root' : {boxShadow: 'none'}, '.MuiDrawer-docked .MuiDrawer-paper' : {width: '100%'}}}>
+    <Box sx={{  '.MuiToolbar-root': {display: 'flex', justifyContent: 'space-between', color : '#EEF1F2', background: '#0F5EA2'}, '.MuiPaper-root' : {boxShadow: 'none'}, '.MuiDrawer-docked .MuiDrawer-paper' : {width: '100%'}}}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
        
     
         <Toolbar>
-        <Link to="/">
-          <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" />
+        <Link to="/" style={{textDecoration: 'none'}}>
+          {/* <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" /> */}
+          <span className='navbar-logo-title'>SuaViagem.com</span>
         </Link>  
           <IconButton
          

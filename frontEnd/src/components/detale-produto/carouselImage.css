@@ -1,6 +1,6 @@
 .sliderContainer {
     width: 100%;
-    background-color: rgb(84, 87, 118, 0.95);
+    background-color: var( --text-color-header-footer);
     position: absolute;
     top: 0;
     bottom:0;
@@ -14,7 +14,7 @@
   }
 
   .cardCarousel {
-    background-color: rgb(21, 36, 45);
+    background-color: var(--searchBar-color);
     width: 600px;
     border-radius: 10px;
     padding: 1rem;

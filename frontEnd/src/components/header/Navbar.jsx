@@ -20,13 +20,13 @@ export default function Navbar() {
     if (!login && location.pathname === '/criar-conta') {
       return <>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
-        <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link>
+        {/* <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link> */}
       </>;
 
     } else if (!login && location.pathname === '/iniciar-sessao') {
       return <>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
-        <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link>
+        {/* <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link> */}
       </>;
 
     } else if (!login) {
@@ -42,21 +42,25 @@ export default function Navbar() {
     <header className="navbar-header">
       <nav className="navbar">
         <Link to="/">
-          <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" />
+          {/* <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" /> */}
           <span className='navbar-logo-title'>SuaViagem.com</span>
         </Link>
         <MenuIcon className="menu-icon" />
-        
+
         <div className="navbar-btn">
           {renderCreateAccountButton()}
 
-          {login ? <UserAvatar nome={localStorage.getItem('nome')} sobrenome={localStorage.getItem('sobreNome')} /> : null}
+          {login ? <UserAvatar
+            // nome={localStorage.getItem('nome')}
+            // sobrenome={localStorage.getItem('sobreNome')}
+            email={localStorage.getItem('email')}
+          /> : null}
 
         </div>
       </nav>
       <div className="menu-icon">
-    <MenuMobile />
-    </div>
+        <MenuMobile />
+      </div>
     </header>
   );
 }

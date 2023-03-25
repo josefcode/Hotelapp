@@ -77,7 +77,7 @@ export function RecomendacoeCard({
                 <p>
                 {showMore ? description : `${description.substring(0, 100)}`}
                 <span className="show-more-btn" onClick={() => setShowMore(!showMore)}>
-                {showMore ? "Show less" : "...Show more"}
+                {showMore ? "Mostra menos" : "...Mostra mais"}
                 </span>
                 </p>
                

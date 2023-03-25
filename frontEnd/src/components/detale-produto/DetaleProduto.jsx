@@ -2,6 +2,7 @@ import React from 'react'
 import DetailBody from './DetailBody'
 import DetailHeader from './DetailHeader'
 import { useParams } from 'react-router-dom'
+import { useToken } from '../hooks/useToken'
 
 export default function DetaleProduto() {
 
@@ -9,124 +10,71 @@ export default function DetaleProduto() {
   const { id } = useParams();
 
   React.useEffect(() => {
-    async function fetchData(){
+    async function fetchData() {
 
-      //  const response = await fetch(`http://localhost:3004/acomodacao?id=${id}`)
-      
       const response = await fetch(`http://localhost:8081/product/${id}`)
 
-       if (!response.ok) {
+      if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-       const data = await response.json()
-      
+      const data = await response.json()
       setProduto(data)
-
     }
-
     fetchData()
-
   }, [id]);
 
-  const { 
-    id_produtos,
-    nome, 
-    pontuacao, 
-    descricao, 
-    facilidades, 
-    distancia,
-    comentarios, 
-    localMapa,
-    linkMapa,
-    verMais, 
+  if (produto === "undefined") {
+    return
+  }
+
+  const {
+    location,
+    country,
+    nome,
+    pontuacao,
+    comentarios,
+    cidadesEntity,
+    imagensEntityList,
     categoriasEntity,
-    cidadesEntity
-  } = produto;
+    description,
+    distancia,
+    city,
+    localMapa,
+    imageClass
+  } = produto
 
+  // const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
+  const imagem = imagensEntityList?.map(item => item.url)
 
-  //  let value = {produto};
-//  produto.map(item => value = item)
-
-  // const {
-  // type, 
-  // location, 
-  // country, 
-  //  nome, 
-  // stars, 
-  //  pontuacao, 
-  // comment, 
-  //  facilidades, 
-  // image, 
-  // description, 
-  // distancia,
-  // city,
-  // mapLocation,
-  // imageClass
-
-  // type, 
-  // location, 
-  // country, 
-  // title, 
-  // stars, 
-  // puntaje, 
-  // comment, 
-  // facilities, 
-  // image, 
-  // description, 
-  // distancia,
-  // city,
-  // mapLocation,
-  // imageClass
-
-  // } = produto
-
- console.log(produto)
-
+  const facilidade = ["Wi-Fi", "TV", 'Frigobar', 'Lareira', 'Ar-condicionado']
 
   return (
     <div className='app-main'>
-        <DetailHeader
-        //  type = {type}
-          title = {nome}
+      <DetailHeader
+        type={categoriasEntity?.descricao}
+        title={nome}
         // stars = {stars} 
-          puntaje = {pontuacao}
-         comment = {comentarios}
-         distancia = {distancia}
-        // location = {location}
-        // country = {country}
-
-      //   type = {type}
-      //  title = {title}
-      //  stars = {stars} 
-      //  puntaje = {puntaje}
-      //  comment = {comment}
-      //  distancia = {distancia}
+        puntaje={pontuacao}
+        comment={comentarios}
+        distancia={distancia}
+        location={cidadesEntity?.nome}
+        country={cidadesEntity?.pais}
       //  location = {location}
       //  country = {country}
 
-        />
-        <DetailBody 
-        // image = {image} 
-         facilities = {facilidades} 
-        // description = {description} 
-        // distancia = {distancia}
+      />
+      <DetailBody
+        id={id}
+        image={imagem}
+        facilities={facilidade}
+        description={description}
+        distancia={distancia}
         // location = {location}
-        // country = {country}
-        // city = {city}
-        // mapLocation = {mapLocation}
-        // imageClass = {imageClass}
-
-        // image = {image} 
-        //  facilities = {facilidades} 
-        // description = {description} 
-        // distancia = {distancia}
-        // location = {location}
-        // country = {country}
-        // city = {city}
-        // mapLocation = {mapLocation}
-        // imageClass = {imageClass}
-
-        />
+        country={country}
+        city={city}
+        mapLocation={localMapa}
+        imageClass={imageClass}
+      />
     </div>
   )
 }

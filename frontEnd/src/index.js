@@ -12,6 +12,10 @@ import { ShowProvider} from './components/hooks/useShow'
 import { CriarConta } from './components/criar-conta/CriarConta';
 import DetaleProduto from './components/detale-produto/DetaleProduto';
 import { FilterProvider } from './components/hooks/useFilterCategoria'
+import { Reserva } from './components/detale-produto-reserva/Reserva';
+import { TokenProvider } from './components/hooks/useToken';
+import { DatasProvider } from './components/hooks/useDatas';
+import { HotelFilterCidadeProvider } from './components/hooks/useHotelFilterCidade';
 
 
 
@@ -21,15 +25,22 @@ root.render(
     <LoginProvider>
       <ShowProvider>
         <FilterProvider>
+          <TokenProvider>
+          <DatasProvider>
+            <HotelFilterCidadeProvider>
     <Routes>
     <Route path='/' element={<App/>}  >
       <Route index element={<Main />}  />
       <Route path="/criar-conta" element={<CriarConta />} />
       <Route path="/iniciar-sessao" element={<IniciaSessao />}  />
       <Route path="/detaile-produto/:id" element={<DetaleProduto />}  />
+      <Route path="detaile-produto/:id/reserva" element={<Reserva />}  />
       <Route path="*" element={<ErrorPage />} />
     </Route>
 </Routes>
+</HotelFilterCidadeProvider>
+</DatasProvider>
+</TokenProvider>
 </FilterProvider>
 </ShowProvider>
 </LoginProvider>

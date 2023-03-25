@@ -79,5 +79,6 @@ export const acomodacao = [
         verMais: 'https://www.hilton.com/en/hotels/bnadudt-doubletree-nashville-downtown/?SEO_id=GMB-AMER-DH-BNADUDT&y_source=1_MTM3MjU2Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D',
         alt: 'hotelImage'
      },
+     
    
 ]

@@ -5,17 +5,11 @@
     overflow-x: hidden; 
   }
 
-  /* .recomendacaoes-section{
-    background: rgba(56, 59, 88, 0.1);
-    height: 100vh;
-    width: 100vw;
-} */
 
 .searchBox-container{
-  background-color: #545776;
+  background-color: var( --searchBar-color);
   padding-block: 10px;
   padding-inline: 4rem;
-  min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,7 +17,8 @@
 
 .searchBox-title {
   text-align: center;
-  color: var(--white-color);
+  color: var(--text-color-header-footer);
+  font-size: 22px;
 }
 
 .location-input {
@@ -37,7 +32,7 @@
   width: 100%;
 }
 .searchBox-btn {
-  background-color: var(--DB-COLOR-PRINCIPAL);
+  background-color: var(--color-header-footer);
   color: var(--white-color);
   font-weight: 700;
   border: transparent;
@@ -58,6 +53,7 @@
   flex-direction: column;
   position:relative;
   gap:1px;
+
 }
 
 .suggestBox-input{
@@ -67,13 +63,19 @@
   z-index: 1;
   top:40px;
   width: 100%;
+  height: 310px;
   background-color:white;
   border-radius: 2px 2px 5px 5px;
   padding: 13px 12px 5px 14px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   list-style: none;
+  overflow: hidden;
+  -webkit-scrollbar-width: thin;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-header-footer) transparent;
   
 }
+
 /* li{
   border-bottom: 1px solid #1dbeb4;
 } */
@@ -83,7 +85,7 @@ li:last-child > div{
 
 
 .applyBtn {
-  background-color: var(--DB-COLOR-PRINCIPAL);
+  background-color: var(--color-header-footer);
   width: 206px;
   height: 40px;
   border: none;
@@ -94,7 +96,7 @@ li:last-child > div{
 }
 
 .daterangepicker td.active {
-  background-color: var(--DB-COLOR-PRINCIPAL);
+  background-color: var( --color-header-footer);
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -114,7 +116,9 @@ li:last-child > div{
 }
 
 .loading {
-  display: inline-block;
+  display: absolute;
+  z-index: 1000;
+  bottom: 100px;
   vertical-align: middle;
   width: 20px;
   height: 20px;

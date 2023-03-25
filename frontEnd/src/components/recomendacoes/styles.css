@@ -1,15 +1,15 @@
 .recomendacaoes-section{
-    background: rgba(56, 59, 88, 0.1);
+    background: var( --text-color-header-footer);
     height: 100vh;
     width: 100vw;
-    padding-block-start: 10px;
+    
 }
 
 .recomendacaoes-container {
     margin-block-end: 2rem;
     padding-inline: 4rem;
     background-color: rgba(56, 59, 88, 0.1);
-    padding-block: 2rem;
+    padding-block: 0.5rem;
     margin-bottom: 0;
 
 }
@@ -18,7 +18,7 @@
  display: flex;
  flex-direction: row;
  flex-wrap: wrap;
- gap: 2rem;
+ gap: 3rem;
 }
 
 
@@ -26,7 +26,7 @@
 .recomendacaoes-title {
     font-size: 24px;
     font-weight: 700;
-    color: #383B58;
+    color: var( --searchBar-color);
     margin-block-end: 1rem;
 }
 
@@ -42,7 +42,7 @@
 
 .card-image {
   width: 100%;
-  height: 200px;
+  height: 130px;
   object-fit: cover;
   border-radius: 8px 8px 0px 0px;
 }
@@ -74,6 +74,7 @@
 .container-categoria {
   margin-block-end: 2rem;
   padding-inline: 4rem;
+  padding-block: 0.5rem;
 }
 
 .cards-wrapper {
@@ -85,7 +86,7 @@ gap: 1em
 .title {
   font-size: 24px;
   font-weight: 700;
-  color: #383B58;
+  color: var( --searchBar-color);
 }
 
 @media screen and (max-width: 992px) {
@@ -111,5 +112,9 @@ gap: 1em
 .container {
     padding-inline: 1rem;
 
+}
+
+.title {
+  font-size: 18px;
 }
 }
