@@ -24,6 +24,10 @@ import moment from 'moment';
 
 export function Reserva() {
   // const [reserva, setReserva] = React.useState([])
+  const {startDate, endDate } = useDatas()
+
+  console.log(startDate, endDate)
+
   const [produtoReserva, setProdutoReserva] = React.useState([])
   const { id } = useParams()
   const { token } = useToken()

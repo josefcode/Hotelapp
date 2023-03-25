@@ -34,7 +34,7 @@ export default function UserAvatar() {
       }
 
       fetchUserData()
-   }, [token])
+   }, [])
 
    const { nome, sobrenome } = userData
     const handleRemove = () => {
