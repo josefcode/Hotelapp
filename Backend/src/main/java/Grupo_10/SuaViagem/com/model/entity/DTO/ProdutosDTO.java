@@ -47,7 +47,7 @@ public class ProdutosDTO {
 
     private CidadesEntity cidadesEntity;
 
-    private ReservasEntity reservasEntity;
+    private List<ReservasEntity> reservasEntity;
 
     public ProdutosDTO() {
     }
@@ -70,11 +70,11 @@ public class ProdutosDTO {
         this.reservasEntity = produtosEntity.getReservasEntity();
     }
 
-    public ReservasEntity getReservasEntity() {
+    public List<ReservasEntity> getReservasEntity() {
         return reservasEntity;
     }
 
-    public void setReservasEntity(ReservasEntity reservasEntity) {
+    public void setReservasEntity(List<ReservasEntity> reservasEntity) {
         this.reservasEntity = reservasEntity;
     }
 
