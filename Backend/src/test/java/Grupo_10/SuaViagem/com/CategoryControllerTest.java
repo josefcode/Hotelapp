@@ -2,7 +2,7 @@ package Grupo_10.SuaViagem.com;
 
 import Grupo_10.SuaViagem.com.controller.CategoryController;
 import Grupo_10.SuaViagem.com.model.entity.DTO.CategoriasDTO;
-import Grupo_10.SuaViagem.com.service.impl.CategoryServiceImpl;
+import Grupo_10.SuaViagem.com.service.impl.CategoriasServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +22,7 @@ public class CategoryControllerTest {
     private CategoryController categoryController;
 
     @Mock
-    private CategoryServiceImpl categoryService;
+    private CategoriasServiceImpl categoryService;
     private CategoriasDTO categoriasDTO;
 
     @BeforeEach
