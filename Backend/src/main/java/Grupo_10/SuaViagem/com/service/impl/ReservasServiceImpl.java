@@ -21,8 +21,7 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
     @Override
     public ReservasDTO register(ReservasDTO reservasDTO) throws NotFoundException {
         // Verifica se já existe um objeto com os mesmos valores
-        ReservasEntity existingEntity = iReservasRepository.findByHoraInicialAndDataInicialAndDataFinal(
-                reservasDTO.getHoraInicial(),
+        ReservasEntity existingEntity = iReservasRepository.findByDataInicialAndDataFinal(
                 reservasDTO.getDataInicial(),
                 reservasDTO.getDataFinal()
         );

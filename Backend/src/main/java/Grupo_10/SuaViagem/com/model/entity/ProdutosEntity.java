@@ -60,9 +60,9 @@ public class ProdutosEntity {
     @JoinColumn(name = "cidades_entity_id")
     private CidadesEntity cidadesEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "reservas_entity_id")
-    private ReservasEntity reservasEntity;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="reservas_entity_id")
+    private List<ReservasEntity> reservasEntity;
 
     public ProdutosEntity() {
     }
@@ -85,11 +85,11 @@ public class ProdutosEntity {
         this.reservasEntity = produtosDTO.getReservasEntity();
     }
 
-    public ReservasEntity getReservasEntity() {
+    public List<ReservasEntity> getReservasEntity() {
         return reservasEntity;
     }
 
-    public void setReservasEntity(ReservasEntity reservasEntity) {
+    public void setReservasEntity(List<ReservasEntity> reservasEntity) {
         this.reservasEntity = reservasEntity;
     }
 

@@ -18,10 +18,10 @@ public class AdicionarCidadesFromJson {
             List<CidadesDTO> cidadesDTOList = objectMapper.readValue(new FileReader("C:/Users/marcelo.muniz/Documents/Estudos/CTD/SuaViagem.com/grupo-10/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/cidades.json"), new TypeReference<List<CidadesDTO>>() {});
 
 //CONEXÃO BANCO LOCAL
-//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_projeto_integrador", "root", "123456");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_projeto_integrador", "root", "123456");
 
 //CONEXÃO BANCO AWS
-            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:8090/db_projeto_integrador", "admin", "password");
+//            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:8090/db_projeto_integrador", "admin", "password");
 
 
             String insertCidadeSql = "INSERT INTO cidades (id_cidades, nome, sigla, pais) VALUES (?, ?, ?, ?)";

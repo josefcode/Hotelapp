@@ -20,7 +20,7 @@ public class ReservasEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_reservas", nullable = false)
     private int id_reservas;
-    @Column(nullable=false, unique = true)
+    @Column(nullable=false, unique = false)
     private Time horaInicial;
 
     @Column(nullable=false, unique = true)
@@ -35,8 +35,9 @@ public class ReservasEntity {
     @JoinColumn(name="cliente_id")
     private ClientesEntity clientesEntity;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<ProdutosEntity> produtosEntityList = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="produtos_id")
+    private ProdutosEntity produtosEntity;
 
     public ReservasEntity() {
     }
@@ -88,11 +89,11 @@ public class ReservasEntity {
         this.clientesEntity = clientesEntity;
     }
 
-    public List<ProdutosEntity> getProdutosEntityList() {
-        return produtosEntityList;
+    public ProdutosEntity getProdutosEntity() {
+        return produtosEntity;
     }
 
-    public void setProdutosEntityList(List<ProdutosEntity> produtosEntityList) {
-        this.produtosEntityList = produtosEntityList;
+    public void setProdutosEntity(ProdutosEntity produtosEntityList) {
+        this.produtosEntity = produtosEntityList;
     }
 }

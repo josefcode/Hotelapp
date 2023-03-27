@@ -10,6 +10,6 @@ import java.util.Date;
 @Repository
 public interface IReservasRepository extends JpaRepository<ReservasEntity, Integer> {
 
-    ReservasEntity findByHoraInicialAndDataInicialAndDataFinal(Time horaInicial, Date dataInicial, Date dataFinal);
+    ReservasEntity findByDataInicialAndDataFinal(Date dataInicial, Date dataFinal);
 
 }

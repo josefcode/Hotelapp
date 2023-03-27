@@ -30,9 +30,9 @@ export default function Main() {
 
   const handleApply = (event, picker) => {
     picker.element.val(
-      picker.startDate.format('MM/DD/YYYY') +
+      picker.startDate.format('DD/MM/YYYY') +
         ' - ' +
-        picker.endDate.format('MM/DD/YYYY')
+        picker.endDate.format('DD/MM/YYYY')
     );
   };
 
@@ -66,8 +66,10 @@ export default function Main() {
     fetchData()
   }, []);
 
+const formattedStartDate = moment(startDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
+const formattedEndDate = moment(endDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
-const urlCidadeData = `http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`
+const urlCidadeData = `http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${formattedStartDate}&dataFinal=${formattedEndDate}`
 const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
 
   async function handleSearch(event) {

@@ -5,22 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mysql_mysql_connector_j_8_0_31.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_65.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_65.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_65.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_7_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_7_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_3_22.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IImagensRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IImagensRespository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/META-INF/Manifest.mf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/META-INF/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/AdicionarCidadesFromJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/AdicionarCidadesFromJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/cidades.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/cidades.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/ProdutosDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/ProdutosDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/ProdutosEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/ProdutosEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/ReservasEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/ReservasEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IReservasRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IReservasRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/ReservasServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/ReservasServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/CategoryControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/CategoryControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
