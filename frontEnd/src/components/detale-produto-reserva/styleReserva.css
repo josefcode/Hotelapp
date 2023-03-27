@@ -3,7 +3,7 @@
     grid-template-columns: auto auto 400px;
     grid-template-areas: 'form  form card'
                           "calendario calendario card"
-                           "auto auto auto";
+                           "hour hour hour";
     padding-inline: 4rem;
     gap: 1.4rem;
     margin-block-end: 2rem;
@@ -134,7 +134,7 @@ border: none;
 
 .horas-wrapper{
 
-    grid-area: auto;
+    grid-area: hour;
 }
 
 .horas-chegada {
@@ -172,6 +172,7 @@ border: none;
         grid-template-columns: 1fr;
         grid-template-areas: 'form'
                              'calendario'
+                             'hour'
                              'card';
         padding-inline: 1rem;
      }
@@ -181,9 +182,9 @@ border: none;
         gap: 0;
         
     }
-    .horas-wrapper {
-        padding-inline: 1rem;
-    }
+   .horas-chegada {
+    padding-inline: 0.5rem;
+   }
 
     .MuiAutocomplete-root {
         width: 300px !important;
@@ -191,18 +192,20 @@ border: none;
         position: relative;
         
     }
+    .reserva-container-header {
+        padding-inline: 1rem;
+    }
   }
 
   @media screen and ( min-width: 600px) and (max-width: 820px) {
 
-    .horas-wrapper {
-        padding-inline: 4rem;
-    }
+ 
 
     .reserva-container  {
         grid-template-columns: 1fr;
         grid-template-areas: 'form'
                              'calendario'
+                             'hour'
                              'card';
         padding-inline: 4rem;
      }
@@ -227,5 +230,6 @@ border: none;
         padding-inline: 1rem;
         padding-block-start: 2.5rem;
      }
+
 
     }

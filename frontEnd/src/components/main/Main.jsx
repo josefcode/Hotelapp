@@ -47,6 +47,8 @@ export default function Main() {
 
   const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
 
+ 
+
   React.useEffect(() => {
      setIsLoading(true)
       async function fetchData(){
@@ -83,9 +85,6 @@ const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
     changeHotelPorCidade(data)
   };
 
-  const date = new Date()
-
-  // console.log(format('DD/MM/YYYY'))
 
   return (
     <main className='app-main'>
@@ -187,7 +186,7 @@ const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
             }}
             placeholder="check in check out"
             onApply={(event, picker) => {
-                 changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DD')))
+                 changeStartDate(picker.startDate.format('DD-MM-YYYY'), changeEndDate(picker.endDate.format('DD-MM-YYYY')))
                  handleApply(event, picker)
             }
                 
