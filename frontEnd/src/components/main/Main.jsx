@@ -15,6 +15,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { SuggestBox } from '../sugest-box/index';
 import { useDatas } from '../hooks/useDatas';
 import {useHotelFilterCidade} from '../hooks/useHotelFilterCidade'
+import moment from 'moment';
 import './styles.css'
 
 export default function Main() {
@@ -25,11 +26,28 @@ export default function Main() {
   const [produto, setProduto] = useState(false)
   const inputRef = useRef()
 
+  const [cidadePorFiltro ,setCidadePorFiltro] = useState(null)
+
+  const handleApply = (event, picker) => {
+    picker.element.val(
+      picker.startDate.format('MM/DD/YYYY') +
+        ' - ' +
+        picker.endDate.format('MM/DD/YYYY')
+    );
+  };
+
+  const handleCancel = (event, picker) => {
+    picker.element.val('');
+  };
+
+
   const {hotelPorCidade, changeHotelPorCidade}  = useHotelFilterCidade()
 
-  console.log(hotelPorCidade)
+  // console.log(cidadePorFiltro)
 
   const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
+
+ 
 
   React.useEffect(() => {
      setIsLoading(true)
@@ -49,23 +67,24 @@ export default function Main() {
   }, []);
 
 
+const urlCidadeData = `http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`
+const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
 
   async function handleSearch(event) {
 
     event.preventDefault();
 
-    // const cidade = inputLocationValue;
-    // const dataInicial = selectedDateRange.startDate.format('YYYY-MM-DD');
-    // const dataFinal = selectedDateRange.endDate.format('YYYY-MM-DD');
-    const response = await fetch(`http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`);
+
+    const response = await fetch(startDate && endDate && cidadeValue ? urlCidadeData : urlCidade);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-   
+ 
     changeHotelPorCidade(data)
   };
+
 
   return (
     <main className='app-main'>
@@ -118,8 +137,18 @@ export default function Main() {
           </div>
 
           <DateRangePicker
+
+             onCancel={handleCancel}
+           
             initialSettings={{
+              autoUpdateInput: false,
+              minDate : new Date(),
+              isInvalidDate: function(data){
+                var currDate = moment(data._d).format('YY-MM-DD');
+                return ["23-03-26" , "23-03-28"].indexOf(currDate) !== -1;
+            },
               locale: {
+               
                 "format": "DD/MM/YYYY",
                 "separator": " - ",
                 "applyLabel": "Aplicar",
@@ -156,9 +185,14 @@ export default function Main() {
               }
             }}
             placeholder="check in check out"
-            onApply={(event, picker) => changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DD')))}
+            onApply={(event, picker) => {
+                 changeStartDate(picker.startDate.format('DD-MM-YYYY'), changeEndDate(picker.endDate.format('DD-MM-YYYY')))
+                 handleApply(event, picker)
+            }
+                
+                }
           >
-            <input type="text" className="form-control" placeholder="checkIn ckeckOut" />
+            <input type="text" className="form-control"   placeholder="check in check out" defaultValue=""/>
           </DateRangePicker>
 
           <button onClick={handleSearch} className='searchBox-btn'>Buscar</button>

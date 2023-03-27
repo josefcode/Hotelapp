@@ -24,6 +24,10 @@ import moment from 'moment';
 
 export function Reserva() {
   // const [reserva, setReserva] = React.useState([])
+  const {startDate, endDate, changeStartDate, changeEndDate } = useDatas()
+
+  console.log(startDate, endDate)
+
   const [produtoReserva, setProdutoReserva] = React.useState([])
   const { id } = useParams()
   const { token } = useToken()
@@ -41,6 +45,8 @@ export function Reserva() {
   })
 
   function handleDateChange(value) {
+    changeStartDate(false)
+    changeEndDate(false)
     setCheckin(value[0]);
     setCheckout(value[1]);
   }
@@ -68,7 +74,6 @@ export function Reserva() {
         const response = await fetch(`http://localhost:8081/user/${token}`);
         const userData = await response.json();
 
-        console.log(userData)
         // Atualiza os valores dos inputs com os dados da resposta
         setUserData({
           nome: userData.nome,
@@ -193,6 +198,7 @@ export function Reserva() {
                 <h1 className='calendario-title'>Selecione sua data de reserva</h1>
                 <div className='double-calender'>
                   <Calendar
+                  locale = "pt-Br"
                     onChange={handleDateChange}
                     minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
                     showDoubleView
@@ -203,6 +209,7 @@ export function Reserva() {
                 </div>
                 <div className='single-calender'>
                   <Calendar
+                  locale = "pt-Br"
                     onChange={handleDateChange}
                     minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
                     selectRange
@@ -254,12 +261,25 @@ export function Reserva() {
             <div className='reserva-underline' ></div>
             <div className='reserva-data'>
               <p>check in</p>
-              <p>{`${moment(checkin.toISOString()).format('DD-MM-YYYY')}`}</p>
+              {
+                startDate ? 
+                <p>{startDate}</p>
+                : 
+              <p> { moment(checkin.toISOString()).format('DD-MM-YYYY') }</p>
+              }
+              
             </div>
             <div className='reserva-underline' ></div>
             <div className='reserva-data'>
               <p>check out</p>
-              <p>{`${moment(checkout.toISOString()).format('DD-MM-YYYY')}`}</p>
+
+              {
+                endDate ? 
+                <p>{endDate}</p>
+                : 
+              <p> { moment(checkout.toISOString()).format('DD-MM-YYYY') }</p>
+              }
+
             </div>
             <div className='reserva-underline' ></div>
             {/* <button className='reserva-btn' onClick={() => setConfirm(!confirm)}>Confirmar reserva</button> */}

@@ -5,14 +5,17 @@ import { Link } from 'react-router-dom'
 import Alert from '@mui/material/Alert';
 import 'react-calendar/dist/Calendar.css';
 import { useToken } from '../hooks/useToken';
+import { useDatas } from '../hooks/useDatas';
 
 export function Calendario({ id }) {
   const [checkin, setCheckin] = React.useState(new Date())
   const { token } = useToken()
 
-  console.log(token)
-  console.log(id)
-  const [toggle, setToggle] = React.useState(false)
+  const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
+
+
+
+  console.log(startDate, endDate)
   return (
     <div className='calendario-container'>
       <h1 className='calendario-title'>Datas Disponíveis</h1>
@@ -20,6 +23,7 @@ export function Calendario({ id }) {
         <div className='calendario'>
           <div className='double-calender'>
             <Calendar
+              locale = "pt-Br"
               onChange={setCheckin}
               value={checkin}
               showDoubleView
@@ -31,6 +35,7 @@ export function Calendario({ id }) {
           </div>
           <div className='single-calender'>
             <Calendar
+            locale = "pt-Br"
               onChange={setCheckin}
               value={checkin}
               minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
