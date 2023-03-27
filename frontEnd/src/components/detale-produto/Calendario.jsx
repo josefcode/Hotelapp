@@ -12,7 +12,7 @@ export function Calendario({ id }) {
 
   console.log(token)
   console.log(id)
-  const [toggle, setToggle] = React.useState(false)
+
   return (
     <div className='calendario-container'>
       <h1 className='calendario-title'>Datas Disponíveis</h1>
