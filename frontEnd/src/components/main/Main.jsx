@@ -186,7 +186,7 @@ const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
             }}
             placeholder="check in check out"
             onApply={(event, picker) => {
-                 changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DD')))
+                 changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DDc')))
                  handleApply(event, picker)
             }
                 

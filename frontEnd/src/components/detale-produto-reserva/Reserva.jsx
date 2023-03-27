@@ -18,8 +18,8 @@ import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import SmokeFreeIcon from '@mui/icons-material/SmokeFree';
 import GavelIcon from '@mui/icons-material/Gavel';
 import { useToken } from '../hooks/useToken';
+import Alert from '@mui/material/Alert';
 import PetsIcon from '@mui/icons-material/Pets';
-import axios from 'axios';
 import moment from 'moment';
 
 export function Reserva() {
@@ -36,6 +36,7 @@ export function Reserva() {
   const [selectedValue, setSelectedValue] = useState(null);
   const stars = [<StarIcon fontSize='small' />, <StarIcon fontSize='small' />, <StarIcon fontSize='small' />, <StarIcon fontSize='small' />,]
   const [confirm, setConfirm] = React.useState(false)
+  const [error, setError] = useState(false)
   const [cidade, setCidade] = React.useState('')
   const [userData, setUserData] = useState({
     nome: '',
@@ -108,7 +109,9 @@ export function Reserva() {
         setConfirm(true)
       })
       .catch(error => {
-        alert('Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.');
+        setError(true)
+        // alert('Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.');
+        
       });
   }
 
@@ -286,6 +289,7 @@ export function Reserva() {
             <button className='reserva-btn' onClick={handleReserva}>Confirmar reserva</button>
           </div>
         </div>
+        { error && <Alert sx = {{marginTop: '10px', '&.MuiAlert-root': {color: "rgb(249, 8, 4) !important" }}}severity="error">Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.</Alert>} 
       </div>
 
 <h1 className='title-service'>O que voce precisa saber</h1>
