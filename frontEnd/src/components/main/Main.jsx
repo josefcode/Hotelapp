@@ -25,7 +25,6 @@ export default function Main() {
   const [isLoading, setIsLoading] = useState(false);
   const [produto, setProduto] = useState(false)
   const inputRef = useRef()
-
   const [cidadePorFiltro ,setCidadePorFiltro] = useState(null)
 
   const handleApply = (event, picker) => {
@@ -38,6 +37,8 @@ export default function Main() {
 
   const handleCancel = (event, picker) => {
     picker.element.val('');
+    changeStartDate(null);
+    changeEndDate(null);
   };
 
 

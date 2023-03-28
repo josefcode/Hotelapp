@@ -338,8 +338,8 @@ for(let i = date1; i <= date2; i++) {
 
       <h3 className='detail-card-title' ><GavelIcon /> Regras da casa</h3>
       <p> <PointOfSaleIcon /> Check-out: 12: 00</p>
-      <p><span ><CelebrationIcon  /> </span>Noa e permitido festas</p>
-      <p><SmokeFreeIcon /> Nao fumar</p>
+      <p><span ><CelebrationIcon  /> </span>Não é permitido festas</p>
+      <p><SmokeFreeIcon />Não é permitido festas</p>
    </div>
 
    <div className='detail-card'>
