@@ -145,10 +145,12 @@ const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
             initialSettings={{
               autoUpdateInput: false,
               minDate : new Date(),
-              isInvalidDate: function(data){
-                var currDate = moment(data._d).format('YY-MM-DD');
-                return ["23-03-26" , "23-03-28"].indexOf(currDate) !== -1;
-            },
+              //nós precisamos desse código não deleta por favor
+
+            //   isInvalidDate: function(data){
+            //     var currDate = moment(data._d).format('YY-MM-DD');
+            //     return ["23-03-26" , "23-03-28"].indexOf(currDate) !== -1;
+            // },
               locale: {
                
                 "format": "DD/MM/YYYY",
@@ -188,7 +190,7 @@ const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
             }}
             placeholder="check in check out"
             onApply={(event, picker) => {
-                 changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DDc')))
+                 changeStartDate(picker.startDate.format('YYYY-MM-DD'), changeEndDate(picker.endDate.format('YYYY-MM-DD')))
                  handleApply(event, picker)
             }
                 
