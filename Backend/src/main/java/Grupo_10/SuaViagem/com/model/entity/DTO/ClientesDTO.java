@@ -15,15 +15,11 @@ public class ClientesDTO {
     @Column(nullable=false)
     private UserEntity userEntity;
 
-    @Column(nullable=false)
-    private List<ReservasEntity> reservasEntityList = new ArrayList<>();
-
     public ClientesDTO() {
     }
 
     public ClientesDTO(ClientesEntity clientesEntity) {
         this.userEntity = clientesEntity.getUserEntity();
-        this.reservasEntityList = clientesEntity.getReservasEntityList();
     }
 
     public UserEntity getUserEntity() {
@@ -34,11 +30,4 @@ public class ClientesDTO {
         this.userEntity = userEntity;
     }
 
-    public List<ReservasEntity> getReservasEntityList() {
-        return reservasEntityList;
-    }
-
-    public void setReservasEntityList(List<ReservasEntity> reservasEntityList) {
-        this.reservasEntityList = reservasEntityList;
-    }
 }

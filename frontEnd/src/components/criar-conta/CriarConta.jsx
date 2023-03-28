@@ -55,7 +55,7 @@ export function CriarConta() {
     }
 
     // Validação do sobrenome
-    if (!isValidName(userData.sobreNome)) {
+    if (!isValidName(userData.sobrenome)) {
       alert('Sobrenome inválido!');
       return;
     }
@@ -73,6 +73,11 @@ export function CriarConta() {
 
     if (userData.senha !== userData.confirmSenha) {
       alert('Os campos "Confirmar senha" e "Senha" não coincidem!');
+      return;
+    }
+
+    if (userData.roles == "" || userData.roles == null) {
+      alert('O tipo de usuário não foi selecionado!');
       return;
     }
 

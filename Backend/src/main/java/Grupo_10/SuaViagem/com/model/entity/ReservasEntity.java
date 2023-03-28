@@ -13,27 +13,24 @@ import java.util.List;
 
 @Entity
 @Table(name  =  "reservas")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"produtosEntity"})
 public class ReservasEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_reservas", nullable = false)
     private int id_reservas;
-    @Column(nullable=false, unique = false)
+    @Column(nullable=false)
     private Time horaInicial;
 
-    @Column(nullable=false, unique = true)
+    @Column(nullable=false)
     @Temporal(TemporalType.DATE)
     private java.util.Date dataInicial;
 
-    @Column(nullable=false, unique = true)
+    @Column(nullable=false)
     @Temporal(TemporalType.DATE)
     private java.util.Date dataFinal;
-
-    @ManyToOne
-    @JoinColumn(name="cliente_id")
-    private ClientesEntity clientesEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="produtos_id")
@@ -47,6 +44,7 @@ public class ReservasEntity {
         this.horaInicial = reservasDTO.getHoraInicial();
         this.dataInicial = reservasDTO.getDataInicial();
         this.dataFinal = reservasDTO.getDataFinal();
+        this.produtosEntity = reservasDTO.getProdutosEntity();
     }
 
     public int getId_reservas() {
@@ -79,14 +77,6 @@ public class ReservasEntity {
 
     public void setDataFinal(Date dataFinal) {
         this.dataFinal = dataFinal;
-    }
-
-    public ClientesEntity getClientesEntity() {
-        return clientesEntity;
-    }
-
-    public void setClientesEntity(ClientesEntity clientesEntity) {
-        this.clientesEntity = clientesEntity;
     }
 
     public ProdutosEntity getProdutosEntity() {
