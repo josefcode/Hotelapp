@@ -46,6 +46,21 @@ export function Reserva() {
     cidadae: ''
   })
 
+  const [tudasDataDisponivel, setTudasDataDisponivel] = useState([])
+
+  const datasss = tudasDataDisponivel.map(data => {
+       const dataInicial = [data.dataInicial]
+       const dataFinal = [data.dataFinal]
+
+       return {
+        dataInicial,
+         dataFinal
+       }
+        
+       
+  } )
+
+  console.log(datasss)
    
   const tokenLocalStorage = localStorage.getItem('token')
 
@@ -91,6 +106,7 @@ for(let i = date1; i <= date2; i++) {
       const data = await response.json()
       setCidade(data.cidadesEntity.nome)
       setProdutoReserva(data)
+      setTudasDataDisponivel(data.reservasEntity)
       setDataInicialReservada(data.reservasEntity[0].dataInicial)
       setDataFinalReservada(data.reservasEntity[0].dataFinal)
     }
@@ -175,7 +191,7 @@ for(let i = date1; i <= date2; i++) {
 
             <label htmlFor='name'>Nome:
               <input
-                className='input'
+                className='input disabled'
                 required
                 id="name"
                 size="small"
@@ -183,12 +199,13 @@ for(let i = date1; i <= date2; i++) {
                 name='nome'
                 value={userData.nome}
                 onChange={handleChange}
+                disabled
               />
             </label>
 
             <label htmlFor='sobreNome'>Sobrenome:
               <input
-                className='input'
+                className='input disabled'
                 required
                 id="sobreNome"
                 name='sobreNome'
@@ -196,12 +213,13 @@ for(let i = date1; i <= date2; i++) {
                 value={userData.sobreNome}
                 onChange={handleChange}
                 size="small"
+                disabled
               />
             </label>
 
             <label htmlFor='sobreNome'>Email:
               <input
-                className='input'
+                className='input disabled'
                 required
                 id="sobreNome"
                 name='email'
@@ -209,6 +227,7 @@ for(let i = date1; i <= date2; i++) {
                 value={userData.email}
                 onChange={handleChange}
                 size="small"
+                disabled
               />
             </label>
             <label htmlFor='sobreNome'>Cidade:

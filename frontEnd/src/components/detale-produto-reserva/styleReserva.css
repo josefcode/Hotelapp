@@ -171,6 +171,9 @@ border: none;
     height: 60px !important;
     
 }
+.disabled {
+    background-color: rgba(74, 74, 74, 0.155);
+}
 
 @media only screen and (max-width: 600px) {
     .reserva-container  {

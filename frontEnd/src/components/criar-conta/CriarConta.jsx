@@ -96,7 +96,7 @@ export function CriarConta() {
       .catch(error => {
         alert('Não foi possível criar a conta. Tente novamente mais tarde.');
         setError(true)
-        setSignup(true)
+        setSignup(false)
       });
   };
 
