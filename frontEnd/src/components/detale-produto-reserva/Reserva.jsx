@@ -46,6 +46,9 @@ export function Reserva() {
     cidadae: ''
   })
 
+   
+  const tokenLocalStorage = localStorage.getItem('token')
+
   const [dataInicialReservada, setDataInicialReservada] = useState('')
   const [dataFinalReservada, setDataFinalReservada] = useState('')
 
@@ -95,7 +98,7 @@ for(let i = date1; i <= date2; i++) {
 
     async function fetchUserData() {
       try {
-        const response = await fetch(`http://localhost:8081/user/${token}`);
+        const response = await fetch(`http://localhost:8081/user/${token || tokenLocalStorage}`);
         const userData = await response.json();
 
         // Atualiza os valores dos inputs com os dados da resposta
@@ -104,6 +107,8 @@ for(let i = date1; i <= date2; i++) {
           sobreNome: userData.sobrenome,
           email: userData.email,
         });
+
+      
       } catch (error) {
         console.error(error);
       }
@@ -111,12 +116,10 @@ for(let i = date1; i <= date2; i++) {
     fetchUserData()
   }, [id]);
 
-
-
   function handleReserva() {
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token || tokenLocalStorage}` },
       body: JSON.stringify({
         horaInicial: selectedValue,
         dataInicial: checkin.toISOString(),
@@ -150,7 +153,6 @@ for(let i = date1; i <= date2; i++) {
     });
   }
 
-  console.log()
 
   return (
 
@@ -262,13 +264,14 @@ for(let i = date1; i <= date2; i++) {
                 <p >Indique a sua hora prevista de chegada</p>
               </div>
               <Autocomplete
+            
                 sx={{}}
                 size="small"
-                disablePortal
+            
                 id="combo-box-demo"
                 options={data}
                 onChange={handleAutocompleteChange}
-                renderInput={(params) => <TextField {...params} label="Selecione a sua hora de chegada" />}
+                renderInput={(params) => <TextField {...params} label="Selecione a sua hora de chegada"  />}
               />
             </div>
             <div>

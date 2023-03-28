@@ -47,19 +47,22 @@ export function IniciaSessao() {
       email: email,
       senha: password
     }).then(response => {
-      localStorage.setItem('email', email);
+      
     
       alert('Login realizado com sucesso!');
-  
-      changeToken(response.data.token)
-      navigate('/');
+ 
       changeToken(response.data.jwt)
+      localStorage.setItem('token', response.data.jwt);
+  
       changeLogin(true);
+
+      navigate('/');
   
     }).catch(error => {
       setErrorMessage('Infelizmente, você não pôde efetuar login. Por favor, tente novamente mais tarde.');
     });
   };
+
   
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
