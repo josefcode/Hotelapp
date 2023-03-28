@@ -69,7 +69,7 @@ export default function Main() {
 const formattedStartDate = moment(startDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
 const formattedEndDate = moment(endDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
-const urlCidadeData = `http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${formattedStartDate}&dataFinal=${formattedEndDate}`
+const urlCidadeData = `http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`
 const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
 
   async function handleSearch(event) {
