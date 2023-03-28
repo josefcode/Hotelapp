@@ -21,16 +21,11 @@ public class ClientesEntity {
     @JoinColumn(name = "user_entity_id")
     private UserEntity userEntity;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="id_clientes")
-    private List<ReservasEntity> reservasEntityList = new ArrayList<>();
-
     public ClientesEntity() {
     }
 
     public ClientesEntity(ClientesDTO clientesDTO) {
         this.userEntity = clientesDTO.getUserEntity();
-        this.reservasEntityList = clientesDTO.getReservasEntityList();
     }
 
     public UserEntity getUserEntity() {
@@ -41,11 +36,4 @@ public class ClientesEntity {
         this.userEntity = userEntity;
     }
 
-    public List<ReservasEntity> getReservasEntityList() {
-        return reservasEntityList;
-    }
-
-    public void setReservasEntityList(List<ReservasEntity> reservasEntityList) {
-        this.reservasEntityList = reservasEntityList;
-    }
 }

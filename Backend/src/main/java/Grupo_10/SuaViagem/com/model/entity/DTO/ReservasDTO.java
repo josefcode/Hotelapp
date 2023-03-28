@@ -1,5 +1,6 @@
 package Grupo_10.SuaViagem.com.model.entity.DTO;
 
+import Grupo_10.SuaViagem.com.model.entity.ProdutosEntity;
 import Grupo_10.SuaViagem.com.model.entity.ReservasEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -21,14 +22,25 @@ public class ReservasDTO {
     @Column(nullable=false)
     private java.util.Date dataFinal;
 
+    private ProdutosEntity produtosEntity;
+
     public ReservasDTO(ReservasEntity reservasEntity) {
         this.id_reservas = reservasEntity.getId_reservas();
         this.horaInicial = reservasEntity.getHoraInicial();
         this.dataInicial = reservasEntity.getDataInicial();
         this.dataFinal = reservasEntity.getDataFinal();
+        this.produtosEntity = reservasEntity.getProdutosEntity();
     }
 
     public ReservasDTO() {
+    }
+
+    public ProdutosEntity getProdutosEntity() {
+        return produtosEntity;
+    }
+
+    public void setProdutosEntity(ProdutosEntity produtosEntity) {
+        this.produtosEntity = produtosEntity;
     }
 
     public int getId_reservas() {

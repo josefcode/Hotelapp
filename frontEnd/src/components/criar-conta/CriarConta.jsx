@@ -55,7 +55,7 @@ export function CriarConta() {
     }
 
     // Validação do sobrenome
-    if (!isValidName(userData.sobreNome)) {
+    if (!isValidName(userData.sobrenome)) {
       alert('Sobrenome inválido!');
       return;
     }

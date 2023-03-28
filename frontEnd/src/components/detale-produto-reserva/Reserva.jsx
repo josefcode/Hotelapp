@@ -86,10 +86,10 @@ for(let i = date1; i <= date2; i++) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json()
+      setCidade(data.cidadesEntity.nome)
+      setProdutoReserva(data)
       setDataInicialReservada(data.reservasEntity[0].dataInicial)
       setDataFinalReservada(data.reservasEntity[0].dataFinal)
-      setProdutoReserva(data)
-      setCidade(data.cidadesEntity.nome)
     }
     fetchData()
 
@@ -111,8 +111,6 @@ for(let i = date1; i <= date2; i++) {
     fetchUserData()
   }, [id]);
 
-
-
   function handleReserva() {
     const requestOptions = {
       method: 'POST',
@@ -120,7 +118,10 @@ for(let i = date1; i <= date2; i++) {
       body: JSON.stringify({
         horaInicial: selectedValue,
         dataInicial: checkin.toISOString(),
-        dataFinal: checkout.toISOString()
+        dataFinal: checkout.toISOString(),
+        produtosEntity: {
+          id_produtos: id
+      }
       })
     };
 
