@@ -9,6 +9,11 @@ import { useDatas } from '../hooks/useDatas';
 
 export function Calendario({ id }) {
   const [checkin, setCheckin] = React.useState(new Date())
+
+  const tokenLocalStorage = localStorage.getItem('token')
+
+  console.log(tokenLocalStorage)
+
   const { token } = useToken()
 
   const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
@@ -48,13 +53,13 @@ export function Calendario({ id }) {
         <div className='calendario-card'>
           <p>Adicione as datas da sua viagem</p>
           {
-            !token ? <Link to={`/iniciar-sessao`} ><button className='calendario-btn' >Iniciar reserva</button></Link> :
-              <Link to={`reserva`} ><button className='calendario-btn' >Iniciar reserva</button></Link>
+             typeof tokenLocalStorage === 'string' ?   <Link to={`reserva`} ><button className='calendario-btn' >Iniciar reserva</button></Link> : <Link to={`/iniciar-sessao`} ><button className='calendario-btn' >Iniciar reserva</button></Link> 
+            
           }
         </div>
       </div>
       <div>
-        {!token && <Alert sx={{ marginTop: '10px', '&.MuiAlert-root': { color: "rgb(249, 8, 4) !important" } }} severity="error">Para fazer uma reserva você precisa estar logado</Alert>}
+        { typeof tokenLocalStorage === 'string' ?  null : <Alert sx={{ marginTop: '10px', '&.MuiAlert-root': { color: "rgb(249, 8, 4) !important" } }} severity="error">Para fazer uma reserva você precisa estar logado</Alert> }
       </div>
     </div>
   )

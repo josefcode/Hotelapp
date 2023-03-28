@@ -23,7 +23,6 @@ export function RecomendacoesCards() {
 
   const {hotelPorCidade, changeHotelPorCidade } = useHotelFilterCidade()
 
-  console.log(hotelPorCidade)
 
   React.useEffect(() => {
     async function fetchData() {

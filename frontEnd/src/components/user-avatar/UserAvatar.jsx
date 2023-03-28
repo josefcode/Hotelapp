@@ -4,8 +4,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useLogin } from '../hooks/useLogin';
 import { useToken } from '../hooks/useToken';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { useNavigate } from 'react-router-dom';
 
 export default function UserAvatar() {
+
+  const navigate = useNavigate()
   
    const {changeLogin} = useLogin()
    const [userData, setUserData] = React.useState({})
@@ -13,34 +16,44 @@ export default function UserAvatar() {
 
    const {token , changeToken} = useToken()
 
+   const tokenLocalStorage = localStorage.getItem('token')
+
 
    React.useEffect(()=> {
     async function fetchUserData() {
         setLaoding(true)
         try {
-          const response = await fetch(`http://localhost:8081/user/${token}`);
+          const response = await fetch(`http://localhost:8081/user/${token || tokenLocalStorage}`);
           const userData = await response.json();
+
+          const {nome, sobrenome, email} = userData
           // Atualiza os valores dos inputs com os dados da resposta
           setUserData({
-            nome: userData.nome,
-            sobrenome: userData.sobrenome,
-            email: userData.email,
+            nome,
+            sobrenome,
+            email,
           });
-
+            
+       
           setLaoding(false)
+          localStorage.setItem('userAvata', JSON.stringify({nome, sobrenome}))
         } catch (error) {
           console.error(error);
         }
       }
 
       fetchUserData()
-   }, [])
+   }, [token, tokenLocalStorage])
 
    const { nome, sobrenome } = userData
     const handleRemove = () => {
-
+      
+      localStorage.removeItem('token')
         changeToken(null)
          changeLogin(false)
+         navigate('/');
+      
+
     }
 
   return (
