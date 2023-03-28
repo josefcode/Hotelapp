@@ -85,7 +85,6 @@ export function CriarConta() {
       senha,
       userRoles: roles
     })
-    alert('A conta foi criada com sucesso!');
 
     setSignup(true)
 

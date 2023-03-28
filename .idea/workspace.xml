@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/AdicionarCidadesFromJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/AdicionarCidadesFromJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IProdutosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IProdutosRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +90,7 @@
       <recent name="Grupo_10.SuaViagem.com.enums" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AdicionarCidadesFromJson">
+  <component name="RunManager" selected="Application.Grupo_10.SuaViagem.com.Application">
     <configuration name="AdicionarCidadesFromJson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.JDBC.AdicionarCidadesFromJson" />
       <module name="SuaViagem.com" />
