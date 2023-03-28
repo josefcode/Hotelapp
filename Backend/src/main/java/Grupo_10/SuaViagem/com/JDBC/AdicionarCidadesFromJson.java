@@ -15,7 +15,7 @@ public class AdicionarCidadesFromJson {
 
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            List<CidadesDTO> cidadesDTOList = objectMapper.readValue(new FileReader("C:/Users/marcelo.muniz/Documents/Estudos/CTD/SuaViagem.com/grupo-10/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/cidades.json"), new TypeReference<List<CidadesDTO>>() {});
+            List<CidadesDTO> cidadesDTOList = objectMapper.readValue(new FileReader("C:/Users/atefc/OneDrive/Desktop/codeWork/officialDhProject/grupo-10/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/cidades.json"), new TypeReference<List<CidadesDTO>>() {});
 
 //CONEXÃO BANCO LOCAL
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_projeto_integrador", "root", "123456");
