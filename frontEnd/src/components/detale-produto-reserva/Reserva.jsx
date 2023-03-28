@@ -165,8 +165,9 @@ for(let i = date1; i <= date2; i++) {
         <Link to={`/detaile-produto/${id}`}><ArrowBackIosIcon className='logo-header' /></Link>
       </div>
       <h1 className='title-service'>Complete seus dados</h1>
+      
       <div className='reserva-container'>
-        <form action="">
+       
           <div className='produto-logado-wrapper'>
 
             <label htmlFor='name'>Nome:
@@ -278,9 +279,8 @@ for(let i = date1; i <= date2; i++) {
     
             </div>
           </div>
-        </form>
         <div className='reserva-card'>
-          <div>
+          
           <div>
             <h4 className='reserva-header-title'>Detalhes da reserva</h4>
             <img className='reserva-image' src={imageUrl} alt='detale reserva' />
@@ -290,7 +290,7 @@ for(let i = date1; i <= date2; i++) {
             <p className='reserva-title'>{nome}</p>
             {
               stars.map((star, index) =>
-                <span className='reserva-stars' key={index}>{star}</span>
+              <span className='reserva-stars' key={index}>{star}</span>
               )
             }
             <div >
@@ -304,7 +304,7 @@ for(let i = date1; i <= date2; i++) {
                 startDate ? 
                 <p>{format(new Date(`${startDate}`), 'dd/MM/yyyy')}</p>
                 : 
-              <p> { moment(checkin.toISOString()).format('DD/MM/yyyy') }</p>
+                <p> { moment(checkin.toISOString()).format('DD/MM/yyyy') }</p>
               }
               
             </div>
@@ -316,7 +316,7 @@ for(let i = date1; i <= date2; i++) {
                 endDate ? 
                 <p>{format(new Date(`${endDate}`), 'dd/MM/yyyy')}</p>
                 : 
-              <p> { moment(checkout.toISOString()).format('DD/MM/yyyy') }</p>
+                <p> { moment(checkout.toISOString()).format('DD/MM/yyyy') }</p>
               }
 
             </div>
@@ -326,11 +326,14 @@ for(let i = date1; i <= date2; i++) {
             <button className='reserva-btn' onClick={handleReserva}>Confirmar reserva</button>
          
           </div>
+         
+        </div>
+        <div className='error-message'>
           { error && <Alert sx = {{marginTop: '10px', '&.MuiAlert-root': {color: "rgb(249, 8, 4) !important" }}}severity="error">Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.</Alert>}
         </div>
-       </div>
       
       </div>
+             
 
 <h1 className='title-service'>O que voce precisa saber</h1>
 <div className='title-underline'></div>

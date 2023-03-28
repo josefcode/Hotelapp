@@ -15,8 +15,7 @@ export default function Navbar() {
 
   const { token } = useToken()
 
-  
-  console.log(typeof tokenLocalStorage === 'string')
+
 
   const location = useLocation();
   const data = localStorage.getItem('userAvata');
