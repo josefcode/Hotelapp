@@ -18,8 +18,9 @@ import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import SmokeFreeIcon from '@mui/icons-material/SmokeFree';
 import GavelIcon from '@mui/icons-material/Gavel';
 import { useToken } from '../hooks/useToken';
+import Alert from '@mui/material/Alert';
+import {format } from 'date-fns'
 import PetsIcon from '@mui/icons-material/Pets';
-import axios from 'axios';
 import moment from 'moment';
 
 export function Reserva() {
@@ -36,6 +37,7 @@ export function Reserva() {
   const [selectedValue, setSelectedValue] = useState(null);
   const stars = [<StarIcon fontSize='small' />, <StarIcon fontSize='small' />, <StarIcon fontSize='small' />, <StarIcon fontSize='small' />,]
   const [confirm, setConfirm] = React.useState(false)
+  const [error, setError] = useState(false)
   const [cidade, setCidade] = React.useState('')
   const [userData, setUserData] = useState({
     nome: '',
@@ -44,6 +46,15 @@ export function Reserva() {
     cidadae: ''
   })
 
+  const [dataInicialReservada, setDataInicialReservada] = useState('')
+  const [dataFinalReservada, setDataFinalReservada] = useState('')
+
+  const disableDates = format(new Date() , 'dd/MM/yyyy')
+
+
+console.log(disableDates)
+
+  console.log(dataInicialReservada, dataFinalReservada )
   function handleDateChange(value) {
     changeStartDate(false)
     changeEndDate(false)
@@ -64,6 +75,8 @@ export function Reserva() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json()
+      setDataInicialReservada(data.reservasEntity[0].dataInicial)
+      setDataFinalReservada(data.reservasEntity[0].dataFinal)
       setProdutoReserva(data)
       setCidade(data.cidadesEntity.nome)
     }
@@ -108,7 +121,9 @@ export function Reserva() {
         setConfirm(true)
       })
       .catch(error => {
-        alert('Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.');
+        setError(true)
+        // alert('Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.');
+        
       });
   }
 
@@ -239,9 +254,13 @@ export function Reserva() {
                 renderInput={(params) => <TextField {...params} label="Selecione a sua hora de chegada" />}
               />
             </div>
+            <div>
+    
+            </div>
           </div>
         </form>
         <div className='reserva-card'>
+          <div>
           <div>
             <h4 className='reserva-header-title'>Detalhes da reserva</h4>
             <img className='reserva-image' src={imageUrl} alt='detale reserva' />
@@ -283,9 +302,14 @@ export function Reserva() {
             </div>
             <div className='reserva-underline' ></div>
             {/* <button className='reserva-btn' onClick={() => setConfirm(!confirm)}>Confirmar reserva</button> */}
+             
             <button className='reserva-btn' onClick={handleReserva}>Confirmar reserva</button>
+         
           </div>
+          { error && <Alert sx = {{marginTop: '10px', '&.MuiAlert-root': {color: "rgb(249, 8, 4) !important" }}}severity="error">Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.</Alert>}
         </div>
+       </div>
+      
       </div>
 
 <h1 className='title-service'>O que voce precisa saber</h1>
