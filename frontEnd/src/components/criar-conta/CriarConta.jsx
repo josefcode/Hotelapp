@@ -76,6 +76,11 @@ export function CriarConta() {
       return;
     }
 
+    if (userData.roles == "" || userData.roles == null) {
+      alert('O tipo de usuário não foi selecionado!');
+      return;
+    }
+
     const { nome, sobrenome, senha, email, roles } = userData
 
     axios.post('http://localhost:8081/user', {
