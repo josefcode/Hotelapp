@@ -27,7 +27,7 @@ export function Reserva() {
   // const [reserva, setReserva] = React.useState([])
   const {startDate, endDate, changeStartDate, changeEndDate } = useDatas()
 
-  console.log(startDate, endDate)
+
 
   const [produtoReserva, setProdutoReserva] = React.useState([])
   const { id } = useParams()
@@ -49,12 +49,23 @@ export function Reserva() {
   const [dataInicialReservada, setDataInicialReservada] = useState('')
   const [dataFinalReservada, setDataFinalReservada] = useState('')
 
-  const disableDates = format(new Date() , 'dd/MM/yyyy')
+
+const dataInicialValue = new Date(`${dataInicialReservada}`)
+const dataFinalValue = new Date(`${dataFinalReservada}`)
+
+const date1 = dataInicialValue.getDate()
+const date2 = dataFinalValue.getDate()
+
+let fullDates = []
+
+for(let i = date1; i <= date2; i++) {
+ fullDates.push(i)
+}
+  
+
+ const listDatas =  fullDates.map(item => item)
 
 
-console.log(disableDates)
-
-  console.log(dataInicialReservada, dataFinalReservada )
   function handleDateChange(value) {
     changeStartDate(false)
     changeEndDate(false)
@@ -122,7 +133,6 @@ console.log(disableDates)
       })
       .catch(error => {
         setError(true)
-        // alert('Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.');
         
       });
   }
@@ -139,6 +149,8 @@ console.log(disableDates)
       }
     });
   }
+
+  console.log()
 
   return (
 
@@ -220,6 +232,11 @@ console.log(disableDates)
                     selectRange
                     prev2Label={null}
                     next2Label={null}
+                    tileDisabled={({date}) => {
+                     let currDate = date.getDate()
+                      return listDatas.indexOf(currDate) !== -1
+                      }
+                    }
                   />
                 </div>
                 <div className='single-calender'>
@@ -282,9 +299,9 @@ console.log(disableDates)
               <p>check in</p>
               {
                 startDate ? 
-                <p>{startDate}</p>
+                <p>{format(new Date(`${startDate}`), 'dd/MM/yyyy')}</p>
                 : 
-              <p> { moment(checkin.toISOString()).format('DD-MM-YYYY') }</p>
+              <p> { moment(checkin.toISOString()).format('DD/MM/yyyy') }</p>
               }
               
             </div>
@@ -294,9 +311,9 @@ console.log(disableDates)
 
               {
                 endDate ? 
-                <p>{endDate}</p>
+                <p>{format(new Date(`${endDate}`), 'dd/MM/yyyy')}</p>
                 : 
-              <p> { moment(checkout.toISOString()).format('DD-MM-YYYY') }</p>
+              <p> { moment(checkout.toISOString()).format('DD/MM/yyyy') }</p>
               }
 
             </div>
