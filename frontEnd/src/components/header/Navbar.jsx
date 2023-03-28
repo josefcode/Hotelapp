@@ -28,7 +28,7 @@ export default function Navbar() {
     navigate(-1);
   };
 
-  const { nome , sobrenome } = detalesDoAvatar
+  const { nome , sobrenome } = detalesDoAvatar || {}
   // console.log(nome , sobrenome)
 
   const renderCreateAccountButton = () => {
