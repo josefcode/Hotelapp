@@ -5,13 +5,13 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate,Navigate, useParams, NavLink} from 'react-router-dom';
 import { useToken } from '../hooks/useToken';
 import axios from 'axios'
 import { useLogin } from '../hooks/useLogin'
 import './style.css';
 import Alert from '@mui/material/Alert';
-import { ReservaSucesso } from '../detale-produto-reserva/ReservaSucesso';
+
 
 export function IniciaSessao() {
 
@@ -21,7 +21,7 @@ export function IniciaSessao() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('');
-  // const [token, setToken] = useState('')
+
 
   const {token, changeToken} = useToken()
 
@@ -56,7 +56,7 @@ export function IniciaSessao() {
   
       changeLogin(true);
 
-      navigate('/');
+      navigate(-1)
   
     }).catch(error => {
       setErrorMessage('Infelizmente, você não pôde efetuar login. Por favor, tente novamente mais tarde.');
@@ -130,12 +130,13 @@ export function IniciaSessao() {
          
         </div>
         <div className='btn-wrapper'>
+      
           <button className='iniciar-btn' type="submit">Iniciar sessão</button>
 
           <span className='iniciar-login'>Ainda não tem uma conta? <Link className='login-link' to="/criar-conta">Registre-se</Link></span>
         </div>
       </form>
-       {/* <ReservaSucesso link = "/" message = "A conta foi criada com sucesso!"/> */}
+
     </div>
   )
 }
