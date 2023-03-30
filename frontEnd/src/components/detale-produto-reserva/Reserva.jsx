@@ -56,8 +56,6 @@ export function Reserva() {
         dataInicial,
          dataFinal
        }
-        
-       
   } )
 
   console.log(datasss)
