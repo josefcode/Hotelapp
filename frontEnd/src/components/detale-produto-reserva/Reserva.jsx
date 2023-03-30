@@ -98,7 +98,7 @@ for(let i = date1; i <= date2; i++) {
   React.useEffect(() => {
     async function fetchData() {
 
-      const response = await fetch(`http://localhost:8081/product/${id}`)
+      const response = await fetch(`http://3.140.210.50:8081/product/${id}`)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -114,7 +114,7 @@ for(let i = date1; i <= date2; i++) {
 
     async function fetchUserData() {
       try {
-        const response = await fetch(`http://localhost:8081/user/${token || tokenLocalStorage}`);
+        const response = await fetch(`http://3.140.210.50:8081/user/${token || tokenLocalStorage}`);
         const userData = await response.json();
 
         // Atualiza os valores dos inputs com os dados da resposta
@@ -146,7 +146,7 @@ for(let i = date1; i <= date2; i++) {
       })
     };
 
-    fetch('http://localhost:8081/reservas/register', requestOptions)
+    fetch('http://3.140.210.50:8081/reservas/register', requestOptions)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

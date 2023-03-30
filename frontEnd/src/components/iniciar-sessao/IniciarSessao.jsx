@@ -43,7 +43,7 @@ export function IniciaSessao() {
   async function handleSubmit(e) {
     e.preventDefault()
   
-    axios.post('http://localhost:8081/user/authenticate', {
+    axios.post('http://3.140.210.50:8081/user/authenticate', {
       email: email,
       senha: password
     }).then(response => {

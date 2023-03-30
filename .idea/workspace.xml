@@ -10,10 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mysql_mysql_connector_j_8_0_31.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/ReservasServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/ReservasServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/MySQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/MySQLConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/ApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/CaracteristicasControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/CategoryControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/CidadesControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/FuncoesControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/ImagensControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/ProdutosControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/ReservasControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/Grupo_10/SuaViagem/com/UserControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SuaViagem_com_jar/SuaViagem.com.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SuaViagem_com_jar/SuaViagem.com.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +99,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\marcelo.muniz\Documents\Estudos\CTD\SuaViagem.com\grupo-10\BackEnd\src\main\java\Grupo_10\SuaViagem\com\security" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marcelo.muniz\Documents\Estudos\CTD\SuaViagem.com\grupo-10\Backend\src" />
+      <recent name="C:\Users\marcelo.muniz\Documents\Estudos\CTD\SuaViagem.com\grupo-10\Backend\src\main" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Grupo_10.SuaViagem.com" />
       <recent name="Grupo_10.SuaViagem.com.controller" />
@@ -97,19 +112,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Grupo_10.SuaViagem.com.Application">
-    <configuration name="AdicionarCidadesFromJson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.JDBC.AdicionarCidadesFromJson" />
-      <module name="SuaViagem.com" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Grupo_10.SuaViagem.com.JDBC.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Grupo_10.SuaViagem.com.Application" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.Application" />
       <module name="SuaViagem.com" />
@@ -123,9 +125,88 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FuncoesControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SuaViagem.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Grupo_10.SuaViagem.com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Grupo_10.SuaViagem.com" />
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.FuncoesControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImagensControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SuaViagem.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Grupo_10.SuaViagem.com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Grupo_10.SuaViagem.com" />
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.ImagensControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProdutosControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SuaViagem.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Grupo_10.SuaViagem.com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Grupo_10.SuaViagem.com" />
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.ProdutosControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReservasControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SuaViagem.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Grupo_10.SuaViagem.com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Grupo_10.SuaViagem.com" />
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.ReservasControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SuaViagem.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Grupo_10.SuaViagem.com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Grupo_10.SuaViagem.com" />
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AdicionarCidadesFromJson" />
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.ReservasControllerTest" />
+        <item itemvalue="JUnit.ProdutosControllerTest" />
+        <item itemvalue="JUnit.ImagensControllerTest" />
+        <item itemvalue="JUnit.FuncoesControllerTest" />
       </list>
     </recent_temporary>
   </component>

@@ -54,7 +54,7 @@ export default function Main() {
      setIsLoading(true)
       async function fetchData(){
 
-        const response = await fetch(`http://localhost:8081/cities/findAll`)
+        const response = await fetch(`http://3.140.210.50:8081/cities/findAll`)
     
          if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -70,8 +70,8 @@ export default function Main() {
 const formattedStartDate = moment(startDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
 const formattedEndDate = moment(endDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
-const urlCidadeData = `http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`
-const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
+const urlCidadeData = `http://3.140.210.50:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`
+const urlCidade = `http://3.140.210.50:8081/product/findByCidades/${cidadeValue}`
 
   async function handleSearch(event) {
 
