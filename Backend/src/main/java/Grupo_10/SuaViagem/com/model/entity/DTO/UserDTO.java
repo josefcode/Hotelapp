@@ -1,6 +1,9 @@
 package Grupo_10.SuaViagem.com.model.entity.DTO;
 
 import Grupo_10.SuaViagem.com.enums.UserRoles;
+import Grupo_10.SuaViagem.com.model.entity.FuncoesEntity;
+import Grupo_10.SuaViagem.com.model.entity.UserEntity;
+
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,39 +14,50 @@ public class UserDTO {
 
     @NotNull
     @Column(nullable = false)
-    private String name;
+    private String nome;
     @NotNull
     @Column(nullable = false, unique = true)
-    private String username;
+    private String sobrenome;
     @NotNull
     @Column(nullable = false, unique = true)
     private String email;
     @NotNull
     @Size(min = 6, max = 12)
     @Column(nullable = false)
-    private String password;
+    private String senha;
     @NotNull
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRoles userRoles;
 
+    private FuncoesEntity funcoesEntity;
+
     public UserDTO() {
     }
 
-    public String getName() {
-        return name;
+    public UserDTO(UserEntity userEntity) {
+        this.nome = userEntity.getNome();
+        this.sobrenome = userEntity.getSobrenome();
+        this.email = userEntity.getEmail();
+        this.senha = userEntity.getSenha();
+        this.userRoles = userEntity.getUserRoles();
+        this.funcoesEntity = userEntity.getFuncoesEntity();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getNome() {
+        return nome;
     }
 
-    public String getUsername() {
-        return username;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
     public String getEmail() {
@@ -54,12 +68,12 @@ public class UserDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public UserRoles getUserRoles() {
@@ -68,5 +82,13 @@ public class UserDTO {
 
     public void setUserRoles(UserRoles userRoles) {
         this.userRoles = userRoles;
+    }
+
+    public FuncoesEntity getFuncoesEntity() {
+        return funcoesEntity;
+    }
+
+    public void setFuncoesEntity(FuncoesEntity funcoesEntity) {
+        this.funcoesEntity = funcoesEntity;
     }
 }

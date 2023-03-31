@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SuaViagem.com:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/AdicionarCidadesFromJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/AdicionarCidadesFromJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/cidades.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/JDBC/cidades.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/ProdutosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/controller/ProdutosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/CidadesEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/CidadesEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/CaracteristicasDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/CaracteristicasDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/CategoriasDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/CategoriasDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/CidadesDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/CidadesDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/ImagensDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/ImagensDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/ImagensEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/ImagensEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IUserRepository.java" afterDir="false" />
-    </list>
+    <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,10 +31,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/CategoryEntity.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/ICategoryRepository.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -78,37 +66,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Git.Branch.Popup.ShowAllRemotes": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/marcelo.muniz/Documents/Estudos/CTD/SuaViagem.com/grupo-10/BackEnd/src/main/java/Grupo_10/SuaViagem/com/security",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marcelo.muniz/Documents/Estudos/CTD/SuaViagem.com/grupo-10/BackEnd/src/main/java/Grupo_10/SuaViagem/com/security&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\marcelo.muniz\Documents\Estudos\CTD\SuaViagem.com\grupo-10\BackEnd\src\main\java\Grupo_10\SuaViagem\com\security" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marcelo.muniz\Documents\Estudos\CTD\SuaViagem.com\grupo-10\Backend\src" />
+      <recent name="C:\Users\marcelo.muniz\Documents\Estudos\CTD\SuaViagem.com\grupo-10\Backend\src\main" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Grupo_10.SuaViagem.com" />
       <recent name="Grupo_10.SuaViagem.com.controller" />
       <recent name="Grupo_10.SuaViagem.com.repository" />
       <recent name="Grupo_10.SuaViagem.com.service.impl" />
       <recent name="Grupo_10.SuaViagem.com.enums" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
-    <configuration name="AdicionarCidadesFromJson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.JDBC.AdicionarCidadesFromJson" />
+  <component name="RunManager" selected="Application.Grupo_10.SuaViagem.com.Application">
+    <configuration name="Grupo_10.SuaViagem.com.Application" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.Application" />
       <module name="SuaViagem.com" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Grupo_10.SuaViagem.com.JDBC.*" />
+          <option name="PATTERN" value="Grupo_10.SuaViagem.com.config.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,8 +109,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.Application" />
+    <configuration name="FuncoesControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SuaViagem.com" />
       <extension name="coverage">
         <pattern>
@@ -125,14 +117,80 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="Grupo_10.SuaViagem.com" />
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.FuncoesControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImagensControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SuaViagem.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Grupo_10.SuaViagem.com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Grupo_10.SuaViagem.com" />
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.ImagensControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProdutosControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SuaViagem.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Grupo_10.SuaViagem.com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Grupo_10.SuaViagem.com" />
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.ProdutosControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReservasControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SuaViagem.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Grupo_10.SuaViagem.com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Grupo_10.SuaViagem.com" />
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.ReservasControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SuaViagem.com" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Grupo_10.SuaViagem.com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Grupo_10.SuaViagem.com" />
+      <option name="MAIN_CLASS_NAME" value="Grupo_10.SuaViagem.com.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AdicionarCidadesFromJson" />
-        <item itemvalue="Application.Application" />
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.ReservasControllerTest" />
+        <item itemvalue="JUnit.ProdutosControllerTest" />
+        <item itemvalue="JUnit.ImagensControllerTest" />
+        <item itemvalue="JUnit.FuncoesControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -172,5 +230,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/grupo_10$AdicionarCidadesFromJson.ic" NAME="AdicionarCidadesFromJson Coverage Results" MODIFIED="1678492058006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Grupo_10.SuaViagem.com.JDBC.*</FILTER>
+    </SUITE>
   </component>
 </project>

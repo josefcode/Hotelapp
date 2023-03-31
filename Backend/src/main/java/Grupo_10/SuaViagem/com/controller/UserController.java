@@ -1,6 +1,8 @@
 package Grupo_10.SuaViagem.com.controller;
 
 import Grupo_10.SuaViagem.com.model.entity.DTO.UserDTO;
+import Grupo_10.SuaViagem.com.model.entity.UserEntity;
+import Grupo_10.SuaViagem.com.repository.IUserRepository;
 import Grupo_10.SuaViagem.com.security.AuthenticationResponse;
 import Grupo_10.SuaViagem.com.security.JwtUtil;
 import Grupo_10.SuaViagem.com.service.impl.UserServiceImpl;
@@ -13,6 +15,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,6 +30,9 @@ public class UserController {
 
     @Autowired
     private JwtUtil jwtUtil;
+
+    @Autowired
+    private IUserRepository iUserRepository;
 
     @PostMapping
     @Operation(
@@ -61,13 +67,24 @@ public class UserController {
     )
     public ResponseEntity<AuthenticationResponse> createAuthenticationToken(@RequestBody UserDTO userDTO) throws Exception {
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userDTO.getUsername(), userDTO.getPassword()));
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userDTO.getEmail(), userDTO.getSenha()));
         } catch (BadCredentialsException e) {
             throw new Exception("Incorrect", e);
         }
-        final UserDetails userDetails = userService.loadUserByUsername(userDTO.getUsername());
+        final UserDetails userDetails = userService.loadUserByUsername(userDTO.getEmail());
         final String jwt = jwtUtil.generateToken(userDetails);
 
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
+
+    @GetMapping("/{token}")
+    public ResponseEntity<UserDTO> getUserByToken(@PathVariable String token) {
+        String email = jwtUtil.extractClaimUsername(token);
+        UserDetails userDetails = userService.loadUserByUsername(email);
+        UserEntity userEntity = iUserRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
+        UserDTO userDTO = new UserDTO(userEntity);
+        return ResponseEntity.ok(userDTO);
+    }
+
 }

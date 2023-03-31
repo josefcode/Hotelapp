@@ -9,15 +9,19 @@ import javax.persistence.*;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ImagensEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_imagens", nullable = false)
-    private int id_imagens;
+    private Integer id_imagens;
 
     @Column(nullable=false)
     private String titulo;
 
     @Column(nullable=false)
     private String url;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "imagens_entity_id")
+    private ProdutosEntity produtosEntity;
 
     public ImagensEntity() {
     }
@@ -26,13 +30,22 @@ public class ImagensEntity {
         this.id_imagens = imagensDTO.getId_imagens();
         this.titulo = imagensDTO.getTitulo();
         this.url = imagensDTO.getUrl();
+        this.produtosEntity = imagensDTO.getProdutosEntity();
     }
 
-    public int getId_imagens() {
+    public ProdutosEntity getProdutosEntity() {
+        return produtosEntity;
+    }
+
+    public void setProdutosEntity(ProdutosEntity produtosEntity) {
+        this.produtosEntity = produtosEntity;
+    }
+
+    public Integer getId_imagens() {
         return id_imagens;
     }
 
-    public void setId_imagens(int id_imagens) {
+    public void setId_imagens(Integer id_imagens) {
         this.id_imagens = id_imagens;
     }
 

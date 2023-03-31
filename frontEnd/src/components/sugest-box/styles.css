@@ -6,6 +6,7 @@
     height: 59px;
     width: 100%;
     gap: 20.97px;
+   
         
 }
 
@@ -22,7 +23,7 @@
 }
 
 .suggestBox-content-city {
-    font-family:"Roboto";
+    /* font-family:"Roboto"; */
     font-size: 14px;
     font-style: bold;
     font-weight: 700;
@@ -35,7 +36,7 @@
 }
 
 .suggestBox-content-country {
-    font-family:"Roboto";
+    /* font-family:"Roboto"; */
     font-size: 14px;
     font-style: bold;
     color: #545776;

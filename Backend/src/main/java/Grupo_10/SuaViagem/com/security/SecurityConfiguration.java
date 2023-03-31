@@ -38,23 +38,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
+        http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers("/user/**").permitAll()
                 .antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
-                .antMatchers(HttpMethod.POST,"/endereco/registrar","/paciente/registrar").hasAnyRole("PACIENTE", "ADMIN")
-                .antMatchers(HttpMethod.POST,"/dentista/registrar").hasAnyRole("DENTISTA", "ADMIN")
-                .antMatchers(HttpMethod.GET,"/endereco/{id}","/consulta/{id}", "/paciente/{id}").hasAnyRole("PACIENTE", "ADMIN")
-                .antMatchers(HttpMethod.GET,"/dentista/{id}","/consulta/{id}").hasAnyRole("DENTISTA", "ADMIN")
-                .antMatchers(HttpMethod.PUT,"/endereco/{id}","/paciente/{id}").hasAnyRole("PACIENTE", "ADMIN")
-                .antMatchers(HttpMethod.PUT,"/dentista/{id}").hasAnyRole("DENTISTA", "ADMIN")
-                .antMatchers(HttpMethod.POST,"/consulta/cadastrar").hasAnyRole("ADMIN")
-                .antMatchers(HttpMethod.GET,"/consulta/{id}", "/consulta/buscar").hasAnyRole("ADMIN")
-                .antMatchers(HttpMethod.PUT,"/consulta/{id}").hasAnyRole("ADMIN")
-                .antMatchers(HttpMethod.DELETE,"/consulta/{id}","/endereco/{id}","/paciente/{id}").hasAnyRole("ADMIN")
+                .antMatchers("/cities/**").permitAll()
+                .antMatchers("/category/**").permitAll()
+                .antMatchers("/caracteristicas/**").permitAll()
+                .antMatchers("/funcoes/**").permitAll()
+                .antMatchers("/product/**").permitAll()
+                .antMatchers("/imagens/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/reservas/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.POST,"/reservas/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.PUT,"/reservas/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers(HttpMethod.DELETE,"/reservas/**").hasAnyRole("ADMIN")
                 .anyRequest()
-                .authenticated().and()
+                .authenticated()
+                .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+           http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override

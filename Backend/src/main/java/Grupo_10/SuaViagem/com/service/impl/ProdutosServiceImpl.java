@@ -1,19 +1,18 @@
 package Grupo_10.SuaViagem.com.service.impl;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
-import Grupo_10.SuaViagem.com.model.entity.CategoriasEntity;
-import Grupo_10.SuaViagem.com.model.entity.CidadesEntity;
+import Grupo_10.SuaViagem.com.model.entity.*;
 import Grupo_10.SuaViagem.com.model.entity.DTO.ProdutosDTO;
-import Grupo_10.SuaViagem.com.model.entity.ProdutosEntity;
-import Grupo_10.SuaViagem.com.repository.ICategoriasRepository;
-import Grupo_10.SuaViagem.com.repository.ICidadesRepository;
-import Grupo_10.SuaViagem.com.repository.IProdutosRepository;
+import Grupo_10.SuaViagem.com.repository.*;
 import Grupo_10.SuaViagem.com.service.IService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProdutosServiceImpl implements IService<ProdutosDTO> {
@@ -27,6 +26,11 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
     @Autowired
     private ICidadesRepository iCidadesRepository;
 
+    @Autowired
+    private ICaracteristicasRepository iCaracteristicasRepository;
+
+    @Autowired
+    private IImagensRespository iImagensRespository;
 
     @Override
     public ProdutosDTO register(ProdutosDTO produtosDTO) throws NotFoundException {
@@ -37,11 +41,45 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
 
         produtosDTO.setCidadesEntity(cidadeEntity);
         produtosDTO.setCategoriasEntity(categoriasEntity);
-        produtosDTO.getCategoriasEntity().getId_categorias(); // verificação adicionada
-        produtosDTO.getCidadesEntity().getId_cidades(); // verificação adicionada
+
+        List<CaracteristicasEntity> caracteristicasEntities = produtosDTO.getCaracteristicasEntityList().stream()
+                .map(caracteristica -> {
+                    try {
+                        return iCaracteristicasRepository.findById(caracteristica.getId_caracteristicas())
+                                .orElseThrow(() -> new NotFoundException("Caracteristicas não encontradas"));
+                    } catch (NotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                })
+                .collect(Collectors.toList());
+        produtosDTO.setCaracteristicasEntityList(caracteristicasEntities);
+
+        List<ImagensEntity> imagensEntityList = produtosDTO.getImagensEntityList().stream()
+                .map(imagens -> {
+                    try {
+                        return iImagensRespository.findById(imagens.getId_imagens())
+                                .orElseThrow(() -> new NotFoundException("Imagens não encontradas"));
+                    } catch (NotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                })
+                .collect(Collectors.toList());
+        produtosDTO.setImagensEntityList(imagensEntityList);
 
         return mapperEntityToDTO(iProdutosRepository.save(mapperDTOToEntity(produtosDTO)));
     }
+
+    public ProdutosDTO registerReservation(int id, ReservasEntity novaReserva) throws NotFoundException {
+        ProdutosEntity produtosEntity = iProdutosRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Produto não encontrado"));
+
+        List<ReservasEntity> reservasEntityList = produtosEntity.getReservasEntity();
+        reservasEntityList.add(novaReserva);
+        produtosEntity.setReservasEntity(reservasEntityList);
+
+        return mapperEntityToDTO(iProdutosRepository.save(produtosEntity));
+    }
+
 
     @Override
     public List<ProdutosDTO> findAll() {
@@ -94,6 +132,18 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
 
     public List<ProdutosDTO> findByCidadesEntityNome(String cidade) {
         List<ProdutosEntity> produtosEntities = iProdutosRepository.findByCidadesEntityNome(cidade);
+        List<ProdutosDTO> produtosDTOS = new ArrayList<>();
+
+        for (ProdutosEntity produtosEntity : produtosEntities) {
+            ProdutosDTO produtosDTO = mapperEntityToDTO(produtosEntity);
+            produtosDTOS.add(produtosDTO);
+        }
+        return produtosDTOS;
+    }
+
+    public List<ProdutosDTO> findByCidadeAndDatas(String cidade, Date dataInicial, Date dataFinal) {
+
+        List<ProdutosEntity> produtosEntities = iProdutosRepository.findByCidadeAndDatas(cidade, dataInicial, dataFinal);
         List<ProdutosDTO> produtosDTOS = new ArrayList<>();
 
         for (ProdutosEntity produtosEntity : produtosEntities) {

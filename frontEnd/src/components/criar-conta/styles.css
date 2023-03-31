@@ -1,15 +1,16 @@
 .iniciar-session-container {
-    background: rgba(196, 196, 196, 0.1);
+    background: var( --text-color-header-footer);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-   height: 100%;
+    grid-area: main;
+    padding-block: 2rem;
 
 }
 
 .iniciar-title {
-    color: var(--DB-COLOR-PRINCIPAL);
+    color: var(--searchBar-color);
     font-size: var(--heading2);
 }
 
@@ -19,6 +20,7 @@
     grid-template-columns: 1fr;
     align-items: center;
     justify-content: center;
+  
     
 }
 
@@ -31,16 +33,15 @@
 
 label {
     font-size: var(--text1);
-    color: var(--DB-COLOR-2);
+    color: var(--searchBar-color);
     font-weight: 500;
-    line-height: 2.5rem;
 }
 
 .iniciar-login {
     color: var(--DB-COLOR-2);
     font-size: var(--text1);
     font-weight: 500;
-    margin-block-start: 1rem;
+    margin-block-start: 0.5rem;
 }
 
 .login-link{
@@ -66,7 +67,7 @@ label {
     width: 206px;
     height: 40px;
     border-radius: 5px;
-    background-color: var(--DB-COLOR-PRINCIPAL);
+    background-color: var(--color-header-footer);
     border: none;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
     color: var(--white-color);
@@ -79,7 +80,7 @@ label {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-block-start: 1rem;
+    margin-block-start: 0.5rem;
 }
 
 #component-error-text{
@@ -98,7 +99,13 @@ label {
   #confirmSenha:focus-visible {
     border: 1px solid var(--error);
   }
-
+.user-roles-title{
+    color: var(--searchBar-color)
+}
+  .user-roles {
+    display: flex;
+    gap: 10px
+  }
 
   @media only screen and (max-width: 900px){
 

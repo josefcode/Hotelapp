@@ -1,21 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import StarIcon from '@mui/icons-material/Star';
 import './styles.css'
+import { Link, useParams } from 'react-router-dom';
+import WifiIcon from '@mui/icons-material/Wifi';
+import PoolIcon from '@mui/icons-material/Pool';
 
-export function RecomendacoeCard(
-    {image, 
+export function RecomendacoeCard({  
+        id, 
+        image, 
         type ,
-         stars , 
          title, 
          puntaje,
         distancia,
         mapLink, 
         comment, 
-        facilities, 
         description, 
         alt, 
         verMais}) {
+
+            const [showMore, setShowMore] = useState(false);
+
+            const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
+
+            const facilities = [<WifiIcon/>, <PoolIcon /> ]
+          
     return (
    
       <div className='card-container'>
@@ -63,8 +73,17 @@ export function RecomendacoeCard(
             </div>
             
             <div className='description'>
-                <p>{description}</p>
-                <a href={verMais} target="_blank"><button className='link-btn'>ver mais</button></a>
+               
+                <p>
+                {showMore ? description : `${description.substring(0, 100)}`}
+                <span className="show-more-btn" onClick={() => setShowMore(!showMore)}>
+                {showMore ? "Mostra menos" : "...Mostra mais"}
+                </span>
+                </p>
+               
+          
+               
+                <Link to ={`/detaile-produto/${id}`}><button className='link-btn'>ver mais</button></Link>
             </div>
 
             
@@ -73,3 +92,4 @@ export function RecomendacoeCard(
   
     )
   }
+

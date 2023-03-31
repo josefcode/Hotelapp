@@ -59,7 +59,7 @@ public class CidadesServiceImpl implements IService<CidadesDTO> {
 
     @Override
     public CidadesDTO findById(int id) throws NotFoundException {
-        CidadesEntity cidadesEntity = iCidadesRepository.findById(id).orElseThrow(()-> new NotFoundException("Categoria não encontrada com o id: " + id));
+        CidadesEntity cidadesEntity = iCidadesRepository.findById(id).orElseThrow(()-> new NotFoundException("Cidade não encontrada com o id: " + id));
         CidadesDTO cidadesDTO = mapperEntityToDTO(cidadesEntity);
         return cidadesDTO;
     }
