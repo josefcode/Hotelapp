@@ -4,12 +4,11 @@ import Grupo_10.SuaViagem.com.model.entity.ReservasEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Time;
-import java.util.Date;
+import java.util.List;
 
 @Repository
 public interface IReservasRepository extends JpaRepository<ReservasEntity, Integer> {
 
-    ReservasEntity findByDataInicialAndDataFinal(Date dataInicial, Date dataFinal);
+    List<ReservasEntity> findByIdUser(int idUser);
 
 }

@@ -915,7 +915,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"horaInicial\": \"08:00:00\",\r\n    \"dataInicial\": \"2023-10-22T00:00:00.000-03:00\",\r\n    \"dataFinal\": \"2023-10-23T00:00:00.000-03:00\",\r\n    \"produtosEntity\": {\r\n        \"id_produtos\": 2\r\n    }\r\n}"
+							"raw": "{\r\n    \"horaInicial\": \"08:00:00\",\r\n    \"dataInicial\": \"2023-04-01T00:00:00.000-03:00\",\r\n    \"dataFinal\": \"2023-04-02T00:00:00.000-03:00\",\r\n    \"produtosEntity\": {\r\n        \"id_produtos\": 2\r\n    },\r\n    \"idUser\": 1\r\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagemAWS}}/reservas/register",
@@ -1011,6 +1011,47 @@
 					"response": []
 				},
 				{
+					"name": "findByIdUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"horaInicial\": \"08:30:00\",\r\n    \"dataInicial\": \"2023-03-31T00:00:00.000-03:00\",\r\n    \"dataFinal\": \"2023-04-04T00:00:00.000-03:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagemAWS}}/reservas/findByIdUser/1",
+							"host": [
+								"{{SuaViagemAWS}}"
+							],
+							"path": [
+								"reservas",
+								"findByIdUser",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "edit",
 					"request": {
 						"auth": {
@@ -1095,7 +1136,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\n        \"nome\": \"Hostelaria SP Boutique\",\n        \"descricao\": \"A HostelariaSP foi idealizada especialmente para pessoas de bom gosto que visitam a cidade de São Paulo, a negócios ou a lazer, e buscam um ambiente reservado com Conforto, Segurança e Qualidade.\",\n        \"pontuacao\": \"8\",\n        \"facilidades\": \"Cozinha, Televisor, Ar condicionado, Piscina, pets\",\n        \"localMapa\": \"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53615.66699284024!2d-96.79655671481304!3d32.87227009118753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f85c3952ac3%3A0x7d3547b9a792e7d4!2sWalmart%20Supercenter!5e0!3m2!1sen!2sbr!4v1678239148968!5m2!1sen!2sbr\",\n        \"distancia\": \"a 940 m do centro\",\n        \"linkMapa\": \"https://www.booking.com/hotel/br/hostelaria-sp.en-gb.html?aid=393655&label=msn-NHCmPWc6m4avlvplRi*qFg-80539240583430%3Atikwd-16659121813%3Aloc-20%3Anes%3Amte%3Alp147459%3Adec%3Aqshostel&sid=ad76bc39f22f8bbe3bc4d513161e39ec&dest_id=-671824&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=2&hpos=2&nflt=sth%3D4&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1677459493&srpvid=c08806d286a80177&type=total&ucfs=1&activeTab=main#map_opened-hotel_header\",\n        \"comentarios\": \"muito bom\",\n        \"verMais\": \"https://www.hilton.com/en/hotels/bnadudt-doubletree-nashville-downtown/?SEO_id=GMB-AMER-DH-BNADUDT&y_source=1_MTM3MjU2Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D\",\n        \"caracteristicasEntityList\": [\n            {\n                \"id_caracteristicas\": 1,\n                \"nome\": \"Cozinha\",\n                \"icone\": \"Cozinha\"\n            },\n            {\n                \"id_caracteristicas\": 2,\n                \"nome\": \"Televisor\",\n                \"icone\": \"Televisor\"\n            },\n            {\n                \"id_caracteristicas\": 4,\n                \"nome\": \"Ar condicionado\",\n                \"icone\": \"Ar condicionado\"\n            }\n        ],\n        \"imagensEntityList\": [\n            {\n        \"id_imagens\": 1,\n        \"titulo\": \"Hotéis\",\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\"\n    },\n    {\n        \"id_imagens\": 2,\n        \"titulo\": \"Hotéis\",\n        \"url\": \"https://rb.gy/dgidkn\"\n    },\n    {\n        \"id_imagens\": 3,\n        \"titulo\": \"Hotéis\",\n        \"url\": \"https://cutt.ly/d8GlKzy\"\n    },\n    {\n        \"id_imagens\": 4,\n        \"titulo\": \"Hotéis\",\n        \"url\": \"https://cutt.ly/X8GlXF0\"\n    },\n    {\n        \"id_imagens\": 5,\n        \"titulo\": \"Hotéis\",\n        \"url\": \"https://cutt.ly/Z8GlNtl\"\n    }\n        ],\n        \"categoriasEntity\": {\n            \"id_categorias\": 2,\n            \"descricao\": \"Hostels\",\n            \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fboulder.a-lodge.com%2Fwp-content%2Fuploads%2FLodging_Youth_Hostile_Gallery_2_Desktop.jpg&f=1&nofb=1&ipt=50b0408c85160c742cda249210126f47b2bc47138b404be23f7bca932e21f8bc&ipo=images\",\n            \"produtosEntityList\": []\n        },\n        \"cidadesEntity\": {\n            \"id_cidades\": 5270,\n            \"nome\": \"São Paulo\",\n            \"pais\": \"Brasil\",\n            \"sigla\": \"SP\",\n            \"produtosEntityList\": []\n        },\n        \"reservasEntity\": []\n    }"
+							"raw": "    {\n        \"nome\": \"Brasília Hotel\",\n        \"descricao\": \"A Brasília Hotel foi idealizada especialmente para pessoas de bom gosto que visitam a cidade de São Paulo, a negócios ou a lazer, e buscam um ambiente reservado com Conforto, Segurança e Qualidade.\",\n        \"pontuacao\": \"8\",\n        \"facilidades\": \"Cozinha, Televisor, Ar condicionado, Piscina, pets\",\n        \"localMapa\": \"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53615.66699284024!2d-96.79655671481304!3d32.87227009118753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f85c3952ac3%3A0x7d3547b9a792e7d4!2sWalmart%20Supercenter!5e0!3m2!1sen!2sbr!4v1678239148968!5m2!1sen!2sbr\",\n        \"distancia\": \"a 940 m do centro\",\n        \"linkMapa\": \"https://www.booking.com/hotel/br/hostelaria-sp.en-gb.html?aid=393655&label=msn-NHCmPWc6m4avlvplRi*qFg-80539240583430%3Atikwd-16659121813%3Aloc-20%3Anes%3Amte%3Alp147459%3Adec%3Aqshostel&sid=ad76bc39f22f8bbe3bc4d513161e39ec&dest_id=-671824&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=2&hpos=2&nflt=sth%3D4&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1677459493&srpvid=c08806d286a80177&type=total&ucfs=1&activeTab=main#map_opened-hotel_header\",\n        \"comentarios\": \"muito bom\",\n        \"verMais\": \"https://www.hilton.com/en/hotels/bnadudt-doubletree-nashville-downtown/?SEO_id=GMB-AMER-DH-BNADUDT&y_source=1_MTM3MjU2Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D\",\n        \"caracteristicasEntityList\": [\n            {\n                \"id_caracteristicas\": 1,\n                \"nome\": \"Cozinha\",\n                \"icone\": \"Cozinha\"\n            },\n            {\n                \"id_caracteristicas\": 2,\n                \"nome\": \"Televisor\",\n                \"icone\": \"Televisor\"\n            },\n            {\n                \"id_caracteristicas\": 4,\n                \"nome\": \"Ar condicionado\",\n                \"icone\": \"Ar condicionado\"\n            }\n        ],\n        \"imagensEntityList\": [\n    {\n        \"id_imagens\": 6,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\"\n    },\n    {\n        \"id_imagens\": 7,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://rb.gy/dgidkn\"\n    },\n    {\n        \"id_imagens\": 8,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/d8GlKzy\"\n    },\n    {\n        \"id_imagens\": 9,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/X8GlXF0\"\n    },\n    {\n        \"id_imagens\": 10,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/Z8GlNtl\"\n    }\n        ],\n        \"categoriasEntity\": {\n        \"id_categorias\": 1,\n        \"descricao\": \"Hotéis\",\n        \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.corinthia.com%2Fmedia%2F1563%2Fcorinthia-lisbon-deluxe-king-bedroom.jpg&f=1&nofb=1&ipt=0d0842f3e887b1bfd8a82d2ebc3633acac094bad75534497c67288734289559a&ipo=images\",\n            \"produtosEntityList\": []\n        },\n        \"cidadesEntity\": {\n        \"id_cidades\": 882,\n        \"nome\": \"Brasília\",\n        \"pais\": \"Brasil\",\n        \"sigla\": \"DF\",\n            \"produtosEntityList\": []\n        },\n        \"reservasEntity\": []\n    }"
 						},
 						"url": {
 							"raw": "{{SuaViagemAWS}}/product/register",
