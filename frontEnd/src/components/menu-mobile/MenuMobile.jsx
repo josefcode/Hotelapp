@@ -6,31 +6,21 @@ import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import UserAvatar from '../user-avatar/UserAvatar';
-import { useLogin } from '../hooks/useLogin';
 import './styles.css'
 
 const drawerWidth = 240;
-
-
 
 const tokenLocalStorage = localStorage.getItem('token')
 
@@ -90,7 +80,6 @@ export default function PersistentDrawerRight() {
         <ListItem  onClick={handleDrawerClose}>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
         </ListItem>
-        {/* <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link> */}
       </>;
   
     } else if (!tokenLocalStorage && location.pathname === '/iniciar-sessao') {
@@ -98,7 +87,6 @@ export default function PersistentDrawerRight() {
       <ListItem  onClick={handleDrawerClose}>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
         </ListItem>
-        {/* <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link> */}
       </>;
   
     } else if (!tokenLocalStorage) {
@@ -133,7 +121,6 @@ export default function PersistentDrawerRight() {
     
         <Toolbar>
         <Link to="/" style={{textDecoration: 'none'}}>
-          {/* <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" /> */}
           <span className='navbar-logo-title'>SuaViagem.com</span>
         </Link>  
           <IconButton
@@ -169,24 +156,6 @@ export default function PersistentDrawerRight() {
           </IconButton>
         </DrawerHeader>
         <List sx = {{".MuiListItem-root" : {justifyContent: 'center'}}}>
-        {/* <ListItem  onClick={handleDrawerClose}>
-       
-          <Link to= '/criar-conta'>
-           <button className='menu-button'>
-           Criar conta
-          </button>
-          </Link>
-       
-          </ListItem>
-        <ListItem onClick={handleDrawerClose} >
-       
-          <Link to= '/iniciar-sessao'>
-           <button className='menu-button'>
-          Iniciar Sessao
-          </button>
-          </Link>
-         
-          </ListItem> */}
 
         {renderCreateAccountButton()}
         </List>

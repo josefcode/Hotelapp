@@ -12,11 +12,7 @@ export function Calendario({ id }) {
 
   const tokenLocalStorage = localStorage.getItem('token')
 
-  console.log(tokenLocalStorage)
-
-  const { token } = useToken()
-
-  const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
+  const { startDate, endDate} = useDatas()
 
 
 

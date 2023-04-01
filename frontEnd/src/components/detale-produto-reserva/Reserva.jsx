@@ -24,10 +24,8 @@ import PetsIcon from '@mui/icons-material/Pets';
 import moment from 'moment';
 
 export function Reserva() {
-  // const [reserva, setReserva] = React.useState([])
+
   const {startDate, endDate, changeStartDate, changeEndDate } = useDatas()
-
-
 
   const [produtoReserva, setProdutoReserva] = React.useState([])
   const { id } = useParams()
@@ -285,10 +283,7 @@ for(let i = date1; i <= date2; i++) {
                 <p >Indique a sua hora prevista de chegada</p>
               </div>
               <Autocomplete
-            
-                sx={{}}
                 size="small"
-            
                 id="combo-box-demo"
                 options={data}
                 onChange={handleAutocompleteChange}

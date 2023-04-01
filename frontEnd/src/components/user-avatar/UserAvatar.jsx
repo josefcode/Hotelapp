@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useLogin } from '../hooks/useLogin';
 import { useToken } from '../hooks/useToken';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 
 export default function UserAvatar() {
 
@@ -77,6 +77,13 @@ export default function UserAvatar() {
          {nome} {sobrenome}
          </p>
      </div>
+    
+    
+     <div>
+      
+     <Link to = 'administracao'><button  className='avata-btn'>ADM</button></Link>
+     </div>
+
      <div className='avatar-close'>
      <CancelIcon onClick = {handleRemove} sx ={{fontSize: '20px',
  color: "#0F5EA2"}}/>

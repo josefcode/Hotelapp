@@ -8,14 +8,8 @@ import MenuMobile from '../menu-mobile/MenuMobile';
 import { useToken } from '../hooks/useToken';
 
 export default function Navbar() {
-  const { login } = useLogin();
 
   const tokenLocalStorage = localStorage.getItem('token')
-
-
-  const { token } = useToken()
-
-
 
   const location = useLocation();
   const data = localStorage.getItem('userAvata');
@@ -28,19 +22,17 @@ export default function Navbar() {
   };
 
   const { nome , sobrenome } = detalesDoAvatar || {}
-  // console.log(nome , sobrenome)
+
 
   const renderCreateAccountButton = () => {
     if (!tokenLocalStorage && location.pathname === '/criar-conta') {
       return <>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
-        {/* <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link> */}
       </>;
 
     } else if (!tokenLocalStorage && location.pathname === '/iniciar-sessao') {
       return <>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
-        {/* <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link> */}
       </>;
 
     } else if (!tokenLocalStorage) {
@@ -66,7 +58,7 @@ export default function Navbar() {
     <header className="navbar-header">
       <nav className="navbar">
         <Link to="/">
-          {/* <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" /> */}
+     
           <span className='navbar-logo-title'>SuaViagem.com</span>
         </Link>
         <MenuIcon className="menu-icon" />

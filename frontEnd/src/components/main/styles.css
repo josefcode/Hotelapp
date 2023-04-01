@@ -76,9 +76,6 @@
   
 }
 
-/* li{
-  border-bottom: 1px solid #1dbeb4;
-} */
 li:last-child > div{
   border-bottom: none;
 }

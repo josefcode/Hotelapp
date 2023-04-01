@@ -4,8 +4,6 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import "./styleBody.css"
 import { Calendario } from './Calendario';
 import { useShow } from '../hooks/useShow';
-import { useToken } from '../hooks/useToken';
-import { useParems } from 'react-router-dom'
 import CarouselImage from './CarouselImage';
 import CelebrationIcon from '@mui/icons-material/Celebration';
 import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
@@ -13,7 +11,7 @@ import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import SmokeFreeIcon from '@mui/icons-material/SmokeFree';
 import GavelIcon from '@mui/icons-material/Gavel';
 import PetsIcon from '@mui/icons-material/Pets';
-import { ConnectingAirportsOutlined } from '@mui/icons-material';
+
 
 export default function DetailBody({
   image,
@@ -21,7 +19,6 @@ export default function DetailBody({
   description,
   location,
   id,
-  country,
   city,
   mapLocation,
 }) {
@@ -83,7 +80,7 @@ export default function DetailBody({
 
         <Calendario id={id} />
 
-        {/* mapa */}
+     
         <div >
           <h1 className='title-service'>Mapa</h1>
           <div className='title-underline'></div>
@@ -99,7 +96,6 @@ export default function DetailBody({
           </div>
         </div>
 
-        {/* o que voce precisa saber:  */}
         <div>
 
           <h1 className='title-service'>O que voce precisa saber</h1>

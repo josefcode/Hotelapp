@@ -1,7 +1,6 @@
 import React from 'react'
 import { useShow } from '../hooks/useShow'
 import './carouselImage.css'
-// import styles from './CarouselImage.module.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
