@@ -292,60 +292,7 @@ export function Reserva() {
               renderInput={(params) => <TextField {...params} label="Selecione a sua hora de chegada" />}
             />
           </div>
-          <div>
-            <div>
-              <div className='calendario-reserva'>
-                <h1 className='calendario-title'>Selecione sua data de reserva</h1>
-                <div className='double-calender'>
-                  <Calendar
-                  locale = "pt-Br"
-                    onChange={handleDateChange}
-                    minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
-                    showDoubleView
-                    selectRange
-                    prev2Label={null}
-                    next2Label={null}
-                    tileDisabled={({date}) => {
-                     let currDate = date.getDate()
-                      return listDatas.indexOf(currDate) !== -1
-                      }
-                    }
-                  />
-                </div>
-                <div className='single-calender'>
-                  <Calendar
-                  locale = "pt-Br"
-                    onChange={handleDateChange}
-                    minDate={new Date()} // Adicione esta linha para desabilitar datas anteriores à data atual
-                    selectRange
-                    prev2Label={null}
-                    next2Label={null}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='horas-wrapper' >
-            <div className='horas-chegada'>
-              <div>
-                <CheckCircleOutlineIcon />
-                <span>Seu quarto estará pronto para check-in entre 10h00 e 23h00</span>
-              </div>
-              <div>
-                <p >Indique a sua hora prevista de chegada</p>
-              </div>
-              <Autocomplete
-                size="small"
-                id="combo-box-demo"
-                options={data}
-                onChange={handleAutocompleteChange}
-                renderInput={(params) => <TextField {...params} label="Selecione a sua hora de chegada"  />}
-              />
-            </div>
-            <div>
-    
-            </div>
-          </div>
+   
         </div>
         <div className='reserva-card'>
 
