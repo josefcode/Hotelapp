@@ -1,6 +1,5 @@
 import React from 'react'
 import './styles.css'
-import CloseIcon from '@mui/icons-material/Close';
 import { useLogin } from '../hooks/useLogin';
 import { useToken } from '../hooks/useToken';
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -81,7 +80,7 @@ export default function UserAvatar() {
     
      <div>
       
-     <Link to = 'administracao'><button  className='avata-btn'>ADM</button></Link>
+     {tokenLocalStorage === 'string' && <Link to = 'administracao'><button  className='avata-btn'>ADM</button></Link>}
      </div>
 
      <div className='avatar-close'>

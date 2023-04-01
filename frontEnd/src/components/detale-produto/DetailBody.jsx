@@ -33,7 +33,7 @@ export default function DetailBody({
         <FavoriteBorderIcon />
       </div>
 
-      <div className='detail-image-container'>
+      <div className='detail-image-container image-fader'>
         {
           image?.slice(0, 5).map((item, index) => {
             return (
