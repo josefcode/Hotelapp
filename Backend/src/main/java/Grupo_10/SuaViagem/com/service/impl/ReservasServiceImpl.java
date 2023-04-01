@@ -1,9 +1,11 @@
 package Grupo_10.SuaViagem.com.service.impl;
 
 import Grupo_10.SuaViagem.com.exception.NotFoundException;
+import Grupo_10.SuaViagem.com.model.entity.DTO.ProdutosDTO;
 import Grupo_10.SuaViagem.com.model.entity.DTO.ReservasDTO;
 import Grupo_10.SuaViagem.com.model.entity.ProdutosEntity;
 import Grupo_10.SuaViagem.com.model.entity.ReservasEntity;
+import Grupo_10.SuaViagem.com.model.entity.UserEntity;
 import Grupo_10.SuaViagem.com.repository.IProdutosRepository;
 import Grupo_10.SuaViagem.com.repository.IReservasRepository;
 import Grupo_10.SuaViagem.com.repository.IUserRepository;
@@ -46,6 +48,10 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
         // Recupera o objeto de produto correspondente ao ID do produto fornecido
         ProdutosEntity produtosEntity = iProdutosRepository.findById(reservasDTO.getProdutosEntity().getId_produtos())
                 .orElseThrow(() -> new NotFoundException("Produto não encontrado"));
+
+        // Recupera o objeto de usuário correspondente ao ID do usuário fornecido
+        UserEntity userEntity = iUserRepository.findById(reservasDTO.getIdUser())
+                .orElseThrow(() -> new NotFoundException("Usuário não encontrado"));
 
         Date dataInicial = reservasDTO.getDataInicial();
         Date dataFinal = reservasDTO.getDataFinal();
@@ -194,6 +200,23 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
         ReservasEntity reservasEntity = iReservasRepository.findById(id).orElseThrow(()-> new org.webjars.NotFoundException("Reserva não encontrada com o id: " + id));
         ReservasDTO reservasDTO = mapperEntityToDTO(reservasEntity);
         return reservasDTO;
+    }
+
+    public List<ReservasDTO> findByIdUser(int idUser) throws NotFoundException {
+
+        List<ReservasEntity> reservasEntityList = iReservasRepository.findByIdUser(idUser);
+        List<ReservasDTO> reservasDTOS = new ArrayList<>();
+
+        if (reservasEntityList.isEmpty()) {
+            throw new NotFoundException("Nenhuma reserva encontrada para o ID especificado");
+        } else {
+            for (ReservasEntity reservasEntity : reservasEntityList){
+                ReservasDTO reservasDTO = mapperEntityToDTO(reservasEntity);
+                reservasDTOS.add(reservasDTO);
+            }
+            return reservasDTOS;
+        }
+
     }
 
     private ReservasEntity mapperDTOToEntity(ReservasDTO reservasDTO){

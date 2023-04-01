@@ -94,4 +94,19 @@ public class ReservasController {
     public ResponseEntity<ReservasDTO> findById(@PathVariable int id) throws NotFoundException {
         return new ResponseEntity<>(reservasService.findById(id), HttpStatus.OK);
     }
+
+    @GetMapping("/findByIdUser/{idUser}")
+    @Operation(
+            summary = "Localiza reserva por ID",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "Reserva por ID localizada com sucesso!"
+                    )
+            }
+    )
+    public List<ReservasDTO> findByIdUser(@PathVariable int idUser) throws NotFoundException {
+        return reservasService.findByIdUser(idUser);
+
+    }
 }

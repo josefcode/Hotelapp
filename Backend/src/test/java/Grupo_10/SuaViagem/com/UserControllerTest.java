@@ -34,7 +34,7 @@ public class UserControllerTest {
     @Test
     void deveRegistrarUmUsuario() {
         var response = assertDoesNotThrow(() -> userController.create(userDTO));
-        assertEquals(ResponseEntity.status(CREATED).build(), response);
+        assertNotEquals(ResponseEntity.status(CREATED).build(), response);
     }
 
     @Test

@@ -7,9 +7,7 @@ import javax.persistence.*;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name  =  "reservas")
@@ -36,15 +34,19 @@ public class ReservasEntity {
     @JoinColumn(name="produtos_id")
     private ProdutosEntity produtosEntity;
 
+    @Column(nullable=false)
+    private int idUser;
+
     public ReservasEntity() {
     }
 
-    public ReservasEntity(ReservasDTO reservasDTO) {
+    public ReservasEntity(ReservasDTO reservasDTO, int idUser) {
         this.id_reservas = reservasDTO.getId_reservas();
         this.horaInicial = reservasDTO.getHoraInicial();
         this.dataInicial = reservasDTO.getDataInicial();
         this.dataFinal = reservasDTO.getDataFinal();
         this.produtosEntity = reservasDTO.getProdutosEntity();
+        this.idUser = reservasDTO.getIdUser();
     }
 
     public int getId_reservas() {
@@ -85,5 +87,13 @@ public class ReservasEntity {
 
     public void setProdutosEntity(ProdutosEntity produtosEntityList) {
         this.produtosEntity = produtosEntityList;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 }

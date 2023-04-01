@@ -11,7 +11,7 @@ export default function DetaleProduto() {
   React.useEffect(() => {
     async function fetchData() {
 
-      const response = await fetch(`http://localhost:8081/product/${id}`)
+      const response = await fetch(`http://3.140.210.50:8081/product/${id}`)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

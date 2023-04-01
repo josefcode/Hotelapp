@@ -23,7 +23,7 @@ export default function UserAvatar() {
     async function fetchUserData() {
         setLaoding(true)
         try {
-          const response = await fetch(`http://localhost:8081/user/${token || tokenLocalStorage}`);
+          const response = await fetch(`http://3.140.210.50:8081/user/${token || tokenLocalStorage}`);
           const userData = await response.json();
 
           const {nome, sobrenome, email} = userData
