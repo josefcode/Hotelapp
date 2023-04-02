@@ -25,17 +25,17 @@ export function IniciaSessao() {
 
   const {token, changeToken} = useToken()
 
-  function validateLogin(email, password) {
-    const storedEmail = localStorage.getItem('email');
-    const storedPassword = localStorage.getItem('senha');
+  // function validateLogin(email, password) {
+  //   const storedEmail = localStorage.getItem('email');
+  //   const storedPassword = localStorage.getItem('senha');
 
-    if (email === storedEmail && password === storedPassword) {
-      return true;
+  //   if (email === storedEmail && password === storedPassword) {
+  //     return true;
 
-    }
+  //   }
 
-    return false;
-  }
+  //   return false;
+  // }
 
 
   const navigate = useNavigate();
@@ -47,10 +47,7 @@ export function IniciaSessao() {
       email: email,
       senha: password
     }).then(response => {
-      
-    
-      alert('Login realizado com sucesso!');
- 
+
       changeToken(response.data.jwt)
       localStorage.setItem('token', response.data.jwt);
   

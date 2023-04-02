@@ -22,6 +22,8 @@ export default function Administracao() {
             categoriaValue: "", 
             endereco: "", 
             cidade: "", 
+            pais: '',
+            sigla: '',
             descricao: "",
             normasCasa: '',
             saudeSeguranca: '',
@@ -33,7 +35,7 @@ export default function Administracao() {
         }
     )
 
-    const {nomeProduto, categoriaValue , endereco, cidade, saudeSeguranca, normasCasa, politicasCancelamento, pontuacao, localMapa, comentarios, descricao} = formData
+    const {nomeProduto, categoriaValue , endereco, cidade, pais, sigla, saudeSeguranca, normasCasa, politicasCancelamento, pontuacao, localMapa, comentarios, descricao} = formData
     
     const [image, setImage ] = React.useState([
         {url: ""}
@@ -81,7 +83,7 @@ export default function Administracao() {
 
     function handleChange(event) {
         const {name, value, type, checked} = event.target
-      
+
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -95,7 +97,7 @@ export default function Administracao() {
     React.useEffect(() => {
         async function fetchData() {
     
-          const response = await fetch(`http://localhost:8081/category/findAll/`)
+          const response = await fetch(`http://3.140.210.50:8081/category/findAll/`)
     
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -110,13 +112,13 @@ export default function Administracao() {
 
          async function fetchData(){
    
-           const response = await fetch(`http://localhost:8081/cities/findAll`)
+           const response = await fetch(`http://3.140.210.50:8081/cities/findAll`)
        
             if (!response.ok) {
              throw new Error(`HTTP error! status: ${response.status}`);
            }
             const data = await response.json()
-           
+           console.log(data)
             setProduto(data)
 
          }
@@ -143,16 +145,19 @@ export default function Administracao() {
                 },
             cidadesEntity: {
                     nome: cidade,
-                    pais: "Brasil",
-                    sigla: "DF",
+                    pais,
+                    sigla,
                     },
             politicasCancelamento,
             saudeSeguranca,
             normasCasa
         }
        
+    
         setConfirm(true)
      }
+
+
 
   return (
  <div>
@@ -232,6 +237,40 @@ export default function Administracao() {
 
                     </select>
                 </label>
+                <label htmlFor='pais'>pais:
+                <select 
+                        id="pais" 
+                        className = 'input'
+                        value={cidade}
+                        onChange={handleChange}
+                        name="pais"
+                            >
+                                {
+                                    produto.map((cidade, index) => {
+                                        const { pais } = cidade
+                                        return <option key = {index} value={pais}>{pais}</option>
+                                    })
+                                }
+
+                    </select>
+                </label>
+                <label htmlFor='sigla'>Sigla:
+                <select 
+                        id="sigla" 
+                        className = 'input'
+                        value={cidade}
+                        onChange={handleChange}
+                        name="sigla"
+                            >
+                                {
+                                    produto.map(cidade => {
+                                        const { sigla } = cidade
+                                        return <option key = {sigla} value={sigla}>{sigla}</option>
+                                    })
+                                }
+
+                    </select>
+                </label>
 
                 <label htmlFor='pontuacao'>Pontuacao:
                 <input 
@@ -262,7 +301,7 @@ export default function Administracao() {
                 <label htmlFor='comentarios'>Comentarios:
                 <input 
                         id="comentarios" 
-                        className = 'input'
+                        className = 'input '
                         value={comentarios}
                         onChange={handleChange}
                         name="comentarios"
@@ -279,7 +318,7 @@ export default function Administracao() {
                 <label htmlFor='descricao'>Descrição: </label>
                 </div>
                     <textarea 
-                    className=' direcao'
+                    className=' direcao text'
                     required
                     id="descricao"
                     name='descricao'
@@ -292,7 +331,7 @@ export default function Administracao() {
                 <h3>Adicionar atributos</h3>
 
                    <div className='adicionar-atributos'>
-                   <label htmlFor='caracteristicas'>Caracteristicas:
+                   <label htmlFor='caracteristicas'>Caracteristicas: 🛀, 🏊🏼‍♀️, 
                    {
                     caracteristicas.map((item, index) => {
                     

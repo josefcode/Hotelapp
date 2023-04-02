@@ -24,13 +24,14 @@ export default function UserAvatar() {
         try {
           const response = await fetch(`http://3.140.210.50:8081/user/${token || tokenLocalStorage}`);
           const userData = await response.json();
-
-          const {nome, sobrenome, email} = userData
+           console.log(userData)
+          const {nome, sobrenome, email, userRoles} = userData
           // Atualiza os valores dos inputs com os dados da resposta
           setUserData({
             nome,
             sobrenome,
             email,
+            userRoles,
           });
             
        
@@ -44,7 +45,7 @@ export default function UserAvatar() {
       fetchUserData()
    }, [token, tokenLocalStorage])
 
-   const { nome, sobrenome } = userData
+   const { nome, sobrenome, userRoles } = userData
     const handleRemove = () => {
       
       localStorage.removeItem('token')
@@ -80,7 +81,7 @@ export default function UserAvatar() {
     
      <div>
       
-     {tokenLocalStorage === 'string' && <Link to = 'administracao'><button  className='avata-btn'>ADM</button></Link>}
+     {userRoles === 'ROLE_USER' && <Link to = 'administracao'><button  className='avata-btn'>ADM</button></Link>}
      </div>
 
      <div className='avatar-close'>
