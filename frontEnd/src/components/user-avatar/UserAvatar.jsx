@@ -81,7 +81,7 @@ export default function UserAvatar() {
     
      <div>
       
-     {userRoles === 'ROLE_USER' && <Link to = 'administracao'><button  className='avata-btn'>ADM</button></Link>}
+     {userRoles === 'ROLE_ADMIN' && <Link to = 'administracao'><button  className='avata-btn'>ADM</button></Link>}
      </div>
 
      <div className='avatar-close'>
