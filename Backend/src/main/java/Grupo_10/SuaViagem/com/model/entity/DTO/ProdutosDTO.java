@@ -49,13 +49,13 @@ public class ProdutosDTO {
 
     private List<ReservasEntity> reservasEntity;
 
-    @Column(nullable=false, length=1000)
+    @Column(nullable=false)
     private String politicasCancelamento;
 
-    @Column(nullable=false, length=1000)
+    @Column(nullable=false)
     private String saudeSegurança;
 
-    @Column(nullable=false, length=1000)
+    @Column(nullable=false)
     private String normasCasa;
 
     public ProdutosDTO() {
