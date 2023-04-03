@@ -49,6 +49,15 @@ public class ProdutosDTO {
 
     private List<ReservasEntity> reservasEntity;
 
+    @Column(nullable=false, length=1000)
+    private String politicasCancelamento;
+
+    @Column(nullable=false, length=1000)
+    private String saudeSegurança;
+
+    @Column(nullable=false, length=1000)
+    private String normasCasa;
+
     public ProdutosDTO() {
     }
 
@@ -67,7 +76,9 @@ public class ProdutosDTO {
         this.linkMapa = produtosEntity.getLinkMapa();
         this.comentarios = produtosEntity.getComentarios();
         this.verMais = produtosEntity.getVerMais();
-        this.reservasEntity = produtosEntity.getReservasEntity();
+        this.politicasCancelamento = produtosEntity.getPoliticasCancelamento();
+        this.saudeSegurança = produtosEntity.getSaudeSegurança();
+        this.normasCasa = produtosEntity.getNormasCasa();
     }
 
     public List<ReservasEntity> getReservasEntity() {
@@ -192,5 +203,29 @@ public class ProdutosDTO {
 
     public void setVerMais(String verMais) {
         this.verMais = verMais;
+    }
+
+    public String getPoliticasCancelamento() {
+        return politicasCancelamento;
+    }
+
+    public void setPoliticasCancelamento(String politicasCancelamento) {
+        this.politicasCancelamento = politicasCancelamento;
+    }
+
+    public String getSaudeSegurança() {
+        return saudeSegurança;
+    }
+
+    public void setSaudeSegurança(String saudeSegurança) {
+        this.saudeSegurança = saudeSegurança;
+    }
+
+    public String getNormasCasa() {
+        return normasCasa;
+    }
+
+    public void setNormasCasa(String normasCasa) {
+        this.normasCasa = normasCasa;
     }
 }
