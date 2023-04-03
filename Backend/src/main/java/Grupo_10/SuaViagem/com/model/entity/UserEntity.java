@@ -20,7 +20,7 @@ public class UserEntity implements UserDetails {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String sobrenome;
 
     @Column(nullable = false, unique = true)
@@ -35,10 +35,16 @@ public class UserEntity implements UserDetails {
 
     @OneToOne(cascade=CascadeType.ALL)
     private FuncoesEntity funcoesEntity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private UserEntity userEntity;
+
     public UserEntity() {
     }
 
     public UserEntity(UserDTO userDTO) {
+        this.id = userDTO.getId();
         this.nome = userDTO.getNome();
         this.sobrenome = userDTO.getSobrenome();
         this.email = userDTO.getEmail();
@@ -139,5 +145,13 @@ public class UserEntity implements UserDetails {
 
     public void setFuncoesEntity(FuncoesEntity funcoesEntity) {
         this.funcoesEntity = funcoesEntity;
+    }
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 }

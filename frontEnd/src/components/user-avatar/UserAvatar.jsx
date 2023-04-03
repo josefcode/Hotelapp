@@ -1,10 +1,9 @@
 import React from 'react'
 import './styles.css'
-import CloseIcon from '@mui/icons-material/Close';
 import { useLogin } from '../hooks/useLogin';
 import { useToken } from '../hooks/useToken';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 
 export default function UserAvatar() {
 
@@ -25,13 +24,14 @@ export default function UserAvatar() {
         try {
           const response = await fetch(`http://3.140.210.50:8081/user/${token || tokenLocalStorage}`);
           const userData = await response.json();
-
-          const {nome, sobrenome, email} = userData
+           console.log(userData)
+          const {nome, sobrenome, email, userRoles} = userData
           // Atualiza os valores dos inputs com os dados da resposta
           setUserData({
             nome,
             sobrenome,
             email,
+            userRoles,
           });
             
        
@@ -45,7 +45,7 @@ export default function UserAvatar() {
       fetchUserData()
    }, [token, tokenLocalStorage])
 
-   const { nome, sobrenome } = userData
+   const { nome, sobrenome, userRoles } = userData
     const handleRemove = () => {
       
       localStorage.removeItem('token')
@@ -77,6 +77,13 @@ export default function UserAvatar() {
          {nome} {sobrenome}
          </p>
      </div>
+    
+    
+     <div>
+      
+     {userRoles === 'ROLE_USER' && <Link to = 'administracao'><button  className='avata-btn'>ADM</button></Link>}
+     </div>
+
      <div className='avatar-close'>
      <CancelIcon onClick = {handleRemove} sx ={{fontSize: '20px',
  color: "#0F5EA2"}}/>

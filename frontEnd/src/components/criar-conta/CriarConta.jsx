@@ -28,7 +28,7 @@ export function CriarConta() {
     email: '',
     senha: '',
     confirmSenha: '',
-    roles: ""
+    userRoles: "ROLE_USER"
   })
 
   function handleChange(event) {
@@ -76,19 +76,17 @@ export function CriarConta() {
       return;
     }
 
-    if (userData.roles == "" || userData.roles == null) {
-      alert('O tipo de usuário não foi selecionado!');
-      return;
-    }
-
-    const { nome, sobrenome, senha, email, roles } = userData
+    const { nome, sobrenome, senha, email, userRoles } = userData
 
     axios.post('http://3.140.210.50:8081/user', {
       nome,
       sobrenome,
       email,
       senha,
-      userRoles: roles
+      userRoles,
+      funcoesEntity: {
+        id_funcoes: 2
+      }
     })
 
     setSignup(true)
@@ -178,27 +176,6 @@ export function CriarConta() {
           value={userData.confirmSenha}
           onChange={handleChange}
         />
-        <h5 className='user-roles-title'>Tipo de usuário: </h5>
-        <div className='user-roles'>
-          <input
-            type="radio"
-            id="ROLE_ADMIN"
-            name='roles'
-            value='ROLE_ADMIN'
-            checked={userData.roles === "ROLE_ADMIN"}
-            onChange={handleChange}
-          />
-          <label htmlFor='ROLE_ADMIN' >Administrador</label>
-          <input
-            type="radio"
-            id="ROLE_USER"
-            name='roles'
-            value="ROLE_USER"
-            checked={userData.roles === "ROLE_USER"}
-            onChange={handleChange}
-          />
-          <label htmlFor='ROLE_USER'>Usuário comum</label>
-        </div>
         <div className='btn-wrapper'>
           <button className='iniciar-btn' type='submit'>Registrar</button>
 

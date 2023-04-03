@@ -1,17 +1,14 @@
 import React, { useRef, useState } from 'react'
-import { CategoriasCards } from '../categorias/CategoriasCards'
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { RecomendacoesCards } from '../recomendacoes/RecomendacoesCards'
-// import { DateRangePicker } from 'rsuite';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 // you will need the css that comes with bootstrap@3. if you are using
 // a tool like webpack, you can do the following:
 import 'bootstrap/dist/css/bootstrap.css';
 // you will also need the css that comes with bootstrap-daterangepicker
 import 'bootstrap-daterangepicker/daterangepicker.css';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { SuggestBox } from '../sugest-box/index';
 import { useDatas } from '../hooks/useDatas';
 import {useHotelFilterCidade} from '../hooks/useHotelFilterCidade'
@@ -44,11 +41,7 @@ export default function Main() {
 
   const {hotelPorCidade, changeHotelPorCidade}  = useHotelFilterCidade()
 
-  // console.log(cidadePorFiltro)
-
   const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
-
- 
 
   React.useEffect(() => {
      setIsLoading(true)

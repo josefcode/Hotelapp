@@ -64,6 +64,15 @@ public class ProdutosEntity {
     @JoinColumn(name="reservas_entity_id")
     private List<ReservasEntity> reservasEntity;
 
+    @Column(nullable=false, length=1000)
+    private String politicasCancelamento;
+
+    @Column(nullable=false, length=1000)
+    private String saudeSegurança;
+
+    @Column(nullable=false, length=1000)
+    private String normasCasa;
+
     public ProdutosEntity() {
     }
 
@@ -82,7 +91,9 @@ public class ProdutosEntity {
         this.linkMapa = produtosDTO.getLinkMapa();
         this.comentarios = produtosDTO.getComentarios();
         this.verMais = produtosDTO.getVerMais();
-        this.reservasEntity = produtosDTO.getReservasEntity();
+        this.politicasCancelamento = produtosDTO.getPoliticasCancelamento();
+        this.saudeSegurança = produtosDTO.getSaudeSegurança();
+        this.normasCasa = produtosDTO.getNormasCasa();
     }
 
     public List<ReservasEntity> getReservasEntity() {
@@ -211,5 +222,29 @@ public class ProdutosEntity {
 
     public void setCidadesEntity(CidadesEntity cidadesEntity) {
         this.cidadesEntity = cidadesEntity;
+    }
+
+    public String getPoliticasCancelamento() {
+        return politicasCancelamento;
+    }
+
+    public void setPoliticasCancelamento(String politicasCancelamento) {
+        this.politicasCancelamento = politicasCancelamento;
+    }
+
+    public String getSaudeSegurança() {
+        return saudeSegurança;
+    }
+
+    public void setSaudeSegurança(String saudeSegurança) {
+        this.saudeSegurança = saudeSegurança;
+    }
+
+    public String getNormasCasa() {
+        return normasCasa;
+    }
+
+    public void setNormasCasa(String normasCasa) {
+        this.normasCasa = normasCasa;
     }
 }

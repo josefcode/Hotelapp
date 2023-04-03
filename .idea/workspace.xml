@@ -9,7 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="" />
+    <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IFuncoesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/repository/IFuncoesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/FuncoesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/FuncoesServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/criar-conta/CriarConta.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/criar-conta/CriarConta.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="development" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

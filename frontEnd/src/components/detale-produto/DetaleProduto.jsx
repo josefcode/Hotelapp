@@ -2,7 +2,6 @@ import React from 'react'
 import DetailBody from './DetailBody'
 import DetailHeader from './DetailHeader'
 import { useParams } from 'react-router-dom'
-import { useToken } from '../hooks/useToken'
 
 export default function DetaleProduto() {
 
@@ -28,7 +27,6 @@ export default function DetaleProduto() {
   }
 
   const {
-    location,
     country,
     nome,
     pontuacao,
@@ -43,7 +41,7 @@ export default function DetaleProduto() {
     imageClass
   } = produto
 
-  // const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
+
   const imagem = imagensEntityList?.map(item => item.url)
 
   const facilidade = ["Wi-Fi", "TV", 'Frigobar', 'Lareira', 'Ar-condicionado']
@@ -53,23 +51,20 @@ export default function DetaleProduto() {
       <DetailHeader
         type={categoriasEntity?.descricao}
         title={nome}
-        // stars = {stars} 
         puntaje={pontuacao}
         comment={comentarios}
         distancia={distancia}
         location={cidadesEntity?.nome}
         country={cidadesEntity?.pais}
-      //  location = {location}
-      //  country = {country}
-
       />
+
+
       <DetailBody
         id={id}
         image={imagem}
         facilities={facilidade}
         description={description}
         distancia={distancia}
-        // location = {location}
         country={country}
         city={city}
         mapLocation={localMapa}

@@ -2,6 +2,7 @@ package Grupo_10.SuaViagem.com.model.entity.DTO;
 
 import Grupo_10.SuaViagem.com.model.entity.ProdutosEntity;
 import Grupo_10.SuaViagem.com.model.entity.ReservasEntity;
+import Grupo_10.SuaViagem.com.model.entity.UserEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Column;
@@ -24,12 +25,15 @@ public class ReservasDTO {
 
     private ProdutosEntity produtosEntity;
 
+    private int idUser;
+
     public ReservasDTO(ReservasEntity reservasEntity) {
         this.id_reservas = reservasEntity.getId_reservas();
         this.horaInicial = reservasEntity.getHoraInicial();
         this.dataInicial = reservasEntity.getDataInicial();
         this.dataFinal = reservasEntity.getDataFinal();
         this.produtosEntity = reservasEntity.getProdutosEntity();
+        this.idUser = reservasEntity.getIdUser();
     }
 
     public ReservasDTO() {
@@ -73,5 +77,13 @@ public class ReservasDTO {
 
     public void setDataFinal(Date dataFinal) {
         this.dataFinal = dataFinal;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 }

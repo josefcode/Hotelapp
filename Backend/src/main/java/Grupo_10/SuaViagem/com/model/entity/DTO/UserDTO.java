@@ -13,20 +13,18 @@ import javax.validation.constraints.Size;
 public class UserDTO {
 
     @NotNull
-    @Column(nullable = false)
+    private int id;
+
+    @NotNull
     private String nome;
     @NotNull
-    @Column(nullable = false, unique = true)
     private String sobrenome;
     @NotNull
-    @Column(nullable = false, unique = true)
     private String email;
     @NotNull
     @Size(min = 6, max = 12)
-    @Column(nullable = false)
     private String senha;
     @NotNull
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRoles userRoles;
 
@@ -36,12 +34,21 @@ public class UserDTO {
     }
 
     public UserDTO(UserEntity userEntity) {
+        this.id = userEntity.getId();
         this.nome = userEntity.getNome();
         this.sobrenome = userEntity.getSobrenome();
         this.email = userEntity.getEmail();
         this.senha = userEntity.getSenha();
         this.userRoles = userEntity.getUserRoles();
         this.funcoesEntity = userEntity.getFuncoesEntity();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

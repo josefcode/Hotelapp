@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import { Link, useNavigate,Navigate, useParams, NavLink} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { useToken } from '../hooks/useToken';
 import axios from 'axios'
 import { useLogin } from '../hooks/useLogin'
@@ -25,17 +25,17 @@ export function IniciaSessao() {
 
   const {token, changeToken} = useToken()
 
-  function validateLogin(email, password) {
-    const storedEmail = localStorage.getItem('email');
-    const storedPassword = localStorage.getItem('senha');
+  // function validateLogin(email, password) {
+  //   const storedEmail = localStorage.getItem('email');
+  //   const storedPassword = localStorage.getItem('senha');
 
-    if (email === storedEmail && password === storedPassword) {
-      return true;
+  //   if (email === storedEmail && password === storedPassword) {
+  //     return true;
 
-    }
+  //   }
 
-    return false;
-  }
+  //   return false;
+  // }
 
 
   const navigate = useNavigate();
@@ -47,10 +47,7 @@ export function IniciaSessao() {
       email: email,
       senha: password
     }).then(response => {
-      
-    
-      alert('Login realizado com sucesso!');
- 
+
       changeToken(response.data.jwt)
       localStorage.setItem('token', response.data.jwt);
   
