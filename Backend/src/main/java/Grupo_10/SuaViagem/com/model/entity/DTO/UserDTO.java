@@ -13,24 +13,18 @@ import javax.validation.constraints.Size;
 public class UserDTO {
 
     @NotNull
-    @Column(nullable = false)
     private int id;
 
     @NotNull
-    @Column(nullable = false)
     private String nome;
     @NotNull
-    @Column(nullable = false, unique = true)
     private String sobrenome;
     @NotNull
-    @Column(nullable = false, unique = true)
     private String email;
     @NotNull
     @Size(min = 6, max = 12)
-    @Column(nullable = false)
     private String senha;
     @NotNull
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRoles userRoles;
 

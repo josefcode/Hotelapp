@@ -20,7 +20,7 @@ public class UserEntity implements UserDetails {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String sobrenome;
 
     @Column(nullable = false, unique = true)

@@ -83,7 +83,10 @@ export function CriarConta() {
       sobrenome,
       email,
       senha,
-      userRoles
+      userRoles,
+      funcoesEntity: {
+        id_funcoes: 2
+      }
     })
 
     setSignup(true)
@@ -172,7 +175,7 @@ export function CriarConta() {
           name='confirmSenha'
           value={userData.confirmSenha}
           onChange={handleChange}
-        />    
+        />
         <div className='btn-wrapper'>
           <button className='iniciar-btn' type='submit'>Registrar</button>
 

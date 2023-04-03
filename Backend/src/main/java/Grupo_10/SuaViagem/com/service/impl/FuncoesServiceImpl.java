@@ -18,6 +18,8 @@ public class FuncoesServiceImpl implements IService<FuncoesDTO> {
     @Autowired
     private IFuncoesRepository iFuncoesRepository;
 
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
     @Override
     public FuncoesDTO register(FuncoesDTO funcoesDTO) {
         FuncoesEntity funcoesEntity = mapperDTOToEntity(funcoesDTO);
