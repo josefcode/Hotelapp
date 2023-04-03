@@ -27,14 +27,16 @@ export function Reserva() {
 
   const {startDate, endDate, changeStartDate, changeEndDate } = useDatas()
 
+
   const [produtoReserva, setProdutoReserva] = React.useState([])
   const { id } = useParams()
   const { token } = useToken()
-  const [checkin, setCheckin] = React.useState(new Date())
-  const [checkout, setCheckout] = React.useState(new Date())
+  // const [checkin, setCheckin] = React.useState(new Date())
+  // const [checkout, setCheckout] = React.useState(new Date())
   const [selectedValue, setSelectedValue] = useState(null);
   const stars = [<StarIcon fontSize='small' />, <StarIcon fontSize='small' />, <StarIcon fontSize='small' />, <StarIcon fontSize='small' />,]
   const [confirm, setConfirm] = React.useState(false)
+  const [secondError, setSecondError] = useState(false)
   const [error, setError] = useState(false)
   const [cidade, setCidade] = React.useState('')
   const [idUser, setIdUser] = useState('')
@@ -45,46 +47,52 @@ export function Reserva() {
     cidade: '',
   })
 
+
   const [tudasDataDisponivel, setTudasDataDisponivel] = useState([])
 
-  const datasss = tudasDataDisponivel.map(data => {
-    const dataInicial = [data.dataInicial]
-    const dataFinal = [data.dataFinal]
+  const allDatas = tudasDataDisponivel.map((data, index) => {
+    const {dataInicial,dataFinal } = data
+  
+    // let start = new Date(`${dataInicial}`)
+    // let end = new Date(`${dataFinal}`)
 
-    return {
-      dataInicial,
-      dataFinal
-    }
+   
+     
+    // let date1 = start.getDate()
+    // let date2 = end.getDate()
+
+    // let date1 = dataInicial.slice(0,10)
+    // let date2 = dataFinal.slice(0,10)
+
+    var getDaysArray = function(start, end) {
+      for(var arr=[],dt=new Date(start); dt<=new Date(end); dt.setDate(dt.getDate()+1)){
+          arr.push(new Date(dt));
+      }
+      return arr;
+  };
+
+   const arrayDeDatas = getDaysArray(new Date(`${dataInicial}`),new Date(`${dataFinal}`));
+   const resultadoFinalDeDatas = arrayDeDatas.map((v)=>v.toISOString().slice(0,10))
+    // let fullDates = []
+    
+    // for (let i = date1; i <= date2; i++) {
+    //   fullDates.push(i)
+    // }
+
+    return resultadoFinalDeDatas
+  
   })
 
-  console.log(datasss)
+  const datasIndisponivel = allDatas.flat(1)
+
+  const datasIndisponivelSemDuplication = [...new Set(datasIndisponivel)]
 
   const tokenLocalStorage = localStorage.getItem('token')
 
-  const [dataInicialReservada, setDataInicialReservada] = useState('')
-  const [dataFinalReservada, setDataFinalReservada] = useState('')
-
-
-  const dataInicialValue = new Date(`${dataInicialReservada}`)
-  const dataFinalValue = new Date(`${dataFinalReservada}`)
-
-  const date1 = dataInicialValue.getDate()
-  const date2 = dataFinalValue.getDate()
-
-  let fullDates = []
-
-  for (let i = date1; i <= date2; i++) {
-    fullDates.push(i)
-  }
-
-  const listDatas = fullDates.map(item => item)
-
-
   function handleDateChange(value) {
-    changeStartDate(false)
-    changeEndDate(false)
-    setCheckin(value[0]);
-    setCheckout(value[1]);
+    changeStartDate(value[0])
+    changeEndDate(value[1])
+
   }
 
   function handleAutocompleteChange(event, value) {
@@ -103,8 +111,7 @@ export function Reserva() {
       setCidade(data.cidadesEntity.nome)
       setProdutoReserva(data)
       setTudasDataDisponivel(data.reservasEntity)
-      setDataInicialReservada(data.reservasEntity[0].dataInicial)
-      setDataFinalReservada(data.reservasEntity[0].dataFinal)
+  
     }
     fetchData()
 
@@ -128,31 +135,40 @@ export function Reserva() {
     fetchUserData()
   }, [id, userData.id]);
 
-  function handleReserva() {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token || tokenLocalStorage}` },
-      body: JSON.stringify({
-        horaInicial: selectedValue,
-        dataInicial: checkin.toISOString(),
-        dataFinal: checkout.toISOString(),
-        idUser: idUser,
-        produtosEntity: {
-          id_produtos: id
-        }
-      })
-    };
 
-    fetch('http://3.140.210.50:8081/reservas/register', requestOptions)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        setConfirm(true)
-      })
-      .catch(error => {
-        setError(true)
-      });
+  function handleReserva() {
+
+if(startDate === "" && endDate  === "" || !selectedValue ){
+      setSecondError(true)
+    } else {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token || tokenLocalStorage}` },
+        body: JSON.stringify({
+          horaInicial: selectedValue,
+          dataInicial: startDate,
+          dataFinal: endDate,
+          idUser: idUser,
+          produtosEntity: {
+            id_produtos: id
+          }
+        })
+      };
+  
+      fetch('http://3.140.210.50:8081/reservas/register', requestOptions)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          changeEndDate(null)
+          changeStartDate(null)
+          setConfirm(true)
+        })
+        .catch(error => {
+          setError(true)
+        });
+    }
+   
   }
 
   const { imagensEntityList, nome, cidadesEntity, categoriasEntity } = produtoReserva
@@ -253,10 +269,13 @@ export function Reserva() {
                   prev2Label={null}
                   next2Label={null}
                   tileDisabled={({ date }) => {
-                    let currDate = date.getDate()
-                    return listDatas.indexOf(currDate) !== -1
+                    // let currDate = date.getDate()
+                    // return [].indexOf(currDate) !== -1
+                    var currDate = date.toISOString().slice(0,10);
+
+                        return datasIndisponivelSemDuplication.indexOf(currDate) !== -1;
                   }
-                  }
+                }
                 />
               </div>
               <div className='single-calender'>
@@ -267,6 +286,14 @@ export function Reserva() {
                   selectRange
                   prev2Label={null}
                   next2Label={null}
+                  tileDisabled={({ date }) => {
+                    // let currDate = date.getDate()
+                    // return [].indexOf(currDate) !== -1
+                    var currDate = date.toISOString().slice(0,10);
+
+                        return datasIndisponivelSemDuplication.indexOf(currDate) !== -1;
+                  }
+                }
                 />
               </div>
             </div>
@@ -319,7 +346,8 @@ export function Reserva() {
                 startDate ?
                   <p>{format(new Date(`${startDate}`), 'dd/MM/yyyy')}</p>
                   :
-                  <p> {moment(checkin.toISOString()).format('DD/MM/yyyy')}</p>
+                  <p> DD/MM/yyyy</p>
+                  // <p> {moment(startDate.toISOString()).format('DD/MM/yyyy')}</p>
               }
 
             </div>
@@ -331,7 +359,8 @@ export function Reserva() {
                 endDate ?
                   <p>{format(new Date(`${endDate}`), 'dd/MM/yyyy')}</p>
                   :
-                  <p> {moment(checkout.toISOString()).format('DD/MM/yyyy')}</p>
+                  // <p> {moment(startDate.toISOString()).format('DD/MM/yyyy')}</p>
+                  <p> DD/MM/yyyy</p>
               }
 
             </div>
@@ -345,6 +374,7 @@ export function Reserva() {
         </div>
         <div className='error-message'>
           {error && <Alert sx={{ marginTop: '10px', '&.MuiAlert-root': { color: "rgb(249, 8, 4) !important" } }} severity="error">Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.</Alert>}
+          {secondError && <Alert sx={{ marginTop: '10px', '&.MuiAlert-root': { color: "rgb(249, 8, 4) !important" } }} severity="error">tem que escolher uma data e indique hora da chegada</Alert>}
         </div>
 
       </div>
