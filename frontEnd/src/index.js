@@ -16,6 +16,7 @@ import { Reserva } from './components/detale-produto-reserva/Reserva';
 import { TokenProvider } from './components/hooks/useToken';
 import { DatasProvider } from './components/hooks/useDatas';
 import { HotelFilterCidadeProvider } from './components/hooks/useHotelFilterCidade';
+import { UserReservas} from "./components/userReservas/userReservas"
 
 
 
@@ -35,6 +36,7 @@ root.render(
       <Route path="/iniciar-sessao" element={<IniciaSessao />}  />
       <Route path="/detaile-produto/:id" element={<DetaleProduto />}  />
       <Route path="detaile-produto/:id/reserva" element={<Reserva />}  />
+      <Route path="/:nome/reservas" element={<UserReservas />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
 </Routes>

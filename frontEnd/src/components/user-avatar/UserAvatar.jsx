@@ -4,6 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useLogin } from '../hooks/useLogin';
 import { useToken } from '../hooks/useToken';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export default function UserAvatar() {
   
@@ -21,6 +22,7 @@ export default function UserAvatar() {
           const response = await fetch(`http://localhost:8081/user/${token}`);
           const userData = await response.json();
           // Atualiza os valores dos inputs com os dados da resposta
+          console.log(userData);
           setUserData({
             nome: userData.nome,
             sobrenome: userData.sobrenome,
@@ -43,6 +45,7 @@ export default function UserAvatar() {
          changeLogin(false)
     }
 
+    
   return (
     <>
     { 
@@ -52,12 +55,15 @@ export default function UserAvatar() {
   
      :
      <div className='avatar-container'>
-    
-     <div className='avatar-image'>
-         {nome?.charAt(0).toUpperCase()}
-         {sobrenome?.charAt(0).toUpperCase()}
-  
-     </div>
+      <Link to={`/${nome}/reservas`}>
+        <div className='avatar-image'>
+            {nome?.charAt(0).toUpperCase()}
+            {sobrenome?.charAt(0).toUpperCase()}
+      
+        </div>
+      
+      </Link>
+
      <div className='avatar-text'>
          <span>Olá</span>
          <p>
