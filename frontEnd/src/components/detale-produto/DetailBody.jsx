@@ -4,10 +4,14 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import "./styleBody.css"
 import { Calendario } from './Calendario';
 import { useShow } from '../hooks/useShow';
-import { useToken } from '../hooks/useToken';
-import { useParems } from 'react-router-dom'
 import CarouselImage from './CarouselImage';
-import { ConnectingAirportsOutlined } from '@mui/icons-material';
+import CelebrationIcon from '@mui/icons-material/Celebration';
+import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
+import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
+import SmokeFreeIcon from '@mui/icons-material/SmokeFree';
+import GavelIcon from '@mui/icons-material/Gavel';
+import PetsIcon from '@mui/icons-material/Pets';
+
 
 export default function DetailBody({
   image,
@@ -15,7 +19,6 @@ export default function DetailBody({
   description,
   location,
   id,
-  country,
   city,
   mapLocation,
 }) {
@@ -30,7 +33,7 @@ export default function DetailBody({
         <FavoriteBorderIcon />
       </div>
 
-      <div className='detail-image-container'>
+      <div className='detail-image-container image-fader'>
         {
           image?.slice(0, 5).map((item, index) => {
             return (
@@ -77,7 +80,7 @@ export default function DetailBody({
 
         <Calendario id={id} />
 
-        {/* mapa */}
+     
         <div >
           <h1 className='title-service'>Mapa</h1>
           <div className='title-underline'></div>
@@ -93,7 +96,6 @@ export default function DetailBody({
           </div>
         </div>
 
-        {/* o que voce precisa saber:  */}
         <div>
 
           <h1 className='title-service'>O que voce precisa saber</h1>
@@ -101,30 +103,28 @@ export default function DetailBody({
 
           <div className='detail-card-container'>
 
-            <div className='detail-card'>
+<div className='detail-card'>
 
-              <h3 className='detail-card-title' >Regras da casa</h3>
-              <p>Check-out: 10: 00</p>
-              <p>Noa e permitido festas</p>
-              <p>Nao fumar</p>
-            </div>
+   <h3 className='detail-card-title' ><GavelIcon /> Regras da casa</h3>
+   <p> <PointOfSaleIcon /> Check-out: 12: 00</p>
+   <p><span ><CelebrationIcon  /> </span>Não é permitido festas</p>
+   <p><SmokeFreeIcon />Não é permitido festas</p>
+</div>
 
-            <div className='detail-card'>
+<div className='detail-card'>
 
-              <h3 className='detail-card-title' >Regras da casa</h3>
-              <p>Check-out: 10: 00</p>
-              <p>Noa e permitido festas</p>
-              <p>Nao fumar</p>
-            </div>
+   <h3 className='detail-card-title' ><DisabledByDefaultIcon />Cancelamento</h3>
+   <p>As políticas de cancelamento e pré-pagamento variam de acordo com o tipo de acomodação. Verifique quais condições podem ser aplicadas a cada opção ao fazer sua seleção.</p>
+</div>
 
-            <div className='detail-card'>
+<div className='detail-card'>
 
-              <h3 className='detail-card-title' >Regras da casa</h3>
-              <p>Check-out: 10: 00</p>
-              <p>Noa e permitido festas</p>
-              <p>Nao fumar</p>
-            </div>
-          </div>
+   <h3 className='detail-card-title' ><PetsIcon/> Pets</h3>
+   <p>Animais de estimação são permitidos. Encargos podem ser aplicáveis.</p>
+</div>
+
+
+</div>
         </div>
       </div>
     </div>

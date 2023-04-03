@@ -16,7 +16,7 @@ public interface IProdutosRepository extends JpaRepository <ProdutosEntity, Inte
 
     List<ProdutosEntity> findByCidadesEntityNome(String cidade);
 
-    @Query("SELECT p FROM ProdutosEntity p JOIN p.cidadesEntity c JOIN p.reservasEntity r WHERE c.nome = :cidade AND r.dataInicial >= :dataInicial AND r.dataFinal <= :dataFinal")
+    @Query("SELECT p FROM ProdutosEntity p JOIN p.cidadesEntity c LEFT JOIN p.reservasEntity r WHERE c.nome = :cidade AND (r is null OR r.dataInicial > :dataFinal OR r.dataFinal < :dataInicial) AND NOT EXISTS (SELECT 1 FROM p.reservasEntity r2 WHERE r2.dataInicial BETWEEN :dataInicial AND :dataFinal OR r2.dataFinal BETWEEN :dataInicial AND :dataFinal)")
     List<ProdutosEntity> findByCidadeAndDatas(@Param("cidade") String cidade,
                                               @Param("dataInicial") Date dataInicial,
                                               @Param("dataFinal") Date dataFinal);

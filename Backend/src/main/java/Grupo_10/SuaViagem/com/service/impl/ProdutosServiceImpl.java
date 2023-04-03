@@ -69,6 +69,17 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
         return mapperEntityToDTO(iProdutosRepository.save(mapperDTOToEntity(produtosDTO)));
     }
 
+    public ProdutosDTO registerReservation(int id, ReservasEntity novaReserva) throws NotFoundException {
+        ProdutosEntity produtosEntity = iProdutosRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Produto não encontrado"));
+
+        List<ReservasEntity> reservasEntityList = produtosEntity.getReservasEntity();
+        reservasEntityList.add(novaReserva);
+        produtosEntity.setReservasEntity(reservasEntityList);
+
+        return mapperEntityToDTO(iProdutosRepository.save(produtosEntity));
+    }
+
 
     @Override
     public List<ProdutosDTO> findAll() {

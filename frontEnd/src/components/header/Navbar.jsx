@@ -5,44 +5,62 @@ import './styles.css';
 import UserAvatar from '../user-avatar/UserAvatar';
 import { useLogin } from '../hooks/useLogin';
 import MenuMobile from '../menu-mobile/MenuMobile';
+import { useToken } from '../hooks/useToken';
 
 export default function Navbar() {
-  const { login } = useLogin();
+
+  const tokenLocalStorage = localStorage.getItem('token')
+
   const location = useLocation();
-  const data = localStorage.getItem('data');
+  const data = localStorage.getItem('userAvata');
+  const detalesDoAvatar = JSON.parse(data)
+
   const navigate = useNavigate();
 
   const handleGoBack = () => {
     navigate(-1);
   };
 
+  console.log(detalesDoAvatar)
+
+  const { nome , sobrenome } = detalesDoAvatar || {}
+
+
   const renderCreateAccountButton = () => {
-    if (!login && location.pathname === '/criar-conta') {
+    if (!tokenLocalStorage && location.pathname === '/criar-conta') {
       return <>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
-        {/* <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link> */}
       </>;
 
-    } else if (!login && location.pathname === '/iniciar-sessao') {
+    } else if (!tokenLocalStorage && location.pathname === '/iniciar-sessao') {
       return <>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
-        {/* <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link> */}
       </>;
 
-    } else if (!login) {
+    } else if (!tokenLocalStorage) {
       return <>
         <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link>
         <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link>
       </>;
-    }
-    return null;
+    } else if (typeof tokenLocalStorage === 'string'){
+      return <> 
+      <UserAvatar
+      nome={nome}
+      sobrenome={sobrenome}
+      />
+      </>
+    } 
+   
+    
+    
   };
+  
 
   return (
     <header className="navbar-header">
       <nav className="navbar">
         <Link to="/">
-          {/* <img className="navbar-logo" src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/512/external-travel-summertime-wanicon-lineal-color-wanicon.png" alt="travelLogos" /> */}
+     
           <span className='navbar-logo-title'>SuaViagem.com</span>
         </Link>
         <MenuIcon className="menu-icon" />
@@ -50,11 +68,9 @@ export default function Navbar() {
         <div className="navbar-btn">
           {renderCreateAccountButton()}
 
-          {login ? <UserAvatar
-            // nome={localStorage.getItem('nome')}
-            // sobrenome={localStorage.getItem('sobreNome')}
-            email={localStorage.getItem('email')}
-          /> : null}
+          {/* {token && 
+            // email={localStorage.getItem('email')}
+          /> } */}
 
         </div>
       </nav>

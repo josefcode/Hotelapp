@@ -7,46 +7,46 @@ import javax.persistence.*;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name  =  "reservas")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"produtosEntity"})
 public class ReservasEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_reservas", nullable = false)
     private int id_reservas;
-    @Column(nullable=false, unique = false)
+    @Column(nullable=false)
     private Time horaInicial;
 
-    @Column(nullable=false, unique = true)
+    @Column(nullable=false)
     @Temporal(TemporalType.DATE)
     private java.util.Date dataInicial;
 
-    @Column(nullable=false, unique = true)
+    @Column(nullable=false)
     @Temporal(TemporalType.DATE)
     private java.util.Date dataFinal;
-
-    @ManyToOne
-    @JoinColumn(name="cliente_id")
-    private ClientesEntity clientesEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="produtos_id")
     private ProdutosEntity produtosEntity;
 
+    @Column(nullable=false)
+    private int idUser;
+
     public ReservasEntity() {
     }
 
-    public ReservasEntity(ReservasDTO reservasDTO) {
+    public ReservasEntity(ReservasDTO reservasDTO, int idUser) {
         this.id_reservas = reservasDTO.getId_reservas();
         this.horaInicial = reservasDTO.getHoraInicial();
         this.dataInicial = reservasDTO.getDataInicial();
         this.dataFinal = reservasDTO.getDataFinal();
+        this.produtosEntity = reservasDTO.getProdutosEntity();
+        this.idUser = reservasDTO.getIdUser();
     }
 
     public int getId_reservas() {
@@ -81,19 +81,19 @@ public class ReservasEntity {
         this.dataFinal = dataFinal;
     }
 
-    public ClientesEntity getClientesEntity() {
-        return clientesEntity;
-    }
-
-    public void setClientesEntity(ClientesEntity clientesEntity) {
-        this.clientesEntity = clientesEntity;
-    }
-
     public ProdutosEntity getProdutosEntity() {
         return produtosEntity;
     }
 
     public void setProdutosEntity(ProdutosEntity produtosEntityList) {
         this.produtosEntity = produtosEntityList;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 }

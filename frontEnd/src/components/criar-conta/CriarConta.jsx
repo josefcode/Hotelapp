@@ -28,7 +28,7 @@ export function CriarConta() {
     email: '',
     senha: '',
     confirmSenha: '',
-    roles: ""
+    userRoles: "ROLE_USER"
   })
 
   function handleChange(event) {
@@ -55,7 +55,7 @@ export function CriarConta() {
     }
 
     // Validação do sobrenome
-    if (!isValidName(userData.sobreNome)) {
+    if (!isValidName(userData.sobrenome)) {
       alert('Sobrenome inválido!');
       return;
     }
@@ -76,23 +76,22 @@ export function CriarConta() {
       return;
     }
 
-    const { nome, sobrenome, senha, email, roles } = userData
+    const { nome, sobrenome, senha, email, userRoles } = userData
 
-    axios.post('http://localhost:8081/user', {
+    axios.post('http://3.140.210.50:8081/user', {
       nome,
       sobrenome,
       email,
       senha,
-      userRoles: roles
+      userRoles
     })
-    alert('A conta foi criada com sucesso!');
 
     setSignup(true)
 
       .catch(error => {
         alert('Não foi possível criar a conta. Tente novamente mais tarde.');
         setError(true)
-        setSignup(true)
+        setSignup(false)
       });
   };
 
@@ -173,28 +172,7 @@ export function CriarConta() {
           name='confirmSenha'
           value={userData.confirmSenha}
           onChange={handleChange}
-        />
-        <h5 className='user-roles-title'>Tipo de usuário: </h5>
-        <div className='user-roles'>
-          <input
-            type="radio"
-            id="ROLE_ADMIN"
-            name='roles'
-            value='ROLE_ADMIN'
-            checked={userData.roles === "ROLE_ADMIN"}
-            onChange={handleChange}
-          />
-          <label htmlFor='ROLE_ADMIN' >Administrador</label>
-          <input
-            type="radio"
-            id="ROLE_USER"
-            name='roles'
-            value="ROLE_USER"
-            checked={userData.roles === "ROLE_USER"}
-            onChange={handleChange}
-          />
-          <label htmlFor='ROLE_USER'>Usuário comum</label>
-        </div>
+        />    
         <div className='btn-wrapper'>
           <button className='iniciar-btn' type='submit'>Registrar</button>
 

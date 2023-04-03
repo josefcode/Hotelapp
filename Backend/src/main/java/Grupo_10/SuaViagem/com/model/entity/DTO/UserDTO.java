@@ -14,6 +14,10 @@ public class UserDTO {
 
     @NotNull
     @Column(nullable = false)
+    private int id;
+
+    @NotNull
+    @Column(nullable = false)
     private String nome;
     @NotNull
     @Column(nullable = false, unique = true)
@@ -36,12 +40,21 @@ public class UserDTO {
     }
 
     public UserDTO(UserEntity userEntity) {
+        this.id = userEntity.getId();
         this.nome = userEntity.getNome();
         this.sobrenome = userEntity.getSobrenome();
         this.email = userEntity.getEmail();
         this.senha = userEntity.getSenha();
         this.userRoles = userEntity.getUserRoles();
         this.funcoesEntity = userEntity.getFuncoesEntity();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

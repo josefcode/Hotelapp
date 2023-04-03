@@ -1,17 +1,14 @@
 import React, { useRef, useState } from 'react'
-import { CategoriasCards } from '../categorias/CategoriasCards'
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { RecomendacoesCards } from '../recomendacoes/RecomendacoesCards'
-// import { DateRangePicker } from 'rsuite';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 // you will need the css that comes with bootstrap@3. if you are using
 // a tool like webpack, you can do the following:
 import 'bootstrap/dist/css/bootstrap.css';
 // you will also need the css that comes with bootstrap-daterangepicker
 import 'bootstrap-daterangepicker/daterangepicker.css';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { SuggestBox } from '../sugest-box/index';
 import { useDatas } from '../hooks/useDatas';
 import {useHotelFilterCidade} from '../hooks/useHotelFilterCidade'
@@ -25,7 +22,6 @@ export default function Main() {
   const [isLoading, setIsLoading] = useState(false);
   const [produto, setProduto] = useState(false)
   const inputRef = useRef()
-
   const [cidadePorFiltro ,setCidadePorFiltro] = useState(null)
 
   const handleApply = (event, picker) => {
@@ -38,22 +34,20 @@ export default function Main() {
 
   const handleCancel = (event, picker) => {
     picker.element.val('');
+    changeStartDate(null);
+    changeEndDate(null);
   };
 
 
   const {hotelPorCidade, changeHotelPorCidade}  = useHotelFilterCidade()
 
-  // console.log(cidadePorFiltro)
-
   const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
-
- 
 
   React.useEffect(() => {
      setIsLoading(true)
       async function fetchData(){
 
-        const response = await fetch(`http://localhost:8081/cities/findAll`)
+        const response = await fetch(`http://3.140.210.50:8081/cities/findAll`)
     
          if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -69,8 +63,8 @@ export default function Main() {
 const formattedStartDate = moment(startDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
 const formattedEndDate = moment(endDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
-const urlCidadeData = `http://localhost:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${formattedStartDate}&dataFinal=${formattedEndDate}`
-const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
+const urlCidadeData = `http://3.140.210.50:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`
+const urlCidade = `http://3.140.210.50:8081/product/findByCidades/${cidadeValue}`
 
   async function handleSearch(event) {
 
@@ -145,10 +139,12 @@ const urlCidade = `http://localhost:8081/product/findByCidades/${cidadeValue}`
             initialSettings={{
               autoUpdateInput: false,
               minDate : new Date(),
-              isInvalidDate: function(data){
-                var currDate = moment(data._d).format('YY-MM-DD');
-                return ["23-03-26" , "23-03-28"].indexOf(currDate) !== -1;
-            },
+              //nós precisamos desse código não deleta por favor
+
+            //   isInvalidDate: function(data){
+            //     var currDate = moment(data._d).format('YY-MM-DD');
+            //     return ["23-03-26" , "23-03-28"].indexOf(currDate) !== -1;
+            // },
               locale: {
                
                 "format": "DD/MM/YYYY",

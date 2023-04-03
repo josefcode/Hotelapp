@@ -2,7 +2,6 @@ import React from 'react'
 import DetailBody from './DetailBody'
 import DetailHeader from './DetailHeader'
 import { useParams } from 'react-router-dom'
-import { useToken } from '../hooks/useToken'
 
 export default function DetaleProduto() {
 
@@ -12,7 +11,7 @@ export default function DetaleProduto() {
   React.useEffect(() => {
     async function fetchData() {
 
-      const response = await fetch(`http://localhost:8081/product/${id}`)
+      const response = await fetch(`http://3.140.210.50:8081/product/${id}`)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -28,7 +27,6 @@ export default function DetaleProduto() {
   }
 
   const {
-    location,
     country,
     nome,
     pontuacao,
@@ -43,7 +41,7 @@ export default function DetaleProduto() {
     imageClass
   } = produto
 
-  // const stars = [<StarIcon />, <StarIcon />, <StarIcon />, <StarIcon />,]
+
   const imagem = imagensEntityList?.map(item => item.url)
 
   const facilidade = ["Wi-Fi", "TV", 'Frigobar', 'Lareira', 'Ar-condicionado']
@@ -53,23 +51,20 @@ export default function DetaleProduto() {
       <DetailHeader
         type={categoriasEntity?.descricao}
         title={nome}
-        // stars = {stars} 
         puntaje={pontuacao}
         comment={comentarios}
         distancia={distancia}
         location={cidadesEntity?.nome}
         country={cidadesEntity?.pais}
-      //  location = {location}
-      //  country = {country}
-
       />
+
+
       <DetailBody
         id={id}
         image={imagem}
         facilities={facilidade}
         description={description}
         distancia={distancia}
-        // location = {location}
         country={country}
         city={city}
         mapLocation={localMapa}

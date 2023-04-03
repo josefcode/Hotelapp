@@ -5,13 +5,13 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { useToken } from '../hooks/useToken';
 import axios from 'axios'
 import { useLogin } from '../hooks/useLogin'
 import './style.css';
 import Alert from '@mui/material/Alert';
-import { ReservaSucesso } from '../detale-produto-reserva/ReservaSucesso';
+
 
 export function IniciaSessao() {
 
@@ -21,21 +21,21 @@ export function IniciaSessao() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('');
-  // const [token, setToken] = useState('')
+
 
   const {token, changeToken} = useToken()
 
-  function validateLogin(email, password) {
-    const storedEmail = localStorage.getItem('email');
-    const storedPassword = localStorage.getItem('senha');
+  // function validateLogin(email, password) {
+  //   const storedEmail = localStorage.getItem('email');
+  //   const storedPassword = localStorage.getItem('senha');
 
-    if (email === storedEmail && password === storedPassword) {
-      return true;
+  //   if (email === storedEmail && password === storedPassword) {
+  //     return true;
 
-    }
+  //   }
 
-    return false;
-  }
+  //   return false;
+  // }
 
 
   const navigate = useNavigate();
@@ -43,23 +43,23 @@ export function IniciaSessao() {
   async function handleSubmit(e) {
     e.preventDefault()
   
-    axios.post('http://localhost:8081/user/authenticate', {
+    axios.post('http://3.140.210.50:8081/user/authenticate', {
       email: email,
       senha: password
     }).then(response => {
-      localStorage.setItem('email', email);
-    
-      alert('Login realizado com sucesso!');
-  
-      changeToken(response.data.token)
-      navigate('/');
+
       changeToken(response.data.jwt)
+      localStorage.setItem('token', response.data.jwt);
+  
       changeLogin(true);
+
+      navigate(-1)
   
     }).catch(error => {
       setErrorMessage('Infelizmente, você não pôde efetuar login. Por favor, tente novamente mais tarde.');
     });
   };
+
   
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -128,12 +128,13 @@ export function IniciaSessao() {
          
         </div>
         <div className='btn-wrapper'>
+      
           <button className='iniciar-btn' type="submit">Iniciar sessão</button>
 
           <span className='iniciar-login'>Ainda não tem uma conta? <Link className='login-link' to="/criar-conta">Registre-se</Link></span>
         </div>
       </form>
-       {/* <ReservaSucesso link = "/" message = "A conta foi criada com sucesso!"/> */}
+
     </div>
   )
 }

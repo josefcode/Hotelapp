@@ -21,12 +21,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\": \"Marcelo\",\n    \"sobrenome\": \"Garofalo\",\n    \"email\": \"marcelo_mbg@hotmail.com\",\n    \"senha\": \"12345678\",\n    \"userRoles\": \"ROLE_ADMIN\"\n}"
+							"raw": "{\n    \"nome\": \"Marcelo\",\n    \"sobrenome\": \"Garofalo\",\n    \"email\": \"marcelo_mbg@hotmail.com\",\n    \"senha\": \"12345678\",\n    \"userRoles\": \"ROLE_ADMIN\",\n    \"funcoesEntity\": {\n        \"id\": 1,\n        \"nome\": \"Usuário ADMIN\"\n    }    \n}"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/user",
+							"raw": "{{SuaViagemAWS}}/user",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"user"
@@ -66,9 +66,9 @@
 							"raw": "{\n    \"email\": \"marcelo_mbg@hotmail.com\",\n    \"senha\": \"12345678\"\n}"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/user/authenticate",
+							"raw": "{{SuaViagemAWS}}/user/authenticate",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"user",
@@ -112,13 +112,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/user/{{jwt}}",
+							"raw": "{{SuaViagemAWS}}/user/eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjZWxvX21iZ0Bob3RtYWlsLmNvbSIsImV4cCI6MTY4MDExNjkxNiwiaWF0IjoxNjgwMDE2OTE2fQ.h8tqgjCK87OHDIbUgqAc2bczmhu3Alo3zLmcfp3HYTM",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"user",
-								"{{jwt}}"
+								"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjZWxvX21iZ0Bob3RtYWlsLmNvbSIsImV4cCI6MTY4MDExNjkxNiwiaWF0IjoxNjgwMDE2OTE2fQ.h8tqgjCK87OHDIbUgqAc2bczmhu3Alo3zLmcfp3HYTM"
 							]
 						}
 					},
@@ -144,12 +144,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"id_categorias\": 4,\n        \"descricao\": \"Cama e café da manhã\",\n        \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F01%2F23%2F23%2F55%2Fbreakfast-in-bed-1158270_960_720.jpg&f=1&nofb=1&ipt=3be7be28c18d310a5bb9d616fa9b48ac157c024e8754ccb60f3a79e1a009e62a&ipo=images\"\n    }"
+							"raw": "{\r\n    \"id_categorias\": 1,\r\n    \"descricao\": \"Hotéis\",\r\n    \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.corinthia.com%2Fmedia%2F1563%2Fcorinthia-lisbon-deluxe-king-bedroom.jpg&f=1&nofb=1&ipt=0d0842f3e887b1bfd8a82d2ebc3633acac094bad75534497c67288734289559a&ipo=images\"\r\n}\r\n"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/category/register",
+							"raw": "{{SuaViagemAWS}}/category/register",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"category",
@@ -180,9 +180,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/category/findAll",
+							"raw": "{{SuaViagemAWS}}/category/findAll",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"category",
@@ -213,13 +213,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/category/14",
+							"raw": "{{SuaViagemAWS}}/category/1",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"category",
-								"14"
+								"1"
 							]
 						}
 					},
@@ -243,9 +243,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/category/1",
+							"raw": "{{SuaViagemAWS}}/category/1",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"category",
@@ -264,9 +264,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/category/1",
+							"raw": "{{SuaViagemAWS}}/category/1",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"category",
@@ -296,12 +296,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"Pets\",\n    \"icone\": \"Pets\"\n}"
+							"raw": "{\n    \"id_caracteristicas\": 5,\n    \"nome\": \"Pets\",\n    \"icone\": \"Pets\"\n}"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/caracteristicas/register",
+							"raw": "{{SuaViagemAWS}}/caracteristicas/register",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"caracteristicas",
@@ -332,9 +332,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/caracteristicas/findAll",
+							"raw": "{{SuaViagemAWS}}/caracteristicas/findAll",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"caracteristicas",
@@ -365,13 +365,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/category/14",
+							"raw": "{{SuaViagemAWS}}/caracteristicas/4",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
-								"category",
-								"14"
+								"caracteristicas",
+								"4"
 							]
 						}
 					},
@@ -395,9 +395,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/caracteristicas/1",
+							"raw": "{{SuaViagemAWS}}/caracteristicas/1",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"caracteristicas",
@@ -416,9 +416,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/caracteristicas/1",
+							"raw": "{{SuaViagemAWS}}/caracteristicas/1",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"caracteristicas",
@@ -448,12 +448,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"titulo\": \"Apartamentos\",\n        \"url\": \"https://cutt.ly/Z8GlNtl\"\n}"
+							"raw": "\r\n{\r\n    \"titulo\": \"Cama e café da manhã\",\r\n    \"url\": \"https://cutt.ly/Z8GlNtl\"\r\n}"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/imagens/register",
+							"raw": "{{SuaViagemAWS}}/imagens/register",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"imagens",
@@ -484,9 +484,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/imagens/findAll",
+							"raw": "{{SuaViagemAWS}}/imagens/findAll",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"imagens",
@@ -517,9 +517,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/imagens/14",
+							"raw": "{{SuaViagemAWS}}/imagens/14",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"imagens",
@@ -547,9 +547,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/imagens/1",
+							"raw": "{{SuaViagemAWS}}/imagens/1",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"imagens",
@@ -568,9 +568,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/imagens/2",
+							"raw": "{{SuaViagemAWS}}/imagens/2",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"imagens",
@@ -600,12 +600,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id_cidades\": 1,\r\n        \"nome\": \"Afonso Cláudio\",\r\n        \"pais\": \"Brasil\",\r\n        \"sigla\": \"ES\"\r\n}"
+							"raw": "{\r\n\t\t\"id_cidades\": \"5270\",\r\n\t\t\"nome\": \"São Paulo\",\r\n\t\t\"sigla\": \"SP\",\r\n\t\t\"pais\": \"Brasil\"\r\n\t}"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/register",
+							"raw": "{{SuaViagemAWS}}/cities/register",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"cities",
@@ -636,9 +636,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/findAll",
+							"raw": "{{SuaViagemAWS}}/cities/findAll",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"cities",
@@ -669,9 +669,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/5270",
+							"raw": "{{SuaViagemAWS}}/cities/5270",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"cities",
@@ -699,9 +699,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/5564",
+							"raw": "{{SuaViagemAWS}}/cities/5564",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"cities",
@@ -720,13 +720,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/5",
+							"raw": "{{SuaViagemAWS}}/cities/5565",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"cities",
-								"5"
+								"5565"
 							]
 						}
 					},
@@ -752,13 +752,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"nome\": \"Usuário\"\r\n}"
+							"raw": "{\r\n    \"id_funcoes\": 2,\r\n    \"nome\": \"Usuário Comum\"    \r\n}"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/funcoes/register",
+							"raw": "3.140.210.50:8081/funcoes/register",
 							"host": [
-								"{{SuaViagem.com}}"
+								"3",
+								"140",
+								"210",
+								"50"
 							],
+							"port": "8081",
 							"path": [
 								"funcoes",
 								"register"
@@ -911,12 +915,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"horaInicial\": \"12:00:00\",\r\n    \"dataInicial\": \"2023-07-01T00:00:00.000-03:00\",\r\n    \"dataFinal\": \"2023-07-15T00:00:00.000-03:00\"\r\n}"
+							"raw": "{\r\n    \"horaInicial\": \"08:00:00\",\r\n    \"dataInicial\": \"2023-04-01T00:00:00.000-03:00\",\r\n    \"dataFinal\": \"2023-04-02T00:00:00.000-03:00\",\r\n    \"produtosEntity\": {\r\n        \"id_produtos\": 2\r\n    },\r\n    \"idUser\": 1\r\n}"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/reservas/register",
+							"raw": "{{SuaViagemAWS}}/reservas/register",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"reservas",
@@ -954,9 +958,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/reservas/findAll",
+							"raw": "{{SuaViagemAWS}}/reservas/findAll",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"reservas",
@@ -994,13 +998,54 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/reservas/4",
+							"raw": "{{SuaViagemAWS}}/reservas/24",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"reservas",
-								"4"
+								"24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findByIdUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"horaInicial\": \"08:30:00\",\r\n    \"dataInicial\": \"2023-03-31T00:00:00.000-03:00\",\r\n    \"dataFinal\": \"2023-04-04T00:00:00.000-03:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SuaViagemAWS}}/reservas/findByIdUser/1",
+							"host": [
+								"{{SuaViagemAWS}}"
+							],
+							"path": [
+								"reservas",
+								"findByIdUser",
+								"1"
 							]
 						}
 					},
@@ -1023,7 +1068,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_reservas\": 2,\r\n    \"hora_inicio_reserva\": \"08:31:00\",\r\n    \"data_inicial_reserva\": \"2023-03-31\",\r\n    \"data_final_reserva\": \"2023-04-04\"\r\n}",
+							"raw": "{\r\n        \"id_reservas\": 1,\r\n        \"horaInicial\": \"08:00:00\",\r\n        \"dataInicial\": \"2023-03-30T00:00:00.000-03:00\",\r\n        \"dataFinal\": \"2023-03-31T00:00:00.000-03:00\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1031,13 +1076,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/reservas/2",
+							"raw": "{{SuaViagemAWS}}/reservas/1",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"reservas",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -1059,13 +1104,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/reservas/4",
+							"raw": "{{SuaViagemAWS}}/reservas/10",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"reservas",
-								"4"
+								"10"
 							]
 						}
 					},
@@ -1091,12 +1136,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"nome\": \"Teste reservas\",\n        \"descricao\": \"Teste reservas\",\n        \"pontuacao\": 10,\n        \"facilidades\": \"Teste reservas\",\n        \"localMapa\": \"https://www.pousadaarvoredacoruja.com.br/web/contato/#mapa\",\n        \"distancia\": \"Teste reservas\",\n        \"linkMapa\": \"https://www.google.com/maps/place/Pousada+%C3%81rvore+da+Coruja/@-29.3867263,-50.8795637,15z/data=!4m2!3m1!1s0x0:0xf0d07c0b3d30dfc6?sa=X&ved=2ahUKEwjVoPr9ouH9AhXlCdQKHS3DAxkQ_BJ6BAhiEAc\",\n        \"comentarios\": \"Teste reservas\",\n        \"verMais\": \"https://www.pousadaarvoredacoruja.com.br/web/quartos/\",\n        \"caracteristicasEntityList\": [\n            {\n                \"id_caracteristicas\": 1,\n                \"nome\": \"Cozinha\",\n                \"icone\": \"Cozinha\"\n            }\n        ],\n        \"imagensEntityList\": [\n    {\n        \"id_imagens\": 7,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 8,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://rb.gy/dgidkn\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 9,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/d8GlKzy\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 10,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/X8GlXF0\",\n        \"produtosEntity\": null\n    },\n    {\n        \"id_imagens\": 11,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/Z8GlNtl\",\n        \"produtosEntity\": null\n    }\n],\n        \"categoriasEntity\": {\n            \"id_categorias\": 4,\n            \"descricao\": \"Cama e café da manhã\",\n            \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F01%2F23%2F23%2F55%2Fbreakfast-in-bed-1158270_960_720.jpg&f=1&nofb=1&ipt=3be7be28c18d310a5bb9d616fa9b48ac157c024e8754ccb60f3a79e1a009e62a&ipo=images\",\n            \"produtosEntityList\": []\n        },\n        \"cidadesEntity\": {\n            \"id_cidades\": 4031,\n            \"nome\": \"Gramado\",\n            \"pais\": \"Brasil\",\n            \"sigla\": \"RS\",\n            \"produtosEntityList\": []\n        },\n    \"reservasEntity\": {\n        \"id_reservas\": 2,\n        \"hora_inicio_reserva\": \"08:31:00\",\n        \"data_inicial_reserva\": \"2023-03-30\",\n        \"data_final_reserva\": \"2023-04-03\"\n        }\n    }"
+							"raw": "    {\n        \"nome\": \"Brasília Hotel\",\n        \"descricao\": \"A Brasília Hotel foi idealizada especialmente para pessoas de bom gosto que visitam a cidade de São Paulo, a negócios ou a lazer, e buscam um ambiente reservado com Conforto, Segurança e Qualidade.\",\n        \"pontuacao\": \"8\",\n        \"facilidades\": \"Cozinha, Televisor, Ar condicionado, Piscina, pets\",\n        \"localMapa\": \"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53615.66699284024!2d-96.79655671481304!3d32.87227009118753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f85c3952ac3%3A0x7d3547b9a792e7d4!2sWalmart%20Supercenter!5e0!3m2!1sen!2sbr!4v1678239148968!5m2!1sen!2sbr\",\n        \"distancia\": \"a 940 m do centro\",\n        \"linkMapa\": \"https://www.booking.com/hotel/br/hostelaria-sp.en-gb.html?aid=393655&label=msn-NHCmPWc6m4avlvplRi*qFg-80539240583430%3Atikwd-16659121813%3Aloc-20%3Anes%3Amte%3Alp147459%3Adec%3Aqshostel&sid=ad76bc39f22f8bbe3bc4d513161e39ec&dest_id=-671824&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=2&hpos=2&nflt=sth%3D4&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1677459493&srpvid=c08806d286a80177&type=total&ucfs=1&activeTab=main#map_opened-hotel_header\",\n        \"comentarios\": \"muito bom\",\n        \"verMais\": \"https://www.hilton.com/en/hotels/bnadudt-doubletree-nashville-downtown/?SEO_id=GMB-AMER-DH-BNADUDT&y_source=1_MTM3MjU2Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D\",\n        \"caracteristicasEntityList\": [\n            {\n                \"id_caracteristicas\": 1,\n                \"nome\": \"Cozinha\",\n                \"icone\": \"Cozinha\"\n            },\n            {\n                \"id_caracteristicas\": 2,\n                \"nome\": \"Televisor\",\n                \"icone\": \"Televisor\"\n            },\n            {\n                \"id_caracteristicas\": 4,\n                \"nome\": \"Ar condicionado\",\n                \"icone\": \"Ar condicionado\"\n            }\n        ],\n        \"imagensEntityList\": [\n    {\n        \"id_imagens\": 6,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\"\n    },\n    {\n        \"id_imagens\": 7,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://rb.gy/dgidkn\"\n    },\n    {\n        \"id_imagens\": 8,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/d8GlKzy\"\n    },\n    {\n        \"id_imagens\": 9,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/X8GlXF0\"\n    },\n    {\n        \"id_imagens\": 10,\n        \"titulo\": \"Hostels\",\n        \"url\": \"https://cutt.ly/Z8GlNtl\"\n    }\n        ],\n        \"categoriasEntity\": {\n        \"id_categorias\": 1,\n        \"descricao\": \"Hotéis\",\n        \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.corinthia.com%2Fmedia%2F1563%2Fcorinthia-lisbon-deluxe-king-bedroom.jpg&f=1&nofb=1&ipt=0d0842f3e887b1bfd8a82d2ebc3633acac094bad75534497c67288734289559a&ipo=images\",\n            \"produtosEntityList\": []\n        },\n        \"cidadesEntity\": {\n        \"id_cidades\": 882,\n        \"nome\": \"Brasília\",\n        \"pais\": \"Brasil\",\n        \"sigla\": \"DF\",\n            \"produtosEntityList\": []\n        },\n        \"reservasEntity\": []\n    }"
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/register",
+							"raw": "{{SuaViagemAWS}}/product/register",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"product",
@@ -1127,9 +1172,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/findAll",
+							"raw": "{{SuaViagemAWS}}/product/findAll",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"product",
@@ -1160,13 +1205,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/3",
+							"raw": "{{SuaViagemAWS}}/product/2",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"product",
-								"3"
+								"2"
 							]
 						}
 					},
@@ -1193,14 +1238,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/findByCategory/Cama e café da manhã",
+							"raw": "{{SuaViagemAWS}}/product/findByCategory/Hostels",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"product",
 								"findByCategory",
-								"Cama e café da manhã"
+								"Hostels"
 							]
 						}
 					},
@@ -1227,9 +1272,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/findByCidades/São Paulo",
+							"raw": "{{SuaViagemAWS}}/product/findByCidades/São Paulo",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"product",
@@ -1261,9 +1306,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/findByCidadeAndDatas?cidade=São Paulo&dataInicial=2023-03-26&dataFinal=2023-04-04",
+							"raw": "{{SuaViagemAWS}}/product/findByCidadeAndDatas?cidade=São Paulo&dataInicial=2023-04-01&dataFinal=2023-04-05",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"product",
@@ -1276,11 +1321,11 @@
 								},
 								{
 									"key": "dataInicial",
-									"value": "2023-03-26"
+									"value": "2023-04-01"
 								},
 								{
 									"key": "dataFinal",
-									"value": "2023-04-04"
+									"value": "2023-04-05"
 								}
 							]
 						}
@@ -1297,7 +1342,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id_produtos\": 3,\r\n        \"nome\": \"Pousada Árvore Da Coruja\",\r\n        \"descricao\": \"Se você é uma pessoa de requinte e bom gosto e deseja passar momentos felizes ao lado de quem você gosta, não pode deixar de se hospedar em nossa Pousada. Oferecemos hospedagem com um delicioso café da manhã em ambiente familiar e tranqüilo, perto do centro (800 m), localizado num dos bairros mais nobres de Gramado.\",\r\n        \"pontuacao\": \"10\",\r\n        \"facilidades\": \"Wi-Fi, TV, Frigobar, Lareira, Ar-condicionado\",\r\n        \"localMapa\": \"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53615.66699284024!2d-96.79655671481304!3d32.87227009118753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f85c3952ac3%3A0x7d3547b9a792e7d4!2sWalmart%20Supercenter!5e0!3m2!1sen!2sbr!4v1678239148968!5m2!1sen!2sbr\",\r\n        \"distancia\": \"A 800 m do centro\",\r\n        \"linkMapa\": \"https://www.google.com/maps/place/Pousada+%C3%81rvore+da+Coruja/@-29.3867263,-50.8795637,15z/data=!4m2!3m1!1s0x0:0xf0d07c0b3d30dfc6?sa=X&ved=2ahUKEwjVoPr9ouH9AhXlCdQKHS3DAxkQ_BJ6BAhiEAc\",\r\n        \"comentarios\": \"excelente\",\r\n        \"verMais\": \"https://www.pousadaarvoredacoruja.com.br/web/quartos/\",\r\n        \"caracteristicasEntityList\": [\r\n            {\r\n                \"id_caracteristicas\": 1,\r\n                \"nome\": \"Cozinha\",\r\n                \"icone\": \"Cozinha\"\r\n            },\r\n            {\r\n                \"id_caracteristicas\": 2,\r\n                \"nome\": \"Televisor\",\r\n                \"icone\": \"Televisor\"\r\n            }\r\n        ],\r\n        \"imagensEntityList\": [\r\n\t\t{\r\n        \"id_imagens\": 23,\r\n        \"titulo\": \"Hotéis\",\r\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id_imagens\": 24,\r\n\t\t\t\"titulo\": \"Hotéis\",\r\n\t\t\t\"url\": \"https://rb.gy/dgidkn\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id_imagens\": 25,\r\n\t\t\t\"titulo\": \"Hotéis\",\r\n\t\t\t\"url\": \"https://cutt.ly/d8GlKzy\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id_imagens\": 26,\r\n\t\t\t\"titulo\": \"Hotéis\",\r\n\t\t\t\"url\": \"https://cutt.ly/X8GlXF0\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id_imagens\": 27,\r\n\t\t\t\"titulo\": \"Hotéis\",\r\n\t\t\t\"url\": \"https://cutt.ly/Z8GlNtl\"\r\n\t\t}\r\n\t\t],\r\n        \"categoriasEntity\": {\r\n            \"id_categorias\": 1,\r\n            \"descricao\": \"Hotéis\",\r\n            \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.corinthia.com%2Fmedia%2F1563%2Fcorinthia-lisbon-deluxe-king-bedroom.jpg&f=1&nofb=1&ipt=0d0842f3e887b1bfd8a82d2ebc3633acac094bad75534497c67288734289559a&ipo=images\",\r\n            \"produtosEntityList\": []\r\n        },\r\n        \"cidadesEntity\": {\r\n            \"id_cidades\": 4031,\r\n            \"nome\": \"Gramado\",\r\n            \"pais\": \"Brasil\",\r\n            \"sigla\": \"RS\",\r\n            \"produtosEntityList\": []\r\n        },        \r\n\t\t\"reservasEntity\": {\r\n\t\t\t\"id_reservas\": 9,\r\n\t\t\t\"horaInicial\": \"12:00:00\",\r\n\t\t\t\"dataInicial\": \"2023-07-01T00:00:00.000-03:00\",\r\n\t\t\t\"dataFinal\": \"2023-07-15T00:00:00.000-03:00\",\r\n            \"produtosEntityList\": []\r\n        }\r\n\t\t\r\n    }",
+							"raw": "{\r\n    \"id_produtos\": 1,\r\n    \"nome\": \"Hostelaria SP Boutique\",\r\n    \"descricao\": \"A HostelariaSP foi idealizada especialmente para pessoas de bom gosto que visitam a cidade de São Paulo, a negócios ou a lazer, e buscam um ambiente reservado com Conforto, Segurança e Qualidade.\",\r\n    \"pontuacao\": \"8\",\r\n    \"facilidades\": \"Cozinha, Televisor, Ar condicionado, Piscina, pets\",\r\n    \"localMapa\": \"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53615.66699284024!2d-96.79655671481304!3d32.87227009118753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f85c3952ac3%3A0x7d3547b9a792e7d4!2sWalmart%20Supercenter!5e0!3m2!1sen!2sbr!4v1678239148968!5m2!1sen!2sbr\",\r\n    \"distancia\": \"a 940 m do centro\",\r\n    \"linkMapa\": \"https://www.booking.com/hotel/br/hostelaria-sp.en-gb.html?aid=393655&label=msn-NHCmPWc6m4avlvplRi*qFg-80539240583430%3Atikwd-16659121813%3Aloc-20%3Anes%3Amte%3Alp147459%3Adec%3Aqshostel&sid=ad76bc39f22f8bbe3bc4d513161e39ec&dest_id=-671824&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=2&hpos=2&nflt=sth%3D4&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1677459493&srpvid=c08806d286a80177&type=total&ucfs=1&activeTab=main#map_opened-hotel_header\",\r\n    \"comentarios\": \"muito bom\",\r\n    \"verMais\": \"https://www.hilton.com/en/hotels/bnadudt-doubletree-nashville-downtown/?SEO_id=GMB-AMER-DH-BNADUDT&y_source=1_MTM3MjU2Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D\",\r\n    \"caracteristicasEntityList\": [\r\n        {\r\n            \"id_caracteristicas\": 1,\r\n            \"nome\": \"Cozinha\",\r\n            \"icone\": \"Cozinha\"\r\n        },\r\n        {\r\n            \"id_caracteristicas\": 2,\r\n            \"nome\": \"Televisor\",\r\n            \"icone\": \"Televisor\"\r\n        },\r\n        {\r\n            \"id_caracteristicas\": 4,\r\n            \"nome\": \"Ar condicionado\",\r\n            \"icone\": \"Ar condicionado\"\r\n        }\r\n    ],\r\n    \"imagensEntityList\": [\r\n        {\r\n        \"id_imagens\": 48,\r\n        \"titulo\": \"Hostels\",\r\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\"\r\n    },\r\n    {\r\n        \"id_imagens\": 49,\r\n        \"titulo\": \"Hostels\",\r\n        \"url\": \"https://rb.gy/dgidkn\"\r\n    },\r\n    {\r\n        \"id_imagens\": 50,\r\n        \"titulo\": \"Hostels\",\r\n        \"url\": \"https://cutt.ly/d8GlKzy\"\r\n    },\r\n    {\r\n        \"id_imagens\": 51,\r\n        \"titulo\": \"Hostels\",\r\n        \"url\": \"https://cutt.ly/X8GlXF0\"\r\n    },\r\n    {\r\n        \"id_imagens\": 52,\r\n        \"titulo\": \"Hostels\",\r\n        \"url\": \"https://cutt.ly/Z8GlNtl\"\r\n    }\r\n    ],\r\n    \"categoriasEntity\": {\r\n        \"id_categorias\": 2,\r\n        \"descricao\": \"Hostels\",\r\n        \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fboulder.a-lodge.com%2Fwp-content%2Fuploads%2FLodging_Youth_Hostile_Gallery_2_Desktop.jpg&f=1&nofb=1&ipt=50b0408c85160c742cda249210126f47b2bc47138b404be23f7bca932e21f8bc&ipo=images\",\r\n        \"produtosEntityList\": []\r\n    },\r\n    \"cidadesEntity\": {\r\n        \"id_cidades\": 5270,\r\n        \"nome\": \"São Paulo\",\r\n        \"pais\": \"Brasil\",\r\n        \"sigla\": \"SP\",\r\n        \"produtosEntityList\": []\r\n    },\r\n    \"reservasEntity\": [\r\n        {\r\n            \"id_reservas\": 23,\r\n            \"horaInicial\": \"08:00:00\",\r\n            \"dataInicial\": \"2023-04-01T00:00:00.000-03:00\",\r\n            \"dataFinal\": \"2023-04-05T00:00:00.000-03:00\"\r\n        },\r\n        {\r\n            \"id_reservas\": 26,\r\n            \"horaInicial\": \"14:00:00\",\r\n            \"dataInicial\": \"2023-04-20T00:00:00.000-03:00\",\r\n            \"dataFinal\": \"2023-04-21T00:00:00.000-03:00\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1305,13 +1350,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/3",
+							"raw": "{{SuaViagemAWS}}/product/1",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"product",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -1326,13 +1371,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/product/6",
+							"raw": "{{SuaViagemAWS}}/product/5",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"product",
-								"6"
+								"5"
 							]
 						}
 					},

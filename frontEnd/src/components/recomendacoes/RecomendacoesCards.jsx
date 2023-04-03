@@ -23,12 +23,11 @@ export function RecomendacoesCards() {
 
   const {hotelPorCidade, changeHotelPorCidade } = useHotelFilterCidade()
 
-  console.log(hotelPorCidade)
 
   React.useEffect(() => {
     async function fetchData() {
 
-      const response = await fetch(`http://localhost:8081/category/findAll/`)
+      const response = await fetch(`http://3.140.210.50:8081/category/findAll/`)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -43,7 +42,7 @@ export function RecomendacoesCards() {
   React.useEffect(() => {
     async function fetchData() {
 
-      const response = await fetch(`http://localhost:8081/product/findAll/`)
+      const response = await fetch(`http://3.140.210.50:8081/product/findAll/`)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
