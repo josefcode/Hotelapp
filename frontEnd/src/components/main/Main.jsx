@@ -60,8 +60,8 @@ export default function Main() {
     fetchData()
   }, []);
 
-const formattedStartDate = moment(startDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
-const formattedEndDate = moment(endDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
+// const formattedStartDate = moment(startDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
+// const formattedEndDate = moment(endDate, 'DD/MM/YYYY').format('YYYY-MM-DD');
 
 const urlCidadeData = `http://3.140.210.50:8081/product/findByCidadeAndDatas?cidade=${cidadeValue}&dataInicial=${startDate}&dataFinal=${endDate}`
 const urlCidade = `http://3.140.210.50:8081/product/findByCidades/${cidadeValue}`

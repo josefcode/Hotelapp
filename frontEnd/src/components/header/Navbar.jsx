@@ -21,7 +21,6 @@ export default function Navbar() {
     navigate(-1);
   };
 
-  console.log(detalesDoAvatar)
 
   const { nome , sobrenome } = detalesDoAvatar || {}
 

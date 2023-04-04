@@ -24,7 +24,7 @@ export default function UserAvatar() {
         try {
           const response = await fetch(`http://3.140.210.50:8081/user/${token || tokenLocalStorage}`);
           const userData = await response.json();
-           console.log(userData)
+
           const {nome, sobrenome, email, userRoles} = userData
           // Atualiza os valores dos inputs com os dados da resposta
           setUserData({
