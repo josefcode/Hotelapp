@@ -14,7 +14,7 @@ public class CaracteristicasEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_caracteristicas", nullable = false)
-    private int id_caracteristicas;
+    private Integer id_caracteristicas;
 
     @Column(nullable=false)
     private String nome;
@@ -35,11 +35,11 @@ public class CaracteristicasEntity {
         this.icone = caracteristicasDTO.getIcone();
     }
 
-    public int getId_caracteristicas() {
+    public Integer getId_caracteristicas() {
         return id_caracteristicas;
     }
 
-    public void setId_caracteristicas(int id_caracteristicas) {
+    public void setId_caracteristicas(Integer id_caracteristicas) {
         this.id_caracteristicas = id_caracteristicas;
     }
 

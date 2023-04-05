@@ -8,7 +8,7 @@ import javax.persistence.Column;
 public class CaracteristicasDTO {
 
     @Column(nullable=false)
-    private int id_caracteristicas;
+    private Integer id_caracteristicas;
 
     @Column(nullable=false)
     private String nome;
@@ -25,11 +25,11 @@ public class CaracteristicasDTO {
         this.icone = caracteristicasEntity.getIcone();
     }
 
-    public int getId_caracteristicas() {
+    public Integer getId_caracteristicas() {
         return id_caracteristicas;
     }
 
-    public void setId_caracteristicas(int id_caracteristicas) {
+    public void setId_caracteristicas(Integer id_caracteristicas) {
         this.id_caracteristicas = id_caracteristicas;
     }
 

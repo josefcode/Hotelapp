@@ -44,11 +44,18 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
 
         List<CaracteristicasEntity> caracteristicasEntities = produtosDTO.getCaracteristicasEntityList().stream()
                 .map(caracteristica -> {
-                    try {
-                        return iCaracteristicasRepository.findById(caracteristica.getId_caracteristicas())
-                                .orElseThrow(() -> new NotFoundException("Caracteristicas não encontradas"));
-                    } catch (NotFoundException e) {
-                        throw new RuntimeException(e);
+                    if (caracteristica.getId_caracteristicas() != null) {
+                        try {
+                            return iCaracteristicasRepository.findById(caracteristica.getId_caracteristicas())
+                                    .orElseThrow(() -> new NotFoundException("Caracteristicas não encontradas"));
+                        } catch (NotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else {
+                        CaracteristicasEntity novaCaracteristica = new CaracteristicasEntity();
+                        novaCaracteristica.setNome(caracteristica.getNome()); // definir outras propriedades da nova caracteristica aqui
+                        novaCaracteristica.setIcone(caracteristica.getIcone()); // definir outras propriedades da nova caracteristica aqui
+                        return iCaracteristicasRepository.save(novaCaracteristica);
                     }
                 })
                 .collect(Collectors.toList());
@@ -56,11 +63,18 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
 
         List<ImagensEntity> imagensEntityList = produtosDTO.getImagensEntityList().stream()
                 .map(imagens -> {
-                    try {
-                        return iImagensRespository.findById(imagens.getId_imagens())
-                                .orElseThrow(() -> new NotFoundException("Imagens não encontradas"));
-                    } catch (NotFoundException e) {
-                        throw new RuntimeException(e);
+                    if (imagens.getId_imagens() != null) {
+                        try {
+                            return iImagensRespository.findById(imagens.getId_imagens())
+                                    .orElseThrow(() -> new NotFoundException("Imagens não encontradas"));
+                        } catch (NotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else {
+                        ImagensEntity novaImagem = new ImagensEntity();
+                        novaImagem.setUrl(imagens.getUrl()); // definir outras propriedades da nova imagem aqui
+                        novaImagem.setTitulo(imagens.getTitulo()); // definir outras propriedades da nova imagem aqui
+                        return iImagensRespository.save(novaImagem);
                     }
                 })
                 .collect(Collectors.toList());
