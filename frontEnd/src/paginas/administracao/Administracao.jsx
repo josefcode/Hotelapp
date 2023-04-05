@@ -91,7 +91,6 @@ export default function Administracao() {
             }
         })
 
-        
     }
 
     React.useEffect(() => {
@@ -118,46 +117,62 @@ export default function Administracao() {
              throw new Error(`HTTP error! status: ${response.status}`);
            }
             const data = await response.json()
-           console.log(data)
             setProduto(data)
-
          }
        fetchData()
      }, []);
-
+     
      function handleSubmit(e){
         e.preventDefault()
         const body = {
-            nome : nomeProduto,
-            descricao,
-            pontuacao,
-            facilidades:"",
-            localMapa,
+            nome: nomeProduto,
+            descricao: descricao,
+            pontuacao: pontuacao,
+            facilidades:"teste",
+            localMapa: localMapa,
             distancia: endereco,
-            linkMapa:"",
-            comentarios,
-            verMais: "",
-            caracteristicasEntityList: caracteristicas,
-            imagensEntityList: image,
+            linkMapa:"teste",
+            comentarios: comentarios,
+            verMais: "teste",
+            caracteristicasEntityList: [],
+            imagensEntityList: [],
             categoriasEntity:{
-                descricao: categoriaValue,
-                url_imagem: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.corinthia.com%2Fmedia%2F1563%2Fcorinthia-lisbon-deluxe-king-bedroom.jpg&f=1&nofb=1&ipt=0d0842f3e887b1bfd8a82d2ebc3633acac094bad75534497c67288734289559a&ipo=images",
-                },
-            cidadesEntity: {
-                    nome: cidade,
-                    pais,
-                    sigla,
-                    },
-            politicasCancelamento,
-            saudeSeguranca,
-            normasCasa
+                 id_categorias: 1,
+                 descricao: categoriaValue,
+                 url_imagem: "teste",
+                 },
+             cidadesEntity: {
+                 id_cidades: 882,
+                 nome: cidade,
+                 pais: pais,
+                 sigla: sigla
+                 },
+            reservasEntity: [],
+            politicasCancelamento: politicasCancelamento,
+            saudeSegurança: saudeSeguranca,
+            normasCasa: normasCasa
         }
-       
-    
-        setConfirm(true)
-     }
 
+        console.log(body, caracteristicas)
 
+        fetch('http://localhost:8081/product/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            setConfirm(true)
+            alert('Produto OK!');
+          })
+          .catch(error => {
+            alert('Não foi possível cadastrar o produto. Tente novamente mais tarde.');
+          });
+ }
 
   return (
  <div>
@@ -334,7 +349,6 @@ export default function Administracao() {
                    <label htmlFor='caracteristicas'>Caracteristicas: 🛀, 🏊🏼‍♀️, 
                    {
                     caracteristicas.map((item, index) => {
-                    
                     return (
                          <div key = {index} className='image-container'>
                                 <div className="first-division">
@@ -344,7 +358,7 @@ export default function Administracao() {
                                     id="imagens"
                                     name='caracteristicas'
                                     type="text"
-                                    value = {item.caracteristicas}
+                                    value = {item.nome}
                                     onChange={(e) =>handleCaracteristicasChange(e, index)}
                                 />
                             
