@@ -17,12 +17,12 @@ export default function Administracao() {
     const [cidadeSelecionada, setCidadeSelecionada] = React.useState(null);
     const [formData, setFormData] = React.useState(
         {
-            nomeProduto: "",
-            categoriaValue: "",
-            endereco: "",
-            cidade: "",
-            pais: '',
-            sigla: '',
+            nomeProduto: "", 
+            categoriaValue: "", 
+            endereco: "", 
+            cidade: "", 
+            // pais: '',
+            // sigla: '',
             descricao: "",
             normasCasa: '',
             saudeSeguranca: '',
@@ -34,20 +34,28 @@ export default function Administracao() {
         }
     )
 
-    const { nomeProduto, categoriaValue, endereco, cidade, pais, sigla, saudeSeguranca, normasCasa, politicasCancelamento, pontuacao, localMapa, comentarios, descricao } = formData
-
-    const [image, setImage] = React.useState([
-        { url: "" }
+    const {nomeProduto, categoriaValue , endereco, cidade,  saudeSeguranca, normasCasa, politicasCancelamento, pontuacao, localMapa, comentarios, descricao} = formData
+    
+    const [image, setImage ] = React.useState([
+        {
+        url: ""
+        }
     ])
 
-    const [caracteristicas, setCaracteristicas] = React.useState([
-        { caracteristicas: "" }
+  
+
+    const [caracteristicas, setCaracteristicas ] = React.useState([
+        {
+        nome: ""
+        }
     ])
 
-    function handleAddCaracteristicas() {
-        setCaracteristicas([...caracteristicas, { caracteristicas: "" }])
-    }
-    function handleRemoveCaracteristicas(index) {
+    function handleAddCaracteristicas(){
+        
+        setCaracteristicas([...caracteristicas, {nome: ""}])
+       }
+
+    function handleRemoveCaracteristicas(index){
         const list = [...caracteristicas]
         list.splice(index, 1);
 
@@ -70,15 +78,17 @@ export default function Administracao() {
         const list = [...image]
         list.splice(index, 1);
 
-        setImage(list)
-    }
-
-    function handleImageChange(e, index) {
-        const { name, value } = e.target
-        const list = [...image]
-        list[index][name] = value;
-        setImage(list)
-    }
+    setImage(list)
+   }
+    
+   function handleImageChange(e, index) {
+    
+    const {name, value} = e.target
+ 
+    const list = [...image]
+    list[index][name] = value;
+    setImage(list)
+   }
 
     function handleChange(event) {
         const { name, value, type, checked } = event.target
@@ -152,8 +162,8 @@ export default function Administracao() {
             linkMapa: "teste",
             comentarios: comentarios,
             verMais: "teste",
-            caracteristicasEntityList: [],
-            imagensEntityList: [],
+            caracteristicasEntityList: caracteristicas,
+            imagensEntityList: image,
             categoriasEntity: categoriaSelecionada,
             cidadesEntity: cidadeSelecionada,
             reservasEntity: [],
@@ -162,9 +172,9 @@ export default function Administracao() {
             normasCasa: normasCasa
         }
 
-        console.log(body)
+        console.log(body, caracteristicas, image)
 
-        fetch('http://localhost:8081/product/register', {
+        fetch('http://3.140.210.50:8081/product/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -321,7 +331,7 @@ export default function Administracao() {
                         <h3>Adicionar atributos</h3>
 
                         <div className='adicionar-atributos'>
-                            <label htmlFor='caracteristicas'>Caracteristicas: 🛀, 🏊🏼‍♀️,
+                            <label htmlFor='nome'>Caracteristicas: 🛀, 🏊🏼‍♀️,
                                 {
                                     caracteristicas.map((item, index) => {
                                         return (
@@ -330,8 +340,8 @@ export default function Administracao() {
                                                     <input
                                                         className='input image'
                                                         required
-                                                        id="imagens"
-                                                        name='caracteristicas'
+                                                        id="nome"
+                                                        name='nome'
                                                         type="text"
                                                         value={item.nome}
                                                         onChange={(e) => handleCaracteristicasChange(e, index)}
