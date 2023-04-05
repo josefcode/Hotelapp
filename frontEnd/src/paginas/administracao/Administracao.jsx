@@ -41,13 +41,17 @@ export default function Administracao() {
         {url: ""}
     ])
 
+  
+
     const [caracteristicas, setCaracteristicas ] = React.useState([
-        {caracteristicas: ""}
+        {nome: ""}
     ])
 
     function handleAddCaracteristicas(){
-        setCaracteristicas([...caracteristicas, {caracteristicas: ""}])
+        
+        setCaracteristicas([...caracteristicas, {nome: ""}])
        }
+
     function handleRemoveCaracteristicas(index){
         const list = [...caracteristicas]
         list.splice(index, 1);
@@ -75,7 +79,9 @@ export default function Administracao() {
    }
     
    function handleImageChange(e, index) {
+    
     const {name, value} = e.target
+ 
     const list = [...image]
     list[index][name] = value;
     setImage(list)
@@ -138,16 +144,12 @@ export default function Administracao() {
             verMais: "teste",
             caracteristicasEntityList: [],
             imagensEntityList: [],
-            categoriasEntity:{
-                 id_categorias: 1,
-                 descricao: categoriaValue,
-                 url_imagem: "teste",
-                 },
+            categoriasEntity:[],
              cidadesEntity: {
                  id_cidades: 882,
                  nome: cidade,
-                 pais: pais,
-                 sigla: sigla
+                //  pais: pais,
+                //  sigla: sigla
                  },
             reservasEntity: [],
             politicasCancelamento: politicasCancelamento,
@@ -155,7 +157,7 @@ export default function Administracao() {
             normasCasa: normasCasa
         }
 
-        console.log(body, caracteristicas)
+        console.log(body, caracteristicas, image)
 
         fetch('http://localhost:8081/product/register', {
             method: 'POST',
@@ -346,17 +348,18 @@ export default function Administracao() {
                 <h3>Adicionar atributos</h3>
 
                    <div className='adicionar-atributos'>
-                   <label htmlFor='caracteristicas'>Caracteristicas: 🛀, 🏊🏼‍♀️, 
+                   <label htmlFor='nome'>Caracteristicas: 🛀, 🏊🏼‍♀️, 
                    {
                     caracteristicas.map((item, index) => {
+                        console.log(item.nome)
                     return (
                          <div key = {index} className='image-container'>
                                 <div className="first-division">
                                 <input
                                     className='input image'
                                     required
-                                    id="imagens"
-                                    name='caracteristicas'
+                                    id="nome"
+                                    name='nome'
                                     type="text"
                                     value = {item.nome}
                                     onChange={(e) =>handleCaracteristicasChange(e, index)}
