@@ -13,16 +13,12 @@ public class CaracteristicasDTO {
     @Column(nullable=false)
     private String nome;
 
-    @Column(nullable=true)
-    private String icone;
-
     public CaracteristicasDTO() {
     }
 
     public CaracteristicasDTO(CaracteristicasEntity caracteristicasEntity) {
         this.id_caracteristicas = caracteristicasEntity.getId_caracteristicas();
         this.nome = caracteristicasEntity.getNome();
-        this.icone = caracteristicasEntity.getIcone();
     }
 
     public Integer getId_caracteristicas() {
@@ -39,13 +35,5 @@ public class CaracteristicasDTO {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getIcone() {
-        return icone;
-    }
-
-    public void setIcone(String icone) {
-        this.icone = icone;
     }
 }

@@ -19,9 +19,6 @@ public class CaracteristicasEntity {
     @Column(nullable=false)
     private String nome;
 
-    @Column(nullable=true)
-    private String icone;
-
     @ManyToMany(mappedBy="caracteristicasEntityList")
     @JsonIgnore
     private List<ProdutosEntity> produtosEntityList = new ArrayList<>();
@@ -32,7 +29,6 @@ public class CaracteristicasEntity {
     public CaracteristicasEntity(CaracteristicasDTO caracteristicasDTO) {
         this.id_caracteristicas = caracteristicasDTO.getId_caracteristicas();
         this.nome = caracteristicasDTO.getNome();
-        this.icone = caracteristicasDTO.getIcone();
     }
 
     public Integer getId_caracteristicas() {
@@ -57,13 +53,5 @@ public class CaracteristicasEntity {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getIcone() {
-        return icone;
-    }
-
-    public void setIcone(String icone) {
-        this.icone = icone;
     }
 }

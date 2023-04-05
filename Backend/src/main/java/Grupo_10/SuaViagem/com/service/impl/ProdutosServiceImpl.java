@@ -54,7 +54,6 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
                     } else {
                         CaracteristicasEntity novaCaracteristica = new CaracteristicasEntity();
                         novaCaracteristica.setNome(caracteristica.getNome()); // definir outras propriedades da nova caracteristica aqui
-                        novaCaracteristica.setIcone(caracteristica.getIcone()); // definir outras propriedades da nova caracteristica aqui
                         return iCaracteristicasRepository.save(novaCaracteristica);
                     }
                 })
@@ -73,7 +72,6 @@ public class ProdutosServiceImpl implements IService<ProdutosDTO> {
                     } else {
                         ImagensEntity novaImagem = new ImagensEntity();
                         novaImagem.setUrl(imagens.getUrl()); // definir outras propriedades da nova imagem aqui
-                        novaImagem.setTitulo(imagens.getTitulo()); // definir outras propriedades da nova imagem aqui
                         return iImagensRespository.save(novaImagem);
                     }
                 })
