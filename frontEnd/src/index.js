@@ -38,7 +38,7 @@ root.render(
       <Route path="/detaile-produto/:id" element={<DetaleProduto />}  />
       <Route path="detaile-produto/:id/reserva" element={<Reserva />}  />
       <Route path="/administracao" element={<Administracao />}  />
-      <Route path="/:nome/reservas" element={<UserReservas />} />
+      <Route path="/:idUser/reservas" element={<UserReservas />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
 </Routes>
