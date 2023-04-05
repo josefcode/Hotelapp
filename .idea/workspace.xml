@@ -11,6 +11,13 @@
   <component name="ChangeListManager">
     <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Postman/Grupo_10_SuaViagem.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Postman/Grupo_10_SuaViagem.postman_collection.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/CaracteristicasEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/CaracteristicasEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/CaracteristicasDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/CaracteristicasDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/ImagensDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/DTO/ImagensDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/ImagensEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/model/entity/ImagensEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/ProdutosServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/ProdutosServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontEnd/src/paginas/administracao/Administracao.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/paginas/administracao/Administracao.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

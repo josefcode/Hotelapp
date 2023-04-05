@@ -12,10 +12,6 @@ public class ImagensEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_imagens", nullable = false)
     private Integer id_imagens;
-
-    @Column(nullable=false)
-    private String titulo;
-
     @Column(nullable=false)
     private String url;
 
@@ -28,7 +24,6 @@ public class ImagensEntity {
 
     public ImagensEntity(ImagensDTO imagensDTO) {
         this.id_imagens = imagensDTO.getId_imagens();
-        this.titulo = imagensDTO.getTitulo();
         this.url = imagensDTO.getUrl();
         this.produtosEntity = imagensDTO.getProdutosEntity();
     }
@@ -47,14 +42,6 @@ public class ImagensEntity {
 
     public void setId_imagens(Integer id_imagens) {
         this.id_imagens = id_imagens;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 
     public String getUrl() {

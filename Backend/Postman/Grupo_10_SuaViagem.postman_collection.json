@@ -21,7 +21,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"Marcelo\",\n    \"sobrenome\": \"Garofalo\",\n    \"email\": \"marcelo_mbg@hotmail.com\",\n    \"senha\": \"12345678\",\n    \"userRoles\": \"ROLE_ADMIN\",\n    \"funcoesEntity\": {\n        \"id\": 1,\n        \"nome\": \"Usuário ADMIN\"\n    }    \n}"
+							"raw": "{\n    \"nome\": \"Junior\",\n    \"sobrenome\": \"Souza\",\n    \"email\": \"js@example.com\",\n    \"senha\": \"1234567\",\n    \"userRoles\": \"ROLE_USER\",\n    \"funcoesEntity\": {\n        \"id_funcoes\": 2\n    }\n}\n"
 						},
 						"url": {
 							"raw": "{{SuaViagemAWS}}/user",
@@ -296,7 +296,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id_caracteristicas\": 5,\n    \"nome\": \"Pets\",\n    \"icone\": \"Pets\"\n}"
+							"raw": "{\n    \"nome\": \"Pets\"\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagemAWS}}/caracteristicas/register",
@@ -448,7 +448,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "\r\n{\r\n    \"titulo\": \"Cama e café da manhã\",\r\n    \"url\": \"https://cutt.ly/Z8GlNtl\"\r\n}"
+							"raw": "{\r\n    \"url\": \"https://cutt.ly/Z8GlNtl\"\r\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagemAWS}}/imagens/register",
@@ -752,7 +752,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_funcoes\": 2,\r\n    \"nome\": \"Usuário Comum\"    \r\n}"
+							"raw": "{\r\n    \"nome\": \"Usuário Comum\"    \r\n}"
 						},
 						"url": {
 							"raw": "3.140.210.50:8081/funcoes/register",
@@ -1038,14 +1038,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagemAWS}}/reservas/findByIdUser/2",
+							"raw": "{{SuaViagemAWS}}/reservas/findByIdUser/1",
 							"host": [
 								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"reservas",
 								"findByIdUser",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -1136,7 +1136,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "    {\n        \"nome\": \"Belo Horizonte Cama e café da manhã\",\n        \"descricao\": \"A Belo Horizonte Cama e café da manhã foi idealizada especialmente para pessoas de bom gosto que visitam a cidade de Belo Horizonte, a negócios ou a lazer, e buscam um ambiente reservado com Conforto, Segurança e Qualidade.\",\n        \"pontuacao\": \"8\",\n        \"facilidades\": \"Televisor, Ar condicionado, Piscina, pets\",\n        \"localMapa\": \"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53615.66699284024!2d-96.79655671481304!3d32.87227009118753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f85c3952ac3%3A0x7d3547b9a792e7d4!2sWalmart%20Supercenter!5e0!3m2!1sen!2sbr!4v1678239148968!5m2!1sen!2sbr\",\n        \"distancia\": \"a 50 m do centro\",\n        \"linkMapa\": \"https://www.booking.com/hotel/br/hostelaria-sp.en-gb.html?aid=393655&label=msn-NHCmPWc6m4avlvplRi*qFg-80539240583430%3Atikwd-16659121813%3Aloc-20%3Anes%3Amte%3Alp147459%3Adec%3Aqshostel&sid=ad76bc39f22f8bbe3bc4d513161e39ec&dest_id=-671824&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=2&hpos=2&nflt=sth%3D4&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1677459493&srpvid=c08806d286a80177&type=total&ucfs=1&activeTab=main#map_opened-hotel_header\",\n        \"comentarios\": \"muito bom\",\n        \"verMais\": \"https://www.hilton.com/en/hotels/bnadudt-doubletree-nashville-downtown/?SEO_id=GMB-AMER-DH-BNADUDT&y_source=1_MTM3MjU2Mi03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D\",\n        \"caracteristicasEntityList\": [\n    {\n        \"id_caracteristicas\": 2,\n        \"nome\": \"Televisor\",\n        \"icone\": \"Televisor\"\n    },\n    {\n        \"id_caracteristicas\": 3,\n        \"nome\": \"Piscina\",\n        \"icone\": \"Piscina\"\n    },\n    {\n        \"id_caracteristicas\": 4,\n        \"nome\": \"Ar condicionado\",\n        \"icone\": \"Ar condicionado\"\n    },\n    {\n        \"id_caracteristicas\": 5,\n        \"nome\": \"Pets\",\n        \"icone\": \"Pets\"\n    }\n        ],\n        \"imagensEntityList\": [\n    {\n        \"id_imagens\": 16,\n        \"titulo\": \"Cama e café da manhã\",\n        \"url\": \"https://cf.bstatic.com/xdata/images/hotel/max1280x900/431820542.jpg?k=5726858389a94388310de50bf3c1af8d73a02c6690dc1f01184097cdb1efab51&o=&hp=1\"\n    },\n    {\n        \"id_imagens\": 17,\n        \"titulo\": \"Cama e café da manhã\",\n        \"url\": \"https://rb.gy/dgidkn\"\n    },\n    {\n        \"id_imagens\": 18,\n        \"titulo\": \"Cama e café da manhã\",\n        \"url\": \"https://cutt.ly/d8GlKzy\"\n    },\n    {\n        \"id_imagens\": 19,\n        \"titulo\": \"Cama e café da manhã\",\n        \"url\": \"https://cutt.ly/X8GlXF0\"\n    },\n    {\n        \"id_imagens\": 20,\n        \"titulo\": \"Cama e café da manhã\",\n        \"url\": \"https://cutt.ly/Z8GlNtl\"\n    }            \n        ],\n        \"categoriasEntity\": {\n        \"id_categorias\": 4,\n        \"descricao\": \"Cama e café da manhã\",\n        \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F01%2F23%2F23%2F55%2Fbreakfast-in-bed-1158270_960_720.jpg&f=1&nofb=1&ipt=3be7be28c18d310a5bb9d616fa9b48ac157c024e8754ccb60f3a79e1a009e62a&ipo=images\",\n            \"produtosEntityList\": []\n        },\n        \"cidadesEntity\": {\n        \"id_cidades\": 1630,\n        \"nome\": \"Belo Horizonte\",\n        \"pais\": \"Brasil\",\n        \"sigla\": \"MG\",\n            \"produtosEntityList\": []\n        },\n        \"reservasEntity\": [],\n        \"normasCasa\": \"Check-out: 12:00. Não é permitido festas. Não é permitido fumar.\",\n        \"politicasCancelamento\": \"As políticas de cancelamento e pré-pagamento variam de acordo com o tipo de acomodação. Verifique quais condições podem ser aplicadas a cada opção ao fazer sua seleção.\",\n        \"saudeSegurança\": \"Animais de estimação são permitidos. Encargos podem ser aplicáveis.\"\n    }"
+							"raw": "{\n    \"nome\": \"a\",\n    \"descricao\": \"a\",\n    \"pontuacao\": \"1\",\n    \"facilidades\": \"teste\",\n    \"localMapa\": \"a\",\n    \"distancia\": \"a\",\n    \"linkMapa\": \"teste\",\n    \"comentarios\": \"a\",\n    \"verMais\": \"teste\",\n    \"caracteristicasEntityList\": [\n        {\n            \"nome\": \"a\"\n        }\n    ],\n    \"imagensEntityList\": [\n        {\n            \"url\": \"a\"\n        }\n    ],\n    \"categoriasEntity\": {\n        \"id_categorias\": 1,\n        \"descricao\": \"Hotéis\",\n        \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.corinthia.com%2Fmedia%2F1563%2Fcorinthia-lisbon-deluxe-king-bedroom.jpg&f=1&nofb=1&ipt=0d0842f3e887b1bfd8a82d2ebc3633acac094bad75534497c67288734289559a&ipo=images\",\n        \"produtosEntityList\": []\n    },\n    \"cidadesEntity\": {\n        \"id_cidades\": 5270,\n        \"nome\": \"São Paulo\",\n        \"pais\": \"Brasil\",\n        \"sigla\": \"SP\",\n        \"produtosEntityList\": []\n    },\n    \"reservasEntity\": [],\n    \"politicasCancelamento\": \"a\",\n    \"saudeSegurança\": \"a\",\n    \"normasCasa\": \"a\"\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagemAWS}}/product/register",
@@ -1205,13 +1205,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagemAWS}}/product/2",
+							"raw": "{{SuaViagemAWS}}/product/3",
 							"host": [
 								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"product",
-								"2"
+								"3"
 							]
 						}
 					},

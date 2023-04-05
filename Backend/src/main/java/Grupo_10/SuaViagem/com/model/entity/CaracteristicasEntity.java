@@ -14,13 +14,10 @@ public class CaracteristicasEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_caracteristicas", nullable = false)
-    private int id_caracteristicas;
+    private Integer id_caracteristicas;
 
     @Column(nullable=false)
     private String nome;
-
-    @Column(nullable=true)
-    private String icone;
 
     @ManyToMany(mappedBy="caracteristicasEntityList")
     @JsonIgnore
@@ -32,14 +29,13 @@ public class CaracteristicasEntity {
     public CaracteristicasEntity(CaracteristicasDTO caracteristicasDTO) {
         this.id_caracteristicas = caracteristicasDTO.getId_caracteristicas();
         this.nome = caracteristicasDTO.getNome();
-        this.icone = caracteristicasDTO.getIcone();
     }
 
-    public int getId_caracteristicas() {
+    public Integer getId_caracteristicas() {
         return id_caracteristicas;
     }
 
-    public void setId_caracteristicas(int id_caracteristicas) {
+    public void setId_caracteristicas(Integer id_caracteristicas) {
         this.id_caracteristicas = id_caracteristicas;
     }
 
@@ -57,13 +53,5 @@ public class CaracteristicasEntity {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getIcone() {
-        return icone;
-    }
-
-    public void setIcone(String icone) {
-        this.icone = icone;
     }
 }
