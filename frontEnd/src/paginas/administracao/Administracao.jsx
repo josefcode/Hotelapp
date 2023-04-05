@@ -84,6 +84,8 @@ export default function Administracao() {
     function handleChange(event) {
         const {name, value, type, checked} = event.target
 
+
+        console.log(value)
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -154,7 +156,8 @@ export default function Administracao() {
         }
        
     
-        setConfirm(true)
+        // setConfirm(true)
+        console.log(body)
      }
 
 
@@ -194,10 +197,10 @@ export default function Administracao() {
                         <select 
                         id="categoriaValue" 
                         className = 'input'
-                        value={categoriaValue}
                         onChange={handleChange}
                         name="categoriaValue"
                             >
+                                 <option value = "">-- selecione uma opção --</option>
                                 {
                                     categoria.map(value => {
                                         const {descricao} = value
@@ -224,10 +227,10 @@ export default function Administracao() {
                 <select 
                         id="cidade" 
                         className = 'input'
-                        value={cidade}
                         onChange={handleChange}
                         name="cidade"
                             >
+                                  <option value = "">-- selecione uma opção --</option>
                                 {
                                     produto.map(cidade => {
                                         const { nome } = cidade
@@ -241,16 +244,13 @@ export default function Administracao() {
                 <select 
                         id="pais" 
                         className = 'input'
-                        value={cidade}
                         onChange={handleChange}
                         name="pais"
                             >
-                                {
-                                    produto.map((cidade, index) => {
-                                        const { pais } = cidade
-                                        return <option key = {index} value={pais}>{pais}</option>
-                                    })
-                                }
+
+                                <option value = "">-- selecione uma opção --</option>
+                                <option value = {produto[0]?.pais}>{produto[0]?.pais}</option>
+                         
 
                     </select>
                 </label>
@@ -258,10 +258,11 @@ export default function Administracao() {
                 <select 
                         id="sigla" 
                         className = 'input'
-                        value={cidade}
+                     
                         onChange={handleChange}
                         name="sigla"
                             >
+                                 <option value = "">-- selecione uma opção --</option>
                                 {
                                     produto.map(cidade => {
                                         const { sigla } = cidade
