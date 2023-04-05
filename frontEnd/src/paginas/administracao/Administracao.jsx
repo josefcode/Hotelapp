@@ -22,8 +22,8 @@ export default function Administracao() {
             categoriaValue: "", 
             endereco: "", 
             cidade: "", 
-            pais: '',
-            sigla: '',
+            // pais: '',
+            // sigla: '',
             descricao: "",
             normasCasa: '',
             saudeSeguranca: '',
@@ -35,7 +35,7 @@ export default function Administracao() {
         }
     )
 
-    const {nomeProduto, categoriaValue , endereco, cidade, pais, sigla, saudeSeguranca, normasCasa, politicasCancelamento, pontuacao, localMapa, comentarios, descricao} = formData
+    const {nomeProduto, categoriaValue , endereco, cidade,  saudeSeguranca, normasCasa, politicasCancelamento, pontuacao, localMapa, comentarios, descricao} = formData
     
     const [image, setImage ] = React.useState([
         {url: ""}
@@ -147,8 +147,8 @@ export default function Administracao() {
                 },
             cidadesEntity: {
                     nome: cidade,
-                    pais,
-                    sigla,
+                    // pais,
+                    // sigla,
                     },
             politicasCancelamento,
             saudeSeguranca,
@@ -240,7 +240,7 @@ export default function Administracao() {
 
                     </select>
                 </label>
-                <label htmlFor='pais'>pais:
+                {/* <label htmlFor='pais'>pais:
                 <select 
                         id="pais" 
                         className = 'input'
@@ -253,8 +253,8 @@ export default function Administracao() {
                          
 
                     </select>
-                </label>
-                <label htmlFor='sigla'>Sigla:
+                </label> */}
+                {/* <label htmlFor='sigla'>Sigla:
                 <select 
                         id="sigla" 
                         className = 'input'
@@ -271,7 +271,7 @@ export default function Administracao() {
                                 }
 
                     </select>
-                </label>
+                </label> */}
 
                 <label htmlFor='pontuacao'>Pontuacao:
                 <input 
