@@ -67,6 +67,7 @@ export function IniciaSessao() {
     event.preventDefault()
   };
 
+  
   return (
     <div className='iniciar-session-container'>
       <h1 className='iniciar-title'>Iniciar sessão</h1>
