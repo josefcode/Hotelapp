@@ -20,7 +20,20 @@
   font-size: 22px;
 }
 
+.sem-reservas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 10rem;
+    padding-block: 1rem;
+    gap:0.5rem;
+    
+}
 
+.sem-reservas-icon{
+    margin-bottom:20px;
+    
+}
 @media only screen and (max-width: 600px) {
   
 

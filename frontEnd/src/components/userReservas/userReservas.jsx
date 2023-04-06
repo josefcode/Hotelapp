@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import './styles.css'
 import { useLogin } from '../hooks/useLogin'
 import { CardProdutoReserva } from '../card-produto-reserva/cardProdutoReserva';
-
+import ContentPasteOffIcon from '@mui/icons-material/ContentPasteOff';
 
 export function UserReservas() {
 
@@ -24,6 +24,9 @@ export function UserReservas() {
     
     console.log(token)
     console.log(login)
+
+    //Usado para testar o if no lugar de reservas.
+    const teste = ''
     
     useEffect(() => {
         async function fetchReservasData() {
@@ -83,7 +86,11 @@ export function UserReservas() {
                 
             
             :
-            ""
+            <div className={"sem-reservas"}>
+                <ContentPasteOffIcon className={"sem-reservas-icon"}/>
+                <Link to={'/'}>HOME</Link>
+                <h5>Você ainda não fez nenhuma reserva</h5>
+            </div>
         }
         
         </main>
