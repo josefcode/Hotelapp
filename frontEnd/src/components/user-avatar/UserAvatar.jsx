@@ -128,14 +128,14 @@ export default function UserAvatar() {
   
      :
      <div className='avatar-container'>
-      <Link to={`/${id}/reservas`}>
+     
         <div className='avatar-image'>
             {nome?.charAt(0).toUpperCase()}
             {sobrenome?.charAt(0).toUpperCase()}
       
         </div>
       
-      </Link>
+
 
      <div className='avatar-text'>
          <span>Olá</span>
@@ -170,14 +170,15 @@ export default function UserAvatar() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple style = {{ textDecoration: 'none', color: '#082442'}}>
-          <EditIcon />
+        <MenuItem onClick={handleClose} disableRipple style = {{ textDecoration: 'none', color: '#0F5EA2'}}>
+        <Link to={`/${id}/reservas`} style = {{ textDecoration: 'none', color: '#0F5EA2', fontWeight: '700'}}>
+          <EditIcon style = {{color: '#0F5EA2'}}/>
           Reservas 
-       
+       </Link>
         </MenuItem>
         
           
-         {userRoles === 'ROLE_ADMIN' &&<MenuItem onClick={handleClose} disableRipple> <Link style = {{ textDecoration: 'none', color: '#082442'}}to = 'administracao'><FileCopyIcon /> ADMIN</Link>  </MenuItem>}
+         {userRoles === 'ROLE_ADMIN' &&<MenuItem onClick={handleClose} disableRipple> <Link style = {{ textDecoration: 'none', color: '#0F5EA2', fontWeight: '700'}}to = 'administracao'><FileCopyIcon style = {{color: '#0F5EA2'}}/> ADMIN</Link>  </MenuItem>}
        
       </StyledMenu>
       </div>
