@@ -12,11 +12,10 @@ export function UserReservas() {
     const {token, changeToken} = useToken()
     const [reservas, changeReservas] = useState()
     const [produtos, changeProdutos] = useState()
-    const navigate = useNavigate()
     const {login} = useLogin()
     const tokenLocalStorage = localStorage.getItem('token')
     const {idUser} = useParams()
-
+    
     const requestOptions = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token || tokenLocalStorage}` }
@@ -24,9 +23,10 @@ export function UserReservas() {
     
     console.log(token)
     console.log(login)
-
+    console.log(idUser)
+    
     //Usado para testar o if no lugar de reservas.
-    const teste = ''
+    /* const teste = '' */
     
     useEffect(() => {
         async function fetchReservasData() {
@@ -56,6 +56,30 @@ export function UserReservas() {
         fetchProdutosData()
 
     },[idUser]);
+
+    function dadosReserva(dados){
+        const lista = []
+        for (let i = 0; i < dados.reservasEntity.length ; i++) {
+                        
+            const element = dados.reservasEntity[i];
+            
+            if (element.idUser == idUser) {
+
+                lista.push({nome:dados.nome,
+                    img:dados.imagensEntityList[0].url,
+                    dataInicial:element.dataInicial,
+                    dataFinal:element.dataFinal,
+                    horaEntrada:element.horaInicial}
+                )
+
+                
+            }
+        }
+        return lista
+    }
+
+
+
     
     return (
         <main className='app-main'>
@@ -67,23 +91,25 @@ export function UserReservas() {
 
         </div>
         {
-            reservas? 
-                produtos.map((item, index) => {
+            reservas?
+                produtos.map((item) => {
                     console.log('kkkkkkkk')
-                    for (let i = 0; i < item.reservasEntity.length; i++) {
+                    const lista=dadosReserva(item)   
+                    console.log(lista)                 
+                    return(
                         
-                        const element = item.reservasEntity[i];
-                        if (element.idUser == idUser) {
-                            console.log(item.nome)
-                            return(
-                                <CardProdutoReserva key={index} dados={item} element={element} />
-                            )
-                        }
+                        lista.map((item2,index)=> (
+
+                            <CardProdutoReserva key={index} dados={item2}/>
+                        ))
                         
-                    }
+                    )
                 })
-                    
                 
+                
+
+                
+                    
             
             :
             <div className={"sem-reservas"}>
@@ -91,6 +117,8 @@ export function UserReservas() {
                 <Link to={'/'}>HOME</Link>
                 <h5>Você ainda não fez nenhuma reserva</h5>
             </div>
+
+            
         }
         
         </main>
