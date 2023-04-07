@@ -112,6 +112,14 @@ li:last-child > div{
   border-top: transparent;
 }
 
+.date-range-picker{
+  width:1500px !important;
+}
+
+
+/* .daterangepicker{
+  display: none !important;
+} */
 .loading {
   display: absolute;
   z-index: 1000;
@@ -125,6 +133,8 @@ li:last-child > div{
   animation: spin 1s ease-in-out infinite;
   margin-left: 10px;
 }
+
+
 
 @keyframes spin {
   to {
