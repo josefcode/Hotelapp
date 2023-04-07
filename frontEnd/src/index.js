@@ -17,6 +17,7 @@ import { TokenProvider } from './components/hooks/useToken';
 import { DatasProvider } from './components/hooks/useDatas';
 import { HotelFilterCidadeProvider } from './components/hooks/useHotelFilterCidade';
 import Administracao from './paginas/administracao/Administracao';
+import { UserReservas} from "./components/userReservas/userReservas"
 
 
 
@@ -37,6 +38,7 @@ root.render(
       <Route path="/detaile-produto/:id" element={<DetaleProduto />}  />
       <Route path="detaile-produto/:id/reserva" element={<Reserva />}  />
       <Route path="/administracao" element={<Administracao />}  />
+      <Route path="/:idUser/reservas" element={<UserReservas />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
 </Routes>

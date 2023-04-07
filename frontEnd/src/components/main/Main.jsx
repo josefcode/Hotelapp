@@ -128,9 +128,9 @@ const urlCidade = `http://3.140.210.50:8081/product/findByCidades/${cidadeValue}
                     </li>
                   )
                 })}
-              </ul>
+                </ul>
             )}
-          </div>
+            </div>
 
           <DateRangePicker
 
@@ -142,8 +142,8 @@ const urlCidade = `http://3.140.210.50:8081/product/findByCidades/${cidadeValue}
               //nós precisamos desse código não deleta por favor
 
             //   isInvalidDate: function(data){
-            //     var currDate = moment(data._d).format('YY-MM-DD');
-            //     return ["23-03-26" , "23-03-28"].indexOf(currDate) !== -1;
+                  //     var currDate = moment(data._d).format('YY-MM-DD');
+                  //     return ["23-03-26" , "23-03-28"].indexOf(currDate) !== -1;
             // },
               locale: {
                

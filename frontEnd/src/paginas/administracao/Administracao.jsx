@@ -245,7 +245,7 @@ export default function Administracao() {
                         </label>
 
 
-                        <label htmlFor='endereco'>Endereço:
+                        <label htmlFor='endereco'>Distância do centro:
                             <input
                                 className='input descrição'
                                 required
@@ -272,7 +272,7 @@ export default function Administracao() {
                             </select>
                         </label>
 
-                        <label htmlFor='pontuacao'>Pontuacao:
+                        <label htmlFor='pontuacao'>Pontuação:
                             <input
                                 id="pontuacao"
                                 className='input'
@@ -285,7 +285,7 @@ export default function Administracao() {
 
                         </label>
 
-                        <label htmlFor='localMapa'>local Google maps:
+                        <label htmlFor='localMapa'>Link mapa:
                             <input
                                 id="localMapa"
                                 className='input'
@@ -298,7 +298,7 @@ export default function Administracao() {
 
                         </label>
 
-                        <label htmlFor='comentarios'>Comentarios:
+                        <label htmlFor='comentarios'>Comentários:
                             <input
                                 id="comentarios"
                                 className='input '
@@ -331,7 +331,7 @@ export default function Administracao() {
                         <h3>Adicionar atributos</h3>
 
                         <div className='adicionar-atributos'>
-                            <label htmlFor='nome'>Caracteristicas: 🛀, 🏊🏼‍♀️,
+                            <label htmlFor='nome'>Características: 🛀, 🏊🏼‍♀️,
                                 {
                                     caracteristicas.map((item, index) => {
                                         return (
@@ -421,7 +421,7 @@ export default function Administracao() {
 
 
                     <div>
-                        <h4>Politicas do produto:</h4>
+                        <h4>Políticas do produto:</h4>
 
                         <div>
                             <label htmlFor='normasCasa'>Normas de casa: </label>

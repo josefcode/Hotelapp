@@ -1,0 +1,55 @@
+.app-main {
+    grid-area: main;
+    overflow-y: auto;
+    overflow-x: hidden; 
+  }
+
+
+.searchBox-container{
+  background-color: var( --searchBar-color);
+  padding-block: 10px;
+  padding-inline: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.searchBox-title {
+  text-align: center;
+  color: var(--text-color-header-footer);
+  font-size: 22px;
+}
+
+.sem-reservas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 10rem;
+    padding-block: 1rem;
+    gap:0.5rem;
+    
+}
+
+.sem-reservas-icon{
+    margin-bottom:20px;
+    
+}
+@media only screen and (max-width: 600px) {
+  
+
+  .searchBox-container{
+    padding-inline: 1rem;
+  }
+    .searchBox-form {
+        display: flex;
+        flex-direction: column;
+    }
+    .searchBox-btn{
+        width: 100%;
+    }
+
+    .daterangepicker .drp-calendar.left  {
+      border: none;
+    }
+
+}
