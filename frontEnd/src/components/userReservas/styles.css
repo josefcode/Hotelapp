@@ -4,7 +4,16 @@
     overflow-x: hidden; 
   }
 
+  .history-reserva-container {
 
+display: flex;
+justify-content: space-between;
+  }
+
+.history-reserva-title {
+  color: var(--text-color-header-footer);
+  font-size: 22px;
+}
 .searchBox-container{
   background-color: var( --searchBar-color);
   padding-block: 10px;
