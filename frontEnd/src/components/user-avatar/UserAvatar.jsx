@@ -170,15 +170,18 @@ export default function UserAvatar() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple style = {{ textDecoration: 'none', color: '#0F5EA2'}}>
+        
         <Link to={`/${id}/reservas`} style = {{ textDecoration: 'none', color: '#0F5EA2', fontWeight: '700'}}>
+          <MenuItem onClick={handleClose} disableRipple style = {{ textDecoration: 'none', color: '#0F5EA2'}}>
           <EditIcon style = {{color: '#0F5EA2'}}/>
           Reservas 
+          </MenuItem>
+          
        </Link>
-        </MenuItem>
+          
         
           
-         {userRoles === 'ROLE_ADMIN' &&<MenuItem onClick={handleClose} disableRipple> <Link style = {{ textDecoration: 'none', color: '#0F5EA2', fontWeight: '700'}}to = 'administracao'><FileCopyIcon style = {{color: '#0F5EA2'}}/> ADMIN</Link>  </MenuItem>}
+         {userRoles === 'ROLE_ADMIN' &&<Link style = {{ textDecoration: 'none', color: '#0F5EA2', fontWeight: '700'}}to = 'administracao'><MenuItem onClick={handleClose} disableRipple><FileCopyIcon style = {{color: '#0F5EA2'}}/>  ADMIN  </MenuItem></Link>}
        
       </StyledMenu>
       </div>
