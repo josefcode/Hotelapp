@@ -94,7 +94,7 @@ export function UserReservas() {
         </div>
         <div className='history-reserva-fully-container'>
         {
-            reservas?
+            reservas ?
                 produtos?.map((item) => {
                     console.log('kkkkkkkk')
                     const lista=dadosReserva(item)   

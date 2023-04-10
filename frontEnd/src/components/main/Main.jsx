@@ -24,6 +24,29 @@ export default function Main() {
   const inputRef = useRef()
   const [cidadePorFiltro ,setCidadePorFiltro] = useState(null)
 
+  const [visible , setVisible ] = useState(false)
+
+  console.log(visible)
+
+  function closeMenu(){
+    setVisible(!visible)
+  }
+
+  let prevScrollpos = window.pageYOffset;
+
+  console.log(prevScrollpos)
+window.onscroll = function() {
+  let currentScrollPos = window.pageYOffset;
+  console.log(currentScrollPos)
+  if (prevScrollpos > currentScrollPos) {
+    console.log('hello')
+  } 
+  prevScrollpos = currentScrollPos;
+} 
+
+
+  window.addEventListener("scroll", closeMenu);
+
   const handleApply = (event, picker) => {
     picker.element.val(
       picker.startDate.format('DD/MM/YYYY') +
