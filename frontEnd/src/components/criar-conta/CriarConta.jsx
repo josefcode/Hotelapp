@@ -78,7 +78,7 @@ export function CriarConta() {
 
     const { nome, sobrenome, senha, email, userRoles } = userData
 
-    axios.post('http://3.140.210.50:8081/user', {
+    axios.post('http://3.142.238.11:8081/user', {
       nome,
       sobrenome,
       email,

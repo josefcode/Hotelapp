@@ -102,7 +102,7 @@ export function Reserva() {
   React.useEffect(() => {
     async function fetchData() {
 
-      const response = await fetch(`http://3.140.210.50:8081/product/${id}`)
+      const response = await fetch(`http://3.142.238.11:8081/product/${id}`)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -117,7 +117,7 @@ export function Reserva() {
 
     async function fetchUserData() {
       try {
-        const response = await fetch(`http://3.140.210.50:8081/user/${token || tokenLocalStorage}`);
+        const response = await fetch(`http://3.142.238.11:8081/user/${token || tokenLocalStorage}`);
         const userData = await response.json();
 
         // Atualiza os valores dos inputs com os dados da resposta
@@ -154,8 +154,10 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
           }
         })
       };
+
+      console.log(startDate, endDate)
   
-      fetch('http://3.140.210.50:8081/reservas/register', requestOptions)
+      fetch('http://3.142.238.11:8081/reservas/register', requestOptions)
         .then(response => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -346,7 +348,7 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
                 startDate ?
                   <p>{format(new Date(`${startDate}`), 'dd/MM/yyyy')}</p>
                   :
-                  <p> DD/MM/yyyy</p>
+                  <p> </p>
                   // <p> {moment(startDate.toISOString()).format('DD/MM/yyyy')}</p>
               }
 
@@ -360,7 +362,7 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
                   <p>{format(new Date(`${endDate}`), 'dd/MM/yyyy')}</p>
                   :
                   // <p> {moment(startDate.toISOString()).format('DD/MM/yyyy')}</p>
-                  <p> DD/MM/yyyy</p>
+                  <p> </p>
               }
 
             </div>
