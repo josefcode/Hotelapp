@@ -21,7 +21,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\": \"Junior\",\n    \"sobrenome\": \"Souza\",\n    \"email\": \"js@example.com\",\n    \"senha\": \"1234567\",\n    \"userRoles\": \"ROLE_USER\",\n    \"funcoesEntity\": {\n        \"id_funcoes\": 2\n    }\n}\n"
+							"raw": "{\n    \"nome\": \"Junior\",\n    \"sobrenome\": \"Souza\",\n    \"email\": \"js@example.com\",\n    \"senha\": \"1234567\",\n    \"userRoles\": \"ROLE_USER\",\n    \"funcoesEntity\": {\n        \"id_funcoes\": 2\n    }\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagemAWS}}/user",

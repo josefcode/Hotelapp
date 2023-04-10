@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useToken } from '../hooks/useToken';
 import { Link, useNavigate } from 'react-router-dom';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useParams } from 'react-router-dom'
 import './styles.css'
 import { useLogin } from '../hooks/useLogin'
@@ -83,16 +84,18 @@ export function UserReservas() {
     
     return (
         <main className='app-main'>
-        <div className='searchBox-container'>
-
-            <h2 className='searchBox-title'>Minhas Reservas</h2>
-
-                    
+        <div className='searchBox-container' >
+            <div className = 'history-reserva-container'>
+      
+            <h2 className='history-reserva-title'>Minhas Reservas</h2>
+            <Link to="/"><ArrowBackIosIcon className='logo-header' /></Link>
+            </div>
 
         </div>
+        <div className='history-reserva-fully-container'>
         {
             reservas?
-                produtos.map((item) => {
+                produtos?.map((item) => {
                     console.log('kkkkkkkk')
                     const lista=dadosReserva(item)   
                     console.log(lista)                 
@@ -120,6 +123,7 @@ export function UserReservas() {
 
             
         }
+        </div>
         
         </main>
     )

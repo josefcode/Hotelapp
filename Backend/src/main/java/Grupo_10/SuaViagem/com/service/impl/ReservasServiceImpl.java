@@ -65,7 +65,8 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
                     return (dataInicial.after(rDataInicial) && dataInicial.before(rDataFinal))
                             || (dataFinal.after(rDataInicial) && dataFinal.before(rDataFinal))
                             || dataInicial.equals(rDataInicial)
-                            || dataFinal.equals(rDataFinal);
+                            || dataFinal.equals(rDataFinal)
+                            || (dataInicial.equals(dataFinal) && dataFinal.equals(dataInicial));
                 });
 
         if (hasConflict) {
