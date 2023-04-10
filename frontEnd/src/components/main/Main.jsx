@@ -21,6 +21,9 @@ export default function Main() {
   const [isHover, setIsHovered] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
   const [produto, setProduto] = useState(false)
+  const [scrollEvent, setScrollEvent] = useState()
+  const [eventType, setEventType] = useState()
+  const [valor, setValor] = useState('');
   const inputRef = useRef()
   const [cidadePorFiltro ,setCidadePorFiltro] = useState(null)
 
@@ -61,7 +64,7 @@ window.onscroll = function() {
     changeEndDate(null);
   };
 
-
+  /* console.log(eventType) */
   const {hotelPorCidade, changeHotelPorCidade}  = useHotelFilterCidade()
 
   const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
@@ -104,9 +107,23 @@ const urlCidade = `http://3.140.210.50:8081/product/findByCidades/${cidadeValue}
     changeHotelPorCidade(data)
   };
 
+  console.log(valor)
+
+  function handleScroll(){
+    if((scrollEvent)&&(eventType == 'show')){
+      setValor('date-range-picker')
+    }
+    else{
+      
+      setValor('')
+    }
+  }
 
   return (
-    <main className='app-main'>
+    <main className='app-main' onScroll={event => {
+      setScrollEvent(event)
+      handleScroll()
+      }}>
       <div className='searchBox-container'>
 
         <h2 className='searchBox-title'>Buscar ofertas em hotéis, casas e muito mais!</h2>
@@ -157,9 +174,14 @@ const urlCidade = `http://3.140.210.50:8081/product/findByCidades/${cidadeValue}
 
           <DateRangePicker
 
-             onCancel={handleCancel}
+            
+            
+            onEvent={event => setEventType(event.type)}
+            
+            onCancel={handleCancel}
            
             initialSettings={{
+              applyClass: valor,
               autoUpdateInput: false,
               minDate : new Date(),
               //nós precisamos desse código não deleta por favor
@@ -185,7 +207,7 @@ const urlCidade = `http://3.140.210.50:8081/product/findByCidades/${cidadeValue}
                   "Qua",
                   "Qui",
                   "Sex",
-                  "Sab"
+                  "Sáb"
                 ],
                 "monthNames": [
                   "Janeiro",
