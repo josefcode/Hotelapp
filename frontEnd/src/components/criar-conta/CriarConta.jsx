@@ -182,7 +182,7 @@ export function CriarConta() {
           <span className='iniciar-login'>Já tem uma conta? <Link className='login-link' to="/iniciar-sessao">Iniciar sessão </Link></span>
         </div>
       </form>
-      {signup && <ReservaSucesso message={error ? "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde." : 'A conta foi criada com sucesso!'} link={error ? '/' : '/iniciar-sessao'} />}
+      {signup && <ReservaSucesso message={error ? "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde." : 'A conta foi criada com sucesso!'} link={error ? '/' : '/'} />}
     </div>
   )
 }
