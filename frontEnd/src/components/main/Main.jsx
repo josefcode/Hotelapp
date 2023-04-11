@@ -67,6 +67,8 @@ window.onscroll = function() {
   /* console.log(eventType) */
   const { hotelPorCidade, changeHotelPorCidade } = useHotelFilterCidade()
 
+  console.log(hotelPorCidade)
+
   const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
 
   React.useEffect(() => {
@@ -243,7 +245,18 @@ window.onscroll = function() {
         </form>
 
       </div>
-
+      {hotelPorCidade ?
+         <button style = {{
+          background: '#0F5EA2',
+          borderRadius: '5px',
+          border: 'none',
+          width: '80px',
+          color: '#EEF1F2',
+          padding: '5px',
+          marginTop: '5px',
+          marginLeft: '4rem'
+         }} onClick = {() => changeHotelPorCidade(null)}>Reset</button> : null
+        }
       <RecomendacoesCards />
 
     </main>
