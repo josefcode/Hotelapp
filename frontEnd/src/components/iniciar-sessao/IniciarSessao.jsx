@@ -21,6 +21,8 @@ export function IniciaSessao() {
   const { token, changeToken } = useToken()
   const navigate = useNavigate();
 
+  
+
   async function handleSubmit(e) {
     e.preventDefault()
 
@@ -33,8 +35,13 @@ export function IniciaSessao() {
       localStorage.setItem('token', response.data.jwt);
 
       changeLogin(true);
+      if(localStorage.getItem('rota')==='/criar-conta'){
+        navigate(-2)
+        localStorage.setItem('rota','')
+      }else{
 
-      navigate(-1)
+        navigate(-1)
+      }
 
     }).catch(error => {
       setErrorMessage('Infelizmente, você não pôde efetuar login. Por favor, tente novamente mais tarde.');
