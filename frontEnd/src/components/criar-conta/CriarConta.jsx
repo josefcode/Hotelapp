@@ -78,7 +78,7 @@ export function CriarConta() {
 
     const { nome, sobrenome, senha, email, userRoles } = userData
 
-    axios.post('http://3.140.210.50:8081/user', {
+    axios.post('http://3.142.238.11:8081/user', {
       nome,
       sobrenome,
       email,
@@ -182,7 +182,7 @@ export function CriarConta() {
           <span className='iniciar-login'>Já tem uma conta? <Link className='login-link' to="/iniciar-sessao">Iniciar sessão </Link></span>
         </div>
       </form>
-      {signup && <ReservaSucesso message={error ? "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde." : 'A conta foi criada com sucesso!'} link={error ? '/' : '/iniciar-sessao'} />}
+      {signup && <ReservaSucesso message={error ? "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde." : 'A conta foi criada com sucesso!'} link={error ? '/' : '/'} />}
     </div>
   )
 }

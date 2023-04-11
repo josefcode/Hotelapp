@@ -122,7 +122,7 @@ export default function Administracao() {
     React.useEffect(() => {
         async function fetchData() {
 
-            const response = await fetch(`http://3.140.210.50:8081/category/findAll/`)
+            const response = await fetch(`http://3.142.238.11:8081/category/findAll/`)
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -137,7 +137,7 @@ export default function Administracao() {
 
         async function fetchData() {
 
-            const response = await fetch(`http://3.140.210.50:8081/cities/findAll`)
+            const response = await fetch(`http://3.142.238.11:8081/cities/findAll`)
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -174,7 +174,7 @@ export default function Administracao() {
 
         console.log(body, caracteristicas, image)
 
-        fetch('http://3.140.210.50:8081/product/register', {
+        fetch('http://3.142.238.11:8081/product/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
