@@ -18,6 +18,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
+    localStorage.setItem('rota','');
     navigate(-1);
   };
 
