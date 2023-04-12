@@ -16,10 +16,10 @@ export function CardProdutoReserva(props){
     return(
         <div className="card-produto-container">
             <div className="card-produto-reserva">
-                <div >
+                <div style = {{width: '100%'}}>
                     <img className="card-produto-reserva-img" src={props.dados.img} />
                 </div>
-                <div className="card-produto-reserva-content">
+                <div className="card-produto-reserva-content" style = {{width: '100%'}}>
                     <h3 className="card-produto-title">{props.dados.nome}</h3>
                     <div className="hours">
                         <div style = {{background: '#0F5EA2', padding: '5px', borderRadius :'5px', color: '#EEF1F2'}}>
