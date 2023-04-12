@@ -182,7 +182,7 @@ export function CriarConta() {
         <div className='btn-wrapper'>
           <button className='iniciar-btn' type='submit'>Registrar</button>
 
-          <span className='iniciar-login'>Já tem uma conta? <Link className='login-link' to="/iniciar-sessao" onClick={localStorage.setItem('rota', location.pathname)}>Iniciar sessão </Link></span>
+          <span className='iniciar-login'>Já tem uma conta?<Link className='login-link' to="/iniciar-sessao" onClick={event=> event.type=='click'? localStorage.setItem('rota', location.pathname):''}>Iniciar sessão </Link></span>
         </div>
       </form>
       {signup && <ReservaSucesso message={error ? "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde." : 'A conta foi criada com sucesso!'} link={error ? '/' : '/'} />}
