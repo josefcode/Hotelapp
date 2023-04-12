@@ -68,6 +68,8 @@
     }
     .card-produto-reserva  {
         flex-direction: column;
+
+        width: 100%;
  
       
      }
