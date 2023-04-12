@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74e1682a-4791-4192-9195-f9f2cebcfbb4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Backend/Postman/Grupo_10_SuaViagem.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Postman/Grupo_10_SuaViagem.postman_collection.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontEnd/src/components/main/Main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/ReservasServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/Grupo_10/SuaViagem/com/service/impl/ReservasServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
