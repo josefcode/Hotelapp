@@ -24,7 +24,7 @@ export function UserReservas() {
     }
 
     //Usado para testar o if no lugar de reservas.
-    /* const teste = '' */
+    const teste = ''
 
     useEffect(() => {
         async function fetchReservasData() {
@@ -101,7 +101,7 @@ export function UserReservas() {
                     ) : (
                         <div className={"sem-reservas"}>
                             <ContentPasteOffIcon className={"sem-reservas-icon"} />
-                            <Link to={"/"}>HOME</Link>
+                            <Link className={'sem-reservas-link'} to={"/"}>Volte para a página inicial</Link>
                             <h5>Você ainda não fez nenhuma reserva</h5>
                         </div>
                     )
