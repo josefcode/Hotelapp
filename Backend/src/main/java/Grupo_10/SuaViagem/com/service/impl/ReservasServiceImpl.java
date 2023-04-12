@@ -109,6 +109,15 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
         StringBuilder htmlBodyBuilder = new StringBuilder();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         sdf.setTimeZone(TimeZone.getTimeZone("UTC")); // Define o fuso horário como UTC
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(reservasDTO.getDataInicial());
+        cal.add(Calendar.DATE, -1);
+        String dataInicialMenosUmDia = sdf.format(cal.getTime());
+
+        cal.setTime(reservasDTO.getDataFinal());
+        cal.add(Calendar.DATE, -1);
+        String dataFinalMenosUmDia = sdf.format(cal.getTime());
+
         htmlBodyBuilder.append("<html>");
         htmlBodyBuilder.append("<head>");
         htmlBodyBuilder.append("<style>");
@@ -120,8 +129,8 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
         htmlBodyBuilder.append("<p>Uma nova reserva foi feita para o seguinte produto:</p>");
         htmlBodyBuilder.append("<ul>");
         htmlBodyBuilder.append("<li><strong>Nome do produto:</strong> " + produtosEntity.getNome() + "</li>");
-        htmlBodyBuilder.append("<li><strong>Data inicial:</strong> " + sdf.format(reservasDTO.getDataInicial()) + "</li>");
-        htmlBodyBuilder.append("<li><strong>Data final:</strong> " + sdf.format(reservasDTO.getDataFinal())  + "</li>");
+        htmlBodyBuilder.append("<li><strong>Data inicial:</strong> " + dataInicialMenosUmDia + "</li>");
+        htmlBodyBuilder.append("<li><strong>Data final:</strong> " + dataFinalMenosUmDia  + "</li>");
         htmlBodyBuilder.append("</ul>");
         htmlBodyBuilder.append("<p>Atenciosamente,<br/>Equipe SuaViagem.com</p>");
         htmlBodyBuilder.append("</body>");
