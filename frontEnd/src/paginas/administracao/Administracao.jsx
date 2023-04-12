@@ -5,9 +5,9 @@ import './styleAdministracao.css'
 import { ReservaSucesso } from '../../components/detale-produto-reserva/ReservaSucesso';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import Alert from '@mui/material/Alert';
 
 export default function Administracao() {
-
 
     const [confirm, setConfirm] = React.useState(false);
     const [categoria, setCategoria] = React.useState([]);
@@ -15,6 +15,7 @@ export default function Administracao() {
     const [categoriaSelecionada, setCategoriaSelecionada] = React.useState(null);
     const [cidades, setCidades] = React.useState([]);
     const [cidadeSelecionada, setCidadeSelecionada] = React.useState(null);
+    const [secondError, setSecondError] = React.useState(false);
     const [formData, setFormData] = React.useState(
         {
             nomeProduto: "", 
@@ -152,6 +153,17 @@ export default function Administracao() {
 
     function handleSubmit(e) {
         e.preventDefault()
+
+        if (!categoriaSelecionada) {
+            alert("Por favor, selecione uma categoria.");
+            return;
+            }    
+          
+        if (!cidadeSelecionada) {
+            alert("Por favor, selecione uma cidade.");
+            return;
+            }   
+
         const body = {
             nome: nomeProduto,
             descricao: descricao,
@@ -186,10 +198,9 @@ export default function Administracao() {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 setConfirm(true)
-                alert('Produto OK!');
             })
             .catch(error => {
-                alert('Não foi possível cadastrar o produto. Tente novamente mais tarde.');
+                setSecondError(true)
             });
     }
 
@@ -280,6 +291,8 @@ export default function Administracao() {
                                 onChange={handleChange}
                                 name="pontuacao"
                                 type='number'
+                                min='0'
+                                max='10'                            
                             />
 
 
@@ -465,12 +478,14 @@ export default function Administracao() {
 
                     </div>
 
+                    {secondError && <Alert sx={{ marginTop: '10px', '&.MuiAlert-root': { color: "rgb(249, 8, 4) !important" } }} severity="error">Não foi possível cadastrar o produto. Tente novamente mais tarde.</Alert>}
+
                     <button className='adm-btn' type='submit'>Criar</button>
 
                 </form>
             </div>
 
-            {confirm && <ReservaSucesso message={'criação de produto bem-sucedida'} link="/" />}
+            {confirm && <ReservaSucesso message={'Produto cadastrado!'} link="/" />}
 
         </div>
     )

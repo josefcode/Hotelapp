@@ -26,8 +26,6 @@ import moment from 'moment';
 export function Reserva() {
 
   const { startDate, endDate, changeStartDate, changeEndDate } = useDatas()
-
-
   const [produtoReserva, setProdutoReserva] = React.useState([])
   const { id } = useParams()
   const { token } = useToken()
@@ -351,7 +349,6 @@ export function Reserva() {
                   <p>{format(new Date(`${startDate}`), 'dd/MM/yyyy')}</p>
                   :
                   <p> </p>
-                // <p> {moment(startDate.toISOString()).format('DD/MM/yyyy')}</p>
               }
 
             </div>
@@ -363,7 +360,6 @@ export function Reserva() {
                 endDate ?
                   <p>{format(new Date(`${endDate}`), 'dd/MM/yyyy')}</p>
                   :
-                  // <p> {moment(startDate.toISOString()).format('DD/MM/yyyy')}</p>
                   <p> </p>
               }
 
@@ -378,7 +374,7 @@ export function Reserva() {
         </div>
         <div className='error-message'>
           {error && <Alert sx={{ marginTop: '10px', '&.MuiAlert-root': { color: "rgb(249, 8, 4) !important" } }} severity="error">Infelizmente a reserva não pôde ser feita. Por favor, tente novamente mais tarde.</Alert>}
-          {secondError && <Alert sx={{ marginTop: '10px', '&.MuiAlert-root': { color: "rgb(249, 8, 4) !important" } }} severity="error">tem que escolher uma data e indique hora da chegada</Alert>}
+          {secondError && <Alert sx={{ marginTop: '10px', '&.MuiAlert-root': { color: "rgb(249, 8, 4) !important" } }} severity="error">Necessário escolher uma data inicial/final e indicar o horário de chegada</Alert>}
         </div>
 
       </div>
