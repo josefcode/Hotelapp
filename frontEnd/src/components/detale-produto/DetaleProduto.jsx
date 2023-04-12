@@ -8,6 +8,7 @@ export default function DetaleProduto() {
   const [produto, setProduto] = React.useState([])
   const { id } = useParams();
 
+  console.log(produto)
   React.useEffect(() => {
     async function fetchData() {
 
@@ -38,7 +39,11 @@ export default function DetaleProduto() {
     distancia,
     city,
     localMapa,
-    imageClass
+    imageClass,
+    descricao,
+    politicasCancelamento,
+  normasCasa,
+  saudeSegurança
   } = produto
 
 
@@ -69,6 +74,10 @@ export default function DetaleProduto() {
         city={city}
         mapLocation={localMapa}
         imageClass={imageClass}
+        descricao = {descricao}
+        politicasCancelamento ={politicasCancelamento}
+  normasCasa = {normasCasa}
+  saudeSegurança = {saudeSegurança}
       />
     </div>
   )
