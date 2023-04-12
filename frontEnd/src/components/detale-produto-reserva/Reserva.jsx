@@ -25,7 +25,7 @@ import moment from 'moment';
 
 export function Reserva() {
 
-  const {startDate, endDate, changeStartDate, changeEndDate } = useDatas()
+  const { startDate, endDate, changeStartDate, changeEndDate } = useDatas()
 
 
   const [produtoReserva, setProdutoReserva] = React.useState([])
@@ -51,36 +51,36 @@ export function Reserva() {
   const [tudasDataDisponivel, setTudasDataDisponivel] = useState([])
 
   const allDatas = tudasDataDisponivel.map((data, index) => {
-    const {dataInicial,dataFinal } = data
-  
+    const { dataInicial, dataFinal } = data
+
     // let start = new Date(`${dataInicial}`)
     // let end = new Date(`${dataFinal}`)
 
-   
-     
+
+
     // let date1 = start.getDate()
     // let date2 = end.getDate()
 
     // let date1 = dataInicial.slice(0,10)
     // let date2 = dataFinal.slice(0,10)
 
-    var getDaysArray = function(start, end) {
-      for(var arr=[],dt=new Date(start); dt<=new Date(end); dt.setDate(dt.getDate()+1)){
-          arr.push(new Date(dt));
+    var getDaysArray = function (start, end) {
+      for (var arr = [], dt = new Date(start); dt <= new Date(end); dt.setDate(dt.getDate() + 1)) {
+        arr.push(new Date(dt));
       }
       return arr;
-  };
+    };
 
-   const arrayDeDatas = getDaysArray(new Date(`${dataInicial}`),new Date(`${dataFinal}`));
-   const resultadoFinalDeDatas = arrayDeDatas.map((v)=>v.toISOString().slice(0,10))
+    const arrayDeDatas = getDaysArray(new Date(`${dataInicial}`), new Date(`${dataFinal}`));
+    const resultadoFinalDeDatas = arrayDeDatas.map((v) => v.toISOString().slice(0, 10))
     // let fullDates = []
-    
+
     // for (let i = date1; i <= date2; i++) {
     //   fullDates.push(i)
     // }
 
     return resultadoFinalDeDatas
-  
+
   })
 
   const datasIndisponivel = allDatas.flat(1)
@@ -111,7 +111,7 @@ export function Reserva() {
       setCidade(data.cidadesEntity.nome)
       setProdutoReserva(data)
       setTudasDataDisponivel(data.reservasEntity)
-  
+
     }
     fetchData()
 
@@ -138,7 +138,11 @@ export function Reserva() {
 
   function handleReserva() {
 
-if(startDate === "" && endDate  === "" || !selectedValue ){
+    // nova variável criada newStartDate para "corrigir" a divergência no fuso horário do RDS na AWS //
+    const newStartDate = new Date(startDate);
+    newStartDate.setDate(startDate.getDate() + 1);
+
+    if (startDate === "" && endDate === "" || !selectedValue) {
       setSecondError(true)
     } else {
       const requestOptions = {
@@ -146,7 +150,7 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token || tokenLocalStorage}` },
         body: JSON.stringify({
           horaInicial: selectedValue,
-          dataInicial: startDate,
+          dataInicial: newStartDate,
           dataFinal: endDate,
           idUser: idUser,
           produtosEntity: {
@@ -155,8 +159,6 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
         })
       };
 
-      console.log(startDate, endDate)
-  
       fetch('http://3.142.238.11:8081/reservas/register', requestOptions)
         .then(response => {
           if (!response.ok) {
@@ -170,7 +172,7 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
           setError(true)
         });
     }
-   
+
   }
 
   const { imagensEntityList, nome, cidadesEntity, categoriasEntity } = produtoReserva
@@ -273,11 +275,11 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
                   tileDisabled={({ date }) => {
                     // let currDate = date.getDate()
                     // return [].indexOf(currDate) !== -1
-                    var currDate = date.toISOString().slice(0,10);
+                    var currDate = date.toISOString().slice(0, 10);
 
-                        return datasIndisponivelSemDuplication.indexOf(currDate) !== -1;
+                    return datasIndisponivelSemDuplication.indexOf(currDate) !== -1;
                   }
-                }
+                  }
                 />
               </div>
               <div className='single-calender'>
@@ -291,11 +293,11 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
                   tileDisabled={({ date }) => {
                     // let currDate = date.getDate()
                     // return [].indexOf(currDate) !== -1
-                    var currDate = date.toISOString().slice(0,10);
+                    var currDate = date.toISOString().slice(0, 10);
 
-                        return datasIndisponivelSemDuplication.indexOf(currDate) !== -1;
+                    return datasIndisponivelSemDuplication.indexOf(currDate) !== -1;
                   }
-                }
+                  }
                 />
               </div>
             </div>
@@ -321,7 +323,7 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
               renderInput={(params) => <TextField {...params} label="Selecione a sua hora de chegada" />}
             />
           </div>
-   
+
         </div>
         <div className='reserva-card'>
 
@@ -349,7 +351,7 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
                   <p>{format(new Date(`${startDate}`), 'dd/MM/yyyy')}</p>
                   :
                   <p> </p>
-                  // <p> {moment(startDate.toISOString()).format('DD/MM/yyyy')}</p>
+                // <p> {moment(startDate.toISOString()).format('DD/MM/yyyy')}</p>
               }
 
             </div>
@@ -367,7 +369,7 @@ if(startDate === "" && endDate  === "" || !selectedValue ){
 
             </div>
             <div className='reserva-underline' ></div>
-        
+
 
             <button className='reserva-btn' onClick={handleReserva}>Confirmar reserva</button>
 

@@ -37,7 +37,6 @@ export default function UserAvatar() {
       try {
         const response = await fetch(`http://3.142.238.11:8081/user/${token || tokenLocalStorage}`);
         const userData = await response.json();
-        console.log(userData)
         const { id, nome, sobrenome, email, userRoles } = userData
 
         setUserData({
@@ -51,7 +50,6 @@ export default function UserAvatar() {
         setLaoding(false)
         localStorage.setItem('userAvata', JSON.stringify({ nome, sobrenome }))
       } catch (error) {
-        console.error(error);
       }
     }
 
@@ -59,7 +57,6 @@ export default function UserAvatar() {
   }, [token, tokenLocalStorage])
 
   const { id, nome, sobrenome, userRoles } = userData
-  console.log(userData);
   const handleRemove = () => {
 
     localStorage.removeItem('token')

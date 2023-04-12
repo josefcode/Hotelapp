@@ -22,10 +22,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 @Service
 public class ReservasServiceImpl implements IService<ReservasDTO> {
@@ -110,11 +107,11 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
         });
 
         StringBuilder htmlBodyBuilder = new StringBuilder();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC")); // Define o fuso horário como UTC
         htmlBodyBuilder.append("<html>");
         htmlBodyBuilder.append("<head>");
         htmlBodyBuilder.append("<style>");
-//        htmlBodyBuilder.append("body { background-color: #ffffcc; }");
-//        htmlBodyBuilder.append("li { background-color: orange; font-size: 14px; }");
         htmlBodyBuilder.append("</style>");
         htmlBodyBuilder.append("</head>");
         htmlBodyBuilder.append("<body>");
@@ -123,8 +120,8 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
         htmlBodyBuilder.append("<p>Uma nova reserva foi feita para o seguinte produto:</p>");
         htmlBodyBuilder.append("<ul>");
         htmlBodyBuilder.append("<li><strong>Nome do produto:</strong> " + produtosEntity.getNome() + "</li>");
-        htmlBodyBuilder.append("<li><strong>Data inicial:</strong> " + new SimpleDateFormat("dd-MM-yyyy").format(reservasDTO.getDataInicial()) + "</li>");
-        htmlBodyBuilder.append("<li><strong>Data final:</strong> " + new SimpleDateFormat("dd-MM-yyyy").format(reservasDTO.getDataFinal())  + "</li>");
+        htmlBodyBuilder.append("<li><strong>Data inicial:</strong> " + sdf.format(reservasDTO.getDataInicial()) + "</li>");
+        htmlBodyBuilder.append("<li><strong>Data final:</strong> " + sdf.format(reservasDTO.getDataFinal())  + "</li>");
         htmlBodyBuilder.append("</ul>");
         htmlBodyBuilder.append("<p>Atenciosamente,<br/>Equipe SuaViagem.com</p>");
         htmlBodyBuilder.append("</body>");
@@ -160,7 +157,6 @@ public class ReservasServiceImpl implements IService<ReservasDTO> {
         }
 
         return mapperEntityToDTO(reservasEntity);
-
 
     }
 

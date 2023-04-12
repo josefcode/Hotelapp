@@ -21,6 +21,10 @@ export default function DetailBody({
   id,
   city,
   mapLocation,
+  descricao,
+  politicasCancelamento,
+  normasCasa,
+  saudeSegurança
 }) {
 
   const { show, changeShow } = useShow()
@@ -33,7 +37,7 @@ export default function DetailBody({
         <FavoriteBorderIcon />
       </div>
 
-      <div className='detail-image-container image-fader'>
+      <div className='detail-image-container image-fader' onClick={changeShow}>
         {
           image?.slice(0, 5).map((item, index) => {
             return (
@@ -62,7 +66,11 @@ export default function DetailBody({
         <p className='body-detail-description'> {description}
         </p>
       </div>
-
+      <div>
+      <h1 className='title-service'>Descrição</h1>
+        <div className='title-underline'></div>
+        <p className='descricao-title'>{descricao}</p>
+        </div>
       <div>
         <h1 className='title-service'>O que tem nesse lugar</h1>
         <div className='title-underline'></div>
@@ -105,22 +113,21 @@ export default function DetailBody({
 
 <div className='detail-card'>
 
-   <h3 className='detail-card-title' ><GavelIcon /> Regras da casa</h3>
-   <p> <PointOfSaleIcon /> Check-out: 12: 00</p>
-   <p><span ><CelebrationIcon  /> </span>Não é permitido festas</p>
-   <p><SmokeFreeIcon />Não é permitido festas</p>
+   <h4 className='detail-card-title' > Regras da casa</h4>
+    <p>{normasCasa}</p>
+  
 </div>
 
 <div className='detail-card'>
 
-   <h3 className='detail-card-title' ><DisabledByDefaultIcon />Cancelamento</h3>
-   <p>As políticas de cancelamento e pré-pagamento variam de acordo com o tipo de acomodação. Verifique quais condições podem ser aplicadas a cada opção ao fazer sua seleção.</p>
+   <h4 className='detail-card-title' >Saúde e segurança</h4>
+   <p>{politicasCancelamento}</p>
 </div>
 
 <div className='detail-card'>
 
-   <h3 className='detail-card-title' ><PetsIcon/> Pets</h3>
-   <p>Animais de estimação são permitidos. Encargos podem ser aplicáveis.</p>
+   <h4 className='detail-card-title' >Políticas de cancelamento</h4>
+   <p>{saudeSegurança}</p>
 </div>
 
 

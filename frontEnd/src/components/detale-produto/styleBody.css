@@ -15,7 +15,10 @@
     height: 400px;
 
 }
-
+.descricao-title {
+    padding-inline: 4rem;
+    padding-block-start: 1rem;
+}
 .image-buttons {
     padding-inline: 4rem;
     
@@ -81,7 +84,6 @@ font-style: normal;
 font-weight: 700;
 font-size: 24px;
 line-height: 28px;
-    
 
 }
 
@@ -145,7 +147,7 @@ line-height: 28px;
     padding-block: 5px;
     font-style: normal;
 font-weight: 700;
-font-size: 16px;
+font-size: 14px;
 border-radius: 50px;
 background-color: var(--color-button);
 color: var(  --searchBar-color)
@@ -170,6 +172,10 @@ line-height: 20px;
 @media only screen and (max-width: 600px) {
     .body-detail-media-icons {
         display: none;
+    }
+
+    .descricao-title {
+        padding-inline: 1rem
     }
 
     .detail-image-container {

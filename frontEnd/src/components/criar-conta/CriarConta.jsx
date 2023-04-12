@@ -5,7 +5,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import validator from 'email-validator';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import './styles.css'
 import { ReservaSucesso } from '../detale-produto-reserva/ReservaSucesso';
@@ -13,9 +13,12 @@ import { ReservaSucesso } from '../detale-produto-reserva/ReservaSucesso';
 export function CriarConta() {
 
   const [showPassword, setShowPassword] = React.useState(false);
-  const [signup, setSignup] = React.useState(false)
-  const [error, setError] = React.useState(false)
+  const [signup, setSignup] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const location = useLocation();
 
+  
+  
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -179,7 +182,7 @@ export function CriarConta() {
         <div className='btn-wrapper'>
           <button className='iniciar-btn' type='submit'>Registrar</button>
 
-          <span className='iniciar-login'>Já tem uma conta? <Link className='login-link' to="/iniciar-sessao">Iniciar sessão </Link></span>
+          <span className='iniciar-login'>Já tem uma conta? <Link className='login-link' to="/iniciar-sessao" onClick={localStorage.setItem('rota', location.pathname)}>Iniciar sessão </Link></span>
         </div>
       </form>
       {signup && <ReservaSucesso message={error ? "Infelizmente, você não pôde se registrar. Por favor, tente novamente mais tarde." : 'A conta foi criada com sucesso!'} link={error ? '/' : '/'} />}

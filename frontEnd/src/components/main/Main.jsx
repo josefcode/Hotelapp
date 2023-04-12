@@ -4,15 +4,11 @@ import InputAdornment from '@mui/material/InputAdornment';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { RecomendacoesCards } from '../recomendacoes/RecomendacoesCards'
 import DateRangePicker from 'react-bootstrap-daterangepicker';
-// you will need the css that comes with bootstrap@3. if you are using
-// a tool like webpack, you can do the following:
 import 'bootstrap/dist/css/bootstrap.css';
-// you will also need the css that comes with bootstrap-daterangepicker
 import 'bootstrap-daterangepicker/daterangepicker.css';
 import { SuggestBox } from '../sugest-box/index';
 import { useDatas } from '../hooks/useDatas';
 import { useHotelFilterCidade } from '../hooks/useHotelFilterCidade'
-import moment from 'moment';
 import './styles.css'
 
 export default function Main() {
@@ -26,26 +22,29 @@ export default function Main() {
   const [valor, setValor] = useState('');
   const inputRef = useRef()
   const [cidadePorFiltro, setCidadePorFiltro] = useState(null)
+  const [visible, setVisible] = useState(false)
 
-  const [visible , setVisible ] = useState(false)
+  function handleLimparFiltro(event) {
+    event.preventDefault()
+    changeCidadeValue('');
+    changeHotelPorCidade(null);
+  }
 
-  console.log(visible)
-
-  function closeMenu(){
+  function closeMenu() {
     setVisible(!visible)
   }
 
   let prevScrollpos = window.pageYOffset;
 
-  console.log(prevScrollpos)
-window.onscroll = function() {
-  let currentScrollPos = window.pageYOffset;
-  console.log(currentScrollPos)
-  if (prevScrollpos > currentScrollPos) {
-    console.log('hello')
-  } 
-  prevScrollpos = currentScrollPos;
-} 
+  // console.log(prevScrollpos)
+  window.onscroll = function () {
+    let currentScrollPos = window.pageYOffset;
+    // console.log(currentScrollPos)
+    if (prevScrollpos > currentScrollPos) {
+      // console.log('hello')
+    }
+    prevScrollpos = currentScrollPos;
+  }
 
 
   window.addEventListener("scroll", closeMenu);
@@ -66,6 +65,8 @@ window.onscroll = function() {
 
   /* console.log(eventType) */
   const { hotelPorCidade, changeHotelPorCidade } = useHotelFilterCidade()
+
+  // console.log(hotelPorCidade)
 
   const { startDate, endDate, cidadeValue, changeStartDate, changeEndDate, changeCidadeValue } = useDatas()
 
@@ -107,7 +108,7 @@ window.onscroll = function() {
     changeHotelPorCidade(data)
   };
 
-  console.log(valor)
+  // console.log(valor)
 
   function handleScroll() {
     if ((scrollEvent) && (eventType == 'show')) {
@@ -239,7 +240,9 @@ window.onscroll = function() {
           </DateRangePicker>
 
           <button onClick={handleSearch} className='searchBox-btn'>Buscar</button>
-
+          {hotelPorCidade ?
+            <button className='searchBox-btn' onClick={(event) => {handleLimparFiltro(event)}}>Limpar filtro</button> : null
+          }
         </form>
 
       </div>

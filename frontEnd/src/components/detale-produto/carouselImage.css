@@ -80,6 +80,10 @@
       width: 100%;
       padding: 5px;
       z-index: 3000;
+      background-color: unset;
+    }
+    .close {
+      color: var(--searchBar-color);
     }
 }
   
