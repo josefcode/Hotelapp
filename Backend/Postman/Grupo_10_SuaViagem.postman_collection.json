@@ -235,7 +235,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_categorias\": 1,\r\n\t\"qualificacao\": \"5 estrelas\",\r\n    \"descricao\": \"Hotel\",\r\n    \"url_imagem\": \"https://pt.wikipedia.org/wiki/Hotel#/media/Ficheiro:Ponta_Negra_Beach_Hotel.jpg\"\r\n}",
+							"raw": "{\r\n        \"id_categorias\": 1,\r\n        \"descricao\": \"Hotel\",\r\n        \"url_imagem\": \"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.corinthia.com%2Fmedia%2F1563%2Fcorinthia-lisbon-deluxe-king-bedroom.jpg&f=1&nofb=1&ipt=0d0842f3e887b1bfd8a82d2ebc3633acac094bad75534497c67288734289559a&ipo=images\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -755,14 +755,10 @@
 							"raw": "{\r\n    \"nome\": \"Usuário Comum\"    \r\n}"
 						},
 						"url": {
-							"raw": "3.140.210.50:8081/funcoes/register",
+							"raw": "{{SuaViagemAWS}}/funcoes/register",
 							"host": [
-								"3",
-								"140",
-								"210",
-								"50"
+								"{{SuaViagemAWS}}"
 							],
-							"port": "8081",
 							"path": [
 								"funcoes",
 								"register"
@@ -792,9 +788,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/funcoes/findAll",
+							"raw": "{{SuaViagemAWS}}/funcoes/findAll",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"funcoes",
@@ -825,9 +821,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/funcoes/2",
+							"raw": "{{SuaViagemAWS}}/funcoes/2",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"funcoes",
@@ -855,9 +851,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagem.com}}/cities/5564",
+							"raw": "{{SuaViagemAWS}}/cities/5564",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"cities",
@@ -876,9 +872,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{SuaViagem.com}}/funcoes/1",
+							"raw": "{{SuaViagemAWS}}/funcoes/1",
 							"host": [
-								"{{SuaViagem.com}}"
+								"{{SuaViagemAWS}}"
 							],
 							"path": [
 								"funcoes",
@@ -915,7 +911,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"horaInicial\": \"08:00:00\",\r\n    \"dataInicial\": \"2023-09-24T00:00:00.000-03:00\",\r\n    \"dataFinal\": \"2023-09-25T00:00:00.000-03:00\",\r\n    \"idUser\": 1,\r\n    \"produtosEntity\": {\r\n        \"id_produtos\": 2\r\n    }\r\n}"
+							"raw": "{\r\n    \"horaInicial\": \"13:00:00\",\r\n    \"dataInicial\": \"2024-12-27\",\r\n    \"dataFinal\": \"2024-12-30\",\r\n    \"idUser\": 1,\r\n    \"produtosEntity\": {\r\n        \"id_produtos\": 2\r\n    }\r\n}"
 						},
 						"url": {
 							"raw": "{{SuaViagemAWS}}/reservas/register",
@@ -1306,7 +1302,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{SuaViagemAWS}}/product/findByCidadeAndDatas?cidade=São Paulo&dataInicial=2023-04-01&dataFinal=2023-04-05",
+							"raw": "{{SuaViagemAWS}}/product/findByCidadeAndDatas?cidade=São Paulo&dataInicial=2023-05-05&dataFinal=2023-05-07",
 							"host": [
 								"{{SuaViagemAWS}}"
 							],
@@ -1321,11 +1317,11 @@
 								},
 								{
 									"key": "dataInicial",
-									"value": "2023-04-01"
+									"value": "2023-05-05"
 								},
 								{
 									"key": "dataFinal",
-									"value": "2023-04-05"
+									"value": "2023-05-07"
 								}
 							]
 						}
