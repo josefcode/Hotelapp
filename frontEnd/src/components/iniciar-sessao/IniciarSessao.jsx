@@ -19,6 +19,8 @@ export function IniciaSessao() {
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('');
   const { token, changeToken } = useToken()
+
+
   const navigate = useNavigate();
 
   
@@ -39,8 +41,9 @@ export function IniciaSessao() {
         navigate(-2)
         localStorage.setItem('rota','')
       }else{
-
+       
         navigate(-1)
+      
       }
 
     }).catch(error => {
@@ -73,7 +76,7 @@ export function IniciaSessao() {
           size="small"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          autocomplete="off"
+          autoComplete="off"
         />
         <label htmlFor='senha'>Confirmar senha: </label>
         <OutlinedInput

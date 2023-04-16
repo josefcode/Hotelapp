@@ -8,7 +8,7 @@ export default function DetaleProduto() {
   const [produto, setProduto] = React.useState([])
   const { id } = useParams();
 
-  console.log(produto)
+
   React.useEffect(() => {
     async function fetchData() {
 

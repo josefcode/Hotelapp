@@ -22,8 +22,6 @@ export default function Administracao() {
             categoriaValue: "", 
             endereco: "", 
             cidade: "", 
-            // pais: '',
-            // sigla: '',
             descricao: "",
             normasCasa: '',
             saudeSeguranca: '',
@@ -95,7 +93,7 @@ export default function Administracao() {
         const { name, value, type, checked } = event.target
 
 
-        console.log(value)
+       
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -109,14 +107,14 @@ export default function Administracao() {
         const idSelecionado = parseInt(event.target.value);
         const categoriaSelecionada = categoria.find(c => c.id_categorias === idSelecionado);
         setCategoriaSelecionada(categoriaSelecionada);
-        console.log(categoriaSelecionada)
+      
     }
 
     function handleCidadeChange(event) {
         const idSelecionado = parseInt(event.target.value);
         const cidadeSelecionada = cidades.find(c => c.id_cidades === idSelecionado);
         setCidadeSelecionada(cidadeSelecionada);
-        console.log(cidadeSelecionada)
+      
       }
       
 
@@ -144,7 +142,7 @@ export default function Administracao() {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json()
-            console.log(data); // add console.log statement here to check data
+           
             setProduto(data)
             setCidades(data)
         }
@@ -184,7 +182,7 @@ export default function Administracao() {
             normasCasa: normasCasa
         }
 
-        console.log(body, caracteristicas, image)
+        
 
         fetch('http://3.142.238.11:8081/product/register', {
             method: 'POST',

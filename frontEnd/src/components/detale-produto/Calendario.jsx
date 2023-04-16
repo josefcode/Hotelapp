@@ -43,7 +43,7 @@ export function Calendario({ id }) {
    const arrayDeDatas = getDaysArray(new Date(`${dataInicial}`),new Date(`${dataFinal}`));
 
 
-  //  console.log(dataFinal)
+
    const resultadoFinalDeDatas = arrayDeDatas.map((v)=>v.toISOString().slice(0,10))
    
     // let fullDates = []

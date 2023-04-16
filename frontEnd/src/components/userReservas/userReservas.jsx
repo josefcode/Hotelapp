@@ -35,7 +35,7 @@ export function UserReservas() {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json()
-            console.log(data)
+  
             changeReservas(data)
             setIsLoading(false)
         }
@@ -49,7 +49,7 @@ export function UserReservas() {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json()
-            console.log(data)
+         
             changeProdutos(data)
             setIsLoading(false)
         }
@@ -93,7 +93,7 @@ export function UserReservas() {
                     reservas ? (
                         produtos?.map((item) => {
                             const lista = dadosReserva(item)
-                            console.log(lista)
+                       
                             return lista.map((item2, index) => (
                                 <CardProdutoReserva key={index} dados={item2} />
                             ))

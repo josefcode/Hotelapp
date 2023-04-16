@@ -29,6 +29,7 @@ export default function UserAvatar() {
 
   const { token, changeToken } = useToken()
 
+
   const tokenLocalStorage = localStorage.getItem('token')
 
   React.useEffect(() => {
@@ -62,6 +63,7 @@ export default function UserAvatar() {
     localStorage.removeItem('token')
     changeToken(null)
     changeLogin(false)
+   
     navigate('/');
   }
 
@@ -126,6 +128,8 @@ export default function UserAvatar() {
               </p>
             </div>
             <div>
+            {userRoles === 'ROLE_ADMIN' && 
+            <Link style={{ textDecoration: 'none', color: '#0F5EA2', fontWeight: '700' }} to='administracao'>
               <Button
                 id="demo-customized-button"
                 aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -134,32 +138,36 @@ export default function UserAvatar() {
                 variant="contained"
                 disableElevation
                 onClick={handleClick}
-                endIcon={<KeyboardArrowDownIcon />}
                 size='small'
                 sx={{
                   background: '#0F5EA2'
                 }}
               >
-                Menu
+                ADMIN  
               </Button>
-
-              <StyledMenu
-                id="demo-customized-menu"
-                MenuListProps={{
-                  'aria-labelledby': 'demo-customized-button',
+              </Link>
+              }
+              {
+                userRoles === 'ROLE_USER' &&
+                <Link to={`/${id}/reservas`} >
+                  <Button
+                id="demo-customized-button"
+                aria-controls={open ? 'demo-customized-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                variant="contained"
+                disableElevation
+                onClick={handleClick}
+                size='small'
+                sx={{
+                  background: '#0F5EA2'
                 }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
               >
-                <Link to={`/${id}/reservas`} style={{ textDecoration: 'none', color: '#0F5EA2', fontWeight: '700' }}>
-                  <MenuItem onClick={handleClose} disableRipple style={{ textDecoration: 'none', color: '#0F5EA2' }}>
-                    <EditIcon style={{ color: '#0F5EA2' }} />
                     Reservas
-                  </MenuItem>
+                  </Button>
                 </Link>
-                {userRoles === 'ROLE_ADMIN' && <Link style={{ textDecoration: 'none', color: '#0F5EA2', fontWeight: '700' }} to='administracao'><MenuItem onClick={handleClose} disableRipple><FileCopyIcon style={{ color: '#0F5EA2' }} />  ADMIN  </MenuItem></Link>}
-              </StyledMenu>
+                
+}
             </div>
             <div className='avatar-close'>
               <CancelIcon onClick={handleRemove} sx={{

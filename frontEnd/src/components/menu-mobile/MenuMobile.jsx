@@ -18,9 +18,12 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import UserAvatar from '../user-avatar/UserAvatar';
+import { useToken } from '../hooks/useToken';
 import './styles.css'
 
 const drawerWidth = 240;
+
+
 
 const tokenLocalStorage = localStorage.getItem('token')
 
@@ -58,12 +61,18 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function PersistentDrawerRight() {
+
+  const { token } = useToken()
+
+
+
   const location = useLocation();
   const navigate = useNavigate();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
+  
     setOpen(true);
   };
 
@@ -75,22 +84,23 @@ export default function PersistentDrawerRight() {
   };
 
   const renderCreateAccountButton = () => {
-    if (!tokenLocalStorage && location.pathname === '/criar-conta') {
+    if (!token && location.pathname === '/criar-conta') {
+      
       return <>
         <ListItem  onClick={handleDrawerClose}>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
         </ListItem>
       </>;
   
-    } else if (!tokenLocalStorage && location.pathname === '/iniciar-sessao') {
+    } else if (!token && location.pathname === '/iniciar-sessao') {
       return <>
       <ListItem  onClick={handleDrawerClose}>
         <button className="login-btn" onClick={handleGoBack}>Voltar</button>
         </ListItem>
       </>;
   
-    } else if (!tokenLocalStorage) {
-     
+    } else if (!token) {
+      
       return <>
         <ListItem  onClick={handleDrawerClose}>
         <Link to="criar-conta"><button className="login-btn">Criar conta</button></Link>
@@ -99,9 +109,9 @@ export default function PersistentDrawerRight() {
         <Link to="iniciar-sessao"><button className="login-btn">Iniciar sessão</button></Link>
         </ListItem>
       </>;
-    } else if (typeof tokenLocalStorage === 'string'){
+    } else if (token){
   
-
+      
       return <> 
       <ListItem onClick={handleDrawerClose} >
       <UserAvatar
